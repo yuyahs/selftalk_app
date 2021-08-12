@@ -7,6 +7,10 @@ body {
 
 }
 
+.container {
+  padding-top: 90px;
+}
+
 // main
 
 .mode1 {
@@ -225,6 +229,43 @@ footer {
   text-decoration: none;
   color: #ffffff;
 }
+
+// signup form
+
+h1 {
+  text-align: center;
+}
+
+.signup {
+  position: absolute;
+  width: 622px;
+  height: 464px;
+  left: 265px;
+  padding-top: 90px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+
+}
+
+label {
+  padding-left: 100px;
+
+}
+
+input {
+  width: 300px;
+  display: flex;
+  margin-left: 100px;
+  margin-top: 10px;
+
+
+}
+
+.btn {
+  width: 50px;
+}
+
 
 
 
