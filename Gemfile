@@ -35,7 +35,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   #rspec gems
   gem 'rspec-rails', '~> 4.0.1'
-  gem 'factory_girl_rails', '~> 4.2.1'
+  # gem 'factory_girl_rails', '~> 4.2.1'
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -45,6 +46,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
