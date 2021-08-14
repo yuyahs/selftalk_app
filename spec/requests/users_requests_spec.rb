@@ -48,6 +48,16 @@ RSpec.describe "Users", type: :request do
         expect(cookies[:remember_token]).to eq nil
       end
   end
+  describe "delete/ logout_path" do
+    it "redirects to root_path" do
+      @user = create(:user)
+      post login_path ,params: { session: { email: @user.email,
+        password: 'password' } }
+      delete logout_path
+      expect(response).to redirect_to root_path
+      expect(is_logged_in?).to be_falsy
+    end
+  end
 end
 
 
