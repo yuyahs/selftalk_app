@@ -63,8 +63,8 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: selftalk_app_production
+  database: heroku_2a4b1a41aa00433
   pool: 5
-  username: yuyahs
-  password: yuya0216
-  host: localhost
+  username: bf8803ffa297bc
+  password: 8e957eb3
+  host: us-cdbr-east-04.cleardb.com
