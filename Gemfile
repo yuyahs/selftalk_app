@@ -11,6 +11,7 @@ gem 'mysql2', '>= 0.4.4'
 gem 'bcrypt', '3.1.13'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
+gem 'faker', '2.1.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -55,7 +56,6 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-  gem 'faker',       '2.1.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
