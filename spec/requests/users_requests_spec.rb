@@ -22,7 +22,9 @@ RSpec.describe "Users", type: :request do
           password: "password",
           password_confirmation: "password" } }
         }.to change(User, :count).by(1)
-      expect(response).to have_http_status "302"
+      expect(ActionMailer::Base.deliveries.size).to eq(1)
+      expect(response).to redirect_to root_url
+      expect(is_logged_in?).to be_falsy
     end
   end
 
