@@ -1,0 +1,12 @@
+<%= provide(:title, "Create Questions") %>
+
+  <%= form_with(model: @question, local: true) do |f| %>
+
+
+    <%= f.text_field :content %>
+
+
+    <%= f.submit "作成", class: "btn" %>
+
+  <% end %>
+
