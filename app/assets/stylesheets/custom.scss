@@ -7,7 +7,7 @@ body {
 
 }
 
-.container {
+.wrapper {
   padding-top: 90px;
 }
 
@@ -273,6 +273,14 @@ input {
     margin-left: 20px;
     font-weight: normal;
   }
+}
+
+// mypage
+
+.list {
+list-style-type: none;
+text-align: center;
+padding-top: 100px;
 }
 
 

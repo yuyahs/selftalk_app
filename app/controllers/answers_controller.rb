@@ -1,6 +1,12 @@
 class AnswersController < ApplicationController
+
+  def index
+    @answers = current_user.answers.where(["created_at Like ?", "%#{params[:created_at]}%"])
+    @questions = @answers.map{|answer| Question.find_by(id: answer.question_id)}.uniq
+  end
+
   def new
-    @question = Question.find(rand(1..3))
+    @question = Question.find(rand(1..10))
     @answer = @question.answers.new
   end
 
@@ -14,10 +20,17 @@ class AnswersController < ApplicationController
   end
 
   def edit
-    @answer = current_user.answers.find(1)
+    @answer = current_user.answers.find(params[:id])
+    @question = Question.find_by(id: @answer.question_id)
   end
 
   def update
+    @answer = current_user.answers.find_by(params[:id])
+    if @answer.update(answer_params)
+      redirect_to answers_path
+    else
+      render 'edit'
+    end
   end
 
   private
