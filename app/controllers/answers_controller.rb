@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
   end
 
   def new
-    @question = Question.find(rand(1..10))
+    @question = Question.where( 'id >= ?', rand(Question.first.id..Question.last.id) ).first
     @answer = @question.answers.new
   end
 
