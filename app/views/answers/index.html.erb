@@ -1,0 +1,13 @@
+
+
+<section class = "list">
+  <% @questions.each do |question| %>
+    <% @answers.each do |answer| %>
+      <li> <%= question.content %> </li>
+      <li> <%= answer.content %> </li>
+      <button><%= link_to "添削する", edit_answer_path(answer) %></button>
+    <% end %>
+  <% end %>
+
+
+</section>

@@ -1,1 +1,10 @@
-<%= @answer.content %>
+<% provide(:title, "添削") %>
+
+<h1><%= @question.content %></h1>
+
+<%= form_with(model: @answer, local: true) do |f| %>
+ 
+  <%= f.text_field :content %>
+
+  <%= f.submit "添削内容を保存する", class: "btn" %>
+<% end %>
