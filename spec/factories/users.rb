@@ -11,5 +11,8 @@ FactoryBot.define do
       activated { false }
       activated_at { nil }
     end
+    trait :admin do
+      admin { true }
+    end
   end
 end

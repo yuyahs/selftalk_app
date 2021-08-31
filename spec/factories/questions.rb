@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :question do
-    content { "MyText" }
+    sequence(:content)  { |n| "test#{n}question" }
   end
 end
