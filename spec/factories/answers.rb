@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :answer do
-    content { "MyText" }
-    user { nil }
-    question { nil }
+    sequence(:content) { |n| "test#{n}answer" }
+    association :user
+    association :question
   end
 end

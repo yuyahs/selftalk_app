@@ -2,4 +2,5 @@ class Answer < ApplicationRecord
   belongs_to :user
   belongs_to :question
   default_scope -> { order(created_at: :desc) }
+  validates :content, length: {maximum: 255}
 end
