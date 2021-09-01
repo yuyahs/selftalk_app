@@ -5,6 +5,7 @@
 <section class = "list">
   <% @dates.each do |record| %>
     <li> <%= link_to record, answers_path(created_at: record) %> </li>
+    
   <% end %>
 </section>
 

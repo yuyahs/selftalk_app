@@ -1,5 +1,7 @@
 class AnswersController < ApplicationController
 
+  before_action :logged_in_user
+
   def index
     @answers = current_user.answers.where(["created_at Like ?", "%#{params[:created_at]}%"])
     @questions = @answers.map{|answer| Question.find_by(id: answer.question_id)}.uniq

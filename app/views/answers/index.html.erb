@@ -1,4 +1,6 @@
+<% provide(:title, "回答一覧") %>
 
+<button><%= link_to "マイページに戻る", current_user %></button>
 
 <section class = "list">
   <% @questions.each do |question| %>
