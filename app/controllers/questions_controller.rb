@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :admined_user, only: [:index, :new, :create, :destroy]
+  before_action :admined_user
 
   def index
     @questions = Question.all
@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     Question.find(params[:id]).destroy
-    redirect_to questions_url
+    redirect_to questions_path
   end
 
   private
@@ -33,7 +33,7 @@ class QuestionsController < ApplicationController
 
   # 管理ユーザーかどうか確認
   def admined_user
-    if !ilogged_in?
+    if !logged_in?
       store_location
       redirect_to login_url
     elsif !current_user.admin?
