@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/dorianmariefr/tailwindcss-rails.git
+  revision: 609e9a65a0b00b9d600a20103cb8f34f05e7ed10
+  branch: minimal
+  specs:
+    tailwindcss-rails (0.4.2)
+      rails (>= 6.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -266,6 +274,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
+  tailwindcss-rails!
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
