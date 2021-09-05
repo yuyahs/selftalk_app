@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       if user.activated?
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        flash[:success] = "ログインしました。"
         redirect_back_or root_url
       else
         message = "有効化されていないアカウントです。"
@@ -16,7 +17,6 @@ class SessionsController < ApplicationController
         flash[:danger] = message
         redirect_to root_url
       end
-      # エラーメッセージを作成する
     else
       flash.now[:danger] = "メールアドレスまたはパスワードが違います。"
       render 'new'
@@ -25,6 +25,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
+    flash[:success] = "ログアウトしました。"
     redirect_to root_url
   end
 

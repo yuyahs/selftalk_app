@@ -15,7 +15,7 @@ RSpec.describe "PasswordResets", type: :request do
       it "renders new" do
         post password_resets_path, params: {password_reset: {email: ""}}
         expect(response).to have_http_status(200)
-        expect(response.body).to include "パスワード再設定用リンクを送信する"
+        expect(response.body).to include "パスワード再設定リンクを送信する"
       end
     end
 
@@ -92,7 +92,7 @@ RSpec.describe "PasswordResets", type: :request do
                 password: "password",
                 password_confirmation: "password" }}
         expect(is_logged_in?).to be_truthy
-        expect(response).to redirect_to user
+        expect(response).to redirect_to root_path
       end
     end
   end
@@ -119,7 +119,7 @@ RSpec.describe "PasswordResets", type: :request do
                  password_confirmation: "foobar" }}
         expect(is_logged_in?).to be_truthy
         expect(user.reload.reset_digest).to eq nil
-        expect(response).to redirect_to user
+        expect(response).to redirect_to root_path
       end
     end
 
