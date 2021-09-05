@@ -38,7 +38,7 @@ RSpec.describe "Users", type: :request do
     it "as a valid user" do
       post login_path, params: { session: { email: @user.email,
       password: 'password' } }
-      expect(response).to redirect_to user_path(@user)
+      expect(response).to redirect_to root_path
     end
 
     it "remember me" do
@@ -98,7 +98,7 @@ RSpec.describe "Users", type: :request do
             password: "",
             password_confirmation: ""
         } }
-        expect(response).to redirect_to user_path(@user)
+        expect(response).to redirect_to root_path
       end
 
       it "rejects invalid information" do
