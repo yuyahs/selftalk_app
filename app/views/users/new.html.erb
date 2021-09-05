@@ -1,20 +1,30 @@
 <% provide(:title, 'Sign up') %>
 
-<h1>アカウント新規登録</h1>
-<div class = "signup">
+<%= render 'shared/error_messages' %>
+<div class="flex flex-col w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
+  <h1 class="text-center font-bold text-2xl mb-6">アカウント新規登録</h1>
   <%= form_with(model: @user, local: true) do |f| %>
-    <%= f.label :name, "ユーザーネーム" %>
-    <%= f.text_field :name %>
 
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.email_field :email %>
+    <div class="my-4">
+      <%= f.label :name, "ユーザーネーム"%>
+      <%= f.text_field :name, class: "pl-3 h-10 w-full border-solid border-2 rounded border-gray-600" %>
+    </div>
+    <div class="my-4">
+      <%= f.label :email, "メールアドレス"%>
+      <%= f.email_field :email, class: "pl-3 h-10 w-full border-solid border-2 rounded border-gray-600" %>
+    </div>
+    <div class="my-4">
+      <%= f.label :password, "パスワード(6文字以上)" %>
+      <%= f.password_field :password, class: "pl-3 h-10 w-full border-solid border-2 rounded border-gray-600" %>
+    </div>
+    <div class="my-4">
+      <%= f.label :password_confirmation, "パスワード再入力" %>
+      <%= f.password_field :password_confirmation, class: "pl-3 h-10 w-full border-solid border-2 rounded border-gray-600" %>
+    </div>
 
-    <%= f.label :password, "パスワード" %>
-    <%= f.password_field :password %>
+    <%= f.submit "ユーザー登録", class: "mt-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"%>
+    <%= link_to "ログインはこちらから!", login_path, class: "ml-10 underline text-blue-900 hover:text-blue-100" %>
 
-    <%= f.label :password_confirmation, "パスワード再入力" %>
-    <%= f.password_field :password_confirmation %>
+    <% end %>
 
-    <%= f.submit "登録", class: "btn" %>
-  <% end %>
 </div>

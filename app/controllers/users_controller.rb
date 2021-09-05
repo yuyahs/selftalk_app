@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
+      flash[:success] = "認証用メールを送信しました。ご確認ください。"
       redirect_to root_url
     else
       render 'new'
@@ -27,8 +28,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      # 更新に成功した場合を扱う。
-      redirect_to @user
+      flash[:success] = "登録情報を変更しました。"
+      redirect_to root_url
     else
       render 'edit'
     end

@@ -42,7 +42,7 @@ RSpec.describe "AccountActivations", type: :request do
 
     it "succeeds login" do
       expect(is_logged_in?).to be_truthy
-      expect(response).to redirect_to user
+      expect(response).to redirect_to root_path
     end
   end
 end
