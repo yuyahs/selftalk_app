@@ -47,9 +47,10 @@ RSpec.describe "Answers", type: :request do
     describe "PATCH /update" do
       let(:answer){create(:answer, user_id: user.id)}
 
-      it "redirects to index" do
+      it "renders index" do
         patch answer_path(answer), params: {answer: {content: "change"}}
-        expect(response).to redirect_to answers_path
+        expect(flash[:success]).to eq "回答を保存しました。"
+        expect(response.body).to include "添削"
       end
 
 

@@ -5,6 +5,7 @@ class AnswersController < ApplicationController
   def index
     @answers = current_user.answers.where(["created_at Like ?", "%#{params[:created_at]}%"])
     @questions = @answers.map{|answer| Question.find_by(id: answer.question_id)}.uniq
+    @answers = Kaminari.paginate_array(@answers).page(params[:page]).per(5)
   end
 
   def new
@@ -29,10 +30,13 @@ class AnswersController < ApplicationController
   end
 
   def update
-    @answer = current_user.answers.find_by(params[:id])
+    @answer = current_user.answers.find(params[:id])
+    @question = Question.find_by(id: @answer.question_id)
     if @answer.update(answer_params)
-      redirect_to answers_path
+      flash.now[:success] = "回答を保存しました。"
+      render 'edit'
     else
+      flash.now[:danger] = "回答を保存できませんでした。"
       render 'edit'
     end
   end

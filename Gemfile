@@ -12,6 +12,7 @@ gem 'bcrypt', '3.1.13'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 gem 'faker', '2.1.2'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -67,5 +68,6 @@ gem "tailwindcss-rails",
     github: "dorianmariefr/tailwindcss-rails",
     branch: "minimal"
 
-    
+
 gem 'rails-i18n'
+gem 'kaminari'
