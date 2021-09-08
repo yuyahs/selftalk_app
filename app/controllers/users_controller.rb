@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show, :edit, :update]
   before_action :correct_user, only: [:show, :edit, :update]
+
   def show
     @user = current_user
     @dates = current_user.answers.map{|dates| dates.created_at.to_date}.uniq
+    @dates = Kaminari.paginate_array(@dates).page(params[:page]).per(5)
+
   end
 
   def new

@@ -12,6 +12,7 @@
   padding-right: 1rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+  margin-bottom: 40px;
 }
 
 .danger {
@@ -145,16 +146,39 @@
 }
 
 
+// pagination
 
-
-// mypage
-
-.list {
-list-style-type: none;
-text-align: center;
-padding-top: 100px;
+.pagination{
+  font-size: 24px;
+  font-weight: 700;
+  margin: 20px auto 0;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  span{
+      text-align: center;
+      width: 50px;
+      :hover{
+          background-color:#f3f3f3;
+      }
+      a{
+          display: block;
+          width: 100%;
+          height: 100%;
+          :hover{
+              background-color: #f3f3f3;
+            }
+      }
+  }
 }
 
+.current{
+  color: #008CFF;
+}
+
+.gap{
+  background-color: #BFDBFE !important;
+}
 
 
 
