@@ -1,5 +1,7 @@
 <%= provide(:title, "問題一覧") %>
 
+<h1>Explainモード問題一覧</h1>
+<%= link_to "Statements一覧", statements_path %>
 <section class = "list">
   <% @questions.each do |question| %>
     <li><%= question.content %></li>

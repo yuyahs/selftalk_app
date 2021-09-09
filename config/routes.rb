@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'statements/index'
+  get 'statements/new'
+  get 'reactions/index'
+  get 'reactions/new'
+  get 'reactions/edit'
   get 'answers/new'
   get 'answers/edit'
   get 'questions/new'
@@ -20,5 +25,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :questions
   resources :answers
+  resources :statements
+  resources :reactions
 
 end

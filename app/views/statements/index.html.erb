@@ -1,0 +1,11 @@
+<%= provide(:title, "問題一覧") %>
+
+<h1>Statements一覧</h1>
+<%= link_to "Questions一覧", questions_path %>
+<section class = "list">
+  <% @statements.each do |statement| %>
+    <li><%= statement.content %></li>
+    <li><%= link_to "削除",  statement, method: :delete,
+                                  data: { confirm: "You sure?" } %></li>
+  <% end %>
+</section>
