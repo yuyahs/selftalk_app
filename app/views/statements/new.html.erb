@@ -1,0 +1,14 @@
+<%= provide(:title, "Create Statements") %>
+
+  <h1>Reactionモード質問作成</h1>
+  <%= link_to "Explainモード質問作成ページへ", new_answer_path %>
+  <%= form_with(model: @form, url: statements_path, local: true) do |f| %>
+
+    <%= f.fields_for :statements do |i| %>
+      <%= i.text_field :content %>
+    <% end %>
+
+
+    <%= f.submit "作成", class: "btn" %>
+
+  <% end %>

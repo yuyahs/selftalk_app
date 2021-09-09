@@ -4,7 +4,9 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @dates = current_user.answers.map{|dates| dates.created_at.to_date}.uniq
+    @answers_dates = current_user.answers.map{|dates| dates.created_at.to_date}
+    @reactions_dates = current_user.reactions.map{|dates| dates.created_at.to_date}
+    @dates = @answers_dates.push(@reactions_dates).flatten.uniq.sort.reverse
     @dates = Kaminari.paginate_array(@dates).page(params[:page]).per(5)
 
   end

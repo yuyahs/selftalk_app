@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
 
+
+
   # ログイン済みユーザーかどうか確認
   def logged_in_user
     unless logged_in?
@@ -15,4 +17,15 @@ class ApplicationController < ActionController::Base
     @user = User.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
   end
+
+  # 管理ユーザーかどうか確認
+  def admined_user
+    if !logged_in?
+      store_location
+      redirect_to login_url
+    elsif !current_user.admin?
+      redirect_to root_url
+    end
+  end
+
 end

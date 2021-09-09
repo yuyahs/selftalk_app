@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_29_095145) do
+ActiveRecord::Schema.define(version: 2021_09_08_104508) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.text "content"
@@ -24,6 +24,23 @@ ActiveRecord::Schema.define(version: 2021_08_29_095145) do
   end
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "statement_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["statement_id"], name: "index_reactions_on_statement_id"
+    t.index ["user_id", "statement_id", "created_at"], name: "index_reactions_on_user_id_and_statement_id_and_created_at"
+    t.index ["user_id"], name: "index_reactions_on_user_id"
+  end
+
+  create_table "statements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -47,4 +64,6 @@ ActiveRecord::Schema.define(version: 2021_08_29_095145) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
+  add_foreign_key "reactions", "statements"
+  add_foreign_key "reactions", "users"
 end

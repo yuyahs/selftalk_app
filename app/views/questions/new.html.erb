@@ -1,5 +1,8 @@
 <%= provide(:title, "Create Questions") %>
 
+
+  <h1>Explainモード質問作成</h1>
+  <%= link_to "Reactionモード質問作成ページへ", new_statement_path %>
   <%= form_with(model: @form, url: questions_path, local: true) do |f| %>
 
     <%= f.fields_for :questions do |i| %>

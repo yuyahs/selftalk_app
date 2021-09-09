@@ -31,13 +31,5 @@ class QuestionsController < ApplicationController
 
   #before action
 
-  # 管理ユーザーかどうか確認
-  def admined_user
-    if !logged_in?
-      store_location
-      redirect_to login_url
-    elsif !current_user.admin?
-      redirect_to root_url
-    end
-  end
+  
 end
