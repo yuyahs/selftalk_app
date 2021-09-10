@@ -9,7 +9,7 @@ class Form::StatementCollection < Form::Base
 
   # 上でsuper attributesとしているので必要
   def statements_attributes=(attributes)
-    self.statementss = attributes.map { |_, v| Statement.new(v) }
+    self.statements = attributes.map { |_, v| Statement.new(v) }
   end
 
   def save
