@@ -7,7 +7,7 @@
   <%= form_with(model: @answer, local: true) do |f| %>
   <%= hidden_field_tag :id, @question.id %>
 
-    <%= f.text_area :content, class: "content-center resize-none text-2xl h-36 pl-3 pt-3 h-10 w-full border-solid border-2 rounded border-gray-600" %>
+    <%= f.text_area :content, id: "textarea1",class: "content-center resize-none text-2xl h-36 pl-3 pt-3 h-10 w-full border-solid border-2 rounded border-gray-600" %>
     <div class="text-center">
       <%= f.submit "次の問題へ進む", class: "w-36 mt-4 bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" %>
     </div>
