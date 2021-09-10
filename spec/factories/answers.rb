@@ -3,5 +3,6 @@ FactoryBot.define do
     sequence(:content) { |n| "test#{n}answer" }
     association :user
     association :question
+    created_at {Time.zone.now}
   end
 end
