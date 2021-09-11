@@ -9,6 +9,7 @@ RSpec.describe "Reactions", type: :request do
     end
 
     describe "GET /index" do
+      let!(:reaction){create(:reaction)}
       it "returns http success" do
         get reactions_path
         expect(response.body).to include "reactions一覧"

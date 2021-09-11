@@ -4,8 +4,11 @@
   <dt class="bg-black text-white border border-solid border-white">モードを選択</dt>
   <dd>
     <ul class="bg-black border border-solid border-white text-white">
-      <li class="border border-solid border-white hover:bg-blue-900"><%= link_to "Reactionモード", reactions_path(created_at: params[:created_at])%></li>
-      <li class="border border-solid border-white hover:bg-blue-900"><%= link_to "Explainモード", answers_path(created_at: params[:created_at])%></li>
+      <% if current_page?(answers_path) %>
+       <li class="border border-solid border-white hover:bg-blue-900"><%= link_to "Reactionモード", reactions_path(created_at: params[:created_at]), class: "block" %></li>
+      <% else %>
+        <li class="border border-solid border-white hover:bg-blue-900"><%= link_to "Explainモード", answers_path(created_at: params[:created_at]), class:"block" %></li>
+      <% end %>
     </ul>
   </dd>
 
