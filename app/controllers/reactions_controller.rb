@@ -1,11 +1,12 @@
 class ReactionsController < ApplicationController
 
   before_action :logged_in_user
-  
+
   def index
     @reactions = current_user.reactions.where(["created_at Like ?", "%#{params[:created_at]}%"])
     @statesment = @reactions.map{|reaction| Reaction.find_by(id: reaction.statement_id)}.uniq
     @reactions = Kaminari.paginate_array(@reactions).page(params[:page]).per(5)
+    @reaction = Reaction.find_by(params[:created_at])
   end
 
   def new

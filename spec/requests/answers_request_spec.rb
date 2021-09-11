@@ -10,6 +10,7 @@ RSpec.describe "Answers", type: :request do
     end
 
     describe "GET /index" do
+      let!(:answer){create(:answer)}
       it "returns http success" do
         get answers_path
         expect(response.body).to include "回答一覧"
