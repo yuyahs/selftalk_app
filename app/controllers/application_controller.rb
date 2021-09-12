@@ -28,4 +28,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  #ゲストユーザーかどうか確認
+  def not_guest_user
+    if guest_user?
+      redirect_to root_url
+    end
+  end
+
 end

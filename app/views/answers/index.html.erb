@@ -1,13 +1,12 @@
 <% provide(:title, "回答一覧") %>
 <%= render 'shared/records' %>
 <div class="text-center items-center justify-center">
-  <h1 class="font-bold text-2xl text-blue-900">Explainモード回答集(<%= @answer.created_at.to_date %>)</h1>
+  <h1 class="font-bold text-2xl text-blue-900">Explainモード回答集(<%= params[:created_at] %>)</h1>
   <% @answers.each do |answer| %>
     <li class="mt-4 break-words h-32 bg-white list-none text-2xl border border-solid border-black rounded-lg">
     <%= answer.content %> </li>
     <button class="w-36 mt-4 bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
     <%= link_to "添削する", edit_answer_path(answer), class: "block" %></button>
-
   <% end %>
   <div class="text-center">
     <%= paginate @answers %>

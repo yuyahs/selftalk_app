@@ -1,12 +1,12 @@
 class AnswersController < ApplicationController
-
   before_action :logged_in_user
+  before_action :not_guest_user, only: [:index, :edit, :update]
 
   def index
     @answers = current_user.answers.where(["created_at Like ?", "%#{params[:created_at]}%"])
     @questions = @answers.map{|answer| Question.find_by(id: answer.question_id)}.uniq
     @answers = Kaminari.paginate_array(@answers).page(params[:page]).per(5)
-    @answer = Answer.find_by(params[:created_at])
+
   end
 
   def new
