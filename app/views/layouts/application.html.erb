@@ -19,7 +19,7 @@
     <%= render 'layouts/header' %>
     <div class = "p-24 flex-grow">
      <% flash.each do |message_type, message| %>
-      <div class="<%= message_type %>"><%= message %></div>
+       <div class="<%= message_type %>"><%= message %></div>
      <% end %>
      <%= yield %>
     </div>
