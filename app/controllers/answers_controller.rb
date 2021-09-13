@@ -4,13 +4,13 @@ class AnswersController < ApplicationController
 
   def index
     @answers = current_user.answers.where(["created_at Like ?", "%#{params[:created_at]}%"])
-    @questions = @answers.map{|answer| Question.find_by(id: answer.question_id)}.uniq
     @answers = Kaminari.paginate_array(@answers).page(params[:page]).per(5)
 
   end
 
   def new
-    @question = Question.where( 'id >= ?', rand(Question.first.id..Question.last.id) ).first
+    @questions = Question.where(mode_num: params[:mode_num])
+    @question = @questions.find(@questions.pluck(:id).sample )
     @answer = @question.answers.new
   end
 
@@ -19,9 +19,9 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
     @answer.assign_attributes(user_id: current_user.id)
     if @answer.save
-      redirect_to new_answer_path
+      redirect_to new_answer_path(mode_num: params[:mode_num])
     else
-      redirect_to new_answer_path
+      redirect_to new_answer_path(mode_num: params[:mode_num])
     end
   end
 

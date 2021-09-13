@@ -8,17 +8,21 @@ User.create!(name:  "Example User",
   activated_at: Time.zone.now,
   admin: true)
 
-Question.create!(content: "test question")
+Question.create!(content: "test question",
+ mode_num: 1)
+Question.create!(content: "test question2",
+ mode_num: 1)
+Question.create!(content: "test statement",
+ mode_num: 2)
+Question.create!(content: "test statement2",
+ mode_num: 2)
 
-Statement.create!(content: "test statement")
+
 
 Answer.create!(content: "test",
   user_id: 1,
   question_id: 1,
   created_at: Time.current.yesterday)
 
-Reaction.create!(content: "reaction 1",
-  user_id: 1,
-  statement_id: 1,
-  created_at: Time.current.yesterday)
+
 

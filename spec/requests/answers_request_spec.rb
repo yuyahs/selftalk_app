@@ -19,7 +19,7 @@ RSpec.describe "Answers", type: :request do
 
     describe "GET /new" do
       it "returns http success" do
-        get new_answer_path
+        get new_answer_path(mode_num: 1)
         expect(response.body).to include "Answer Questions"
       end
     end
