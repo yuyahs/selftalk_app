@@ -3,22 +3,16 @@
 
 <div class="text-center flex items-center justify-center">
   <div class="mt-4">
-
     <% @dates.each do |record| %>
       <li class="w-56 bg-white list-none underline text-black mt-5 font-bold text-2xl
-                  border border-solid border-white rounded-full hover:bg-black hover:text-white">
-
-       <%= link_to record, answers_path(created_at: record), class: "block" %>
-
+                 border border-solid border-white rounded-full hover:bg-black hover:text-white">
+       <%= link_to record, answers_path(created_at: record), class:"block" %>
       </li>
     <% end %>
-
-
   </div>
   <div class="w-1/2 absolute mt-96 text-center">
     <%= paginate @dates %>
   </div>
-
 </div>
 
 
