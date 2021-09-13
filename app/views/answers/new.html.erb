@@ -6,6 +6,7 @@
 
   <%= form_with(model: @answer, local: true) do |f| %>
   <%= hidden_field_tag :id, @question.id %>
+  <%= hidden_field_tag :mode_num, @question.mode_num %>
 
     <%= f.text_area :content, id: "textarea1",class: "content-center resize-none text-2xl h-36 pl-3 pt-3 h-10 w-full border-solid border-2 rounded border-gray-600" %>
     <div class="text-center">

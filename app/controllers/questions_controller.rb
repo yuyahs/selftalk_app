@@ -26,10 +26,10 @@ class QuestionsController < ApplicationController
   private
 
   def question_collection_params
-    params.require(:form_question_collection).permit(questions_attributes: :content)
+    params.require(:form_question_collection).permit(questions_attributes: [:content, :mode_num])
   end
 
   #before action
 
-  
+
 end

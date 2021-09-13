@@ -1,12 +1,15 @@
 <%= provide(:title, "Create Questions") %>
 
 
-  <h1>Explainモード質問作成</h1>
-  <%= link_to "Reactionモード質問作成ページへ", new_statement_path %>
+  <h1>出題文作成</h1>
   <%= form_with(model: @form, url: questions_path, local: true) do |f| %>
 
     <%= f.fields_for :questions do |i| %>
+      <%= i.label :content, "本文" %>
       <%= i.text_field :content %>
+
+      <%= i.label :mode_num, "出題モード選択" %>
+      <%= i.text_field :mode_num %>
     <% end %>
 
 
