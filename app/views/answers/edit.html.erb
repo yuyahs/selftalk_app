@@ -1,10 +1,11 @@
+
 <% provide(:title, "添削") %>
 <div class="text-center items-center justify-center ">
 
   <% if @question.mode_num == 1 %>
-    <h1 class="font-bold text-2xl text-blue-900 mb-4">Explainモード</h1>
+    <h1 class="font-bold text-2xl text-white mb-4">Explainモード</h1>
   <%else %>
-    <h1 class="font-bold text-2xl text-blue-900 mb-4">Reactionモード</h1>
+    <h1 class="font-bold text-2xl text-white mb-4">Reactionモード</h1>
   <% end %>
   <h2 class="text-2xl w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
   <%= @question.content %></h2>
@@ -12,13 +13,17 @@
 
     <%= form_with(model: @answer, local: true) do |f| %>
 
-      <%= f.text_area :content, class:"content-center resize-none text-2xl h-36 pl-3 pt-3 h-10 w-full border border-solid rounded-lg border-black" %>
+      <%= f.text_area :content, id: "textarea1", class:"content-center resize-none text-2xl h-36 pl-3 pt-3  w-full border border-solid rounded-lg border-black" %>
 
-      <%= f.submit "添削内容を保存する", class:"mx-auto w-42 mt-4 mb-4 bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded block" %>
-      <%= link_to "回答一覧に戻る", answers_path(created_at: @answer.created_at.to_date) ,class:"font-bold underline text-blue-500 hover:text-blue-300 "%>
+      <div>
+        <%= f.submit "添削内容を保存する", class:"w-42 mt-4 mb-4 bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded " %>
+        <%= link_to "回答一覧に戻る", answers_path(created_at: @answer.created_at.to_date) ,class:"font-bold underline text-black hover:text-blue-300 "%>
+      </div>
 
     <% end %>
 
 
 </div>
+
+
 
