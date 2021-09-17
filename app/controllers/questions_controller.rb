@@ -2,7 +2,9 @@ class QuestionsController < ApplicationController
   before_action :admined_user
 
   def index
-    @questions = Question.all
+    @questions = Question.where(mode_num: params[:mode_num])
+    @questions = Kaminari.paginate_array(@questions).page(params[:page]).per(5)
+
   end
 
   def new
@@ -12,8 +14,10 @@ class QuestionsController < ApplicationController
   def create
     @form = Form::QuestionCollection.new(question_collection_params)
     if @form.save
+      flash[:success] = "問題を作成しました。"
       redirect_to root_url
     else
+      flash.now[:danger] = "問題の作成に失敗しました。"
       render 'new'
     end
   end
