@@ -1,11 +1,21 @@
 <%= provide(:title, "問題一覧") %>
 
-<h1>Explainモード問題一覧</h1>
-<%= link_to "Statements一覧", statements_path %>
-<section class = "list">
+<div class="text-center text-white">
+
+  <ul class="mb-8 text-2xl">
+    <li><%= link_to "Self Explain 問題集", questions_path(mode_num: 1)%></li>
+    <li><%= link_to "Self Reaction 問題集", questions_path(mode_num: 2) %></li>
+  </ul>
+
+
   <% @questions.each do |question| %>
-    <li><%= question.content %></li>
-    <li><%= link_to "削除",  question, method: :delete,
-                                  data: { confirm: "You sure?" } %></li>
+    <div class="mx-auto pt-1 h-12 w-1/2 bg-white text-2xl text-black m-4 border border-solid border-black rounded">
+      <%= question.content %>
+      <%= link_to "削除",  question, class: "underline mr-4 float-right", method: :delete,
+                                    data: { confirm: "You sure?" } %>
+    </div>
   <% end %>
-</section>
+  <div class="text-center">
+    <%= paginate @questions %>
+  </div>
+</div>
