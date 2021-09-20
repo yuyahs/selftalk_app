@@ -4,12 +4,16 @@
     <div class="font-serif">
       <%= link_to "SelfTalkEnglish", root_path, id: "logo" %>
     </div>
+    <% if logged_in? && !guest_user? %>
+      <%= link_to "マイページ", current_user, class:"float-right mr-36 underline text-white hover:bg-blue-300" %>
+    <% else %>
+      <%= link_to "ログイン", login_path %>
+    <% end %>
     <nav id="nav">
       <ul>
         <% if logged_in? %>
          <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
          <% if !guest_user? %>
-            <li><%= link_to "マイページ", current_user %></li>
             <li><%= link_to "登録情報変更", edit_user_path(current_user) %></li>
          <% end %>
          <% if current_user.admin? %>
@@ -18,7 +22,6 @@
          <% end %>
         <% else %>
          <li><%= link_to "新規登録", signup_path %></li>
-         <li><%= link_to "ログイン", login_path %></li>
         <% end %>
       </ul>
     </nav>
