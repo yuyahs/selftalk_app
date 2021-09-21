@@ -1,14 +1,21 @@
 'user strict';
 {
-  function hamburger() {
-    document.getElementById('line1').classList.toggle('line_1');
-    document.getElementById('line2').classList.toggle('line_2');
-    document.getElementById('line3').classList.toggle('line_3');
-    document.getElementById('nav').classList.toggle('in');
-  }
-  onload = function(){
-    document.getElementById('hamburger').addEventListener('click', () =>  {
-    hamburger();
-  } )};
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const tab = document.getElementById('tab')
+    const menu = document.getElementById('menu')
+    document.addEventListener("click", (e) => {
+    if(e.target.closest("#menu")) {
+      tab.classList.contains("hidden") ? tab.classList.remove("hidden") : tab.classList.add("hidden");
+    } else {
+      tab.classList.add("hidden");
+    }
+    });
+  });
+
+
+
+
+
 
 }
