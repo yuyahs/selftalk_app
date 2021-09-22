@@ -1,10 +1,20 @@
 <%= provide(:title, "問題一覧") %>
 
 <div class="text-center text-white">
+  <div class="flex flex-row mb-10">
+    <p class="mt-2">出題モード一覧▶︎</p>
+    <ul class="flex flex-row">
+      <li><%= link_to image_tag("explain.svg", class:"ml-4 w-12 h-12 object-cover border border-solid border-white rounded-full hover:bg-white"), questions_path(mode_num:1) %></li>
+      <li><%= link_to image_tag("reaction.svg", class:"ml-4 w-12 h-12 object-cover border border-solid border-white rounded-full hover:bg-white"), questions_path(mode_num:2) %></li>
+    </ul>
+  </div>
 
   <ul class="mb-8 text-2xl">
-    <li><%= link_to "Self Explain 問題集", questions_path(mode_num: 1)%></li>
-    <li><%= link_to "Self Reaction 問題集", questions_path(mode_num: 2) %></li>
+    <% if current_page?(questions_path(mode_num: 1)) %>
+      <li>Self Explain 問題集</li>
+    <% else %>
+      <li>Self Reaction 問題集</li>
+    <% end %>
   </ul>
 
 
@@ -18,4 +28,5 @@
   <div class="text-center">
     <%= paginate @questions %>
   </div>
+
 </div>
