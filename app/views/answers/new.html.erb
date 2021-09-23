@@ -1,8 +1,10 @@
 <%= javascript_pack_tag 'answer/application' %>
 <%= provide(:title, "Answer Questions") %>
  <div class="text-center">
-    <progress id="progress" value="45" max="45" class=""></progress>
-    <span id="countdown" class="text-white">45</span>
+    <div class="text-white mb-10">
+      <progress id="progress" value="45" max="45" class="bg-white w-1/2 border border-solid border-white rounded-full"></progress>
+      <span id="countdown">45</span>
+    </div>
     <div class="text-2xl w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
       <%= @question.content %>
     </div>
