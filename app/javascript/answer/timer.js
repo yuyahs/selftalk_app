@@ -11,7 +11,6 @@
       document.getElementById('progress').setAttribute('value', i);
       if(i == 0 ) {
         clearInterval(intervalId);
-        document.location.reload();
       }
     }
     const intervalId = setInterval(count, 1000);

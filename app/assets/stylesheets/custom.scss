@@ -42,6 +42,7 @@
   width: 50%;
   display: flex;
   justify-content: center;
+  color: #ffffff;
   span{
       text-align: center;
       width: 50px;
@@ -65,6 +66,30 @@
 
 .gap{
   background-color: #BFDBFE !important;
+}
+
+// progress
+
+progress::-webkit-progress-bar {
+  border-radius: 15px;
+  background-color: #D1D5DB;
+}
+
+progress::-webkit-progress-value {
+  border-radius: 15px;
+  background-color: #3B82F6;
+}
+
+progress::-moz-progress-bar {
+  border-radius: 15px;
+  background-color: #3B82F6;
+
+}
+
+progress::-ms-fill {
+   border-radius: 15px;
+   background-color: #3B82F6;
+
 }
 
 
