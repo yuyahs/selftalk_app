@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     @user = current_user
     @dates = current_user.answers.map{|dates| dates.created_at.to_date}.uniq
     @dates = Kaminari.paginate_array(@dates).page(params[:page]).per(5)
+    @learning_days = @dates.count
+    
 
   end
 
