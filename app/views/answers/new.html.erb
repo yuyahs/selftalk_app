@@ -1,19 +1,23 @@
+<%= javascript_pack_tag 'answer/application' %>
 <%= provide(:title, "Answer Questions") %>
-
- <div class="text-2xl w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
-   <%= @question.content %>
- </div>
-
-  <%= form_with(model: @answer, local: true) do |f| %>
-  <%= hidden_field_tag :id, @question.id %>
-  <%= hidden_field_tag :mode_num, @question.mode_num %>
-
-    <%= f.text_area :content, id: "textarea1",class: "content-center resize-none text-2xl h-36 pl-3 pt-3 h-10 w-full border-solid border-2 rounded border-gray-600" %>
-    <div class="text-center">
-      <%= f.submit "次の問題へ進む", class: "my-10 bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full" %>
-      <%= link_to "終了する", root_path , class: "ml-4 my-10 bg-white hover:bg-blue-500 text-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full" %>
+ <div class="text-center">
+    <progress id="progress" value="45" max="45" class=""></progress>
+    <span id="countdown" class="text-white">45</span>
+    <div class="text-2xl w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
+      <%= @question.content %>
     </div>
 
-  <% end %>
+      <%= form_with(model: @answer, local: true) do |f| %>
+      <%= hidden_field_tag :id, @question.id %>
+      <%= hidden_field_tag :mode_num, @question.mode_num %>
+
+        <%= f.text_area :content, id: "textarea1",class: "content-center resize-none text-2xl h-36 pl-3 pt-3 h-10 w-full border-solid border-2 rounded border-gray-600" %>
+        <div class="text-center">
+          <%= f.submit "次の問題へ進む", class: "my-10 bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full" %>
+          <%= link_to "終了する", root_path , class: "ml-4 my-10 bg-white hover:bg-blue-500 text-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full" %>
+        </div>
+
+      <% end %>
+ </div>
 
 
