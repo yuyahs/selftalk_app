@@ -8,8 +8,10 @@ class UsersController < ApplicationController
     @dates = current_user.answers.map{|dates| dates.created_at.to_date}.uniq
     @dates = Kaminari.paginate_array(@dates).page(params[:page]).per(5)
     @learning_days = @dates.count
+    @wdays = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+    @contributions = current_user.answers.where(created_at: Date.today.all_week)
+    @contributions = @contributions.map{|days| days.created_at.strftime('%a')}
     
-
   end
 
   def new

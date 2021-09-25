@@ -1,5 +1,5 @@
 <% provide(:title, @user.name) %>
-<h1 class="text-center text-3xl text-white font-bold pb-5">学習記録</h1>
+<h1 class="text-center text-3xl text-white font-bold pb-5"><%= "#{@user.name}さんの学習記録" %></h1>
 
 <div class="text-center flex items-center justify-center">
   <div class="mt-4">
@@ -15,10 +15,21 @@
   </div>
 </div>
 
-<aside class="text-white">
+<div class="absolute inset-y-36 left-24 text-white">
   <p class="ml-4">学習日数</p>
-  <section class="w-24 h-24 pt-8 text-center object-cover border border-solid border-white rounded-full"><%= "#{@learning_days}日" %></section>
-</aside>
+  <section class="w-24 h-24 pt-8 mb-4 text-center object-cover border border-solid border-white rounded-full">
+  <%= "#{@learning_days}日" %></section>
+  <p>今週の学習状況</p>
+  <% @wdays.each do |day|  %>
+    <section class="flex flex-row">
+      <span><%= day %></span><progress value=<%="#{@contributions.count{|v| v == day}}" %> max="30" class="absolute w-32 ml-10 mt-1 border border-solid border-white h-4"></progress>
+      <span class="absolute right-0"><%="#{@contributions.count{|v| v == day}}" %></span></section>
+  <% end %>
+</div>
+
+
+
+
 
 
 
