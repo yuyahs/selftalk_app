@@ -1,7 +1,7 @@
 ja:
   time:
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分"
+      default: "%Y/%m/%d %H:%M:%S"
   views:
     pagination:
       first: "&laquo;"

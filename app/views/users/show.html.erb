@@ -22,8 +22,8 @@
   <p>今週の学習状況</p>
   <% @wdays.each do |day|  %>
     <section class="flex flex-row">
-      <span><%= day %></span><progress value=<%="#{@contributions.count{|v| v == day}}" %> max="30" class="absolute w-32 ml-10 mt-1 border border-solid border-white h-4"></progress>
-      <span class="absolute right-0"><%="#{@contributions.count{|v| v == day}}" %></span></section>
+      <span><%= day %></span><progress value=<%="#{@contributions.count{|i| i == day}}" %> max="30" class="absolute w-32 ml-10 mt-1 border border-solid border-white h-4"></progress>
+      <span class="absolute right-0"><%="#{@contributions.count{|i| i == day}}" %></span></section>
   <% end %>
 </div>
 
