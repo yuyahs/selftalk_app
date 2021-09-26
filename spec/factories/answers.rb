@@ -4,5 +4,12 @@ FactoryBot.define do
     association :user
     association :question
     created_at {Time.zone.now}
+
+   
+
+
+
+
   end
+
 end

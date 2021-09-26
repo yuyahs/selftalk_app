@@ -6,15 +6,16 @@ RSpec.describe "Users", type: :request do
   let(:other_user){create(:user)}
 
   describe "show/ user_path" do
-
+    let!(:answer){create(:answer)}
     before do
       log_in_as user
     end
 
-    it "shows today and yesterday's records" do
+    it "shows correct view" do
       get user_path(user)
       expect(response.body).to include "学習記録"
     end
+
 
 
   end
