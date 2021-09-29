@@ -48,7 +48,8 @@ default: &default
     - .jpeg
     - .jpg
     - .vue
-    
+    - .jsx
+
 
 development:
   <<: *default
