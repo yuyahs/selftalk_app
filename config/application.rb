@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module SelftalkApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.assets.initialize_on_precompile = false
     config.load_defaults 6.0
     config.active_record.default_timezone = :local
     config.i18n.default_locale = :ja
@@ -35,5 +36,6 @@ module SelftalkApp
     end
   end
 end
+
 
 
