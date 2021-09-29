@@ -1,15 +1,14 @@
 <template>
-  <p>
-    {{ message }}
-  </p>
+  <HelloJSX />
 </template>
 
 <script>
+import HelloJSX from './components/helloJSX.jsx'
+
 export default {
-  data() {
-    return {
-      message: "Hello Vue!"
-    }
+  name: 'App',
+  components: {
+    HelloJSX
   }
 }
 </script>
