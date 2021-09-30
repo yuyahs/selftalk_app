@@ -6,6 +6,7 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "^5.4.3",
+    "@vue/babel-plugin-jsx": "^1.1.0",
     "@vue/compiler-sfc": "^3.2.19",
     "turbolinks": "^5.2.0",
     "vue": "^3.2.19",
@@ -14,7 +15,6 @@
   "version": "0.1.0",
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
-    "@vue/babel-plugin-jsx": "^1.1.0",
     "autoprefixer": "^10.3.6",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^4.0.1",
