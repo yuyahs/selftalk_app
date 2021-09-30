@@ -14,7 +14,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
-    "@vue/babel-plugin-jsx": "^1.0.7",
+    "@vue/babel-plugin-jsx": "^1.1.0",
     "autoprefixer": "^10.3.6",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^4.0.1",
