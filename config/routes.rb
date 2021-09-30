@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
   get '/policy', to: 'static_pages#policy'
   post '/guest_sign_in', to: 'static_pages#guest_sign_in'
+  get '/guest_sign_in', to: 'static_pages#guest_sign_in'
   root 'static_pages#home'
   get '/signup', to: 'users#new'
   get    '/login',   to: 'sessions#new'
