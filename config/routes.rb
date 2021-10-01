@@ -20,4 +20,9 @@ Rails.application.routes.draw do
   resources :statements
   resources :reactions
 
+  # API controller
+  namespace :api, format: 'json' do
+    resources :users
+  end
+
 end

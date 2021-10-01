@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router"
 import Home from './pages/Home.vue'
+import Show from './users/Show.vue'
 import HelloJSX from './components/helloJSX'
 
 export const router = createRouter({
@@ -14,6 +15,11 @@ export const router = createRouter({
       path: '/jsx',
       name: 'jsx',
       component: HelloJSX,
+    },
+    {
+      path: '/users/1',
+      name: 'show',
+      component: Show,
     },
   ],
 })

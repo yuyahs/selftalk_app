@@ -8,6 +8,7 @@
     "@rails/webpacker": "^5.4.3",
     "@vue/babel-plugin-jsx": "^1.1.0",
     "@vue/compiler-sfc": "^3.2.19",
+    "axios": "^0.22.0",
     "turbolinks": "^5.2.0",
     "vue": "^3.2.19",
     "vue-loader": "^16.8.1",
