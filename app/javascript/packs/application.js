@@ -11,9 +11,11 @@ require("channels")
 require('./hello_vue.js')
 import { createApp } from "vue";
 import App from "../src/App.vue";
+import { router } from '../src/router'
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = createApp(App);
+  app.use(router)
   app.mount("#application");
 });
 
