@@ -3,7 +3,7 @@
    <div class="text-white pt-8">
       <h1 class="mb-8 text-4xl font-bold">SelfTalkEnglish</h1>
       <h2 class="text-2xl mb-8">”独り言英語学習”で実践力を磨く</h2>
-      <router-link to="/jsx">jsx</router-link>
+      <router-link to="/users/1">user</router-link>
    </div>
 
    <div class="inline-block">
