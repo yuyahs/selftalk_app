@@ -12,10 +12,19 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
-      flash[:success] = "認証用メールを送信しました。ご確認ください。"
-      redirect_to root_url
+      # flash[:success] = "認証用メールを送信しました。ご確認ください。"
+      # redirect_to root_url
+
     else
-      render 'new'
+      render json: @user.errors, status: :unprpcessable_entity
     end
+  end
+
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password,
+                                 :password_confirmation)
   end
 end

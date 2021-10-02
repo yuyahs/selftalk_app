@@ -8,7 +8,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 // 追加
-require('./hello_vue.js')
+
 import { createApp } from "vue";
 import App from "../src/App.vue";
 import { router } from '../src/router'

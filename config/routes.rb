@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'hello_vue/index'
   get 'static_pages/home'
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
@@ -17,8 +16,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :questions
   resources :answers
-  resources :statements
-  resources :reactions
+
 
   # API controller
   namespace :api, format: 'json' do
