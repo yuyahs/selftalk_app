@@ -40,8 +40,12 @@ module.exports = function(api) {
       'babel-plugin-macros',
       '@babel/plugin-syntax-dynamic-import',
       '@vue/babel-plugin-jsx',
-      "@babel/plugin-proposal-private-property-in-object",
-      { "loose": true },
+      [
+        "@babel/plugin-proposal-private-property-in-object",
+      {
+        loose: true
+      }
+    ],
 
       isTestEnv && 'babel-plugin-dynamic-import-node',
       '@babel/plugin-transform-destructuring',
