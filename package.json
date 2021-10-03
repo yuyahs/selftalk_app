@@ -6,13 +6,15 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "^5.4.3",
+    "@smartweb/vue-flash-message": "^1.0.0-alpha.12",
     "@vue/babel-plugin-jsx": "^1.1.0",
     "@vue/compiler-sfc": "^3.2.19",
     "axios": "^0.22.0",
     "turbolinks": "^5.2.0",
     "vue": "^3.2.19",
     "vue-loader": "^16.8.1",
-    "vue-router": "^4.0.11"
+    "vue-router": "^4.0.11",
+    "vuex": "^4.0.2"
   },
   "version": "0.1.0",
   "devDependencies": {

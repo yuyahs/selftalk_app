@@ -14,6 +14,7 @@
         <span>ゲストログイン</span>
       </button>
    </div>
+   
 
   </div>
 </template>
