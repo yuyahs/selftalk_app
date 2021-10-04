@@ -19,8 +19,13 @@
         <input type="password" v-model="user.password_confirmation" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
       </div>
 
-      <button @click="createUser" class="mt-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" >ユーザー登録
-      </button>
+      <div class="flex flex-row">
+        <button @click="createUser" class="w-1/2 mt-4 bg-blue-500  text-white font-semibold hover:bg-blue-300 py-2 px-4 border border-white rounded-full" >
+        ユーザー登録
+        </button>
+        <span class="ml-4 mt-6 underline text-right text-blue-900 hover:text-blue-100">
+        ログインはこちらから!</span>
+      </div>
   </div>
 
 </template>
