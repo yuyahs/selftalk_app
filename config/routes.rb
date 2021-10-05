@@ -23,4 +23,9 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  namespace :api do
+    post '/login', to: 'session#log_in'
+    post '/logout', to: 'session#log_out'
+  end
+
 end
