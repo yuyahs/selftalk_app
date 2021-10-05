@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-// require("@smartweb/vue-flash-message")
+require("@smartweb/vue-flash-message")
 require("@rails/activestorage").start()
 require("channels")
 // 追加
