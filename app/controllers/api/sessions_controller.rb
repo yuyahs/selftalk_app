@@ -1,4 +1,5 @@
 class Api::SessionsController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def new
   end
@@ -16,19 +17,21 @@ class Api::SessionsController < ApplicationController
         # message += "認証用メールを確認して有効化リンクをクリックしてください。"
         # flash[:danger] = message
         # redirect_to root_url
-        render json: {state: false}
+        response_unauthorized
+
       end
     else
       # flash.now[:danger] = "メールアドレスまたはパスワードが違います。"
       # render 'new'
-      render json: {state: false}
+      # render json: @user.errors, status: :unprpcessable_entity
+      response_bad_request
     end
   end
 
   def destroy
     log_out if logged_in?
-    flash[:success] = "ログアウトしました。"
-    redirect_to root_url
+    # flash[:success] = "ログアウトしました。"
+    # redirect_to root_url
   end
 
 end
