@@ -16,6 +16,9 @@
   </head>
 
   <body  class="bg-blue-900 flex flex-col min-h-screen">
+     <% flash.each do |message_type, message| %>
+       <div class="<%= message_type %>"><%= message %></div>
+     <% end %>
     <div id="application"></div>
     <!--<%= render 'layouts/header' %>
     <div class = "p-24 flex-grow">
