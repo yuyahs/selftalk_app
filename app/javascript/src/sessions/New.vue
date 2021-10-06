@@ -56,16 +56,23 @@
             time: 5000
           });
         })
-        .catch(err => {
-            this.$router.push({ path: '/login'}),
-            this.$flashMessage.show({
+        .catch((error) => {
+          if(error.message === "Request failed with status code 400") {
+             this.$flashMessage.show({
               type: 'error',
               title: 'ログインに失敗しました。',
               text: '入力内容に誤りがある可能性があります。',
               time: 5000
-            });
+            })
+           } if(error.message === "Request failed with status code 401") {
+             this.$flashMessage.show({
+              type: 'error',
+              title: 'ログインに失敗しました。',
+              text: 'アカウントが有効化されていません。',
+              time: 5000
+           })
+          } 
         })
-
       }
     }
 
