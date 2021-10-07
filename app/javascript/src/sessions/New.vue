@@ -8,10 +8,11 @@
       </div>
       <div class="my-4">
         <label for="session_password"> パスワード </label>
+        <router-link to='/password_resets/new' class="underline text-blue-900 hover:text-blue-100">(パスワードを忘れた場合)</router-link>
         <input type="password" v-model="session.password" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
       </div>
       <div class="my-4">
-        <input type="hidden" value="0" v-model="session.remember_me">
+       
         <input type="checkbox" value="1" v-model="session.remember_me">
         <span>ログイン状態を保持する</span>
       </div>
@@ -71,7 +72,7 @@
               text: 'アカウントが有効化されていません。',
               time: 5000
            })
-          } 
+          }
         })
       }
     }
