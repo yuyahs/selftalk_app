@@ -1,7 +1,7 @@
 <template>
-  <form class="flex flex-col w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
+  <div class="flex flex-col w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
     <h1 class="text-center font-bold text-2xl mb-6">新しいパスワードを設定する</h1>
-    <input type="hidden" v-model="email">
+    <input type="hidden" :value="email">
 
     <label for="user_password">新しいパスワード</label>
     <input type="password" v-model="user.password" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
@@ -13,7 +13,7 @@
       再設定
     </button>
 
- </form>
+ </div>
 
 </template>
 
@@ -35,9 +35,10 @@
     methods: {
       setPassword: function () {
         axios.patch(`/api/password_resets/${this.$route.params.reset_token}`, {
-        user: this.user})
+        user: this.user,
+        email: this.email})
         .then(response => {
-          this.$router.push({ path: '/'}),
+          this.$router.push({ path: '/courses'}),
           this.$flashMessage.show({
             type: 'success',
             text:'パスワード再設定しました。',
