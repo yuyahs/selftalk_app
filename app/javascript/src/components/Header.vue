@@ -6,6 +6,7 @@
         <router-link to="/login" class="mr-4 hover:bg-blue-300">{{nav1}}</router-link>
         <router-link to="/users/new" class="mr-4 hover:bg-blue-300 ">{{nav2}}
         </router-link>
+        <span @click="destroySession">ログアウト</span>
 
       </div>
 
