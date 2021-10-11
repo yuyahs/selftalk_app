@@ -15,8 +15,7 @@
 </template>
 
 <script>
-
-
+  import axios from 'axios';
 
 export default {
   name: 'Header',
@@ -26,7 +25,7 @@ export default {
   },
   methods: {
      destroySession: function() {
-        axios.post('/api/logout')
+        axios.delete('/api/logout')
         .then(response => {
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({
@@ -34,6 +33,12 @@ export default {
             title: 'ログアウト',
             text:'ログアウトしました',
             time: 5000
+          });
+        })
+        .catch(error => {
+          this.$flashMessage.show({
+            type: 'error',
+            text: 'ログアウトできませんでした。'
           });
         })
       }

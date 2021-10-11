@@ -20,6 +20,7 @@
 <script>
   import axios from 'axios';
 
+
   export default {
 
     name: 'Change',
@@ -38,7 +39,7 @@
         user: this.user,
         email: this.email})
         .then(response => {
-          this.$router.push({ path: '/courses'}),
+          this.$router.push({ path: '/'}),
           this.$flashMessage.show({
             type: 'success',
             text:'パスワード再設定しました。',

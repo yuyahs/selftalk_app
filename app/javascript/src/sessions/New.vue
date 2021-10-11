@@ -12,7 +12,7 @@
         <input type="password" v-model="session.password" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
       </div>
       <div class="my-4">
-       
+
         <input type="checkbox" value="1" v-model="session.remember_me">
         <span>ログイン状態を保持する</span>
       </div>
@@ -30,6 +30,11 @@
 
 <script>
   import axios from 'axios';
+  axios.defaults.headers.common = {
+    'X-Requested-With': 'XMLHttpRequest',
+    'X-CSRF-TOKEN' : document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+  };
+
 
   export default {
 
@@ -49,7 +54,7 @@
           session: this.session
         })
         .then(response => {
-          this.$router.push({ path: '/courses'}),
+          this.$router.push({ path: '/'}),
           this.$flashMessage.show({
             type: 'success',
             title: 'ログイン',
