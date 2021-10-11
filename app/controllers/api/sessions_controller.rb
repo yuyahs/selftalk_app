@@ -11,7 +11,7 @@ class Api::SessionsController < ApplicationController
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         # flash[:success] = "ログインしました。"
-        # redirect_back_or root_url
+        # redirect_to root_url
       else
         # message = "有効化されていないアカウントです。"
         # message += "認証用メールを確認して有効化リンクをクリックしてください。"
@@ -29,9 +29,11 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
-    log_out if logged_in?
-    # flash[:success] = "ログアウトしました。"
-    # redirect_to root_url
+    if logged_in?
+      log_out
+    else
+      response_bad_request
+    end
   end
 
 end
