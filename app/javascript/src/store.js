@@ -1,20 +1,21 @@
 
-// import  { createStore } from 'vuex'
+import  { createStore } from 'vuex'
 
-// export const store = createStore ({
-//   state() {
-//     return {
-//       message: 'This is store data',
-//       counter: 0,
-//     }
-//   },
-//   mutations: {
-//     count: (state, obj) => {
-//       state.message = obj.message
-//       state.counter += obj.add
-//     },
-//     reset: (state)=> {
-//       state.counter = 0
-//     }
-//   },
-// })
+export const store = createStore ({
+  state() {
+    return {
+      loggedIn: false
+
+    }
+  },
+  mutations: {
+    login: (state, token) => {
+      localStorage.setItem('Token', token);
+      state.loggedIn = true;
+    },
+    logout: (state)=> {
+      localStorage.removeItem('Token');
+      state.loggedIn = false;
+    }
+  },
+})
