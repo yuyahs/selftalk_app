@@ -30,9 +30,9 @@
     'X-CSRF-TOKEN' : document.querySelector('meta[name="csrf-token"]').getAttribute('content')
   };
 
+  const token = Math.random().toString(32).substring(2)
 
   export default {
-
     name: 'Login',
     data() {
       return {
@@ -48,7 +48,7 @@
           session: this.session
         })
         .then(response => {
-          this.$store.commit('login', 'token'),
+          this.$store.commit('login', token),
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({
             type: 'success',

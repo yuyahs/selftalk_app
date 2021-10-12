@@ -20,6 +20,7 @@
 <script>
   import axios from 'axios';
 
+  const token = Math.random().toString(32).substring(2)
 
   export default {
 
@@ -39,6 +40,7 @@
         user: this.user,
         email: this.email})
         .then(response => {
+          this.$store.commit('login', token),
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({
             type: 'success',
