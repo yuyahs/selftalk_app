@@ -11,11 +11,6 @@
         <router-link to='/password_resets/new' class="underline text-blue-900 hover:text-blue-100">(パスワードを忘れた場合)</router-link>
         <input type="password" v-model="session.password" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
       </div>
-      <div class="my-4">
-
-        <input type="checkbox" value="1" v-model="session.remember_me">
-        <span>ログイン状態を保持する</span>
-      </div>
 
       <div class="flex flex-row">
         <button @click="createSession" class="w-1/2 mt-4 bg-blue-500  text-white font-semibold hover:bg-blue-300 py-2 px-4 border border-white rounded-full" >
@@ -44,7 +39,6 @@
         session: {
           email: '',
           password: '',
-          remember_me: '',
         }
       }
     },
@@ -54,6 +48,7 @@
           session: this.session
         })
         .then(response => {
+          this.$store.commit('login', 'token'),
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({
             type: 'success',

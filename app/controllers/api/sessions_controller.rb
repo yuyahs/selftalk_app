@@ -1,5 +1,5 @@
 class Api::SessionsController < ApplicationController
-  
+
 
   def new
   end
@@ -9,9 +9,10 @@ class Api::SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       if user.activated?
         log_in user
-        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        # params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         # flash[:success] = "ログインしました。"
         # redirect_to root_url
+        remember(user)
       else
         # message = "有効化されていないアカウントです。"
         # message += "認証用メールを確認して有効化リンクをクリックしてください。"
