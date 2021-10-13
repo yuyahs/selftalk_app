@@ -31,4 +31,8 @@ Rails.application.routes.draw do
     resources :password_resets, only: [:create, :edit, :update]
   end
 
+  namespace :api do
+    resources :account_activations, only: [ :edit ]
+  end
+
 end

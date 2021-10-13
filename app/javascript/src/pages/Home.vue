@@ -45,8 +45,13 @@
 </template>
 
 <script>
-export default {
-  name: 'Home',
+  import axios from 'axios';
 
-}
+
+  export default {
+    name: 'Home',
+
+   
+
+  }
 </script>
