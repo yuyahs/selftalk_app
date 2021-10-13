@@ -25,6 +25,14 @@ export default {
     nav1: String,
     nav2: String
   },
+  created() {
+    if(document.body.contains(document.getElementById('login'))) {
+      const token = Math.random().toString(32).substring(2)
+      this.$store.commit('login', token);
+     } else {
+       this.$store.commit('logout');
+     }
+    },
 
   methods: {
      destroySession: function() {
