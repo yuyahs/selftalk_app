@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
     if @user.save
       @user.send_activation_email
     else
-      render json: @user.errors, status: :unprpcessable_entity
+      response_bad_request
     end
   end
 
