@@ -5,6 +5,7 @@ import New from './users/New.vue'
 import Login from './sessions/New.vue'
 import Reset from './password_resets/New.vue'
 import Change from './password_resets/Edit.vue'
+import userEdit from './users/Edit.vue'
 
 
 
@@ -25,6 +26,11 @@ export const router = createRouter({
       path: '/users/new',
       name: 'new',
       component: New,
+    },
+    {
+      path: '/users/:id/edit',
+      name: 'change info',
+      component: userEdit,
     },
     {
       path: '/login',

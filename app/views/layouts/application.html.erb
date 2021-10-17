@@ -17,11 +17,12 @@
 
   <body  class="bg-blue-900 flex flex-col min-h-screen">
     <% if logged_in? %>
-      <p id="login" class="hidden">check</p>
+      <p id="login" class="hidden"><%= @user.id %></p>
     <% end %>
-     <% flash.each do |message_type, message| %>
-       <div class="<%= message_type %>"><%= message %></div>
-     <% end %>
+
+    <% flash.each do |message_type, message| %>
+      <div class="<%= message_type %>"><%= message %></div>
+  　 <% end %>
     <div id="application"></div>
     <!--<%= render 'layouts/header' %>
     <div class = "p-24 flex-grow">
