@@ -6,7 +6,6 @@ export const store = createStore ({
   state() {
     return {
       loggedIn: false
-
     }
   },
   mutations: {
@@ -23,3 +22,4 @@ export const store = createStore ({
     createPersistedState(),
   ],
 })
+

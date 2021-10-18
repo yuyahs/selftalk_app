@@ -20,8 +20,6 @@
   import axios from 'axios';
 
 
-
-
  export default {
    name: 'Header',
     props: {
@@ -30,8 +28,8 @@
     },
     data() {
 
-      // let userId = document.getElementById('userId').innerText;
 
+      // let userId = document.getElementById('login').textContent
 
       return {
 
@@ -46,8 +44,7 @@
       } else {
         this.$store.commit('logout');
       }
-      },
-
+    },
     methods: {
       destroySession: function() {
           axios.delete('/api/logout')
