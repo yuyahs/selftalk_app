@@ -4,11 +4,11 @@ class Api::AccountActivationsController < ApplicationController
     if user && !user.activated? && user.authenticated?(:activation, params[:id])
       user.activate
       log_in user
-      flash[:success] = "SelfTalkEnglishへようこそ！"
-      redirect_to root_path
+      # flash[:success] = "SelfTalkEnglishへようこそ！"
+      redirect_to user
     else
       flash[:danger] = "無効なリンクです。"
-      # redirect_to root_path
+      redirect_to root_path
       response_bad_request
     end
   end

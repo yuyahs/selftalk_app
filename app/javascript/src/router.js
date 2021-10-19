@@ -18,7 +18,7 @@ export const router = createRouter({
       component: Home,
     },
     {
-      path: '/users/1',
+      path: '/users/:id',
       name: 'show',
       component: Show,
     },

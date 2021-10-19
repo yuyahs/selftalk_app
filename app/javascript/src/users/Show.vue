@@ -24,9 +24,16 @@ export default {
   },
   methods: {
     setUser: function () {
-      axios.get('/api/users/1')
+      const id = this.$route.params.id
+      axios.get(`/api/users/${this.$route.params.id}`)
       .then(response => (
-        this.user = response.data
+        this.user = response.data,
+        localStorage.setItem('Id', id),
+        this.$flashMessage.show({
+            type: 'success',
+            text:'Welcome to SelfTalkEnglish',
+            time: 5000
+          })
       ))
     }
   }

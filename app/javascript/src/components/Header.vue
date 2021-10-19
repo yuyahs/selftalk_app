@@ -29,11 +29,11 @@
     data() {
 
 
-      // let userId = document.getElementById('login').textContent
+      let userId = localStorage.getItem('Id')
 
       return {
 
-        UserId: 2
+        UserId: userId
 
       }
     },
