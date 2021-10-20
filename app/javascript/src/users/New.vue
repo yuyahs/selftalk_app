@@ -52,6 +52,12 @@
           user: this.user
         })
         .then(response => {
+          const userId = localStorage.getItem('Id')
+          if (userId) {
+            localStorage.removeItem('Id')
+          }
+          const id = response.data.id
+          localStorage.setItem('Id', id),
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({
             type: 'success',

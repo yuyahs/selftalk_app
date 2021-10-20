@@ -40,6 +40,8 @@
         user: this.user,
         email: this.email})
         .then(response => {
+          const id = response.data.id
+          localStorage.setItem('Id', id),
           this.$store.commit('login', token),
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({

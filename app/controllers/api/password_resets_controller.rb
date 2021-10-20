@@ -14,6 +14,7 @@ class Api::PasswordResetsController < ApplicationController
       @user.send_password_reset_email
       # flash[:success] = "パスワード再設定用のメールを送信しました。"
       # redirect_to root_url
+      render json: { id: @user.id }
     else
       # flash[:danger] = "未登録のメールアドレスです。"
       # render 'new'
@@ -32,6 +33,7 @@ class Api::PasswordResetsController < ApplicationController
     elsif @user.update(user_params)
       log_in @user
       @user.update_attribute(:reset_digest, nil)
+      render json: { id: @user.id }
       # flash[:success] = "パスワードを再設定しました。"
       # redirect_to root_url
     else

@@ -17,7 +17,7 @@ RSpec.describe "Api::PasswordResets", type: :request do
       it "レスポンス204を返す" do
         post '/api/password_resets', params: {password_reset: {email: user.email}}
         expect(ActionMailer::Base.deliveries.size).to eq(1)
-        expect(response).to have_http_status "204"
+        expect(response).to have_http_status "200"
       end
     end
   end
@@ -55,7 +55,7 @@ RSpec.describe "Api::PasswordResets", type: :request do
                    password: "password",
                    password_confirmation: "password" }}
           expect(is_logged_in?).to be_truthy
-          expect(response).to have_http_status "204"
+          expect(response).to have_http_status "200"
       end
     end
   end
@@ -84,7 +84,7 @@ RSpec.describe "Api::PasswordResets", type: :request do
                    password_confirmation: "foobar" }}
           expect(is_logged_in?).to be_truthy
           expect(user.reload.reset_digest).to eq nil
-          expect(response).to have_http_status "204"
+          expect(response).to have_http_status "200"
         end
       end
     end

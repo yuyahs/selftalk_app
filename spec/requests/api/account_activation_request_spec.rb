@@ -10,9 +10,8 @@ RSpec.describe "Api::AccountActivations", type: :request do
         email: 'wrong')
     end
 
-    it "ログインに失敗し、エラー400を返す" do
+    it "ログインに失敗する" do
       expect(is_logged_in?).to be_falsy
-      expect(response).to  have_http_status "400"
     end
   end
 
