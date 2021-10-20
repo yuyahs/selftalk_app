@@ -22,12 +22,12 @@ RSpec.describe "Api::Users", type: :request do
           password_confirmation: "password" } }
         }.to change(User, :count).by(1)
       expect(ActionMailer::Base.deliveries.size).to eq(1)
-      expect(response).to have_http_status "204"
+      expect(response).to have_http_status "200"
 
     end
   end
 
-  
+
   # describe "get/ edit_user_path" do
   #   context "ログイン済みユーザーのアクセス" do
   #     it "redirects to edit_user_path" do

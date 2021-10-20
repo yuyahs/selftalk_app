@@ -5,14 +5,16 @@ class Api::SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      if user.activated?
-        log_in user
+    @user = User.find_by(email: params[:session][:email].downcase)
+    if @user && @user.authenticate(params[:session][:password])
+      if @user.activated?
+        log_in @user
         # params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         # flash[:success] = "ログインしました。"
-        remember(user)
+        remember(@user)
+        render json: { id: @user.id }
         # redirect_to root_url
+        
       else
         # message = "有効化されていないアカウントです。"
         # message += "認証用メールを確認して有効化リンクをクリックしてください。"

@@ -16,6 +16,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
+      render json: { id: @user.id }
     else
       response_bad_request
     end

@@ -19,8 +19,9 @@
 <script>
   import axios from 'axios';
 
+  let userId = localStorage.getItem('Id')
 
- export default {
+  export default {
    name: 'Header',
     props: {
       nav1: String,
@@ -29,7 +30,6 @@
     data() {
 
 
-      let userId = localStorage.getItem('Id')
 
       return {
 
@@ -50,6 +50,7 @@
           axios.delete('/api/logout')
           .then(response => {
             this.$store.commit('logout'),
+            localStorage.removeItem('Id'),
             this.$router.push({ path: '/'}),
             this.$flashMessage.show({
               type: 'success',
