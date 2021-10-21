@@ -44,6 +44,7 @@
       } else {
         this.$store.commit('logout');
       }
+
     },
     methods: {
       destroySession: function() {

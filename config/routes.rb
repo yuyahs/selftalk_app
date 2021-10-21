@@ -35,4 +35,12 @@ Rails.application.routes.draw do
     resources :account_activations, only: [ :edit ]
   end
 
+  namespace :api do
+    resources :answers
+  end
+
+  namespace :api do
+    resources :questions
+  end
+
 end
