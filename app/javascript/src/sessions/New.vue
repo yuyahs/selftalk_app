@@ -49,12 +49,12 @@
           session: this.session
         })
         .then(response => {
-           const userId = localStorage.getItem('Id')
+          const userId = localStorage.getItem('Id')
           if (userId) {
             localStorage.removeItem('Id')
           }
           const id = response.data.id
-          localStorage.setItem('Id', id),
+          this.$store.commit('setId', id),
           this.$store.commit('login', token),
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({

@@ -5,7 +5,8 @@ import createPersistedState from 'vuex-persistedstate'
 export const store = createStore ({
   state() {
     return {
-      loggedIn: false
+      loggedIn: false,
+      userId: 0
     }
   },
   mutations: {
@@ -16,6 +17,10 @@ export const store = createStore ({
     logout: (state)=> {
       localStorage.removeItem('Token');
       state.loggedIn = false;
+    },
+    setId: (state, id) => {
+      localStorage.setItem('Id', id)
+      state.userId = id
     }
   },
   plugins : [
