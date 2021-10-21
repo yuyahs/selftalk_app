@@ -5,7 +5,7 @@
       <div v-if="$store.state.loggedIn">
         <span @click="destroySession" class="mr-4 hover:bg-blue-300 cursor-pointer">ログアウト
         </span>
-        <router-link :to="{ name: 'change info', params: { id: UserId}}" class="mr-4 hover:bg-blue-300">登録情報を変更する</router-link>
+        <router-link :to="{ name: 'change info', params: { id: $store.state.userId}}" class="mr-4 hover:bg-blue-300">登録情報を変更する</router-link>
       </div>
       <div v-else>
         <router-link to="/login" class="mr-4 hover:bg-blue-300">{{nav1}}</router-link>
