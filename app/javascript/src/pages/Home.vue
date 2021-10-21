@@ -9,7 +9,7 @@
         <p class="text-lg mt-4">質問に対して説明形式で回答</p>
         <p class="text-lg">目標回答時間：45秒</p>
         <button class= "mt-4 bg-yellow-500 hover:bg-white text-white font-semibold hover:text-black py-2 px-4 border border-white hover:border-yellow-500 rounded-full" >
-          Start!<!-- <%= link_to "Start!", new_answer_path(mode_num: 1), class:"block" %> -->
+          <router-link :to="{ name: 'courses'}">Start!</router-link>
         </button>
       </div>
 
@@ -46,7 +46,7 @@
 
 <script>
   import axios from 'axios';
-
+  
 
   export default {
     name: 'Home'
