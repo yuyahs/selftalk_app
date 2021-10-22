@@ -9,9 +9,9 @@ class Api::AnswersController < ApplicationController
   end
 
   def new
-    @questions = Question.where(mode_num: params[:mode_num])
-    @question = @questions.find(@questions.pluck(:id).sample )
-    @answer = @question.answers.new
+      @questions = Question.where(mode_num: params[:mode_num])
+      @question = @questions.find(@questions.pluck(:id).sample)
+      render json: @question
   end
 
   def create
@@ -19,9 +19,7 @@ class Api::AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
     @answer.assign_attributes(user_id: current_user.id)
     if @answer.save
-      redirect_to new_answer_path(mode_num: params[:mode_num])
-    else
-      redirect_to new_answer_path(mode_num: params[:mode_num])
+      response_success(:answer, :create)
     end
   end
 

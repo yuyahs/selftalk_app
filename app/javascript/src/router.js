@@ -58,6 +58,6 @@ export const router = createRouter({
       path: '/answers/new',
       name: 'courses',
       component: Courses
-    }
+    },
   ],
 })

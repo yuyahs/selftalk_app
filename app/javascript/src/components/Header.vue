@@ -1,6 +1,6 @@
 <template>
   <header class="bg-blue-900 text-white h-16 border-b-2 border-fuchsia-600">
-    <router-link to="/" class="font-serif text-3xl ">SelftalkEnglish</router-link>
+    <router-link to="/" class="font-serif text-3xl ">SelfTalkEnglish</router-link>
     <nav class="float-right flex flex-row text-white font-bold mt-4 mr-10 ">
       <div v-if="$store.state.loggedIn">
         <span @click="destroySession" class="mr-4 hover:bg-blue-300 cursor-pointer">ログアウト
