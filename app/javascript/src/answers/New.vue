@@ -7,7 +7,7 @@
      <input type="hidden" :value="mode_num">
      <input type="hidden" :value="id">
 
-     <input type="textarea" id="text1" v-model="answer.content" class="content-center resize-none text-2xl h-36 pl-3 w-full border-solid border-2 rounded border-gray-600" >
+     <textarea id="text1" v-model="answer.content" class="content-center resize-none text-2xl h-36 pl-3 pt-3 w-full border-solid border-2 rounded border-gray-600" ></textarea>
 
      <button @click="saveAnswer" class="my-10 bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
       次の問題へ進む
@@ -56,13 +56,9 @@
           mode_num: this.mode_num
         })
         .then(response => {
-          // this.$router.go({ name: 'courses', query: {mode_num: this.$route.query.mode_num}})
           this.$router.go({path: this.$router.currentRoute.path})
-          const text = document.getElementById('text1')
-          text.value =""
         })
          .catch(err => {
-            // this.$router.go({ name: 'courses', query: {mode_num: this.$route.query.mode_num}})
             this.$router.go({path: this.$router.currentRoute.path})
          })
       }
