@@ -35,11 +35,11 @@ Rails.application.routes.draw do
     resources :account_activations, only: [ :edit ]
   end
 
-  namespace :api do
+  namespace :api, format: 'json' do
     resources :answers
   end
 
-  namespace :api do
+  namespace :api, format: 'json' do
     resources :questions
   end
 

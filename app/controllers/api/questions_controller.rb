@@ -1,10 +1,16 @@
 class Api::QuestionsController < ApplicationController
-  before_action :admined_user
+  # before_action :admined_user
 
   def index
     @questions = Question.where(mode_num: params[:mode_num])
     @questions = Kaminari.paginate_array(@questions).page(params[:page]).per(5)
+  end
 
+  def show
+    @questions = Question.where(mode_num: params[:mode_num])
+    @question = @questions.find(@questions.pluck(:id).sample)
+    # render 'show', formats: 'json', handlers: 'jbuilder'
+    render json: {content: @question.content}
   end
 
   def new
