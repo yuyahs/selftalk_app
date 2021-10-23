@@ -10,8 +10,11 @@ RSpec.describe "Api::AccountActivations", type: :request do
         email: 'wrong')
     end
 
-    it "ログインに失敗する" do
-      expect(is_logged_in?).to be_falsy
+    it "ログイン時にエラー401を返す" do
+      expect(response).to redirect_to root_path
+      post '/api/login', params: { session: { email: user.email,
+      password: 'password' } }
+      expect(response).to have_http_status "401"
     end
   end
 
@@ -24,9 +27,11 @@ RSpec.describe "Api::AccountActivations", type: :request do
     end
 
 
-    it "ログインに成功してルートURLにアクセスする" do
-      expect(is_logged_in?).to be_truthy
+    it "ログインに成功する" do
       expect(response).to redirect_to root_path
+      post '/api/login', params: { session: { email: user.email,
+        password: 'password' } }
+        expect(response).to have_http_status "200"
     end
   end
 

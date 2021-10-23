@@ -1,11 +1,17 @@
 <template>
   <header class="bg-blue-900 text-white h-16 border-b-2 border-fuchsia-600">
     <router-link to="/" class="font-serif text-3xl ">SelfTalkEnglish</router-link>
-    <nav class="float-right flex flex-row text-white font-bold mt-4 mr-10 ">
-      <div v-if="$store.state.loggedIn">
-        <span @click="destroySession" class="mr-4 hover:bg-blue-300 cursor-pointer">ログアウト
-        </span>
-        <router-link :to="{ name: 'change info', params: { id: $store.state.userId}}" class="mr-4 hover:bg-blue-300">登録情報を変更する</router-link>
+    <nav class="float-right flex flex-row text-white font-bold mt-4 mr-10">
+      <div v-if="$store.state.loggedIn" class="float-right flex flex-row">
+        <router-link :to="{name: 'show', params: {id: $store.state.userId}}" class="mr-4 hover:bg-blue-300">マイページ</router-link>
+        <ul>
+          <li id="menu" class="hover:bg-blue-300 cursor-pointer">メニュー▼</li>
+          <div id="tab" class="absolute right-4 p-2 w-1/6 bg-blue-900 font-thin border border-solid border-white rounded hidden">
+            <li @click="destroySession" class="mr-4 hover:bg-blue-300 cursor-pointer">ログアウト
+            </li>
+            <router-link :to="{ name: 'change info', params: { id: $store.state.userId}}" class="mr-4 hover:bg-blue-300">登録情報を変更する</router-link>
+          </div>
+        </ul>
       </div>
       <div v-else>
         <router-link to="/login" class="mr-4 hover:bg-blue-300">{{nav1}}</router-link>
@@ -19,7 +25,7 @@
 <script>
   import axios from 'axios';
 
-  let userId = localStorage.getItem('Id')
+  // const userId = localStorage.getItem('Id')
 
   export default {
    name: 'Header',
@@ -27,16 +33,16 @@
       nav1: String,
       nav2: String
     },
-    data() {
+    // data() {
 
 
 
-      return {
+    //   return {
 
-        UserId: userId
+    //     UserId: userId
 
-      }
-    },
+    //   }
+    // },
     created() {
       if(document.body.contains(document.getElementById('login'))) {
         const token = Math.random().toString(32).substring(2)
@@ -44,14 +50,17 @@
       } else {
         this.$store.commit('logout');
       }
-
+    },
+    mounted() {
+      this.showMenu();
     },
     methods: {
       destroySession: function() {
           axios.delete('/api/logout')
           .then(response => {
             this.$store.commit('logout'),
-            localStorage.removeItem('Id'),
+            // localStorage.removeItem('Id'),
+            this.$store.commit('removeId'),
             this.$router.push({ path: '/'}),
             this.$flashMessage.show({
               type: 'success',
@@ -66,7 +75,19 @@
               text: 'ログアウトできませんでした。'
             });
           })
+        },
+      showMenu: function() {
+
+        const tab = document.getElementById('tab')
+        const menu = document.getElementById('menu')
+        document.addEventListener("click", (e) => {
+        if(e.target.closest("#menu")) {
+          tab.classList.contains("hidden") ? tab.classList.remove("hidden") : tab.classList.add("hidden");
+        }else {
+          tab.classList.add("hidden");
         }
+        });
+      }
     }
   }
 </script>

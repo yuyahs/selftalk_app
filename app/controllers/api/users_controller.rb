@@ -16,7 +16,6 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
-      render json: { id: @user.id }
     else
       response_bad_request
     end
@@ -27,8 +26,6 @@ class Api::UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      # flash[:success] = "登録情報を変更しました。"
-      # redirect_to root_url
     else
       response_bad_request
     end

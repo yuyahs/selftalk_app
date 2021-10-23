@@ -1,7 +1,7 @@
 'user strict';
 {
   document.addEventListener("DOMContentLoaded", () => {
-
+    
     const tab = document.getElementById('tab')
     const menu = document.getElementById('menu')
     document.addEventListener("click", (e) => {

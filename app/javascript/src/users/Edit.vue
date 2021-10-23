@@ -39,9 +39,6 @@
     data() {
       return {
         user:
-          // password: "",
-          // password_confirmation: "",
-          // id: this.$route.params.id
           "users"
 
       }

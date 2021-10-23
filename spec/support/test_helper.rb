@@ -5,7 +5,7 @@ module TestHelper
 
 
   def log_in_as(user, remember_me: '1')
-    post login_path, params: { session: {
+    post '/api/login', params: { session: {
       email: user.email,
       password: user.password,
       remember_me: remember_me,
@@ -13,7 +13,7 @@ module TestHelper
   end
 
   def log_in(user)
-    visit login_path
+    visit api_login_path
     fill_in 'メールアドレス', with: user.email
     fill_in 'パスワード', with: user.password
     click_button 'ログイン'
