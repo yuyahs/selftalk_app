@@ -5,7 +5,7 @@
       <div v-if="$store.state.loggedIn" class="float-right flex flex-row">
         <router-link :to="{name: 'show', params: {id: $store.state.userId}}" class="mr-4 hover:bg-blue-300">マイページ</router-link>
         <ul>
-          <li id="menu" class="hover:bg-blue-300 cursor-pointer">メニュー▼</li>
+          <li id="menu" @click="showMenu" class="hover:bg-blue-300 cursor-pointer">メニュー▼</li>
           <div id="tab" class="absolute right-4 p-2 w-1/6 bg-blue-900 font-thin border border-solid border-white rounded hidden">
             <li @click="destroySession" class="mr-4 hover:bg-blue-300 cursor-pointer">ログアウト
             </li>
@@ -25,24 +25,12 @@
 <script>
   import axios from 'axios';
 
-  // const userId = localStorage.getItem('Id')
-
   export default {
    name: 'Header',
     props: {
       nav1: String,
       nav2: String
     },
-    // data() {
-
-
-
-    //   return {
-
-    //     UserId: userId
-
-    //   }
-    // },
     created() {
       if(document.body.contains(document.getElementById('login'))) {
         const token = Math.random().toString(32).substring(2)
@@ -51,15 +39,11 @@
         this.$store.commit('logout');
       }
     },
-    mounted() {
-      this.showMenu();
-    },
     methods: {
       destroySession: function() {
           axios.delete('/api/logout')
           .then(response => {
             this.$store.commit('logout'),
-            // localStorage.removeItem('Id'),
             this.$store.commit('removeId'),
             this.$router.push({ path: '/'}),
             this.$flashMessage.show({
@@ -77,7 +61,6 @@
           })
         },
       showMenu: function() {
-
         const tab = document.getElementById('tab')
         const menu = document.getElementById('menu')
         document.addEventListener("click", (e) => {
