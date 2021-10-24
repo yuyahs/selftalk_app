@@ -19,7 +19,6 @@ export const store = createStore ({
       state.loggedIn = false;
     },
     setId: (state, id) => {
-      // localStorage.setItem('Id', id)
       state.userId = id
     },
     removeId: (state) => {

@@ -1,5 +1,9 @@
 <template>
   <div class="text-center">
+     <div class="text-white mb-10">
+        <progress id="progress" value="45" max="45" class="bg-white w-1/2 border border-solid border-white rounded-full"></progress>
+        <span id="countdown">45</span>
+    </div>
      <div class="text-2xl w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
        <div>{{question.content}}</div>
      </div>
@@ -23,22 +27,38 @@
 <script>
   import axios from 'axios';
 
+
+
   export default {
 
+
     name: 'Courses',
-    data: function () {
-    return {
-      question: {
-        content: ""
-      },
-      answer: {
-        content: ""
-      },
-      mode_num: this.$route.query.mode_num
-     }
+
+    data() {
+      return {
+        question: {
+          content: ""
+        },
+        answer: {
+          content: ""
+        },
+        mode_num: this.$route.query.mode_num
+      }
     },
     mounted() {
       this.setQuestion();
+    },
+    created() {
+      let i = 45;
+      this.$setInterval(() => {
+         i -- ;
+          const doc0 = document.getElementById('countdown');
+          doc0.textContent= `${i}`;
+          document.getElementById('progress').setAttribute('value', i);
+          if(i == 0 ) {
+            clearInterval(intervalId);
+          }
+      }, 1000)
     },
     methods: {
       setQuestion: function () {
@@ -64,6 +84,7 @@
       }
     }
   }
+
 
 
 
