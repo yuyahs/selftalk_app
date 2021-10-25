@@ -23,11 +23,7 @@
       Header,
       Footer,
     },
-    // created() {
-    //    if(document.body.contains(document.getElementById('progress'))) {
-    //      this.$clearAllInterval();
-    //    }
-    // }
+    
 
 
 

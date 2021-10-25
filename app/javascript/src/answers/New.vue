@@ -30,6 +30,9 @@
 
 
   export default {
+     beforeRouteLeave (to, from, next) {
+       next(this.$clearInterval(this.$intervals))
+     },
 
 
     name: 'Courses',
@@ -47,18 +50,7 @@
     },
     mounted() {
       this.setQuestion();
-    },
-    created() {
-      let i = 45;
-      this.$setInterval(() => {
-         i -- ;
-          const doc0 = document.getElementById('countdown');
-          doc0.textContent= `${i}`;
-          document.getElementById('progress').setAttribute('value', i);
-          if(i == 0 ) {
-            clearInterval(intervalId);
-          }
-      }, 1000)
+      this.setTimer();
     },
     methods: {
       setQuestion: function () {
@@ -81,7 +73,20 @@
          .catch(err => {
             this.$router.go({path: this.$router.currentRoute.path})
          })
-      }
+      },
+      setTimer: function() {
+        let i = 45;
+        this.$setInterval(() => {
+          i -- ;
+          const doc0 = document.getElementById('countdown');
+          doc0.textContent= `${i}`;
+          document.getElementById('progress').setAttribute('value', i);
+          if(i == 0 ) {
+            clearInterval(this.$intervals);
+          }
+      }, 1000)
+     }
+
     }
   }
 
@@ -90,3 +95,27 @@
 
 
 </script>
+
+<style scoped>
+  #progress::-webkit-progress-bar {
+  border-radius: 15px;
+  background-color: #D1D5DB;
+  }
+
+  #progress::-webkit-progress-value {
+    border-radius: 15px;
+    background-color: #3B82F6;
+
+  }
+
+  #progress::-moz-progress-bar {
+    border-radius: 15px;
+    background-color: #3B82F6;
+
+  }
+
+  #progress::-ms-fill {
+    border-radius: 15px;
+    background-color: #3B82F6;
+  }
+</style>

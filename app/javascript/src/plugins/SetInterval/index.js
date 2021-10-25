@@ -10,8 +10,8 @@ export default {
     }
     app.config.globalProperties.$clearInterval = (timerId) => {
       clearInterval(timerId)
-      app.config.globalProperties.$intervals =
-      app.config.globalProperties.$intervals.filter(i => i !== timerId)
+      app.config.globalProperties.$intervals =[]
+   
     }
     app.config.globalProperties.$clearAllIntervals = () => {
       app.config.globalProperties.forEach(clearInterval)

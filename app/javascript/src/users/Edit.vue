@@ -40,7 +40,6 @@
       return {
         user:
           "users"
-
       }
     },
     mounted() {
