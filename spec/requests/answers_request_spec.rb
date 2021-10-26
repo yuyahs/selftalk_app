@@ -1,13 +1,13 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe "Answers", type: :request do
-  let(:user){create(:user)}
-  context "ログイン済みユーザーの場合" do
+# RSpec.describe "Answers", type: :request do
+#   let(:user){create(:user)}
+#   context "ログイン済みユーザーの場合" do
 
-    before do
-      log_in_as user
-      questions = create_list(:question, 10)
-    end
+#     before do
+#       log_in_as user
+#       questions = create_list(:question, 10)
+#     end
 
     # describe "GET /index" do
     #   let!(:answer){create(:answer)}
@@ -17,36 +17,36 @@ RSpec.describe "Answers", type: :request do
     #   end
     # end
 
-    describe "GET /new" do
-      it "レスポンス200を返す" do
-        get new_api_answer_path(mode_num: 1)
-        expect(response).to have_http_status "200"
-      end
-    end
+  #   describe "GET /new" do
+  #     it "レスポンス200を返す" do
+  #       get new_api_answer_path(mode_num: 1)
+  #       expect(response).to have_http_status "200"
+  #     end
+  #   end
 
-    describe "POST /create" do
-      let(:question){create(:question)}
+  #   describe "POST /create" do
+  #     let(:question){create(:question)}
 
-      context "answserが空欄ではない場合" do
-        it "answerを保存しレスポンス200を返す" do
-          expect{
-          post api_answers_path, params: {id: question.id, answer: {content: "test"}}
-          }.to change(Answer, :count).by(1)
-          expect(response).to have_http_status "200"
-        end
+  #     context "answserが空欄ではない場合" do
+  #       it "answerを保存しレスポンス200を返す" do
+  #         expect{
+  #         post api_answers_path, params: {id: question.id, answer: {content: "test"}}
+  #         }.to change(Answer, :count).by(1)
+  #         expect(response).to have_http_status "200"
+  #       end
 
-      context "answerが空欄の場合" do
-        it "answerが保存されずレスポンス204を返す" do
-          expect{
-          post api_answers_path, params: {id: question.id, answer: {content: ""}}
-          }.to change(Answer, :count).by(0)
-          expect(response).to have_http_status "204"
-        end
-      end
+  #     context "answerが空欄の場合" do
+  #       it "answerが保存されずレスポンス204を返す" do
+  #         expect{
+  #         post api_answers_path, params: {id: question.id, answer: {content: ""}}
+  #         }.to change(Answer, :count).by(0)
+  #         expect(response).to have_http_status "204"
+  #       end
+  #     end
 
-      end
-    end
-  end
+  #     end
+  #   end
+  # end
 
 
 
@@ -86,4 +86,4 @@ RSpec.describe "Answers", type: :request do
 
 
 
-end
+

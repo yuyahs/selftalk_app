@@ -7,6 +7,7 @@ import Reset from './password_resets/New.vue'
 import Change from './password_resets/Edit.vue'
 import userEdit from './users/Edit.vue'
 import Courses from './answers/New.vue'
+import Answers from './answers/Index.vue'
 
 
 
@@ -59,5 +60,10 @@ export const router = createRouter({
       name: 'courses',
       component: Courses
     },
+    {
+      path: '/answers',
+      name: 'answers',
+      component: Answers
+    }
   ],
 })
