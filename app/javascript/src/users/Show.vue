@@ -1,8 +1,14 @@
 <template>
   <div>
-    <div>
-        <p>{{user.name}}</p>
-        <p>{{user.email}}</p>
+    <h1 class="text-center text-3xl text-white font-bold pb-5">{{user.name}}さんの学習記録</h1>
+    <div class="text-center flex items-center justify-center">
+      <div v-for="date in dates" class="mt-4" :key="date">
+        <li class="w-56 bg-white list-none underline text-black mt-5 font-bold text-2xl
+                 border border-solid border-white rounded-full hover:bg-black hover:text-white">
+         {{date}}
+        </li>
+      </div>
+
     </div>
 
   </div>
@@ -16,7 +22,8 @@ export default {
   name: 'Show',
   data: function () {
     return {
-      user: "user"
+      user: "",
+      dates: ""
     }
   },
   mounted() {
@@ -27,6 +34,8 @@ export default {
       axios.get(`/api/users/${this.$route.params.id}`)
       .then(response => {
         this.user = response.data
+        this.dates = response.data.dates
+        console.log(response.data);
       })
     }
   }

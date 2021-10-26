@@ -4,6 +4,18 @@ RSpec.describe "Api::Users", type: :request do
   let(:user){create(:user)}
   let(:other_user){create(:user)}
 
+  describe "show/ user_path" do
+    let!(:answer){create(:answer)}
+      before do
+        log_in_as user
+      end
+
+    it "成功レスポンス200を返す" do
+      get api_user_path(user)
+      expect(response).to have_http_status "200"
+    end
+  end
+
   describe "post/ signup_path " do
     it "不正な入力情報に対してエラー400を返す" do
       post '/api/users', params: { user: { name:  "",
