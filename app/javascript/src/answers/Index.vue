@@ -26,7 +26,11 @@
     },
     methods: {
       getAnswers: function() {
-        axios.get('api/answers')
+        axios.get('api/answers', {
+          params: {
+            created_at: this.$route.query.created_at
+          }
+        })
         .then(response => {
           this.answers = response.data
           console.log(response.data);
