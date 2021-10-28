@@ -43,46 +43,52 @@ RSpec.describe "Answers", type: :request do
           end
         end
       end
+
+
+
+
+
+
+    describe "GET /edit" do
+      let(:answer){create(:answer, user_id: user.id)}
+
+      it "成功レスポンス200を返す" do
+        get edit_api_answer_path(answer)
+
+        expect(response).to have_http_status "200"
+      end
+    end
+
+    describe "PATCH /update" do
+      let(:answer){create(:answer, user_id: user.id)}
+      context  "textが空の場合" do
+        it "エラー400を返す" do
+          patch api_answer_path(answer), params: {answer: {content: ""}}
+          expect(response).to have_http_status "400"
+        end
+      end
+
+      context "textが空でない場合" do
+        it "成功レスポンス200を返す" do
+          patch api_answer_path(answer), params: {answer: {content: "change"}}
+          expect(response).to have_http_status "200"
+        end
+      end
+    end
+  end
+
+
+  context "ログイン済みでないユーザーの場合" do
+
+    describe "GET /index" do
+      it "redirects to login path" do
+        get '/api/answers'
+        expect(response).to redirect_to login_path
+      end
+    end
+    #そのほかのアクションについては省略
   end
 end
-
-
-
-
-  #   describe "GET /edit" do
-  #     let(:answer){create(:answer, user_id: user.id)}
-
-  #     it "returns http success" do
-  #       get edit_answer_path(answer)
-
-  #       expect(response.body).to include "添削"
-  #     end
-  #   end
-
-  #   describe "PATCH /update" do
-  #     let(:answer){create(:answer, user_id: user.id)}
-
-  #     it "renders index" do
-  #       patch answer_path(answer), params: {answer: {content: "change"}}
-  #       expect(flash[:success]).to eq "回答を保存しました。"
-  #       expect(response.body).to include "添削"
-  #     end
-
-
-  #   end
-  # end
-
-
-  # context "ログイン済みでないユーザーの場合" do
-
-  #   describe "GET /index" do
-  #     it "redirects to login path" do
-  #       get answers_path
-  #       expect(response).to redirect_to login_path
-  #     end
-  #   end
-  #   #そのほかのアクションについては省略
-  # end
 
 
 
