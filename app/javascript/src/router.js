@@ -8,6 +8,7 @@ import Change from './password_resets/Edit.vue'
 import userEdit from './users/Edit.vue'
 import Courses from './answers/New.vue'
 import Answers from './answers/Index.vue'
+import AnswerEdit from './answers/Edit.vue'
 
 
 
@@ -64,6 +65,11 @@ export const router = createRouter({
       path: '/answers',
       name: 'answers',
       component: Answers
+    },
+    {
+      path: '/answers/:id/edit',
+      name: 'answerEdit',
+      component: AnswerEdit
     }
   ],
 })

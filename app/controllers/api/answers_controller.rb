@@ -26,6 +26,7 @@ class Api::AnswersController < ApplicationController
 
   def edit
     @answer = current_user.answers.find(params[:id])
+    @date = @answer.created_at.to_date
     @question = Question.find_by(id: @answer.question_id)
   end
 
@@ -33,11 +34,9 @@ class Api::AnswersController < ApplicationController
     @answer = current_user.answers.find(params[:id])
     @question = Question.find_by(id: @answer.question_id)
     if @answer.update(answer_params)
-      flash.now[:success] = "回答を保存しました。"
-      render 'edit'
+      response_success(:answer, :update)
     else
-      flash.now[:danger] = "回答を保存できませんでした。"
-      render 'edit'
+      response_bad_request
     end
   end
 

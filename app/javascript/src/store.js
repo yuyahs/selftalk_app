@@ -6,7 +6,7 @@ export const store = createStore ({
   state() {
     return {
       loggedIn: false,
-      userId: 0
+      userId: 0,
     }
   },
   mutations: {
@@ -23,7 +23,8 @@ export const store = createStore ({
     },
     removeId: (state) => {
       state.userId = 0
-    }
+    },
+
   },
   plugins : [
     createPersistedState(),
