@@ -70,7 +70,7 @@
           tab.classList.add("hidden");
         }
         });
-      }
+      },
     }
   }
 </script>
