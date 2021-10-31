@@ -3,7 +3,7 @@
     <h1 class="text-center text-3xl text-white font-bold pb-5">{{user.name}}さんの学習記録</h1>
 
     <!-- 学習記録・contributions -->
-    <div class="absolute inset-y-36 left-24 text-white">
+    <div class="absolute inset-y-36 left-24 text-white ">
       <p class="ml-4">学習日数</p>
       <section class="w-24 h-24 pt-8 mb-4 text-center object-cover border border-solid border-white rounded-full">
       {{learningDays}}日</section>
@@ -17,7 +17,7 @@
     </div>
 
     <!-- answersリンク集（日付ごとに集計） -->
-    <div class="text-center flex flex-col items-center justify-center">
+    <div class=" text-center flex flex-col items-center justify-center">
       <div v-for="date in dates" class="mt-8" :key="date">
         <router-link :to="{name: 'answers', query: {created_at: date}}"
         class="p-2 bg-white list-none underline text-black mt-5 font-bold text-2xl
@@ -25,9 +25,10 @@
          {{date}}
         </router-link>
       </div>
+      <router-link to="/" class="underline mt-64 my-10 bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500">
+      コース一覧へ</router-link>
 
     </div>
-
   </div>
 
 </template>
