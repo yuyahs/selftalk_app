@@ -51,7 +51,10 @@
         .then(response => {
           const id = response.data.id
           this.$store.commit('setId', id),
-          this.$store.commit('login', token),
+          this.$store.commit('login', token)
+          if(id == 1) {
+            this.$store.commit('admin')
+          }
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({
             type: 'success',
