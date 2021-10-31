@@ -10,6 +10,11 @@
             <li @click="destroySession" class="mr-4 hover:bg-blue-300 cursor-pointer">ログアウト
             </li>
             <router-link :to="{ name: 'change info', params: { id: $store.state.userId}}" class="mr-4 hover:bg-blue-300">登録情報を変更する</router-link>
+            <li v-if="$store.state.admin" class="flex flex-col">
+              <router-link to="/questions/new" class="mr-4 hover:bg-blue-300" >
+              問題作成</router-link>
+              <router-link to="/questions" class="mr-4 hover:bg-blue-300">問題一覧</router-link>
+            </li>
           </div>
         </ul>
       </div>

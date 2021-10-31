@@ -9,6 +9,8 @@ import userEdit from './users/Edit.vue'
 import Courses from './answers/New.vue'
 import Answers from './answers/Index.vue'
 import AnswerEdit from './answers/Edit.vue'
+import Questions from './questions/Index.vue'
+import QuestionNew from './questions/New.vue'
 
 
 
@@ -70,6 +72,16 @@ export const router = createRouter({
       path: '/answers/:id/edit',
       name: 'answerEdit',
       component: AnswerEdit
+    },
+    {
+      path: '/questions/new',
+      name: 'questionNew',
+      component: QuestionNew
+    },
+    {
+      path: '/questions',
+      name: 'questions',
+      component: Questions
     }
   ],
 })

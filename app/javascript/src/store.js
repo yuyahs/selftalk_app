@@ -6,6 +6,7 @@ export const store = createStore ({
   state() {
     return {
       loggedIn: false,
+      admin: false,
       userId: 0,
     }
   },
@@ -17,6 +18,7 @@ export const store = createStore ({
     logout: (state)=> {
       localStorage.removeItem('Token');
       state.loggedIn = false;
+      state.admin = false;
     },
     setId: (state, id) => {
       state.userId = id
@@ -24,6 +26,9 @@ export const store = createStore ({
     removeId: (state) => {
       state.userId = 0
     },
+    admin: (state) => {
+      state.admin = true
+    }
 
   },
   plugins : [
