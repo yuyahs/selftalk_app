@@ -3,16 +3,16 @@
     <h1 class="text-center text-3xl text-white font-bold pb-5">{{user.name}}さんの学習記録</h1>
 
     <!-- 学習記録・contributions -->
-    <div class="text-white">
+    <div class="absolute inset-y-36 left-24 text-white">
       <p class="ml-4">学習日数</p>
       <section class="w-24 h-24 pt-8 mb-4 text-center object-cover border border-solid border-white rounded-full">
       {{learningDays}}日</section>
 
       <p>今週の学習状況</p>
-      <section v-for="day in days" :key="day">
+      <section v-for="day in days" :key="day" class="flex flex-row">
         <span>{{day}}</span>
         <progress :value="contributions.filter(n => n === day).length" max="30" class="absolute w-32 ml-10 mt-1 border border-solid border-white h-4"></progress>
-         <span>{{contributions.filter(n => n === day).length}}</span>
+         <span class="absolute right-0">{{contributions.filter(n => n === day).length}}</span>
       </section>
     </div>
 
