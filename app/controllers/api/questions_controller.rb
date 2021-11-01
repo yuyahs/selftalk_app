@@ -1,9 +1,11 @@
 class Api::QuestionsController < ApplicationController
-  # before_action :admined_user
+  before_action :admined_user
 
   def index
+
     @questions = Question.where(mode_num: params[:mode_num])
-    @questions = Kaminari.paginate_array(@questions).page(params[:page]).per(5)
+    render json: @questions
+    # @questions = Kaminari.paginate_array(@questions).page(params[:page]).per(5)
   end
 
   def show
@@ -30,7 +32,6 @@ class Api::QuestionsController < ApplicationController
 
   def destroy
     Question.find(params[:id]).destroy
-    redirect_to questions_path
   end
 
   private

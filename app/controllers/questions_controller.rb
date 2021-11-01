@@ -2,8 +2,8 @@ class QuestionsController < ApplicationController
   before_action :admined_user
 
   def index
-    @questions = Question.where(mode_num: params[:mode_num])
-    @questions = Kaminari.paginate_array(@questions).page(params[:page]).per(5)
+    # @questions = Question.where(mode_num: params[:mode_num])
+    # @questions = Kaminari.paginate_array(@questions).page(params[:page]).per(5)
 
   end
 
