@@ -33,7 +33,6 @@
         })
         .then(response => {
           this.answers = response.data
-          console.log(response.data);
         })
       }
     }

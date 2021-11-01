@@ -13,7 +13,7 @@
             <li v-if="$store.state.admin" class="flex flex-col">
               <router-link to="/questions/new" class="mr-4 hover:bg-blue-300" >
               問題作成</router-link>
-              <router-link to="/questions" class="mr-4 hover:bg-blue-300">問題一覧</router-link>
+              <router-link :to="{ name: 'questions', query: {mode_num: 1}}" class="mr-4 hover:bg-blue-300">問題一覧</router-link>
             </li>
           </div>
         </ul>
