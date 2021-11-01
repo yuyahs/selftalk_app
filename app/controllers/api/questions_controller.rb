@@ -32,6 +32,7 @@ class Api::QuestionsController < ApplicationController
 
   def destroy
     Question.find(params[:id]).destroy
+    response_success(:question, :destroy)
   end
 
   private
