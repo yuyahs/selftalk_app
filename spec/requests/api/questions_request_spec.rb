@@ -16,45 +16,33 @@ RSpec.describe "Api::Questions", type: :request do
           end
         end
 
-      #   describe "GET /new" do
-      #     it "renders new" do
-      #       get new_question_path
-      #       expect(response.body).to include "Create Questions"
-      #     end
-      #   end
+        describe "GET /new" do
+          it  "成功レスポンス204を返す" do
+            get '/api/questions/new'
+            expect(response).to have_http_status "204"
+          end
+        end
 
-      #   describe "POST /create" do
-      #     context "空欄なく入力した場合" do
-      #       it "redirects to root path" do
-      #         expect{
-      #         post questions_path, params: {form_question_collection:
-      #                                     {questions_attributes:
-      #                                     {0=> {content: "test question1", mode_num:1},
-      #                                       1 =>{content: "test question2", mode_num:1},
-      #                                       2 =>{content: "test question3", mode_num:1},
-      #                                       3 =>{content: "test question4", mode_num:1},
-      #                                       4 =>{content: "test question5", mode_num:1},
-      #                                       5 =>{content: "test question6", mode_num:1},
-      #                                       6 =>{content: "test question7", mode_num:1},
-      #                                       7 =>{content: "test question8", mode_num:1},
-      #                                       8 =>{content: "test question9", mode_num:1},
-      #                                       9 =>{content: "test question10", mode_num:1}}}}
-      #          }.to change(Question, :count).by (10)
-      #         expect(response).to redirect_to root_path
-      #       end
-      #     end
+        describe "POST /create" do
+          context "空欄なく入力した場合" do
+            it "成功レスポンス200を返す" do
+              expect{
+              post '/api/questions' ,params: { question: {content: "test", mode_num: 1}}
+               }.to change(Question, :count).by (1)
+               expect(response).to have_http_status "200"
+            end
+          end
 
-      #     context "空欄があった場合" do
-      #       it "render new" do
-      #         post questions_path, params: {form_question_collection:
-      #           {questions_attributes:
-      #           {0=> {content: ""}}}}
+          context "空欄があった場合" do
+            it "エラーレスポンス400を返す" do
+              expect{
+                post '/api/questions' ,params: { question: {content: "", mode_num: ""}}
+                 }.to change(Question, :count).by (0)
+                 expect(response).to have_http_status "400"
+            end
+          end
 
-      #         expect(response.body).to include "Create Questions"
-      #       end
-      #     end
-
-      #   end
+        end
 
         describe "DELETE /destroy" do
           let!(:question){create(:question)}
