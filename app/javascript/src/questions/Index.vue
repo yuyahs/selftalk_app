@@ -58,11 +58,7 @@
       deleteQuestion: function(id) {
         axios.delete('/api/questions/' + id)
         .then(response => {
-          this.$flashMessage.show({
-            type: 'success',
-            text:'問題を削除しました',
-            time: 5000
-          })
+         location.reload()
         .catch(err => {
             this.$flashMessage.show({
               type: 'error',
