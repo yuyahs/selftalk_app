@@ -117,6 +117,16 @@ RSpec.describe "Api::Users", type: :request do
       end
     end
 
+    describe "Delete/ destroy" do
+      it "ユーザーが削除され、成功レスポンス200を返す" do
+        log_in_as user
+        expect{
+          delete api_user_path(user), params: {id: user.id}
+        }.to change(User, :count).by(-1)
+        expect(response).to have_http_status "200"
+      end
+    end
+
 
 
 end
