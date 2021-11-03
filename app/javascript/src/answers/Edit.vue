@@ -5,7 +5,7 @@
 
     <input type="text" v-model="answer.content" class="content-center text-2xl h-36 pl-3 w-full border-solid border-2 rounded border-gray-600">
 
-    <button @click="editAnswer" class="ml-4 my-10 bg-white hover:bg-blue-500 text-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
+    <button @click="editAnswer" class="ml-4 my-10 bg-blue-500 text-white font-semibold hover:bg-blue-300 py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
     添削内容を保存する</button>
 
     <router-link :to="{name: 'answers', query: {created_at: date}}" class="ml-4 my-10 bg-white hover:bg-blue-500 text-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">

@@ -1,5 +1,5 @@
 <template>
-  <header class="fixed bg-blue-900 w-full text-white h-16 border-b-2 border-fuchsia-600">
+  <header class="fixed bg-blue-900 w-full text-white h-16 border-b-2 border-fuchsia-600 z-20">
     <router-link to="/" class="font-serif text-3xl ">SelfTalkEnglish</router-link>
     <div class="float-right flex flex-row text-white font-bold mt-4 mr-10">
       <div v-if="$store.state.loggedIn">
@@ -79,23 +79,25 @@
           })
         },
         deleteUser: function(id) {
-          axios.delete('/api/users/' + id)
-           .then(response => {
-            this.$store.commit('logout'),
-            this.$store.commit('removeId'),
-            this.$router.push({ path: '/'}),
-            this.$flashMessage.show({
-              type: 'success',
-              text: "退会しました"
+          if(window.confirm('データが全て削除されますが退会しますか？')) {
+            axios.delete('/api/users/' + id)
+             .then(response => {
+              this.$store.commit('logout'),
+              this.$store.commit('removeId'),
+              this.$router.push({ path: '/'}),
+              this.$flashMessage.show({
+                type: 'success',
+                text: "退会しました"
+              })
+              .catch(err => {
+                  this.$flashMessage.show({
+                    type: 'error',
+                    text: 'エラーが発生しました',
+                    time: 5000
+                  });
+              })
             })
-            .catch(err => {
-                this.$flashMessage.show({
-                  type: 'error',
-                  text: 'エラーが発生しました',
-                  time: 5000
-                });
-            })
-          })
+          }
         },
         showMenu: function() {
         document.getElementById('line1').classList.toggle('line_1');

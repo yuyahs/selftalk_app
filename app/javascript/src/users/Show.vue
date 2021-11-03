@@ -3,17 +3,21 @@
     <h1 class="text-center text-3xl text-white font-bold pb-5">{{user.name}}さんの学習記録</h1>
 
     <!-- 学習記録・contributions -->
-    <div class="absolute inset-y-36 left-24 text-white ">
-      <p class="ml-4">学習日数</p>
-      <section class="w-24 h-24 pt-8 mb-4 text-center object-cover border border-solid border-white rounded-full">
-      {{learningDays}}日</section>
-
-      <p>今週の学習状況</p>
-      <section v-for="day in days" :key="day" class="flex flex-row">
-        <span>{{day}}</span>
-        <progress :value="contributions.filter(n => n === day).length" max="30" class="absolute w-32 ml-10 mt-1 border border-solid border-white h-4"></progress>
-         <span class="absolute right-0">{{contributions.filter(n => n === day).length}}</span>
-      </section>
+    <div class="text-white p-4 max-w-md mx-auto border border-solid border-white rounded">
+      <div class="float-left">
+        <p class="ml-4">学習日数</p>
+        <section class="w-24 h-24 pt-8 mb-4 text-center object-cover border border-solid border-white rounded-full">
+        {{learningDays}}日</section>
+      </div>
+      <div class="ml-36">
+        <p>今週の学習状況</p>
+        <section v-for="day in days" :key="day" class="flex flex-row">
+          <span>{{day}}</span>
+          <progress :value="contributions.filter(n => n === day).length" max="30" class="absolute w-32 ml-10 mt-1 border border-solid border-white h-4"></progress>
+          <span class="absolute ml-24 z-10">{{contributions.filter(n => n === day).length}}
+          </span>
+        </section>
+      </div>
     </div>
 
     <!-- answersリンク集（日付ごとに集計） -->
@@ -21,7 +25,7 @@
       <div v-for="date in dates" class="mt-8" :key="date">
         <router-link :to="{name: 'answers', query: {created_at: date}}"
         class="p-2 bg-white list-none underline text-black mt-5 font-bold text-2xl
-                 border border-solid border-white rounded-full hover:bg-black hover:text-white">
+                 border border-solid border-blue-500 rounded-full hover:bg-black hover:text-white">
          {{date}}
         </router-link>
       </div>
