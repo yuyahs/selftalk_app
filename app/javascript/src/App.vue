@@ -5,7 +5,7 @@
       <FlashMessage position="left top" />
       <router-view />
     </div>
-    <Footer link1="home" link2="about" link3="contact" link4="利用規約"/>
+    <Footer/>
   </main>
 </template>
 
@@ -23,7 +23,7 @@
       Header,
       Footer,
     },
-    
+
 
 
 
