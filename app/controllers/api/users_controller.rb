@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :edit, :update]
-  before_action :correct_user, only: [:show, :edit, :update]
+  before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update]
 
   def index
@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
     @contributions = current_user.answers.where(created_at: Time.current.all_week)
     @contributions = @contributions.map{|days| days.created_at.strftime('%a')}
 
-  
+
     # @dates = Kaminari.paginate_array(@dates).page(params[:page]).per(5)
   end
 
@@ -38,6 +38,11 @@ class Api::UsersController < ApplicationController
     else
       response_bad_request
     end
+  end
+
+  def destroy
+    @user.destroy
+    response_success(:user, :destroy)
   end
 
 

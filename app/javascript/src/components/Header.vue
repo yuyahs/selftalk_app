@@ -23,6 +23,7 @@
             <li class="mb-4 hover:bg-blue-500 hover:text-white">
               <router-link :to="{ name: 'change info', params: { id: $store.state.userId}}">
               登録情報変更</router-link></li>
+            <li @click="deleteUser($store.state.userId)" class="mb-4 hover:bg-blue-500 hover:text-white cursor-pointer">退会</li>
             <li v-if="$store.state.admin" class="mb-4 flex flex-col">
                 <router-link to="/questions/new" class="mb-4 hover:bg-blue-500 hover:text-white">問題作成
                 </router-link>
@@ -77,7 +78,26 @@
             });
           })
         },
-      showMenu: function() {
+        deleteUser: function(id) {
+          axios.delete('/api/users/' + id)
+           .then(response => {
+            this.$store.commit('logout'),
+            this.$store.commit('removeId'),
+            this.$router.push({ path: '/'}),
+            this.$flashMessage.show({
+              type: 'success',
+              text: "退会しました"
+            })
+            .catch(err => {
+                this.$flashMessage.show({
+                  type: 'error',
+                  text: 'エラーが発生しました',
+                  time: 5000
+                });
+            })
+          })
+        },
+        showMenu: function() {
         document.getElementById('line1').classList.toggle('line_1');
         document.getElementById('line2').classList.toggle('line_2');
         document.getElementById('line3').classList.toggle('line_3');
