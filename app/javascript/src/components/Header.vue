@@ -1,29 +1,40 @@
 <template>
-  <header class="bg-blue-900 text-white h-16 border-b-2 border-fuchsia-600">
+  <header class="fixed bg-blue-900 w-full text-white h-16 border-b-2 border-fuchsia-600">
     <router-link to="/" class="font-serif text-3xl ">SelfTalkEnglish</router-link>
-    <nav class="float-right flex flex-row text-white font-bold mt-4 mr-10">
-      <div v-if="$store.state.loggedIn" class="float-right flex flex-row">
-        <router-link :to="{name: 'show', params: {id: $store.state.userId}}" class="mr-4 hover:bg-blue-300">マイページ</router-link>
-        <ul>
-          <li id="menu" @click="showMenu" class="hover:bg-blue-300 cursor-pointer">メニュー▼</li>
-          <div id="tab" class="absolute right-4 p-2 w-1/6 bg-blue-900 font-thin border border-solid border-white rounded hidden">
-            <li @click="destroySession" class="mr-4 hover:bg-blue-300 cursor-pointer">ログアウト
+    <div class="float-right flex flex-row text-white font-bold mt-4 mr-10">
+      <div v-if="$store.state.loggedIn">
+        <router-link :to="{name: 'show', params: {id: $store.state.userId}}" class="mr-24 hover:bg-blue-300">マイページ</router-link>
+        <!-- ハンバーガーメニューのアイコン -->
+        <div @click="showMenu" class="absolute z-10 block top-5 right-7 w-12 h-11 cursor-pointer transition duration-500">
+        　<!-- 1番上の線 -->
+          <span class="inner_line1" id="line1"></span>
+        　<!-- 真ん中の線 -->
+          <span class="inner_line2" id="line2"></span>
+        　<!-- 1番下の線 -->
+          <span class="inner_line3" id="line3"></span>
+        </div>
+        <!-- ナビメニュー -->
+        <nav id="nav" class="bg-white absolute top-0 -right-2/3 w-2/5 h-screen transiton duration-500">
+          <ul class="pt-20 pl-4 text-black">
+            <li @click="destroySession" class="mb-4 hover:underline cursor-pointer">
+              ログアウト
             </li>
-            <router-link :to="{ name: 'change info', params: { id: $store.state.userId}}" class="mr-4 hover:bg-blue-300">登録情報を変更する</router-link>
-            <li v-if="$store.state.admin" class="flex flex-col">
-              <router-link to="/questions/new" class="mr-4 hover:bg-blue-300" >
-              問題作成</router-link>
-              <router-link :to="{ name: 'questions', query: {mode_num: 1}}" class="mr-4 hover:bg-blue-300">問題一覧</router-link>
+            <li class="mb-4 hover:underline">
+              <router-link :to="{ name: 'change info', params: { id: $store.state.userId}}">
+              登録情報変更</router-link></li>
+            <li v-if="$store.state.admin" class="mb-4 flex flex-col">
+                <router-link to="/questions/new" class="mb-4 hover:underline">問題作成
+                </router-link>
+                <router-link :to="{ name: 'questions', query: {mode_num: 1}}" class="hover:underline">問題一覧</router-link>
             </li>
-          </div>
-        </ul>
+          </ul>
+        </nav>
       </div>
       <div v-else>
-        <router-link to="/login" class="mr-4 hover:bg-blue-300">{{nav1}}</router-link>
-        <router-link to="/users/new" class="mr-4 hover:bg-blue-300 ">{{nav2}}</router-link>
+          <router-link to="/login" class="mr-4 hover:bg-blue-300">{{nav1}}</router-link>
+          <router-link to="/users/new" class="mr-4 hover:bg-blue-300 ">{{nav2}}</router-link>
       </div>
-
-    </nav>
+    </div>
   </header>
 </template>
 
@@ -66,16 +77,73 @@
           })
         },
       showMenu: function() {
-        const tab = document.getElementById('tab')
-        const menu = document.getElementById('menu')
-        document.addEventListener("click", (e) => {
-        if(e.target.closest("#menu")) {
-          tab.classList.contains("hidden") ? tab.classList.remove("hidden") : tab.classList.add("hidden");
-        }else {
-          tab.classList.add("hidden");
-        }
-        });
-      },
+        document.getElementById('line1').classList.toggle('line_1');
+        document.getElementById('line2').classList.toggle('line_2');
+        document.getElementById('line3').classList.toggle('line_3');
+        document.getElementById('nav').classList.toggle('in');
+      }
     }
   }
 </script>
+
+<style scoped>
+
+.inner_line1 {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #ffffff;
+  transition: 1s;
+  border-radius: 4px;
+  top: 0px;
+}
+.inner_line2 {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #ffffff;
+  transition: 1s;
+  border-radius: 4px;
+  top: 10px;
+}
+.inner_line3 {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #ffffff;
+  transition: 1s;
+  border-radius: 4px;
+  top: 20px;
+}
+
+.in{
+  transform: translateX(-100%);
+}
+
+.line_1,.line_2,.line_3{
+  background: #000000;
+}
+
+.line_1 {
+  /*45度回転させる*/
+  transform: rotate(-45deg);
+  top: 0px;
+}
+.line_2 {
+  opacity: 0;
+}
+.line_3 {
+  /*45度回転させる*/
+  transform: rotate(45deg);
+  top: 0px;
+}
+
+
+
+</style>
