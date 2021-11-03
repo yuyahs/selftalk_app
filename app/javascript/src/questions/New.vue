@@ -8,7 +8,8 @@
         <option value=2>2</option>
       </select>
       <input type="text" v-model="question.content" class="text-2xl w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg pl-4 pt-6 pb-8 mb-4">
-      <button @click="questionNew" class="w-36 mx-auto mt-4 bg-white hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">作成する</button>
+      <button @click="questionNew" class="w-36 mx-auto mt-4 bg-blue-500 font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent hover:bg-blue-300 rounded-full">
+        作成する</button>
     </div>
 
 

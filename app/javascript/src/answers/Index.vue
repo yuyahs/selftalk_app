@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center items-center justify-center">
+  <div class="text-center items-center justify-center mt-12">
     <h1 class="mb-4 font-bold text-2xl text-white">回答集</h1>
     <div v-for="answer in answers" class="mb-24 break-words h-32 bg-white list-none text-2xl border border-solid border-black rounded-lg" :key="answer">
       <li class="mb-32">{{answer.content}}</li>
