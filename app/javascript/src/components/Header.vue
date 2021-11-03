@@ -3,7 +3,8 @@
     <router-link to="/" class="font-serif text-3xl ">SelfTalkEnglish</router-link>
     <div class="float-right flex flex-row text-white font-bold mt-4 mr-10">
       <div v-if="$store.state.loggedIn">
-        <router-link :to="{name: 'show', params: {id: $store.state.userId}}" class="mr-24 hover:bg-blue-300">マイページ</router-link>
+        <router-link :to="{name: 'show', params: {id: $store.state.userId}}">
+          <img src="/assets/user.svg" class="h-8 mr-16 border border-solid border-white rounded-full bg-gray-300 hover:bg-white"></router-link>
         <!-- ハンバーガーメニューのアイコン -->
         <div @click="showMenu" class="absolute z-10 block top-5 right-7 w-12 h-11 cursor-pointer transition duration-500">
         　<!-- 1番上の線 -->
@@ -15,17 +16,17 @@
         </div>
         <!-- ナビメニュー -->
         <nav id="nav" class="bg-white absolute top-0 -right-2/3 w-2/5 h-screen transiton duration-500">
-          <ul class="pt-20 pl-4 text-black">
-            <li @click="destroySession" class="mb-4 hover:underline cursor-pointer">
+          <ul class="pt-20 pl-4 pr-80 text-black">
+            <li @click="destroySession" class="mb-4 hover:bg-blue-500 hover:text-white cursor-pointer">
               ログアウト
             </li>
-            <li class="mb-4 hover:underline">
+            <li class="mb-4 hover:bg-blue-500 hover:text-white">
               <router-link :to="{ name: 'change info', params: { id: $store.state.userId}}">
               登録情報変更</router-link></li>
             <li v-if="$store.state.admin" class="mb-4 flex flex-col">
-                <router-link to="/questions/new" class="mb-4 hover:underline">問題作成
+                <router-link to="/questions/new" class="mb-4 hover:bg-blue-500 hover:text-white">問題作成
                 </router-link>
-                <router-link :to="{ name: 'questions', query: {mode_num: 1}}" class="hover:underline">問題一覧</router-link>
+                <router-link :to="{ name: 'questions', query: {mode_num: 1}}" class="hover:bg-blue-500 hover:text-white">問題一覧</router-link>
             </li>
           </ul>
         </nav>
