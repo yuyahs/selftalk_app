@@ -31,7 +31,7 @@ export const router = createRouter({
       component: About
     },
     {
-      path: '/contact',
+      path: '/contacts/new',
       name: 'contact',
       component: Contact
     },

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   resources :users
+  resources :contacts, only: [:new]
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :questions
@@ -21,6 +22,9 @@ Rails.application.routes.draw do
   # API controller
   namespace :api, format: 'json' do
     resources :users
+  end
+  namespace :api, format: 'json' do
+    resources :contacts
   end
 
   namespace :api do
