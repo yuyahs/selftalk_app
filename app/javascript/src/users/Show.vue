@@ -13,8 +13,9 @@
         <p>今週の学習状況</p>
         <section v-for="day in days" :key="day" class="flex flex-row">
           <span>{{day}}</span>
-          <progress :value="contributions.filter(n => n === day).length" max="30" class="absolute w-32 ml-10 mt-1 border border-solid border-white h-4"></progress>
-          <span class="absolute ml-24 z-10">{{contributions.filter(n => n === day).length}}
+          <progress :value="contributions.filter(n => n === day).length" max="30"
+          class=" w-32 ml-10 mt-1 border border-solid border-white h-4"></progress>
+          <span>{{contributions.filter(n => n === day).length}}
           </span>
         </section>
       </div>

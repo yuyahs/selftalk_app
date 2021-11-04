@@ -1,5 +1,5 @@
 <template>
-  <header class="fixed bg-blue-900 w-full text-white h-16 border-b-2 border-fuchsia-600 z-20">
+  <header class="fixed bg-blue-900 w-full text-white h-16 border-b-2 border-fuchsia-600">
     <router-link to="/" class="font-serif text-3xl ">SelfTalkEnglish</router-link>
     <div class="float-right flex flex-row text-white font-bold mt-4 mr-10">
       <div v-if="$store.state.loggedIn">
