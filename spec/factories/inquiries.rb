@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :inquiry do
-    name { "MyString" }
-    message { "MyString" }
+    name { "user" }
+    message { "message" }
   end
 end
