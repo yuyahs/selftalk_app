@@ -13,9 +13,9 @@
         <p>今週の学習状況</p>
         <section v-for="day in days" :key="day" class="flex flex-row">
           <span>{{day}}</span>
-          <progress :value="contributions.filter(n => n === day).length" max="30"
+          <progress :value="contributions.filter(n => n.includes(day)).length" max="30"
           class=" w-32 ml-10 mt-1 border border-solid border-white h-4"></progress>
-          <span>{{contributions.filter(n => n === day).length}}
+          <span>{{contributions.filter(n => n.includes(day)).length}}
           </span>
         </section>
       </div>
@@ -65,6 +65,7 @@ export default {
         this.days = response.data.days
         this.dates = response.data.dates
         this.contributions = response.data.contributions
+        console.log(response.data)
       })
     }
   }
