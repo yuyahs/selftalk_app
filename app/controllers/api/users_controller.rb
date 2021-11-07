@@ -10,12 +10,14 @@ class Api::UsersController < ApplicationController
     @user = current_user
     @dates = current_user.answers.map{|dates| dates.created_at.to_date}.uniq
     @learning_days = @dates.count
-    @wdays = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
+    # @wdays = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
+    @wdays = ['月','火','水','木','金','土','日']
     @contributions = current_user.answers.where(created_at: Time.current.all_week)
-    @contributions = @contributions.map{|days| days.created_at.strftime('%a')}
+    @contributions = @contributions.map{|days| I18n.l(days.created_at)}
+    @contributions = @contributions.map{|d| d.strftime('%a')}
+    # @contributions = @contributions.map{|days| days.created_at.strftime("%Y/%m/%d(#{I18n.t('date.abbr_day_names')[date.wday]})")}
 
 
-    # @dates = Kaminari.paginate_array(@dates).page(params[:page]).per(5)
   end
 
   def new
