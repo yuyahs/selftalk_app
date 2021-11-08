@@ -22,14 +22,14 @@
     </div>
 
     <!-- answersリンク集（日付ごとに集計） -->
-    <div class=" text-center flex flex-col items-center justify-center">
-      <div v-for="date in dates" class="mt-8" :key="date">
-        <router-link :to="{name: 'answers', query: {created_at: date}}"
-        class="p-2 bg-white list-none underline text-black mt-5 font-bold text-2xl
+    <div class="text-center flex flex-col items-center justify-center list-none ">
+      <ul v-for="date in dates" class="mt-8" :key="date">
+        <li class="mt-8"><router-link :to="{name: 'answers', query: {created_at: date}}"
+        class="pl-8 pr-8 pt-4 pb-4 bg-white underline text-black font-bold text-2xl
                  border border-solid border-blue-500 rounded-full hover:bg-black hover:text-white">
          {{date}}
-        </router-link>
-      </div>
+        </router-link></li>
+      </ul>
       <router-link to="/" class="underline mt-64 my-10 bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500">
       コース一覧へ</router-link>
 
@@ -65,7 +65,6 @@ export default {
         this.days = response.data.days
         this.dates = response.data.dates
         this.contributions = response.data.contributions
-        console.log(response.data)
       })
     }
   }
