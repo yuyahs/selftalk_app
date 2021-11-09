@@ -1,5 +1,5 @@
 current directory: /Users/hoshiyuunari/Desktop/new_app/selftalk_app/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.7.7/ext/bootsnap
-/Users/hoshiyuunari/.rbenv/versions/3.0.2/bin/ruby -I /Users/hoshiyuunari/.rbenv/versions/3.0.2/lib/ruby/3.0.0 -r ./siteconf20210804-50731-drzauu.rb extconf.rb
+/Users/hoshiyuunari/.rbenv/versions/3.0.2/bin/ruby -I /Users/hoshiyuunari/.rbenv/versions/3.0.2/lib/ruby/site_ruby/3.0.0 -r ./siteconf20211109-8778-3azyux.rb extconf.rb
 creating Makefile
 
 current directory: /Users/hoshiyuunari/Desktop/new_app/selftalk_app/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.7.7/ext/bootsnap
@@ -12,4 +12,4 @@ linking shared-object bootsnap/bootsnap.bundle
 
 current directory: /Users/hoshiyuunari/Desktop/new_app/selftalk_app/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.7.7/ext/bootsnap
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20210804-50731-yjmz3l/bootsnap
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20211109-8778-9j13xq/bootsnap

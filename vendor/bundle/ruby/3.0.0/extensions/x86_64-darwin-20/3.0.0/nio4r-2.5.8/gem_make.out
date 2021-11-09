@@ -1,5 +1,5 @@
 current directory: /Users/hoshiyuunari/Desktop/new_app/selftalk_app/vendor/bundle/ruby/3.0.0/gems/nio4r-2.5.8/ext/nio4r
-/Users/hoshiyuunari/.rbenv/versions/3.0.2/bin/ruby -I /Users/hoshiyuunari/.rbenv/versions/3.0.2/lib/ruby/3.0.0 -r ./siteconf20210804-50731-ndx77g.rb extconf.rb
+/Users/hoshiyuunari/.rbenv/versions/3.0.2/bin/ruby -I /Users/hoshiyuunari/.rbenv/versions/3.0.2/lib/ruby/site_ruby/3.0.0 -r ./siteconf20211109-8778-oo2aef.rb extconf.rb
 checking for unistd.h... yes
 checking for linux/aio_abi.h... no
 checking for linux/io_uring.h... no
@@ -107,4 +107,4 @@ linking shared-object nio4r_ext.bundle
 
 current directory: /Users/hoshiyuunari/Desktop/new_app/selftalk_app/vendor/bundle/ruby/3.0.0/gems/nio4r-2.5.8/ext/nio4r
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20210804-50731-bbhenv
+/usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20211109-8778-3spvjo

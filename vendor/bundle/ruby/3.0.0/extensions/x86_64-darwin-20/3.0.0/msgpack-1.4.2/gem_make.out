@@ -1,5 +1,5 @@
 current directory: /Users/hoshiyuunari/Desktop/new_app/selftalk_app/vendor/bundle/ruby/3.0.0/gems/msgpack-1.4.2/ext/msgpack
-/Users/hoshiyuunari/.rbenv/versions/3.0.2/bin/ruby -I /Users/hoshiyuunari/.rbenv/versions/3.0.2/lib/ruby/3.0.0 -r ./siteconf20210804-50731-8isuvb.rb extconf.rb
+/Users/hoshiyuunari/.rbenv/versions/3.0.2/bin/ruby -I /Users/hoshiyuunari/.rbenv/versions/3.0.2/lib/ruby/site_ruby/3.0.0 -r ./siteconf20211109-8778-kouk34.rb extconf.rb
 checking for ruby/st.h... yes
 checking for st.h... no
 checking for rb_str_replace() in ruby.h... yes
@@ -53,4 +53,4 @@ linking shared-object msgpack/msgpack.bundle
 
 current directory: /Users/hoshiyuunari/Desktop/new_app/selftalk_app/vendor/bundle/ruby/3.0.0/gems/msgpack-1.4.2/ext/msgpack
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20210804-50731-zz82lo/msgpack
+/usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20211109-8778-l7l3og/msgpack

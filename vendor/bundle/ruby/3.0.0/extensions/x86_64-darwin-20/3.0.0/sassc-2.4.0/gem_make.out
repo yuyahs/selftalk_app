@@ -1,5 +1,5 @@
 current directory: /Users/hoshiyuunari/Desktop/new_app/selftalk_app/vendor/bundle/ruby/3.0.0/gems/sassc-2.4.0/ext
-/Users/hoshiyuunari/.rbenv/versions/3.0.2/bin/ruby -I /Users/hoshiyuunari/.rbenv/versions/3.0.2/lib/ruby/3.0.0 -r ./siteconf20210804-50731-h3uwqw.rb extconf.rb
+/Users/hoshiyuunari/.rbenv/versions/3.0.2/bin/ruby -I /Users/hoshiyuunari/.rbenv/versions/3.0.2/lib/ruby/site_ruby/3.0.0 -r ./siteconf20211109-8778-g85jho.rb extconf.rb
 creating Makefile
 
 current directory: /Users/hoshiyuunari/Desktop/new_app/selftalk_app/vendor/bundle/ruby/3.0.0/gems/sassc-2.4.0/ext
@@ -77,4 +77,4 @@ linking shared-object sassc/libsass.bundle
 
 current directory: /Users/hoshiyuunari/Desktop/new_app/selftalk_app/vendor/bundle/ruby/3.0.0/gems/sassc-2.4.0/ext
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 libsass.bundle ./.gem.20210804-50731-7nkqj2/sassc
+/usr/bin/install -c -m 0755 libsass.bundle ./.gem.20211109-8778-7y3cnm/sassc
