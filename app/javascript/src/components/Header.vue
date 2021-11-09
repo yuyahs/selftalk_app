@@ -2,7 +2,7 @@
   <header class="fixed bg-blue-900 w-full text-white h-16 border-b-2 border-fuchsia-600">
     <router-link to="/" class="font-serif text-3xl ">SelfTalkEnglish</router-link>
     <div class="float-right flex flex-row text-white font-bold mt-4 mr-10">
-      <div v-if="$store.state.loggedIn">
+      <div v-if="$store.state.loggedIn && $store.state.notGuest">
         <router-link :to="{name: 'show', params: {id: $store.state.userId}}">
           <img src="/assets/user.svg" class="h-8 mr-16 border border-solid border-white rounded-full bg-gray-300 hover:bg-white"></router-link>
         <!-- ハンバーガーメニューのアイコン -->
@@ -31,6 +31,11 @@
             </li>
           </ul>
         </nav>
+      </div>
+      <div v-else-if="$store.state.guest">
+        <button @click="destroySession" class="mr-4 hover:bg-blue-300">ログアウト
+          
+        </button>
       </div>
       <div v-else>
           <router-link to="/login" class="mr-4 hover:bg-blue-300">{{nav1}}</router-link>
@@ -63,6 +68,8 @@
           .then(response => {
             this.$store.commit('logout'),
             this.$store.commit('removeId'),
+            this.$store.commit('beGuest'),
+            this.$store.commit('outGuest'),
             this.$router.push({ path: '/'}),
             this.$flashMessage.show({
               type: 'success',
@@ -82,6 +89,7 @@
           if(window.confirm('データが全て削除されますが退会しますか？')) {
             axios.delete('/api/users/' + id)
              .then(response => {
+               this.$store.commit('guest'),
               this.$store.commit('logout'),
               this.$store.commit('removeId'),
               this.$router.push({ path: '/'}),

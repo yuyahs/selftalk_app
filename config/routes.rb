@@ -23,6 +23,12 @@ Rails.application.routes.draw do
   namespace :api, format: 'json' do
     resources :users
   end
+
+  namespace :api, format: 'json' do
+    get '/guest_sign_in', to: 'guest_logins#guest_sign_in'
+    post '/guest_sign_in', to: 'guest_logins#guest_sign_in'
+  end
+  
   namespace :api, format: 'json' do
     resources :contacts
   end
@@ -31,6 +37,7 @@ Rails.application.routes.draw do
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
   end
+
   namespace :api do
     resources :password_resets, only: [:create, :edit, :update]
   end

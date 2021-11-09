@@ -7,6 +7,8 @@ export const store = createStore ({
     return {
       loggedIn: false,
       admin: false,
+      notGuest: true,
+      guest: false,
       userId: 0,
     }
   },
@@ -28,6 +30,18 @@ export const store = createStore ({
     },
     admin: (state) => {
       state.admin = true
+    },
+    notGuest: (state) => {
+      state.notGuest = false
+    },
+    beGuest: (state) => {
+      state.notGuest = true
+    },
+    inGuest: (state) => {
+      state.guest = true
+    },
+    outGuest: (state) => {
+      state.guest = false
     }
 
   },
