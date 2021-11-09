@@ -1,4 +1,4 @@
-let environment = {
+let environment = { // 設定を変数にしまう
   plugins: [
     require('tailwindcss'),
     require('autoprefixer'),
@@ -13,6 +13,7 @@ let environment = {
   ]
 }
 
+// 使っているクラスだけを抽出する設定
 if (process.env.RAILS_ENV === "production") {
   environment.plugins.push(
     require('@fullhuman/postcss-purgecss')({
@@ -21,11 +22,9 @@ if (process.env.RAILS_ENV === "production") {
         './app/**/*.js.erb',
         './app/helpers/**/*.rb',
       ],
-      
-      safelist: ['a', 'open'],
       defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
     })
   )
 }
 
-module.exports = environment
+module.exports = environment // エクスポート
