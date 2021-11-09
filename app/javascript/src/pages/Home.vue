@@ -36,8 +36,8 @@
         <button class= "my-10 bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
         <router-link to="/users/new">ユーザー登録</router-link></button>
 
-        <button class= "ml-8 bg-green-500 hover:bg-green-200 hover:border-green-200 text-white font-semibold py-2 px-4 border border-green-500 rounded-full" >
-        <span>ゲストログイン</span></button>
+        <button @click="guestLogin" class= "ml-8 bg-green-500 hover:bg-green-200 hover:border-green-200 text-white font-semibold py-2 px-4 border border-green-500 rounded-full" >
+        ゲストログイン</button>
       </div>
 
     </div>
@@ -45,8 +45,33 @@
 </template>
 
 <script>
+  import axios from 'axios';
+  const token = Math.random().toString(32).substring(2)
   export default {
     name: 'Home',
+    methods: {
+      guestLogin: function () {
+        axios.post('/api/guest_sign_in')
+        .then(response => {
+           this.$store.commit('login', token)
+           this.$store.commit('notGuest')
+           this.$store.commit('inGuest')
+           this.$flashMessage.show({
+            type: 'success',
+            title: 'ゲストログイン',
+            text:'ゲストユーザーとしてログインに成功しました。',
+            time: 5000
+          });
+        })
+        .catch(error => {
+          this.$flashMessage.show({
+            type: 'error',
+            text: 'エラーが発生しました'
+          })
+        });
+
+      }
+    }
 
 
 
