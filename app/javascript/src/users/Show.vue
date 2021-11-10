@@ -4,7 +4,7 @@
 
     <!-- 学習記録・contributions -->
     <div class="text-white p-4 max-w-md mx-auto border border-solid border-white rounded">
-      <div class="float-left">
+      <div class="contribution">
         <p class="ml-4">学習日数</p>
         <section class="w-24 h-24 pt-8 mb-4 text-center object-cover border border-solid border-white rounded-full">
         {{learningDays}}日</section>
