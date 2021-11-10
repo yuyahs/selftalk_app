@@ -3,8 +3,9 @@
     <router-link to="/" class="font-serif text-3xl ">SelfTalkEnglish</router-link>
     <div class="float-right flex flex-row text-white font-bold mt-4 mr-10">
       <div v-if="$store.state.loggedIn && $store.state.notGuest">
-        <router-link :to="{name: 'show', params: {id: $store.state.userId}}">
-          <img src="/assets/user.svg" class="h-8 mr-16 border border-solid border-white rounded-full bg-gray-300 hover:bg-white"></router-link>
+        <router-link :to="{name: 'show', params: {id: $store.state.userId}}"
+        class="p-2 mr-16 border border-solid border-white rounded-full bg-yellow-500 hover:bg-yellow-300">
+          マイページ</router-link>
         <!-- ハンバーガーメニューのアイコン -->
         <div @click="showMenu" class="absolute z-10 block top-5 right-7 w-12 h-11 cursor-pointer transition duration-500">
         　<!-- 1番上の線 -->

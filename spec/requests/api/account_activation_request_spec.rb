@@ -28,7 +28,7 @@ RSpec.describe "Api::AccountActivations", type: :request do
 
 
     it "ログインに成功する" do
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to login_path
       post '/api/login', params: { session: { email: user.email,
         password: 'password' } }
         expect(response).to have_http_status "200"
