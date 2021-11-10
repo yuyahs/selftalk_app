@@ -34,7 +34,7 @@
       </div>
       <div v-else-if="$store.state.guest">
         <button @click="destroySession" class="mr-4 hover:bg-blue-300">ログアウト
-          
+
         </button>
       </div>
       <div v-else>
