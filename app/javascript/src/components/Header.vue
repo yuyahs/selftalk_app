@@ -7,28 +7,30 @@
         class="p-2 mr-16 border border-solid border-white rounded-full bg-yellow-500 hover:bg-yellow-300">
           マイページ</router-link>
         <!-- ハンバーガーメニューのアイコン -->
-        <div @click="showMenu" class="absolute z-10 block top-5 right-7 w-12 h-11 cursor-pointer transition duration-500">
+        <div @click="showMenu" class="absolute block top-5 right-7 w-12 h-11 cursor-pointer z-10">
         　<!-- 1番上の線 -->
-          <span class="inner_line1" id="line1"></span>
+          <span class="absolute border border-white left-0 top-0 w-10 h-0.5 transform" id="line1">
+          </span>
         　<!-- 真ん中の線 -->
-          <span class="inner_line2" id="line2"></span>
+          <span class="absolute border border-white left-0 top-2.5 w-10 h-0.5" id="line2"></span>
         　<!-- 1番下の線 -->
-          <span class="inner_line3" id="line3"></span>
+          <span class="absolute border border-white left-0 top-0 w-10 h-0.5 transform" id="line3"></span>
+          <span class="absolute border border-white left-0 top-5 w-10 h-0.5 transform" id="line4"></span>
         </div>
         <!-- ナビメニュー -->
-        <nav id="nav" class="bg-white absolute top-0 -right-2/3 w-2/5 h-screen transiton duration-500">
-          <ul class="pt-20 pl-4 pr-80 text-black">
-            <li @click="destroySession" class="mb-4 hover:bg-blue-500 hover:text-white cursor-pointer">
+        <nav id="nav" class="bg-blue-700 absolute top-0 w-2/5 h-screen hidden">
+          <ul class="pt-20 pl-4 pr-80 text-white text-center">
+            <li @click="destroySession" class="mb-4 hover:bg-black cursor-pointer">
               ログアウト
             </li>
-            <li class="mb-4 hover:bg-blue-500 hover:text-white">
+            <li class="mb-4 hover:bg-black">
               <router-link :to="{ name: 'change info', params: { id: $store.state.userId}}">
               登録情報変更</router-link></li>
-            <li @click="deleteUser($store.state.userId)" class="mb-4 hover:bg-blue-500 hover:text-white cursor-pointer">退会</li>
+            <li @click="deleteUser($store.state.userId)" class="mb-4 hover:bg-black cursor-pointer">退会</li>
             <li v-if="$store.state.admin" class="mb-4 flex flex-col">
-                <router-link to="/questions/new" class="mb-4 hover:bg-blue-500 hover:text-white">問題作成
+                <router-link to="/questions/new" class="mb-4 hover:bg-black">問題作成
                 </router-link>
-                <router-link :to="{ name: 'questions', query: {mode_num: 1}}" class="hover:bg-blue-500 hover:text-white">問題一覧</router-link>
+                <router-link :to="{ name: 'questions', query: {mode_num: 1}}" class="hover:bg-black">問題一覧</router-link>
             </li>
           </ul>
         </nav>
@@ -86,35 +88,37 @@
             });
           })
         },
-        deleteUser: function(id) {
-          if(window.confirm('データが全て削除されますが退会しますか？')) {
-            axios.delete('/api/users/' + id)
-             .then(response => {
-               this.$store.commit('guest'),
-              this.$store.commit('logout'),
-              this.$store.commit('removeId'),
-              this.$router.push({ path: '/'}),
-              this.$flashMessage.show({
-                type: 'success',
-                text: "退会しました"
-              })
-              .catch(err => {
-                  this.$flashMessage.show({
-                    type: 'error',
-                    text: 'エラーが発生しました',
-                    time: 5000
-                  });
-              })
-            })
-          }
-        },
-        showMenu: function() {
-        document.getElementById('line1').classList.toggle('line_1');
-        document.getElementById('line2').classList.toggle('line_2');
-        document.getElementById('line3').classList.toggle('line_3');
-        document.getElementById('nav').classList.toggle('in');
-      }
+      deleteUser: function(id) {
+        if(window.confirm('データが全て削除されますが退会しますか？')) {
+          axios.delete('/api/users/' + id)
+          .then(response => {
+          this.$store.commit('guest'),
+          this.$store.commit('logout'),
+          this.$store.commit('removeId'),
+          this.$router.push({ path: '/'}),
+          this.$flashMessage.show({
+            type: 'success',
+            text: "退会しました"
+          })
+          .catch(err => {
+          this.$flashMessage.show({
+            type: 'error',
+            text: 'エラーが発生しました',
+            time: 5000
+          });
+        })
+      })
     }
+  },
+      showMenu: function() {
+        document.getElementById('nav').classList.toggle('hidden');
+        document.getElementById('line1').classList.toggle('rotate-45');
+        document.getElementById('line2').classList.toggle('opacity-0');
+        document.getElementById('line3').classList.toggle('-rotate-45');
+        document.getElementById('line4').classList.toggle('hidden');
+
+        }
+      }
   }
 </script>
 
