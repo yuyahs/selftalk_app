@@ -7,7 +7,7 @@
         class="p-2 mr-16 border border-solid border-white rounded-full bg-yellow-500 hover:bg-yellow-300">
           マイページ</router-link>
         <!-- ハンバーガーメニューのアイコン -->
-        <div @click="showMenu" class="absolute block top-5 right-7 w-12 h-11 cursor-pointer z-10">
+        <div @click="showMenu" class="absolute block top-5 right-7 w-12 cursor-pointer z-10">
         　<!-- 1番上の線 -->
           <span class="absolute border border-white left-0 top-0 w-10 h-0.5 transform" id="line1">
           </span>
