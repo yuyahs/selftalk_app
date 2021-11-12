@@ -6,6 +6,7 @@
       <select v-model="question.mode_num" class="w-16 mb-8">
         <option value=1>1</option>
         <option value=2>2</option>
+        <option value=3>3</option>
       </select>
       <input type="text" v-model="question.content" class="text-2xl w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg pl-4 pt-6 pb-8 mb-4">
       <button @click="questionNew" class="w-36 mx-auto mt-4 bg-blue-500 font-semibold text-white py-2 px-4 border border-blue-500 hover:border-transparent hover:bg-blue-300 rounded-full">
