@@ -23,6 +23,17 @@
            <router-link :to="{ name: 'courses', query: {mode_num: 2}}">Start!</router-link>
         </button>
       </div>
+
+      <div class ="bg-blue-300 container mx-auto w-1/2 my-20 py-3.5 text-center text-black text-3xl
+                      rounded-lg border-solid border-4 border-white shadow-outline">
+        <h2 class = "font-bold mb-4">瞬間英作文</h2>
+
+        <p class="text-lg mt-4">日本語文を直感的に英訳</p>
+        <p class="text-lg">目標回答時間：45秒</p>
+        <button class= "mt-4 bg-yellow-500 hover:bg-white text-white font-semibold hover:text-black py-2 px-4 border border-white hover:border-yellow-500 rounded-full" >
+           <router-link :to="{ name: 'courses', query: {mode_num: 3}}">Start!</router-link>
+        </button>
+      </div>
     </div>
 
 
