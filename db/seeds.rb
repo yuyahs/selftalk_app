@@ -26,6 +26,14 @@ Question.create(
  id: 4,
  content: "test statement2",
  mode_num: 2)
+Question.create(
+ id: 5,
+ content: "テスト１",
+ mode_num: 3)
+Question.create(
+ id: 6,
+ content: "テスト2",
+ mode_num: 3)
 
 
 
