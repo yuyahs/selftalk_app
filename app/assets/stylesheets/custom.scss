@@ -24,72 +24,90 @@
 
 }
 
-// .inner_line1 {
-//   display: block;
-//   position: absolute;
-//   left: 0;
-//   width: 40px;
-//   height: 3px;
-//   background-color: #ffffff;
-//   transition: 1s;
-//   border-radius: 4px;
-//   top: 0px;
-// }
-// .inner_line2 {
-//   display: block;
-//   position: absolute;
-//   left: 0;
-//   width: 40px;
-//   height: 3px;
-//   background-color: #ffffff;
-//   transition: 1s;
-//   border-radius: 4px;
-//   top: 10px;
-// }
-// .inner_line3 {
-//   display: block;
-//   position: absolute;
-//   left: 0;
-//   width: 40px;
-//   height: 3px;
-//   background-color: #ffffff;
-//   transition: 1s;
-//   border-radius: 4px;
-//   top: 20px;
-// }
+//nav-menu
 
-// .in{
-//   transform: translateX(-100%);
-// }
+.inner_line1 {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #ffffff;
+  transition: 1s;
+  border-radius: 4px;
+  top: 0px;
+}
+.inner_line2 {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #ffffff;
+  transition: 1s;
+  border-radius: 4px;
+  top: 10px;
+}
+.inner_line3 {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #ffffff;
+  transition: 1s;
+  border-radius: 4px;
+  top: 20px;
+}
 
-// .line_1,.line_2,.line_3{
-//   background: #000000;
-// }
+.in{
+  transform: translateX(-100%);
+}
 
-// .line_1 {
-//   /*45度回転させる*/
-//   transform: rotate(-45deg);
-//   top: 0px;
-// }
-// .line_2 {
-//   opacity: 0;
-// }
-// .line_3 {
-//   /*45度回転させる*/
-//   transform: rotate(45deg);
-//   top: 0px;
-// }
+.line_1,.line_2,.line_3{
+  background: #000000;
+}
 
-// #nav {
-//   background-color: white;
-//   position: absolute;
-//   top: 0px;
-//   right: -66.666667%;
-//   width: 40%;
-//   height: 100%;
-//   transition: .7s;
+.line_1 {
+  /*45度回転させる*/
+  transform: rotate(-45deg);
+  top: 0px;
+}
+.line_2 {
+  opacity: 0;
+}
+.line_3 {
+  /*45度回転させる*/
+  transform: rotate(45deg);
+  top: 0px;
+}
 
-// }
+#nav {
+  background-color: white;
+  color: #000000;
+  position: absolute;
+  top: 0px;
+  right: -66.666667%;
+  width: 40%;
+  height: 100vh;
+  transition: .7s;
+}
+
+#nav ul{
+  padding-top: 80px;
+  background-color: white;
+}
+#nav ul li{
+  list-style-type: none;
+  margin-top: 16px;
+  font-size: 20px;
+}
+
+#nav li a:hover{
+  color: #ffffff;
+  background: #000000;
+  border-bottom: none;
+}
 
 .days {
   float: left;
@@ -98,3 +116,27 @@
 .contributions {
   margin-left: 144px;
 }
+
+//answers リンク集
+
+// .answers-list {
+//   padding-left: 32px;
+//   padding-right: 32px;
+//   padding-top: 16px;
+//   background-color: white;
+//   text-decoration: underline;
+//   color: black;
+//   font-weight: 700;
+//   font-size: 1.5rem;
+//   line-height: 2rem;
+//   border-width: 1px;
+//   border-style: solid;
+//   border-top-left-radius: 9999px;
+//   border-top-right-radius: 9999px;
+//    .answers-list:hover{
+//     background-color: #000000;
+//     color:#ffffff
+//   }
+// }
+
+
