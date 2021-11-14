@@ -1,12 +1,13 @@
 <template>
   <div class="text-center items-center justify-center mt-12">
     <h1 class="mb-4 font-bold text-2xl text-white">回答集</h1>
-    <div v-for="answer in answers" class="mb-24 break-words h-32 bg-white list-none text-2xl border border-solid border-black rounded-lg" :key="answer">
-      <div class="mb-32">{{answer.content}}</div>
-      <router-link :to="{name: 'answerEdit', params: {id: answer.id}}" class="bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
+    <ul v-for="answer in answers" class="mb-24 break-words h-32 bg-white list-none text-2xl border border-solid border-black rounded-lg" :key="answer">
+      <li>{{answer.content}}</li>
+      <li class="mt-28 bg-blue-500 w-36 mx-auto hover:bg-blue-300 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
+      <router-link :to="{name: 'answerEdit', params: {id: answer.id}}" >
         添削する
-      </router-link>
-    </div>
+      </router-link></li>
+    </ul>
   </div>
 
 </template>
