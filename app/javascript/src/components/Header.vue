@@ -3,9 +3,10 @@
     <router-link to="/" class="font-serif text-3xl ">SelfTalkEnglish</router-link>
     <div class="float-right flex flex-row text-white font-bold mt-4 mr-10">
       <div v-if="$store.state.loggedIn && $store.state.notGuest">
-        <router-link :to="{name: 'show', params: {id: $store.state.userId}}"
-        class="p-2 mr-16 border border-solid border-white rounded-full bg-yellow-500 hover:bg-yellow-300">
+        <span class="p-2 mr-16 border border-solid border-white rounded-full bg-yellow-500 hover:bg-yellow-300">
+          <router-link :to="{name: 'show', params: {id: $store.state.userId}}">
           マイページ</router-link>
+        </span>
         <!-- ハンバーガーメニューのアイコン -->
         <div @click="showMenu" class="absolute block top-5 right-7 w-12 cursor-pointer z-10">
         　<!-- 1番上の線 -->
