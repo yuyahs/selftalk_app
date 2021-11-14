@@ -9,24 +9,24 @@
         <!-- ハンバーガーメニューのアイコン -->
         <div @click="showMenu" class="absolute block top-5 right-7 w-12 cursor-pointer z-10">
         　<!-- 1番上の線 -->
-          <span class="absolute border border-white left-0 top-0 w-10 h-0.5 transform" id="line1">
+          <span class="inner_line1" id="line1">
           </span>
         　<!-- 真ん中の線 -->
-          <span class="absolute border border-white left-0 top-2.5 w-10 h-0.5 transform" id="line2"></span>
+          <span class="inner_line2" id="line2"></span>
         　<!-- 1番下の線 -->
-          <span class="absolute border border-white left-0 top-0 w-10 h-0.5 transform" id="line3"></span>
-          <span class="absolute border border-white left-0 top-5 w-10 h-0.5 transform" id="line4"></span>
+          <span class="inner_line3" id="line3"></span>
         </div>
         <!-- ナビメニュー -->
-        <nav id="nav" class="bg-blue-700 absolute top-0 w-2/5 h-screen hidden">
-          <ul class="pt-20 pl-4 pr-80 text-white text-center">
-            <li @click="destroySession" class="mb-4 hover:bg-black cursor-pointer">
+        <nav id="nav">
+          <ul>
+            <li @click="destroySession" class="cursor-pointer hover:bg-black hover:text-white">
               ログアウト
             </li>
-            <li class="mb-4 hover:bg-black cursor-pointer">
+            <li>
               <router-link :to="{ name: 'change info', params: { id: $store.state.userId}}">
               登録情報変更</router-link></li>
-            <li @click="deleteUser($store.state.userId)" class="mb-4 hover:bg-black cursor-pointer">退会</li>
+            <li @click="deleteUser($store.state.userId)" class="cursor-pointer hover:bg-black hover:text-white">
+              退会</li>
             <li v-if="$store.state.admin" class="mb-4 flex flex-col">
                 <router-link to="/questions/new" class="mb-4 hover:bg-black cursor-pointer">問題作成
                 </router-link>
@@ -111,11 +111,10 @@
     }
   },
       showMenu: function() {
-        document.getElementById('nav').classList.toggle('hidden');
-        document.getElementById('line1').classList.toggle('rotate-45');
-        document.getElementById('line2').classList.toggle('opacity-0');
-        document.getElementById('line3').classList.toggle('-rotate-45');
-        document.getElementById('line4').classList.toggle('hidden');
+        document.getElementById('line1').classList.toggle('line_1');
+        document.getElementById('line2').classList.toggle('line_2');
+        document.getElementById('line3').classList.toggle('line_3');
+        document.getElementById('nav').classList.toggle('in');
 
         }
       }
