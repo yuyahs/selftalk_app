@@ -122,4 +122,7 @@ Rails.application.configure do
     :domain         => 'gmail.com',
     :enable_starttls_auto => true
   }
+
 end
+
+
