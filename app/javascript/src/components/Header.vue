@@ -4,33 +4,33 @@
     <div class="float-right flex flex-row text-white font-bold mt-4 mr-10">
       <div v-if="$store.state.loggedIn && $store.state.notGuest">
         <router-link :to="{name: 'show', params: {id: $store.state.userId}}"
-        class="mypage">
+        class="p-2 mr-16 border border-solid border-white rounded-full bg-yellow-500 hover:bg-yellow-300">
           マイページ</router-link>
         <!-- ハンバーガーメニューのアイコン -->
         <div @click="showMenu" class="absolute block top-5 right-7 w-12 cursor-pointer z-10">
         　<!-- 1番上の線 -->
-          <span class="line1" id="line1">
+          <span class="absolute border border-white left-0 top-0 w-10 h-0.5 transform" id="line1">
           </span>
         　<!-- 真ん中の線 -->
-          <span class="line2" id="line2"></span>
+          <span class="absolute border border-white left-0 top-2.5 w-10 h-0.5 transform" id="line2"></span>
         　<!-- 1番下の線 -->
-          <span class="line3" id="line3"></span>
-          <span class="line4" id="line4"></span>
+          <span class="absolute border border-white left-0 top-0 w-10 h-0.5 transform" id="line3"></span>
+          <span class="absolute border border-white left-0 top-5 w-10 h-0.5 transform" id="line4"></span>
         </div>
         <!-- ナビメニュー -->
         <nav id="nav" class="bg-blue-700 absolute top-0 w-2/5 h-screen hidden">
           <ul class="pt-20 pl-4 pr-80 text-white text-center">
-            <li @click="destroySession" class="menu">
+            <li @click="destroySession" class="mb-4 hover:bg-black cursor-pointer">
               ログアウト
             </li>
-            <li class="menu">
+            <li class="mb-4 hover:bg-black cursor-pointer">
               <router-link :to="{ name: 'change info', params: { id: $store.state.userId}}">
               登録情報変更</router-link></li>
-            <li @click="deleteUser($store.state.userId)" class="menu">退会</li>
+            <li @click="deleteUser($store.state.userId)" class="mb-4 hover:bg-black cursor-pointer">退会</li>
             <li v-if="$store.state.admin" class="mb-4 flex flex-col">
-                <router-link to="/questions/new" class="menu">問題作成
+                <router-link to="/questions/new" class="mb-4 hover:bg-black cursor-pointer">問題作成
                 </router-link>
-                <router-link :to="{ name: 'questions', query: {mode_num: 1}}" class="menu">問題一覧</router-link>
+                <router-link :to="{ name: 'questions', query: {mode_num: 1}}" class="mb-4 hover:bg-black cursor-pointer">問題一覧</router-link>
             </li>
           </ul>
         </nav>
