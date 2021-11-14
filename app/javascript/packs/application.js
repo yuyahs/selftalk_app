@@ -9,7 +9,6 @@ require("@rails/activestorage").start()
 require("channels")
 // 追加
 
-import '../css/tailwind.css';
 
 
 import { createApp } from "vue";
