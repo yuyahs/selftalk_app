@@ -3,7 +3,7 @@
     <router-link to="/" class="font-serif text-3xl ">SelfTalkEnglish</router-link>
     <div class="float-right flex flex-row text-white font-bold p-4">
       <div v-if="$store.state.loggedIn && $store.state.notGuest">
-        <span class="mr-24 p-2 border border-solid border-white rounded-full bg-yellow-500 hover:bg-yellow-300">
+        <span class="absolute right-24 border border-solid border-white rounded-full bg-yellow-500 hover:bg-yellow-300">
           <router-link :to="{name: 'show', params: {id: $store.state.userId}}">
           マイページ</router-link>
         </span>
