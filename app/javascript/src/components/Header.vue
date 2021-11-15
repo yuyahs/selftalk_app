@@ -2,11 +2,11 @@
   <header class="fixed bg-blue-900 w-full text-white h-16 border-b-2 border-fuchsia-600">
     <router-link to="/" class="font-serif text-3xl ">SelfTalkEnglish</router-link>
     <div class="float-right flex flex-row text-white font-bold p-4">
-      <div v-if="$store.state.loggedIn && $store.state.notGuest">
-        <span class="absolute right-24 border border-solid border-white rounded-full bg-yellow-500 hover:bg-yellow-300">
+      <div v-if="$store.state.loggedIn && $store.state.notGuest" class="pr-20">
+        <button class="p-1 border border-solid border-white rounded-full bg-yellow-500 hover:bg-yellow-300">
           <router-link :to="{name: 'show', params: {id: $store.state.userId}}">
           マイページ</router-link>
-        </span>
+        </button>
         <!-- ハンバーガーメニューのアイコン -->
         <div @click="showMenu" class="hamburger">
         　<!-- 1番上の線 -->
