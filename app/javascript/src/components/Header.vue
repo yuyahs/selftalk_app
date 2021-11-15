@@ -1,14 +1,14 @@
 <template>
   <header class="fixed bg-blue-900 w-full text-white h-16 border-b-2 border-fuchsia-600">
     <router-link to="/" class="font-serif text-3xl ">SelfTalkEnglish</router-link>
-    <div class="float-right flex flex-row text-white font-bold mt-4 mr-10">
+    <div class="float-right flex flex-row text-white font-bold p-4">
       <div v-if="$store.state.loggedIn && $store.state.notGuest">
-        <span class="p-2 mr-16 border border-solid border-white rounded-full bg-yellow-500 hover:bg-yellow-300">
+        <span class="mr-24 p-2 border border-solid border-white rounded-full bg-yellow-500 hover:bg-yellow-300">
           <router-link :to="{name: 'show', params: {id: $store.state.userId}}">
           マイページ</router-link>
         </span>
         <!-- ハンバーガーメニューのアイコン -->
-        <div @click="showMenu" class="absolute block top-5 right-7 w-12 cursor-pointer z-10">
+        <div @click="showMenu" class="hamburger">
         　<!-- 1番上の線 -->
           <span class="inner_line1" id="line1">
           </span>
@@ -37,8 +37,8 @@
         </nav>
       </div>
       <div v-else-if="$store.state.guest">
-        <button @click="destroySession" class="mr-4 hover:bg-blue-300">ログアウト
-
+        <button @click="destroySession" class="mr-4 font-bold hover:bg-blue-300">
+          ログアウト
         </button>
       </div>
       <div v-else>
