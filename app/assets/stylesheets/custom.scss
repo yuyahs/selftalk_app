@@ -24,6 +24,18 @@
 
 }
 
+//hamburger
+
+.hamburger {
+  position: absolute;
+  display: block;
+  top: 20px;
+  right: 28px;
+  width: 48px;
+  cursor: pointer;
+  z-index: 10;
+}
+
 //nav-menu
 
 .inner_line1 {
@@ -117,26 +129,6 @@
   margin-left: 144px;
 }
 
-//answers リンク集
 
-// .answers-list {
-//   padding-left: 32px;
-//   padding-right: 32px;
-//   padding-top: 16px;
-//   background-color: white;
-//   text-decoration: underline;
-//   color: black;
-//   font-weight: 700;
-//   font-size: 1.5rem;
-//   line-height: 2rem;
-//   border-width: 1px;
-//   border-style: solid;
-//   border-top-left-radius: 9999px;
-//   border-top-right-radius: 9999px;
-//    .answers-list:hover{
-//     background-color: #000000;
-//     color:#ffffff
-//   }
-// }
 
 

@@ -14,7 +14,7 @@
         <section v-for="day in days" :key="day" class="flex flex-row">
           <span>{{day}}</span>
           <progress :value="contributions.filter(n => n.includes(day)).length" max="30"
-          class=" w-32 ml-10 mt-1 border border-solid border-white h-4"></progress>
+          class="w-32 ml-10 mt-1 border border-solid border-white h-4"></progress>
           <span>{{contributions.filter(n => n.includes(day)).length}}
           </span>
         </section>
@@ -23,13 +23,13 @@
 
     <!-- answersリンク集（日付ごとに集計） -->
     <div class="text-center flex flex-col items-center justify-center list-none ">
-      <ul v-for="date in dates" class="mt-8 w-1/2" :key="date">
-        <li class="bg-white underline text-black font-bold text-2xl
+      <ul v-for="date in dates" class="mt-8 w-1/2 underline" :key="date">
+        <li class="bg-white p-2 text-black font-bold text-2xl
                  border border-solid border-blue-500 rounded-full hover:bg-black hover:text-white"><router-link :to="{name: 'answers', query: {created_at: date}}" class="block">
          {{date}}の回答集
         </router-link></li>
       </ul>
-      <router-link to="/" class="underline mt-64 my-10 bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500">
+      <router-link to="/" class="underline mt-64 bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white py-4 border border-blue-500">
       コース一覧へ</router-link>
 
     </div>
@@ -40,7 +40,7 @@
 <script>
   import axios from 'axios';
 
-export default {
+ export default {
   name: 'Show',
   data: function () {
     return {

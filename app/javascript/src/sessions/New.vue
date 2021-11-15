@@ -12,12 +12,10 @@
         <input type="password" v-model="session.password" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
       </div>
 
-      <div class="flex flex-row">
-        <button @click="createSession" class="w-1/2 mt-4 bg-blue-500  text-white font-semibold hover:bg-blue-300 py-2 px-4 border border-white rounded-full" >
+      <div class="mt-4">
+        <button @click="createSession" class="w-1/2 bg-blue-500  text-white font-semibold hover:bg-blue-300 py-2 px-4 border border-white rounded-full" >
         ログイン
         </button>
-        <router-link to="/users/new" class="ml-4 mt-6 underline text-right text-blue-900 hover:text-blue-100">
-        新規登録はこちらから!</router-link>
       </div>
   </div>
 
