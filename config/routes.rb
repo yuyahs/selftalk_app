@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :questions
   resources :answers
+  resources :dictionaries
 
 
   # API controller
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
     get '/guest_sign_in', to: 'guest_logins#guest_sign_in'
     post '/guest_sign_in', to: 'guest_logins#guest_sign_in'
   end
-  
+
   namespace :api, format: 'json' do
     resources :contacts
   end
@@ -52,6 +53,10 @@ Rails.application.routes.draw do
 
   namespace :api, format: 'json' do
     resources :questions
+  end
+  
+  namespace :api, format: 'json' do
+    resources :dictionaries
   end
 
 end
