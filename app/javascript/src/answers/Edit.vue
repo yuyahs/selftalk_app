@@ -1,9 +1,10 @@
 <template>
-  <div class="text-center items-center justify-center ">
+  <div class="text-center items-center justify-center">
 
     <h1 class="text-2xl w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">{{question.content}}</h1>
 
-    <input type="text" v-model="answer.content" class="content-center text-2xl h-36 pl-3 w-full border-solid border-2 rounded border-gray-600">
+    <textarea v-model="answer.content" class="content-center resize-none text-2xl h-36 pl-3 pt-3 w-full border-solid border-2 rounded border-gray-600" >
+    </textarea>
 
     <button @click="editAnswer" class="ml-4 my-10 bg-blue-500 text-white font-semibold hover:bg-blue-300 py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
     添削内容を保存する</button>

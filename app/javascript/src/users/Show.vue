@@ -3,16 +3,16 @@
     <h1 class="text-center text-3xl text-white font-bold pb-5">{{user.name}}さんの学習記録</h1>
 
     <!-- 学習記録・contributions -->
-    <div class="flex flex-row text-white my-4 p-4 max-w-md mx-auto border border-solid border-white rounded">
-      <div>
+    <div class="flex flex-row text-white my-4 max-w-md mx-auto border border-solid border-white rounded">
+      <div class="mx-12">
         <p class="pl-4">学習日数</p>
-        <section class="w-24 h-24 pt-8 mr-8 text-center object-cover border border-solid border-white rounded-full">
+        <section class="w-24 h-24 pt-8 text-center object-cover border border-solid border-white rounded-full">
         {{learningDays}}日</section>
       </div>
       <div>
-        <p>今週の学習状況</p>
+        <p class="pl-6">今週の学習状況</p>
         <section v-for="day in days" :key="day" class="flex flex-row">
-          <span class="mr-2">{{day}}</span>
+          <span>{{day}}</span>
           <progress :value="contributions.filter(n => n.includes(day)).length" max="30"
           class="w-32 mt-1 border border-solid border-white h-4"></progress>
           <span>{{contributions.filter(n => n.includes(day)).length}}
@@ -35,8 +35,11 @@
     </div>
 
     <div class="text-center">
-      <button class="underline bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white p-4 border border-blue-500"><router-link to="/" >
+      <button class="underline bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white p-4 border border-solid border-white"><router-link to="/" >
         コース一覧へ</router-link>
+      </button>
+      <button class="underline bg-green-500 hover:bg-green-300 text-white font-semibold hover:text-white p-4 border border-solid border-white">
+        My辞書へ
       </button>
     </div>
   </div>
