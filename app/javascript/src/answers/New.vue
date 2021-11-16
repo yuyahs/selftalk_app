@@ -11,7 +11,8 @@
      <input type="hidden" :value="mode_num">
      <input type="hidden" :value="id">
 
-     <textarea id="text1" v-model="answer.content" class="content-center resize-none text-2xl h-36 pl-3 pt-3 w-full border-solid border-2 rounded border-gray-600" ></textarea>
+     <textarea id="text1" v-model="answer.content" class="content-center resize-none text-2xl h-36 pl-3 pt-3 w-full border-solid border-2 rounded border-gray-600" >
+     </textarea>
 
      <button @click="saveAnswer" class="my-10 bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
       次の問題へ進む
