@@ -135,6 +135,50 @@
   background-color: rgba(252, 211, 77, var(--tw-bg-opacity));
 }
 
+.learning-day{
+  margin-left: 48px;
+}
+
+.contribution{
+  margin-left: 48px;
+}
+
+.answers{
+  overflow-wrap: break-word;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  height: 92px;
+  background-color: white;
+  list-style: none;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 0.5rem;
+}
+
+.edit-btn{
+  float: right;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
+}
+
+.edit-btn:hover{
+  background-color: rgba(252, 165, 165, var(--tw-bg-opacity));
+}
+
+.course-btn{
+  text-align: center;
+  margin-top: 256px;
+}
+
+
 
 
 

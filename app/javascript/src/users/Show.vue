@@ -3,13 +3,13 @@
     <h1 class="text-center text-3xl text-white font-bold pb-5">{{user.name}}さんの学習記録</h1>
 
     <!-- 学習記録・contributions -->
-    <div class="flex flex-row text-white my-4 max-w-md mx-auto border border-solid border-white rounded">
-      <div class="mx-12">
+    <div class="flex flex-row text-white my-4 p-2 max-w-md mx-auto border border-solid border-white rounded">
+      <div class="contribution">
         <p class="pl-4">学習日数</p>
         <section class="w-24 h-24 pt-8 text-center object-cover border border-solid border-white rounded-full">
         {{learningDays}}日</section>
       </div>
-      <div>
+      <div class="contribution">
         <p class="pl-6">今週の学習状況</p>
         <section v-for="day in days" :key="day" class="flex flex-row">
           <span>{{day}}</span>
