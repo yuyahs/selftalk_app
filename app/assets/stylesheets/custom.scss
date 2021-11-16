@@ -121,13 +121,19 @@
   border-bottom: none;
 }
 
-// .days {
-//   float: left;
-// }
+.user-page {
+  padding: 4px;
+  margin-right: 80px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+  border-radius: 9999px;
+  background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
+}
 
-// .contributions {
-//   margin-left: 144px;
-// }
+.user-page:hover{
+  background-color: rgba(252, 211, 77, var(--tw-bg-opacity));
+}
 
 
 

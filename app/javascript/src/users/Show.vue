@@ -6,15 +6,15 @@
     <div class="flex flex-row text-white my-4 p-4 max-w-md mx-auto border border-solid border-white rounded">
       <div>
         <p class="pl-4">学習日数</p>
-        <section class="w-24 h-24 pt-8 mb-4 text-center object-cover border border-solid border-white rounded-full">
+        <section class="w-24 h-24 pt-8 mr-8 text-center object-cover border border-solid border-white rounded-full">
         {{learningDays}}日</section>
       </div>
-      <div class="pl-12">
+      <div>
         <p>今週の学習状況</p>
         <section v-for="day in days" :key="day" class="flex flex-row">
-          <span>{{day}}</span>
+          <span class="mr-2">{{day}}</span>
           <progress :value="contributions.filter(n => n.includes(day)).length" max="30"
-          class="w-32 ml-10 border border-solid border-white h-4"></progress>
+          class="w-32 mt-1 border border-solid border-white h-4"></progress>
           <span>{{contributions.filter(n => n.includes(day)).length}}
           </span>
         </section>
@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <div class="text-center p-12">
+    <div class="text-center">
       <button class="underline bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white p-4 border border-blue-500"><router-link to="/" >
         コース一覧へ</router-link>
       </button>

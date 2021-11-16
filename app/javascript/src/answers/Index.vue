@@ -6,10 +6,10 @@
       <router-link :to="{name: 'answerEdit', params: {id: answer.id}}" >
         添削する
       </router-link></li>
-      <li class="text-left text-2xl h-36 p-8 w-full">{{answer.content}}</li>
+      <li class="text-left text-2xl p-4 w-full">{{answer.content}}</li>
     </div>
 
-    <div class="text-center pt-24">
+    <div class="text-center">
       <button class="underline bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white p-4 border border-blue-500"><router-link to="/" >
         コース一覧へ</router-link>
       </button>
