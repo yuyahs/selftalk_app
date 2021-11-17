@@ -39,7 +39,8 @@
         コース一覧へ</router-link>
       </button>
       <button class="underline bg-green-500 hover:bg-green-300 text-white font-semibold hover:text-white p-4 border border-solid border-white">
-        My辞書へ
+        <router-link to="/items" >
+        My辞書へ</router-link>
       </button>
     </div>
   </div>

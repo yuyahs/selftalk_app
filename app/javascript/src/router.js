@@ -14,6 +14,9 @@ import Answers from './answers/Index.vue'
 import AnswerEdit from './answers/Edit.vue'
 import Questions from './questions/Index.vue'
 import QuestionNew from './questions/New.vue'
+import Items from './dictionaries/Index.vue'
+
+
 
 
 
@@ -100,6 +103,11 @@ export const router = createRouter({
       path: '/questions',
       name: 'questions',
       component: Questions
+    },
+    {
+      path: '/items',
+      name: 'items',
+      component: Items
     }
   ],
 })
