@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :questions
   resources :answers
-  resources :dictionaries
+  resources :items
 
 
   # API controller
@@ -54,9 +54,9 @@ Rails.application.routes.draw do
   namespace :api, format: 'json' do
     resources :questions
   end
-  
+
   namespace :api, format: 'json' do
-    resources :dictionaries
+    resources :items
   end
 
 end
