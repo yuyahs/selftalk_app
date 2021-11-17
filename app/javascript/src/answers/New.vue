@@ -90,33 +90,6 @@
 
     }
   }
-
-
-
-
-
 </script>
 
-<style scoped>
-  #progress::-webkit-progress-bar {
-  border-radius: 15px;
-  background-color: #D1D5DB;
-  }
 
-  #progress::-webkit-progress-value {
-    border-radius: 15px;
-    background-color: #3B82F6;
-
-  }
-
-  #progress::-moz-progress-bar {
-    border-radius: 15px;
-    background-color: #3B82F6;
-
-  }
-
-  #progress::-ms-fill {
-    border-radius: 15px;
-    background-color: #3B82F6;
-  }
-</style>
