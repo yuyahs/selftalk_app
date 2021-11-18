@@ -48,20 +48,6 @@
         axios.patch(`/api/answers/${this.$route.params.id}`, {
         answer: this.answer
         })
-        .then(response => {
-          this.$router.push({ path: location.pathname}),
-          this.$flashMessage.show({
-            type: 'success',
-            text:'回答の変更を保存しました。',
-            time: 5000
-          });
-        })
-        .catch(error => {
-          this.$flashMessage.show({
-            type: 'error',
-            text: '入力内容に誤りがあります。'
-          });
-        })
       }
     }
   }

@@ -1,5 +1,5 @@
 class Api::ItemsController < ApplicationController
-  before_action :set_user, only: [:index, :create]
+  before_action :set_user, only: [:index, :create, :destroy]
 
   def index
     @items = @user.items.all
@@ -13,7 +13,15 @@ class Api::ItemsController < ApplicationController
     @item = @user.items.new(item_params)
     if @item.save
       response_success(:item, :create)
+    else
+      response_bad_request
     end
+  end
+
+  def destroy
+    @item = @user.items.find(params[:id])
+    @item.destroy
+    response_success(:item, :destroy)
   end
 
   private
@@ -23,7 +31,7 @@ class Api::ItemsController < ApplicationController
   end
 
   def set_user
-    @user = current_user
+    @user = @user || current_user
   end
-  
+
 end

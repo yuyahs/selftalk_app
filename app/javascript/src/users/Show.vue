@@ -35,11 +35,11 @@
     </div>
 
     <div class="text-center">
-      <button class="underline bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white p-4 border border-solid border-white"><router-link to="/" >
+      <button class="underline bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white p-4 border border-solid border-white"><router-link to="/" class="block">
         コース一覧へ</router-link>
       </button>
       <button class="underline bg-green-500 hover:bg-green-300 text-white font-semibold hover:text-white p-4 border border-solid border-white">
-        <router-link to="/items" >
+        <router-link to="/items" class="block">
         My辞書へ</router-link>
       </button>
     </div>
