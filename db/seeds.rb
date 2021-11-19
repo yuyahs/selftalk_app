@@ -43,5 +43,12 @@ Answer.create(
   question_id: 1,
   created_at: Time.current.yesterday)
 
+Item.create(
+  content: "test",
+  meaning: "testtesttest",
+  memo: "This is a test sentence.",
+  user_id: 1
+)
+
 
 
