@@ -1,5 +1,5 @@
 <template>
-  <div class=" text-center text-white font-bold">
+  <div class=" text-center text-white font-bold block">
     <h1 class="text-3xl mb-12">SelfTalkEnglishとは</h1>
     <p>SelfTalkEnglishは英会話勉強法の一つである「独り言英会話」を効果的に行うための学習サービスです。</p>
     <h2 class="mt-12 mb-8 text-2xl">「独り言英会話」とは</h2>
