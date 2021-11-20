@@ -12,7 +12,7 @@
 
       <textarea v-model="item.meaning" disabled class="border border-solid border-black bg-white p-4 h-20 resize-none"></textarea>
 
-      <textarea v-model="item.memo" id="dictionary-text" disabled class="break-words border border-solid border-black bg-white p-4 h-20 w-96 resize-none"></textarea>
+      <textarea v-model="item.memo" disabled class="break-words border border-solid border-black bg-white p-4 h-20 w-96 resize-none"></textarea>
 
 
       <button @click="deleteItem(item.id)" class="text-white ml-4 underline hover:text-blue-500">

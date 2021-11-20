@@ -178,8 +178,34 @@
   margin-top: 256px;
 }
 
-#dictionary-text{
-  margin-bottom: 32px;
+.my-menu{
+  width: 16.666667%;
+  font-size: 1.25rem;
+  color: white;
+  text-align: center;
+}
+
+.course-link{
+  background-color: rgba(99, 102, 241, var(--tw-bg-opacity));
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+  display: block;
+}
+
+.course-link:hover{
+  background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+}
+.dictionary-link{
+  background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+  display: block;
+}
+
+.dictionary-link:hover{
+  background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
 }
 
 
