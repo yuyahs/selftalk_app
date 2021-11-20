@@ -1,21 +1,22 @@
 <template>
   <div>
-    <div class="text-center font-bold text-2xl mb-8 text-white border border-solid border-white">
+    <h1 class="text-white text-center font-bold text-2xl mb-8">管理画面</h1>
+    <div class="text-center text-white border border-solid border-white">
+      <h2 class="text-center font-bold text-2xl my-8">{{courseTitle}}</h2>
       <div class="flex flex-row mb-10">
         <p class="mt-2">出題モード一覧▶︎</p>
         <div class="flex flex-row">
-          <router-link :to="{ name: 'questions', query: {mode_num: 1}}" @click="showQuestions">
+          <button @click="showQuestions1">
             <img src="/assets/explain.svg" class="ml-4 w-12 h-12 object-cover border border-solid border-white rounded-full hover:bg-white">
-          </router-link>
-          <router-link :to="{ name: 'questions', query: {mode_num: 2}}" @click="showQuestions">
+          </button>
+          <button @click="showQuestions2">
             <img src="/assets/reaction.svg" class="ml-4 w-12 h-12 object-cover border border-solid border-white rounded-full hover:bg-white">
-          </router-link>
+          </button>
+          <button @click="showQuestions3">
+            <img src="/assets/translation.svg" class="ml-4 w-12 h-12 object-cover border border-solid border-white rounded-full hover:bg-white">
+          </button>
         </div>
       </div>
-
-      <ul class="mb-8 text-2xl">
-        <li>{{courseTitle}}</li>
-      </ul>
 
       <div v-for="question in questions" class="mx-auto pt-1 h-12 w-1/2 bg-white text-2xl text-black m-4 border border-solid border-black rounded" :key="question">
         <li class="list-none">{{question.content}}
@@ -40,27 +41,28 @@
     data() {
       return {
         questions: "",
-        courseTitle: "Self Explain問題集"
+        courseTitle: "出題問題集"
 
       }
     },
-    mounted() {
-      this.showQuestions();
-    },
     methods: {
-      showQuestions: function() {
-        axios.get('/api/questions', {
-          params: {
-            mode_num: this.$route.query.mode_num
-          }
-        })
+      showQuestions1: function() {
+        axios.get('/api/questions')
         .then(response => {
-          this.questions = response.data
-          if(this.$route.query.mode_num == 1) {
-            this.courseTitle = "Self Explain問題集"
-          } if(this.$route.query.mode_num == 2) {
-            this.courseTitle = "Self Reaction問題集"
-          }
+          this.questions = response.data.questions1
+          console.log(response.data.questions1)
+        })
+      },
+      showQuestions2: function() {
+        axios.get('/api/questions')
+        .then(response => {
+          this.questions = response.data.questions2
+        })
+      },
+      showQuestions3: function() {
+        axios.get('/api/questions')
+        .then(response => {
+          this.questions = response.data.questions3
         })
       },
       deleteQuestion: function(id) {
