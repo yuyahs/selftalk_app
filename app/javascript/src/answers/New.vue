@@ -4,7 +4,7 @@
         <progress id="progress" value="45" max="45" class="bg-white w-1/2 border border-solid border-white rounded-full"></progress>
         <span id="countdown">45</span>
     </div>
-     <div class="text-2xl w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
+     <div class="text-left text-2xl w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
        <div>{{question.content}}</div>
      </div>
 

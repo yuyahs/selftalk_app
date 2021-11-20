@@ -40,7 +40,8 @@
     <div v-else>
       <div class="text-white pt-8">
         <h1 class="mb-8 text-4xl font-bold">SelfTalkEnglish</h1>
-        <h2 class="text-2xl mb-8">”独り言英語学習”で実践力を磨く</h2>
+        <h2 class="text-2xl mb-8">”独り言英語学習”でアウトプット力を磨く</h2>
+        <h3>英語中級者〜上級者向けの英語学習アプリ</h3>
       </div>
 
       <div class="inline-block">
@@ -49,6 +50,30 @@
 
         <button @click="guestLogin" class= "ml-8 bg-green-500 hover:bg-green-200 hover:border-green-200 text-white font-semibold py-2 px-4 border border-green-500 rounded-full" >
         ゲストログイン</button>
+      </div>
+
+      <div class="text-white text-2xl my-24 w-1/3 max-w-md mx-auto border border-solid border-white rounded-lg bg-blue-500 bg-opacity-75 p-2 hover:bg-blue-300">
+        <router-link to="/about" class="block">"独り言英語学習"とは？</router-link>
+      </div>
+
+      <div class="text-white my-24">
+        <p class="text-2xl mb-4">Writing形式の問題で独り言英語学習を行うためのコースを用意</p>
+        <ul class="flex flex-row max-w-md mx-auto">
+          <li class="ml-4"><img class="w-24 h-24 object-cover border border-solid border-white rounded-full" src="/assets/explain.svg">
+            <span>Self Explainコース</span>
+          </li>
+          <li class="ml-16"><img class="w-24 h-24 object-cover border border-solid border-white rounded-full" src="/assets/reaction.svg">
+            <span>Self Explainコース</span>
+          </li>
+          <li class="ml-16"><img class="w-24 h-24 object-cover border border-solid border-white rounded-full" src="/assets/translation.svg">
+            <span>Self Translationコース</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="text-white my-24">
+        <p class="text-2xl">回答文は後で確認・添削可能</p>
+        <img src="/assets/lp-img-1" class="w-5/6 border border-solid border-white mx-auto">
       </div>
 
     </div>
