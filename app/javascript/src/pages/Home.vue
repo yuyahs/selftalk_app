@@ -52,11 +52,11 @@
         ゲストログイン</button>
       </div>
 
-      <div class="text-white text-2xl my-24 w-1/3 max-w-md mx-auto border border-solid border-white rounded-lg bg-blue-500 bg-opacity-75 p-2 hover:bg-blue-300">
-        <router-link to="/about" class="block">"独り言英語学習"とは？</router-link>
+      <div class="home-div">
+        <router-link to="/about" class="text-2xl w-1/3 max-w-md mx-auto border border-solid border-white rounded-lg bg-blue-500 bg-opacity-75 p-2 hover:bg-blue-300 block">"独り言英語学習"とは？</router-link>
       </div>
 
-      <div class="text-white my-24">
+      <div class="home-div">
         <p class="text-2xl mb-4">Writing形式の問題で独り言英語学習を行うためのコースを用意</p>
         <ul class="flex flex-row max-w-md mx-auto">
           <li class="ml-4"><img class="w-24 h-24 object-cover border border-solid border-white rounded-full" src="/assets/explain.svg">
@@ -71,7 +71,7 @@
         </ul>
       </div>
 
-      <div class="text-white my-24">
+      <div class="home-div">
         <p class="text-2xl">回答文は後で確認・添削可能</p>
         <img src="/assets/lp-img-1" class="w-5/6 border border-solid border-white mx-auto">
       </div>
