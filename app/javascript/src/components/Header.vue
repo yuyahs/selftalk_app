@@ -29,7 +29,7 @@
             <li @click="deleteUser($store.state.userId)" class="cursor-pointer hover:bg-black hover:text-white">
               退会</li>
             <li v-if="$store.state.admin" class="mb-4 flex flex-col">
-                <router-link :to="{ name: 'questions', query: {mode_num: 1}}" class="mb-4 hover:bg-black cursor-pointer">管理用ページ</router-link>
+                <router-link :to="{ name: 'questions' }" class="mb-4 hover:bg-black cursor-pointer">管理用ページ</router-link>
             </li>
           </ul>
         </nav>
