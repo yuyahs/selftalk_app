@@ -1,6 +1,6 @@
 <template>
-  <div class="text-white content-center">
-    <h1 class="text-center font-bold text-2xl mb-8">出題文作成</h1>
+  <div class="text-white content-center border border-solid border-white">
+    <h1 class="text-center font-bold text-2xl my-8">出題文作成</h1>
     <div class="flex flex-col text-black mx-auto max-w-md">
       <span class="text-white">出題モード選択</span>
       <select v-model="question.mode_num" class="w-16 mb-8">
