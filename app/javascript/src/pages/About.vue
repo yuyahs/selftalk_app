@@ -1,11 +1,24 @@
 <template>
-  <div class=" text-center text-white font-bold block">
+  <div class="text-white font-bold text-center">
     <h1 class="text-3xl mb-12">SelfTalkEnglishとは</h1>
-    <p>SelfTalkEnglishは英会話勉強法の一つである「独り言英会話」を効果的に行うための学習サービスです。</p>
-    <h2 class="mt-12 mb-8 text-2xl">「独り言英会話」とは</h2>
-    <p class="text-justify">「独り言英会話」はスピーキングトレーニングの一種であり、その学習法は人それぞれ異なります。共通しているのは一人で英語のアウトプットを行う学習法であるということです。語彙力・瞬発力・文法力に効果があるとされていますが実践を試みると「難しい」「独り言をつぶやける環境がない」「独り言のネタがない」「喋った英文の誤りを添削できない」等の問題が出てくる方もいらっっしゃるのではないでしょうか。
-    </p>
-    <p class="mt-8 text-justify">SelfTalkEnglishはこれらの問題を解決するために誕生しました。特にTOEIC等の試験では良い点数を取れるが英語を話すことができない悩みを持つ学習者にとっては大いに有効であると考えます。巷では「日本人は英語が話せない」などと言われていますが当サービスで一人でも多くのユーザーにスピーキング力の向上を感じて頂けたら幸いです。</p>
+    <p>SelfTalkEnglishは英会話勉強法の一つである「独り言英語学習」を効果的に行うための学習サービスです。</p>
+    <h2 class="mt-12 mb-8 text-2xl">「独り言英語学習」とは</h2>
+    <p>「独り言英語学習」はスピーキングトレーニングの一種で、その名の通り英語を一人で自由に話してみるというものです。</p>
+    <h3 class="text-2xl my-8">メリット</h3>
+    <ul class="m-4 bg-green-700 text-center mx-auto max-w-md leading-10">
+      <li class="border border-solid">英会話スクールに通わずにできる。</li>
+      <li class="border border-solid">話している途中で詰まる事があっても恥ずかしくない。</li>
+      <li class="border border-solid">英会話のテーマを自由に設定できる。</li>
+    </ul>
+    <h4 class="text-2xl my-8">デメリット</h4>
+    <ul class="m-4 bg-red-500 text-center mx-auto max-w-md leading-10">
+      <li class="border border-solid">一人で行うため継続が難しい。</li>
+      <li class="border border-solid">録音しないと振り返り・添削ができない。</li>
+      <li class="border border-solid">テーマがネタ切れを起こす。</li>
+    </ul>
+    <h5 class="text-2xl my-8">"SelfTalkEnglish"のソリューション</h5>
+    <p class="text-justify leading-10">当アプリは上記デメリットを解消するために学習記録の表示や添削機能、テーマの提供などの用意しております。さらに実際の独り言英語学習と同様にご自身の回答文を発音してみることで英語を話すこと自体に慣れていくことも推奨致します。</p>
+
   </div>
 </template>
 
