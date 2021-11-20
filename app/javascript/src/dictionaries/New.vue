@@ -1,6 +1,8 @@
 <template>
   <div class="max-w-md mx-auto">
-    <section class="flex flex-row mt-12">
+    <button @click="addItem" class="bg-blue-500 hover:bg-blue-300 text-white font-semibold py-2 px-4">追加する+
+    </button>
+    <section class="flex flex-row">
       <div>
         <label for="item_content" class="text-white">単語・フレーズ</label>
         <input
@@ -22,8 +24,6 @@
         </textarea>
       </div>
     </section>
-    <button @click="addItem" class="bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">登録する
-    </button>
   </div>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
   <div class="text-center items-center justify-center">
+    <MyMenu />
 
     <h1 class="text-2xl w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">{{question.content}}</h1>
 
@@ -18,9 +19,13 @@
 
 <script>
   import axios from 'axios';
+  import MyMenu from '../components/MyMenu.vue'
 
   export default {
     name: 'AnswerEdit',
+    components: {
+      MyMenu
+    },
     data: function () {
       return {
         question: {
