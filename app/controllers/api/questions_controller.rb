@@ -2,8 +2,6 @@ class Api::QuestionsController < ApplicationController
   before_action :admined_user
 
   def index
-    # @questions = Question.where(mode_num: params[:mode_num])
-    # render json: @questions
     @questions1 = Question.where(mode_num: 1)
     @questions2 = Question.where(mode_num: 2)
     @questions3 = Question.where(mode_num: 3)
