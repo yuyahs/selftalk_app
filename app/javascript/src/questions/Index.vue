@@ -25,18 +25,21 @@
     </div>
 
     <QuestionNew />
+    <UserIndex />
   </div>
 
 </template>
 
 <script>
   import axios from 'axios';
-  import QuestionNew from './New.vue'
+  import QuestionNew from './New.vue';
+  import UserIndex from '../users/Index.vue';
 
   export default {
     name: 'Questions',
     components: {
-      QuestionNew
+      QuestionNew,
+      UserIndex
     },
     data() {
       return {
@@ -50,7 +53,6 @@
         axios.get('/api/questions')
         .then(response => {
           this.questions = response.data.questions1
-          console.log(response.data.questions1)
         })
       },
       showQuestions2: function() {
