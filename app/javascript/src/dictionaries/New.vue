@@ -5,10 +5,8 @@
     <section class="flex flex-row">
       <div>
         <label for="item_content" class="text-white">単語・フレーズ</label>
-        <input
-          v-model="item.content"
-          class="border border-solid border-black pl-3 h-20"
-        />
+        <textarea v-model="item.content" class="border border-solid border-black pl-3 pt-3 h-20 resize-none">
+        </textarea>
       </div>
       <div>
         <label for="item_meaning" class="text-white">意味</label>
