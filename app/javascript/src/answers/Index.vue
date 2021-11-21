@@ -3,11 +3,11 @@
     <h1 class="font-bold text-2xl text-center text-white">回答集</h1>
     <MyMenu />
     <div v-for="answer in answers" class="answers" :key="answer">
+      <textarea v-model="answer.content" disabled class="w-full resize-none"></textarea>
       <li class="edit-btn">
-      <router-link :to="{name: 'answerEdit', params: {id: answer.id}}" >
+       <router-link :to="{name: 'answerEdit', params: {id: answer.id}}" >
         添削する
       </router-link></li>
-      <li class="text-left text-2xl w-full pl-2">{{answer.content}}</li>
     </div>
   </div>
 
