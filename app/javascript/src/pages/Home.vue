@@ -36,17 +36,17 @@
 
     <!-- 未ログインユーザーに表示されるページ -->
     <div v-else>
-      <div class="text-white pt-8">
-        <h1 class="mb-8 text-4xl font-bold">SelfTalkEnglish</h1>
+      <div class="home-title-wrapper">
+        <h1 class="home-title">SelfTalkEnglish</h1>
         <h2 class="home-subtitle">”独り言英語学習”で実践力を磨く</h2>
         <h3>中級者〜上級者向け英語学習アプリ</h3>
       </div>
 
       <div class="inline-block">
-        <button class= "my-10 bg-blue-500 hover:bg-blue-300 text-white font-semibold  py-2 px-4 hover:border-transparent rounded-full">
+        <button class= "signin-link">
         <router-link to="/users/new">ユーザー登録</router-link></button>
 
-        <button @click="guestLogin" class="ml-4 bg-green-500 hover:bg-green-300 text-white font-semibold  py-2 px-4 hover:border-transparent rounded-full" >
+        <button @click="guestLogin" class="guest-link" >
         ゲストログイン</button>
       </div>
 

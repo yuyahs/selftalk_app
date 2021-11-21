@@ -4,7 +4,27 @@
   padding: 96px;
 }
 
-//home
+//header
+#header-wrapper{
+  height: 64px;
+}
+
+#not-login-menu{
+  padding: 16px;;
+}
+
+
+//home not login
+.home-title-wrapper {
+  color: white;
+  padding-top: 24px;
+}
+
+.home-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
 
 .home-subtitle {
   @media screen and (min-width: 768px) {
@@ -12,6 +32,34 @@
   }
   margin-bottom: 32px;
 }
+
+.signin-link {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+  color: white;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 9999px;
+  &:hover {
+    background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+  }
+}
+
+.guest-link {
+  margin-left: 16px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
+  color: white;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 9999px;
+  &:hover {
+    background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
+  }
+}
+
 
 .home-link-about{
   @media screen and (min-width: 768px) {
@@ -26,7 +74,6 @@
   border-color: white;
   border-radius: 0.5rem;
   background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
-  --tw-bg-opacity: 0.75;
   padding: 8px;
   display: block;
   &:hover {
