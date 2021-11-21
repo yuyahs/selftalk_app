@@ -7,14 +7,14 @@
 //home
 
 .home-subtitle {
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     font-size: 1.5rem;
   }
   margin-bottom: 32px;
 }
 
 .home-link-about{
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     font-size: 1.5rem;
     width: 33%;
   }
@@ -35,7 +35,7 @@
 }
 
 .course-layout{
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 50%;
   }
   background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
@@ -217,7 +217,7 @@
 }
 
 .edit-btn{
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 13%;
   }
  width: 30%;
@@ -242,7 +242,7 @@
 //mymenu
 
 .my-menu{
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 16.666667%;
     font-size: 1.25rem;
   }
