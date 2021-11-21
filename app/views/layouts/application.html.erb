@@ -4,6 +4,7 @@
     <title><%=full_title(yield(:title))%></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 
     <%= stylesheet_link_tag "inter-font" %>
     <%= stylesheet_link_tag "tailwind" %>
@@ -31,13 +32,5 @@
       <div class="<%= message_type %>"><%= message %></div>
   　 <% end %>
     <div id="application"></div>
-    <!--<%= render 'layouts/header' %>
-    <div class = "p-24 flex-grow">
-     <% flash.each do |message_type, message| %>
-       <div class="<%= message_type %>"><%= message %></div>
-     <% end %>
-     <%= yield %>
-    </div>
-    <%= render 'layouts/footer' %>-->
   </body>
 </html>
