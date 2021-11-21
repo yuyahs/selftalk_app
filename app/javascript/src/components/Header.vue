@@ -34,11 +34,13 @@
           </ul>
         </nav>
       </div>
+      <!-- ゲストユーザーに表示されるメニュー -->
       <div v-else-if="$store.state.guest">
         <button @click="destroySession" class="mr-4 font-bold hover:bg-blue-300">
           ログアウト
         </button>
       </div>
+      <!-- 未ログインユーザーに表示されるメニュー -->
       <div v-else>
           <router-link to="/login" class="mr-4 hover:bg-blue-300">{{nav1}}</router-link>
           <router-link to="/users/new" class="mr-4 hover:bg-blue-300 ">{{nav2}}</router-link>
@@ -55,14 +57,6 @@
     props: {
       nav1: String,
       nav2: String
-    },
-    created() {
-      if(document.body.contains(document.getElementById('login'))) {
-        const token = Math.random().toString(32).substring(2)
-        this.$store.commit('login', token);
-      } else {
-        this.$store.commit('logout');
-      }
     },
     methods: {
       destroySession: function() {
