@@ -1,5 +1,6 @@
 <template>
   <div class="text-center">
+    <!-- ログイン済み・ゲストユーザーに表示されるページ -->
     <div v-if="$store.state.loggedIn">
       <h1 class="text-white text-3xl">学習コース一覧</h1>
       <div class ="course-layout">
@@ -33,7 +34,7 @@
       </div>
     </div>
 
-
+    <!-- 未ログインユーザーに表示されるページ -->
     <div v-else>
       <div class="text-white pt-8">
         <h1 class="mb-8 text-4xl font-bold">SelfTalkEnglish</h1>
@@ -79,17 +80,18 @@
   export default {
     name: 'Home',
     methods: {
+      // ゲストログインメソッド
       guestLogin: function () {
         axios.post('/api/guest_sign_in')
         .then(response => {
            this.$store.commit('login', token)
-           this.$store.commit('notGuest')
-           this.$store.commit('inGuest')
+           this.$store.commit('notGuest') //notGuestをfalseにする
+           this.$store.commit('inGuest')　//inGuestをtrueにする
            this.$flashMessage.show({
             type: 'success',
             title: 'ゲストログイン',
             text:'ゲストユーザーとしてログインに成功しました。',
-            time: 5000
+            time: 1000
           });
         })
         .catch(error => {
