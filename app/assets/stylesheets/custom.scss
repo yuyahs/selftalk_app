@@ -148,12 +148,15 @@
 }
 
 #nav {
+  @media (min-width: 768px) {
+    width: 40%;
+  }
+  width: 45%;
   background-color: white;
   color: #000000;
   position: absolute;
   top: 0px;
   right: -66.666667%;
-  width: 40%;
   height: 100vh;
   transition: .7s;
 }
@@ -231,9 +234,15 @@
   margin-top: 256px;
 }
 
+//mymenu
+
 .my-menu{
-  width: 16.666667%;
-  font-size: 1.25rem;
+  @media (min-width: 768px) {
+    width: 16.666667%;
+    font-size: 1.25rem;
+  }
+  margin-bottom: 24px;
+  width: 33%;
   color: white;
   text-align: center;
 }
