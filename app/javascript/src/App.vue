@@ -1,7 +1,7 @@
 <template>
   <main>
     <Header nav1="ログイン" nav2="新規登録"/>
-    <div class="contents">
+    <div class="flex-grow p-24 ">
       <FlashMessage position="left top"/>
       <router-view />
     </div>
