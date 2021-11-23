@@ -27,10 +27,9 @@
 }
 
 .home-subtitle {
-  @media screen and (min-width: 768px) {
-    font-size: 1.5rem;
-  }
   margin-bottom: 32px;
+  font-size: 1.125rem;
+  font-weight: bold;
 }
 
 .signin-link {
@@ -62,10 +61,7 @@
 
 
 .home-link-about{
-  @media screen and (min-width: 768px) {
-    font-size: 1.5rem;
-    width: 33%;
-  }
+  font-size: 1.125rem;
   margin-left: auto;
   margin-right: auto;
   max-width: 28rem;
@@ -138,6 +134,15 @@
   font-size: 1.125rem;
   margin-top: 16px;
 }
+
+.course-icon {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 96px;
+}
+
+
 
 //about
 
@@ -242,9 +247,6 @@
 }
 
 #nav {
-  @media (min-width: 768px) {
-    width: 40%;
-  }
   width: 40%;
   background-color: white;
   color: #000000;
@@ -277,7 +279,6 @@
 
 .answers{
   overflow-wrap: break-word;
-  margin-top: 128px;
   margin-bottom: 128px;
   height: 92px;
   list-style: none;
