@@ -1,7 +1,7 @@
 <template>
   <div class="text-white">
     <h1 class="admin-title">管理画面</h1>
-    <div class="text-center text-white border border-solid border-white">
+    <div class="text-center border border-solid border-white">
       <h2 class="text-center font-bold text-2xl my-8">{{courseTitle}}</h2>
       <div class="flex flex-row mb-10">
         <p class="mt-2">出題モード一覧▶︎</p>
@@ -18,9 +18,9 @@
         </div>
       </div>
 
-      <div v-for="question in questions" class="mx-auto pt-1 h-12 w-1/2 bg-white text-2xl text-black m-4 border border-solid border-black rounded" :key="question">
+      <div v-for="question in questions" class="question-list" :key="question">
         <li class="list-none">{{question.content}}
-        <button @click="deleteQuestion(question.id)" class="underline mr-4 float-right  hover:text-blue-300 ">削除</button></li>
+        <button @click="deleteQuestion(question.id)" class="question-delete">削除</button></li>
       </div>
     </div>
 
