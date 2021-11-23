@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
+  <div class="flex flex-col w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8">
     <h1 class="text-center font-bold text-2xl mb-6">パスワード再設定リンクを送信する</h1>
     <label for="password_reset_email">メールアドレス</label>
     <input type="email"  v-model="password_reset.email" class= "pl-3 h-10 w-full border-solid border-2 rounded border-gray-600" >

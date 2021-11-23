@@ -116,6 +116,11 @@
   }
 }
 
+.course-text {
+  font-size: 1.125rem;
+  margin-top: 16px;
+}
+
 
 // progress
 
@@ -216,7 +221,7 @@
   @media (min-width: 768px) {
     width: 40%;
   }
-  width: 45%;
+  width: 40%;
   background-color: white;
   color: #000000;
   position: absolute;
@@ -233,13 +238,14 @@
 #nav ul li{
   list-style-type: none;
   margin-top: 16px;
-  font-size: 20px;
-}
-
-#nav li a:hover{
-  color: #ffffff;
-  background: #000000;
-  border-bottom: none;
+  font-size: 18px;
+  text-decoration: underline;
+  &:hover{
+    color: #ffffff;
+    background: #000000;
+    border-bottom: none;
+    cursor: pointer;
+  }
 }
 
 .user-page {
@@ -303,6 +309,8 @@
   text-align: center;
   margin-top: 256px;
 }
+
+
 
 //mymenu
 
