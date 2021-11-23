@@ -139,8 +139,14 @@
   margin-top: 16px;
 }
 
+//about
 
-// progress
+#demerit {
+  --tw-bg-opacity: 1;
+  background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
+}
+
+//answer new progress
 
 #progress::-webkit-progress-bar {
   border-radius: 15px;
