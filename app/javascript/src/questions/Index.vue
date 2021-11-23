@@ -1,19 +1,19 @@
 <template>
-  <div>
-    <h1 class="text-white text-center font-bold text-2xl mb-8">管理画面</h1>
+  <div class="text-white">
+    <h1 class="admin-title">管理画面</h1>
     <div class="text-center text-white border border-solid border-white">
       <h2 class="text-center font-bold text-2xl my-8">{{courseTitle}}</h2>
       <div class="flex flex-row mb-10">
         <p class="mt-2">出題モード一覧▶︎</p>
         <div class="flex flex-row">
           <button @click="showQuestions1">
-            <img src="/assets/explain.svg" class="ml-4 w-12 h-12 object-cover border border-solid border-white rounded-full hover:bg-white">
+            <img src="/assets/explain.svg" class="course-small-icon">
           </button>
           <button @click="showQuestions2">
-            <img src="/assets/reaction.svg" class="ml-4 w-12 h-12 object-cover border border-solid border-white rounded-full hover:bg-white">
+            <img src="/assets/reaction.svg" class="course-small-icon">
           </button>
           <button @click="showQuestions3">
-            <img src="/assets/translation.svg" class="ml-4 w-12 h-12 object-cover border border-solid border-white rounded-full hover:bg-white">
+            <img src="/assets/translation.svg" class="course-small-icon">
           </button>
         </div>
       </div>

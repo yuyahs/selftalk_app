@@ -13,6 +13,104 @@
   padding: 16px;;
 }
 
+//hamburger
+
+.hamburger {
+  position: absolute;
+  display: block;
+  top: 20px;
+  right: 28px;
+  width: 48px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+//nav-menu
+
+.inner_line1 {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #ffffff;
+  transition: 1s;
+  border-radius: 4px;
+  top: 0px;
+}
+.inner_line2 {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #ffffff;
+  transition: 1s;
+  border-radius: 4px;
+  top: 10px;
+}
+.inner_line3 {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #ffffff;
+  transition: 1s;
+  border-radius: 4px;
+  top: 20px;
+}
+
+.in{
+  transform: translateX(-100%);
+}
+
+.line_1,.line_2,.line_3{
+  background: #000000;
+}
+
+.line_1 {
+  /*45度回転させる*/
+  transform: rotate(-45deg);
+  top: 0px;
+}
+.line_2 {
+  opacity: 0;
+}
+.line_3 {
+  /*45度回転させる*/
+  transform: rotate(45deg);
+  top: 0px;
+}
+
+#nav {
+  width: 40%;
+  background-color: white;
+  color: #000000;
+  position: absolute;
+  top: 0px;
+  right: -66.666667%;
+  height: 100vh;
+  transition: .7s;
+}
+
+#nav ul{
+  padding-top: 80px;
+  background-color: white;
+}
+#nav ul li{
+  list-style-type: none;
+  margin-top: 16px;
+  font-size: 18px;
+  text-decoration: underline;
+  &:hover{
+    color: #ffffff;
+    background: #000000;
+    border-bottom: none;
+    cursor: pointer;
+  }
+}
+
 
 //home not login
 .home-title-wrapper {
@@ -151,6 +249,59 @@
   background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
 }
 
+//admin page
+
+.admin-title {
+ text-align: center;
+ font-weight: bold;
+ font-size: 1.5rem;
+ margin-bottom: 24px;
+ margin-top: 24px;
+}
+
+.course-small-icon {
+  margin-left: 16px;
+  height: 48px;
+  width: 48px;
+  object-fit: cover;
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 9999px;
+  &:hover {
+    background-color: white;
+  }
+}
+
+.mode-select {
+  width: 64px;
+  margin-bottom: 24px;
+}
+
+.new-question-text {
+  font-size: 1.5rem;
+  width: 100%;
+  max-width: 28rem;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding-left: 16px;
+  padding-top: 24px;
+  padding-bottom: 32px;
+  margin-bottom: 16px;
+}
+
+.user-list {
+  text-decoration: underline;
+  list-style: none;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+
+
 //answer new progress
 
 #progress::-webkit-progress-bar {
@@ -176,103 +327,7 @@
 
 }
 
-//hamburger
 
-.hamburger {
-  position: absolute;
-  display: block;
-  top: 20px;
-  right: 28px;
-  width: 48px;
-  cursor: pointer;
-  z-index: 10;
-}
-
-//nav-menu
-
-.inner_line1 {
-  display: block;
-  position: absolute;
-  left: 0;
-  width: 40px;
-  height: 3px;
-  background-color: #ffffff;
-  transition: 1s;
-  border-radius: 4px;
-  top: 0px;
-}
-.inner_line2 {
-  display: block;
-  position: absolute;
-  left: 0;
-  width: 40px;
-  height: 3px;
-  background-color: #ffffff;
-  transition: 1s;
-  border-radius: 4px;
-  top: 10px;
-}
-.inner_line3 {
-  display: block;
-  position: absolute;
-  left: 0;
-  width: 40px;
-  height: 3px;
-  background-color: #ffffff;
-  transition: 1s;
-  border-radius: 4px;
-  top: 20px;
-}
-
-.in{
-  transform: translateX(-100%);
-}
-
-.line_1,.line_2,.line_3{
-  background: #000000;
-}
-
-.line_1 {
-  /*45度回転させる*/
-  transform: rotate(-45deg);
-  top: 0px;
-}
-.line_2 {
-  opacity: 0;
-}
-.line_3 {
-  /*45度回転させる*/
-  transform: rotate(45deg);
-  top: 0px;
-}
-
-#nav {
-  width: 40%;
-  background-color: white;
-  color: #000000;
-  position: absolute;
-  top: 0px;
-  right: -66.666667%;
-  height: 100vh;
-  transition: .7s;
-}
-
-#nav ul{
-  padding-top: 80px;
-  background-color: white;
-}
-#nav ul li{
-  list-style-type: none;
-  margin-top: 16px;
-  font-size: 18px;
-  text-decoration: underline;
-  &:hover{
-    color: #ffffff;
-    background: #000000;
-    border-bottom: none;
-    cursor: pointer;
-  }
-}
 
 
 //answer-index
