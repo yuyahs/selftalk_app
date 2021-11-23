@@ -4,9 +4,8 @@ class Api::AnswersController < ApplicationController
 
   def index
     @answers = current_user.answers.where(["created_at Like ?", "%#{params[:created_at]}%"])
-    # @answers = Kaminari.paginate_array(@answers).page(params[:page]).per(5)
-    render json: @answers
-
+    @answers_q_ids = @answers.map{|answer| answer.question.id}
+    @questions = Question.where(id: @answers_q_ids)
   end
 
   def new
