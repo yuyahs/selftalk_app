@@ -11,7 +11,7 @@
       <li class="border border-solid">英会話のテーマを自由に設定できる。</li>
     </ul>
     <h4 class="about-css">デメリット</h4>
-    <ul class="m-4 bg-red-500 text-center mx-auto max-w-md leading-10">
+    <ul class="m-4 text-center mx-auto max-w-md leading-10" id="demerit">
       <li class="border border-solid">一人で行うため継続が難しい。</li>
       <li class="border border-solid">録音しないと振り返り・添削ができない。</li>
       <li class="border border-solid">テーマがネタ切れを起こす。</li>

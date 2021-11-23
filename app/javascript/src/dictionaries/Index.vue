@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="font-bold text-2xl text-center text-white mb-8">MyDictionary</h1>
+    <h1 class="font-bold text-2xl text-center text-white mb-8">単語帳</h1>
     <MyMenu />
     <div>
       <AddItems />
