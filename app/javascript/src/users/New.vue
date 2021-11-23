@@ -1,20 +1,20 @@
 <template>
-  <div class="flex flex-col w-full max-w-md h-full container mx-auto bg-white 　　　　　　　　shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
+  <div class="flex flex-col w-full max-w-md h-full container mx-auto bg-white 　　　　　　　　shadow-md rounded-lg px-8 pt-6 pb-8">
     <h1 class="text-center font-bold text-2xl mb-6">アカウント新規登録</h1>
 
-      <div class="my-4">
+      <div class="form-p">
         <label for ="user_name"> ユーザーネーム</label>
         <input type="text" v-model="user.name" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
       </div>
-      <div class="my-4">
+      <div class="form-p">
         <label for ="user_e-mail"> メールアドレス</label>
         <input type="text" v-model="user.email" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
       </div>
-      <div class="my-4">
+      <div class="form-p">
         <label for="user_password"> パスワード(6文字以上) </label>
         <input type="password" v-model="user.password" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
       </div>
-      <div class="my-4">
+      <div class="form-p">
         <label for="user_password_confirmation"> パスワード再入力 </label>
         <input type="password" v-model="user.password_confirmation" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
       </div>

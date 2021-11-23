@@ -2,13 +2,13 @@
   <div class="flex flex-col w-full max-w-md h-full container mx-auto bg-white 　　　　　　　　shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
     <h1 class="text-center font-bold text-2xl mb-6">ログイン</h1>
 
-      <div class="my-4">
+      <div class="form-p">
         <label for ="session_e-mail"> メールアドレス</label>
         <input type="text" v-model="session.email" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
       </div>
-      <div class="my-4">
+      <div class="form-p">
         <label for="session_password"> パスワード </label>
-        <router-link to='/password_resets/new' class="underline text-blue-900 hover:text-blue-100">(パスワードを忘れた場合)</router-link>
+        <router-link to='/password_resets/new' class="password-reset-link">(パスワードを忘れた場合)</router-link>
         <input type="password" v-model="session.password" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
       </div>
 
