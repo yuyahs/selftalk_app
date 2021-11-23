@@ -271,24 +271,38 @@
 
 .answers{
   overflow-wrap: break-word;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  margin-top: 128px;
+  margin-bottom: 128px;
   height: 92px;
-  background-color: white;
   list-style: none;
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.course-btn{
+  text-align: center;
+  margin-top: 256px;
+}
+
+.answer-text-content {
+  background-color: white;
+  color: black;
+  width: 100%;
+  resize: none;
+  padding: 8px;
   border-width: 1px;
   border-style: solid;
   border-color: black;
   border-radius: 0.5rem;
 }
 
+.question-content {
+  color: white;
+
+}
+
 .edit-btn{
-  @media screen and (min-width: 768px) {
-    width: 13%;
-  }
- width: 30%;
+ width: 120px;
  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
  border-radius: 9999px;
  color: white;
@@ -300,11 +314,6 @@
 
 .edit-btn:hover{
   background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
-}
-
-.course-btn{
-  text-align: center;
-  margin-top: 256px;
 }
 
 
@@ -384,6 +393,15 @@
   margin-bottom: 24px;
 }
 
+.contribution-progress {
+  width: 128px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+  height: 16px;
+  margin-top: 4px;
+}
+
 
 //form
 
@@ -402,4 +420,5 @@
  }
 }
 
+//answer-edit
 
