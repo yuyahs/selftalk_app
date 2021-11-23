@@ -5,7 +5,7 @@
       <li>
         <router-link to="/" class="course-link">コース一覧</router-link>
       </li>
-      <li><router-link to="/items" class="dictionary-link">MyDictionary</router-link></li>
+      <li><router-link to="/items" class="dictionary-link">単語帳</router-link></li>
     </ul>
   </div>
 

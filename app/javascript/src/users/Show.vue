@@ -8,7 +8,7 @@
     <div class="flex flex-row text-white my-4 p-2 max-w-md mx-auto border border-solid border-white rounded">
       <div class="contribution">
         <p class="pl-4">学習日数</p>
-        <section class="w-24 h-24 pt-8 text-center object-cover border border-solid border-white rounded-full">
+        <section class="learning-day">
         {{learningDays}}日</section>
       </div>
       <div class="contribution">
@@ -23,14 +23,14 @@
       </div>
     </div>
 
-    <h2 class="text-center text-3xl text-white font-bold mb-8">
+    <h2 class="answer-list-title">
       自分の回答を確認する
     </h2>
     <!-- answersリンク集（日付ごとに集計） -->
-    <div class="text-center p-4 flex flex-col items-center justify-center list-none border border-solid rounded ">
+    <div class="text-center p-4 flex flex-col items-center justify-center list-none">
       <div v-for="date in dates" class="w-1/2 underline p-4" :key="date">
-        <li class="bg-white p-2 text-black font-bold text-2xl
-                 border border-solid border-blue-500 rounded-full hover:bg-black hover:text-white"><router-link :to="{name: 'answers', query: {created_at: date}}" class="block">
+        <li class="bg-blue-500 p-2 text-white font-bold text-2xl
+                 border border-solid border-blue-500 rounded-full hover:bg-blue-300"><router-link :to="{name: 'answers', query: {created_at: date}}" class="block">
          {{date}}の回答集
         </router-link></li>
       </div>
