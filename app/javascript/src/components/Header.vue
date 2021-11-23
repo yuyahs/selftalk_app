@@ -20,16 +20,16 @@
         <!-- ナビメニュー -->
         <nav id="nav">
           <ul>
-            <li @click="destroySession" class="cursor-pointer hover:bg-black hover:text-white">
+            <li @click="destroySession">
               ログアウト
             </li>
             <li>
               <router-link :to="{ name: 'change info', params: { id: $store.state.userId}}">
               登録情報変更</router-link></li>
-            <li @click="deleteUser($store.state.userId)" class="cursor-pointer hover:bg-black hover:text-white">
+            <li @click="deleteUser($store.state.userId)">
               退会</li>
-            <li v-if="$store.state.admin" class="mb-4 flex flex-col">
-                <router-link :to="{ name: 'questions' }" class="mb-4 hover:bg-black cursor-pointer">管理用ページ</router-link>
+            <li v-if="$store.state.admin">
+                <router-link :to="{ name: 'questions' }">管理用ページ</router-link>
             </li>
           </ul>
         </nav>

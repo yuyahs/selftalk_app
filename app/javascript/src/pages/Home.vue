@@ -6,8 +6,7 @@
       <div class ="course-layout">
         <h1 class = "font-bold mb-4">Self Explain</h1>
         <img class="mx-auto w-1/2 h-24" src="/assets/explain.svg">
-        <p class="text-lg mt-4">質問に対して説明形式で回答</p>
-        <p class="text-lg">目標回答時間：45秒</p>
+        <p class="course-text">質問に対して説明形式で回答<br>目標回答時間：45秒<br></p>
         <button class= "start-btn" >
           <router-link :to="{ name: 'courses', query: {mode_num: 1}}">Start!</router-link>
         </button>
@@ -16,8 +15,7 @@
       <div class ="course-layout">
         <h2 class = "font-bold mb-4">Self Reaction</h2>
         <img class="mx-auto w-1/2 h-24" src="/assets/reaction.svg">
-        <p class="text-lg mt-4">発言に対してリアクション</p>
-        <p class="text-lg">目標回答時間：45秒</p>
+        <p class="course-text">発言に対してリアクション<br>目標回答時間：45秒<br></p>
         <button class= "start-btn" >
            <router-link :to="{ name: 'courses', query: {mode_num: 2}}">Start!</router-link>
         </button>
@@ -26,8 +24,7 @@
       <div class ="course-layout">
         <h3 class = "font-bold mb-4">Self Translation</h3>
         <img class="mx-auto w-1/2 h-24" src="/assets/translation.svg">
-        <p class="text-lg mt-4">日本語文を直感的に英訳</p>
-        <p class="text-lg">目標回答時間：45秒</p>
+        <p class="course-text">日本語文を直感的に英訳<br>目標回答時間：45秒<br></p>
         <button class= "start-btn" >
            <router-link :to="{ name: 'courses', query: {mode_num: 3}}">Start!</router-link>
         </button>
