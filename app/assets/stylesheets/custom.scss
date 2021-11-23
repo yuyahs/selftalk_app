@@ -160,8 +160,7 @@
 
 .home-link-about{
   font-size: 1.125rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   max-width: 28rem;
   border-width: 1px;
   border-style: solid;
@@ -235,8 +234,7 @@
 
 .course-icon {
   width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   height: 96px;
 }
 
@@ -259,6 +257,30 @@
  margin-top: 24px;
 }
 
+.question-list {
+  margin: 0 auto;
+  margin-bottom: 16px;
+  padding-top: 4px;
+  background-color: white;
+  height: 48px;
+  width: 50%;
+  font-size: 1.5rem;
+  color: black;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 0.25rem;
+}
+
+.question-delete {
+  text-decoration: underline;
+  margin-right: 16px;
+  float: right;
+  &:hover {
+    color: rgba(147, 197, 253, var(--tw-text-opacity));
+  }
+}
+
 .course-small-icon {
   margin-left: 16px;
   height: 48px;
@@ -276,9 +298,11 @@
 .mode-select {
   width: 64px;
   margin-bottom: 24px;
+  color: black;
 }
 
 .new-question-text {
+  color: black;
   font-size: 1.5rem;
   width: 100%;
   max-width: 28rem;
