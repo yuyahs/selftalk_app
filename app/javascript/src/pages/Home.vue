@@ -8,7 +8,7 @@
         <img class="mx-auto w-1/2 h-24" src="/assets/explain.svg">
         <p class="text-lg mt-4">質問に対して説明形式で回答</p>
         <p class="text-lg">目標回答時間：45秒</p>
-        <button class= "mt-4 bg-yellow-500 hover:bg-white text-white font-semibold hover:text-black py-2 px-4 border border-white hover:border-yellow-500 rounded-full" >
+        <button class= "start-btn" >
           <router-link :to="{ name: 'courses', query: {mode_num: 1}}">Start!</router-link>
         </button>
       </div>
@@ -18,7 +18,7 @@
         <img class="mx-auto w-1/2 h-24" src="/assets/reaction.svg">
         <p class="text-lg mt-4">発言に対してリアクション</p>
         <p class="text-lg">目標回答時間：45秒</p>
-        <button class= "mt-4 bg-yellow-500 hover:bg-white text-white font-semibold hover:text-black py-2 px-4 border border-white hover:border-yellow-500 rounded-full" >
+        <button class= "start-btn" >
            <router-link :to="{ name: 'courses', query: {mode_num: 2}}">Start!</router-link>
         </button>
       </div>
@@ -28,7 +28,7 @@
         <img class="mx-auto w-1/2 h-24" src="/assets/translation.svg">
         <p class="text-lg mt-4">日本語文を直感的に英訳</p>
         <p class="text-lg">目標回答時間：45秒</p>
-        <button class= "mt-4 bg-yellow-500 hover:bg-white text-white font-semibold hover:text-black py-2 px-4 border border-white hover:border-yellow-500 rounded-full" >
+        <button class= "start-btn" >
            <router-link :to="{ name: 'courses', query: {mode_num: 3}}">Start!</router-link>
         </button>
       </div>
