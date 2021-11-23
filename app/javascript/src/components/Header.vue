@@ -24,7 +24,8 @@
               ログアウト
             </li>
             <li>
-              <router-link :to="{ name: 'change info', params: { id: $store.state.userId}}">
+              <router-link :to="{ name: 'change info',
+               params: { id: $store.state.userId}}">
               登録情報変更</router-link></li>
             <li @click="deleteUser($store.state.userId)">
               退会</li>
