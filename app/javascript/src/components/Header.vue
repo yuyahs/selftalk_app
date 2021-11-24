@@ -2,21 +2,22 @@
   <header id="header-wrapper" class="fixed bg-blue-900 w-full text-white border-b-2 border-fuchsia-600">
     <router-link to="/" class="font-serif text-3xl ">SelfTalkEnglish</router-link>
     <div id="not-login-menu" class="float-right flex flex-row text-white font-bold">
-      <div v-if="$store.state.loggedIn && $store.state.notGuest" >
+      <div v-if="$store.state.loggedIn && $store.state.notGuest">
         <button class="user-page">
-          <router-link :to="{name: 'show', params: {id: $store.state.userId}}">
+          <router-link :to="{name: 'show', params: {id: $store.state.userId }}">
           マイページ</router-link>
         </button>
+
         <!-- ハンバーガーメニューのアイコン -->
         <div @click="showMenu" class="hamburger">
         　<!-- 1番上の線 -->
-          <span class="inner_line1" id="line1">
-          </span>
+          <span class="inner_line1" id="line1"></span>
         　<!-- 真ん中の線 -->
           <span class="inner_line2" id="line2"></span>
         　<!-- 1番下の線 -->
           <span class="inner_line3" id="line3"></span>
         </div>
+
         <!-- ナビメニュー -->
         <nav id="nav">
           <ul>
@@ -25,26 +26,33 @@
             </li>
             <li>
               <router-link :to="{ name: 'change info',
-               params: { id: $store.state.userId}}">
+               params: { id: $store.state.userId }}">
               登録情報変更</router-link></li>
             <li @click="deleteUser($store.state.userId)">
-              退会</li>
+              退会
+            </li>
             <li v-if="$store.state.admin">
-                <router-link :to="{ name: 'questions' }">管理用ページ</router-link>
+              <router-link :to="{ name: 'questions' }">管理用ページ</router-link>
             </li>
           </ul>
         </nav>
       </div>
+
       <!-- ゲストユーザーに表示されるメニュー -->
       <div v-else-if="$store.state.guest">
         <button @click="destroySession" class="mr-4 font-bold hover:bg-blue-300">
           ログアウト
         </button>
       </div>
+
       <!-- 未ログインユーザーに表示されるメニュー -->
       <div v-else>
-          <router-link to="/login" class="mr-4 hover:bg-blue-300">{{nav1}}</router-link>
-          <router-link to="/users/new" class="mr-4 hover:bg-blue-300 ">{{nav2}}</router-link>
+          <router-link to="/login" class="mr-4 hover:bg-blue-300">
+            {{nav1}}
+          </router-link>
+          <router-link to="/users/new" class="mr-4 hover:bg-blue-300 ">
+           {{nav2}}
+          </router-link>
       </div>
     </div>
   </header>
@@ -60,7 +68,8 @@
       nav2: String
     },
     methods: {
-      destroySession: function() {
+      //logoutメソッド
+       destroySession: function() {
           axios.delete('/api/logout')
           .then(response => {
             this.$store.commit('logout'),
@@ -70,9 +79,9 @@
             this.$router.push({ path: '/'}),
             this.$flashMessage.show({
               type: 'success',
-              title: 'ログアウト',
+              title: 'Logout',
               text:'ログアウトしました',
-              time: 5000
+              time: 1000
             });
           })
           .catch(error => {
@@ -82,8 +91,9 @@
             });
           })
         },
-      deleteUser: function(id) {
-        if(window.confirm('データが全て削除されますが退会しますか？')) {
+        //退会メソッド
+       deleteUser: function(id) {
+          if(window.confirm('データが全て削除されますが退会しますか？')) {
           axios.delete('/api/users/' + id)
           .then(response => {
           this.$store.commit('guest'),
@@ -98,18 +108,18 @@
           this.$flashMessage.show({
             type: 'error',
             text: 'エラーが発生しました',
-            time: 5000
+            time: 1000
           });
         })
       })
     }
   },
+      //hamburger menu method
       showMenu: function() {
         document.getElementById('line1').classList.toggle('line_1');
         document.getElementById('line2').classList.toggle('line_2');
         document.getElementById('line3').classList.toggle('line_3');
         document.getElementById('nav').classList.toggle('in');
-
         }
       }
   }
