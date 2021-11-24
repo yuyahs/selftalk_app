@@ -1,6 +1,7 @@
 <template>
   <div class="text-white font-bold">
     <h1 class="text-center text-3xl mb-8">利用規約</h1>
+
     <div class="text-justify">
       <p class="mb-4">この利用規約（以下，「本規約」といいます。）は，SelfTalkEnglish（以下，「当事務局」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。</p>
       <h2 class="text-lg">第1条（適用）</h2>
@@ -98,7 +99,6 @@
 
 <script>
 export default {
-  name: 'Policy',
-
+  name: 'Policy'
 }
 </script>

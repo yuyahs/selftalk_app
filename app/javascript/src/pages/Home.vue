@@ -95,7 +95,7 @@
            this.$flashMessage.show({
             type: 'success',
             title: 'ゲストログイン',
-            text:'ゲストユーザーとしてログインに成功しました。',
+            text:'ゲストユーザーとしてログインに成功しました',
             time: 1000
           });
         })
