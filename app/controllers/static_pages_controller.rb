@@ -14,7 +14,7 @@ class StaticPagesController < ApplicationController
   def policy
   end
 
-  # 以下を追加
+  #ゲストログイン
   def guest_sign_in
     user = User.find_or_create_by!(email: 'guest@example.com') do |user|
       user.name = "ゲストユーザー"

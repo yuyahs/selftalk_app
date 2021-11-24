@@ -1,7 +1,7 @@
 //全体
 .contents {
-  flex-grow: 1;
   padding: 96px;
+  flex-grow: 1;
 }
 
 //header
@@ -17,49 +17,50 @@
 
 .hamburger {
   position: absolute;
-  display: block;
   top: 20px;
   right: 28px;
   width: 48px;
+  display: block;
   cursor: pointer;
   z-index: 10;
 }
 
-//nav-menu
-
 .inner_line1 {
-  display: block;
   position: absolute;
-  left: 0;
-  width: 40px;
-  height: 3px;
-  background-color: #ffffff;
-  transition: 1s;
-  border-radius: 4px;
   top: 0px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  display: block;
+  transition: 1s;
 }
+
 .inner_line2 {
-  display: block;
   position: absolute;
-  left: 0;
-  width: 40px;
-  height: 3px;
-  background-color: #ffffff;
-  transition: 1s;
-  border-radius: 4px;
   top: 10px;
-}
-.inner_line3 {
-  display: block;
-  position: absolute;
   left: 0;
   width: 40px;
   height: 3px;
   background-color: #ffffff;
-  transition: 1s;
   border-radius: 4px;
-  top: 20px;
+  display: block;
+  transition: 1s;
 }
+
+.inner_line3 {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  display: block;
+  transition: 1s;
+}
+//nav-menu
 
 .in{
   transform: translateX(-100%);
@@ -71,41 +72,42 @@
 
 .line_1 {
   /*45度回転させる*/
-  transform: rotate(-45deg);
   top: 0px;
+  transform: rotate(-45deg);
 }
 .line_2 {
   opacity: 0;
 }
 .line_3 {
   /*45度回転させる*/
-  transform: rotate(45deg);
   top: 0px;
+  transform: rotate(45deg);
 }
 
+//nav menu
 #nav {
-  width: 40%;
-  background-color: white;
-  color: #000000;
   position: absolute;
   top: 0px;
   right: -66.666667%;
+  width: 40%;
   height: 100vh;
+  color: #000000;
+  background-color: #ffffff;
   transition: .7s;
 }
 
 #nav ul{
   padding-top: 80px;
-  background-color: white;
+  background-color: #ffffff;
 }
 #nav ul li{
-  list-style-type: none;
   margin-top: 16px;
   font-size: 18px;
   text-decoration: underline;
+  list-style-type: none;
   &:hover{
     color: #ffffff;
-    background: #000000;
+    background-color: #000000;
     border-bottom: none;
     cursor: pointer;
   }
@@ -114,14 +116,14 @@
 
 //home not login
 .home-title-wrapper {
-  color: white;
   padding-top: 24px;
+  color: #ffffff;
 }
 
 .home-title {
+  margin-bottom: 24px;
   font-size: 2.25rem;
   font-weight: bold;
-  margin-bottom: 24px;
 }
 
 .home-subtitle {
@@ -131,27 +133,27 @@
 }
 
 .signin-link {
+  padding: 8px;
   margin-top: 40px;
   margin-bottom: 40px;
+  color: #ffffff;
   background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
-  color: white;
-  font-weight: bold;
-  padding: 8px;
   border-radius: 9999px;
+  font-weight: bold;
   &:hover {
     background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
   }
 }
 
 .guest-link {
-  margin-left: 16px;
+  padding: 8px;
   margin-top: 40px;
   margin-bottom: 40px;
+  margin-left: 16px;
+  color: #ffffff;
   background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
-  color: white;
-  font-weight: bold;
-  padding: 8px;
   border-radius: 9999px;
+  font-weight: bold;
   &:hover {
     background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
   }
@@ -159,15 +161,15 @@
 
 
 .home-link-about{
-  font-size: 1.125rem;
-  margin: 0 auto;
-  max-width: 28rem;
-  border-width: 1px;
-  border-style: solid;
-  border-color: white;
-  border-radius: 0.5rem;
-  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
   padding: 8px;
+  margin: 0 auto;
+  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+  max-width: 28rem;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffffff;
   display: block;
   &:hover {
     background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
@@ -175,16 +177,16 @@
 }
 
 .home-div {
-  color: white;
   margin-top: 96px;
   margin-bottom: 96px;
+  color: #ffffff;
 }
 
 .about-css{
-  font-size: 1.5rem;
-  line-height: 2rem;
   margin-top: 48px;
   margin-bottom: 48px;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .about-sentence {
@@ -194,47 +196,47 @@
 
 //home after login
 .course-layout{
-  width: 360px;
-  background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
   padding: 16px;
   margin-top: 32px;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
+  width: 360px;
+  color: black;
+  background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
   border-style: solid;
   border-width: 4px;
   border-color: white;
   border-radius: 0.5rem;
-  color: black;
   font-size: 1.875rem;
 }
 
 .start-btn {
-  margin-top: 16px;
-  background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
-  color: white;
-  font-weight: 600;
-  border-width: 1px;
-  border-color: white;
-  border-radius: 9999px;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-right: 16px;
   padding-left: 16px;
+  margin-top: 16px;
+  background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
+  color: white;
+  border-width: 1px;
+  border-color: white;
+  border-radius: 9999px;
+  font-weight: 600;
   &:hover {
-    background-color: white;
     color: black;
+    background-color: white;
     border-color: rgba(252, 211, 77, var(--tw-border-opacity));
   }
 }
 
 .course-text {
-  font-size: 1.125rem;
   margin-top: 16px;
+  font-size: 1.125rem;
 }
 
 .course-icon {
-  width: 50%;
   margin: 0 auto;
+  width: 50%;
   height: 96px;
 }
 

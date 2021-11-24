@@ -3,30 +3,40 @@
     <!-- ログイン済み・ゲストユーザーに表示されるページ -->
     <div v-if="$store.state.loggedIn">
       <h1 class="text-white text-3xl">学習コース一覧</h1>
+
+       <!--self explainコース -->
       <div class ="course-layout">
         <h1 class = "font-bold mb-4">Self Explain</h1>
         <img class="course-icon" src="/assets/explain.svg">
         <p class="course-text">質問に対して説明形式で回答<br>目標回答時間：45秒<br></p>
         <button class= "start-btn" >
-          <router-link :to="{ name: 'courses', query: {mode_num: 1}}">Start!</router-link>
+          <router-link :to="{ name: 'courses', query: {mode_num: 1}}">
+            Start!
+          </router-link>
         </button>
       </div>
 
+      <!--self reactionコース -->
       <div class ="course-layout">
         <h2 class = "font-bold mb-4">Self Reaction</h2>
         <img class="course-icon" src="/assets/reaction.svg">
         <p class="course-text">発言に対してリアクション<br>目標回答時間：45秒<br></p>
         <button class= "start-btn" >
-           <router-link :to="{ name: 'courses', query: {mode_num: 2}}">Start!</router-link>
+           <router-link :to="{ name: 'courses', query: {mode_num: 2}}">
+             Start!
+           </router-link>
         </button>
       </div>
 
+       <!--self translationコース -->
       <div class ="course-layout">
         <h3 class = "font-bold mb-4">Self Translation</h3>
         <img class="course-icon" src="/assets/translation.svg">
         <p class="course-text">日本語文を直感的に英訳<br>目標回答時間：45秒<br></p>
         <button class= "start-btn" >
-           <router-link :to="{ name: 'courses', query: {mode_num: 3}}">Start!</router-link>
+           <router-link :to="{ name: 'courses', query: {mode_num: 3}}">
+             Start!
+           </router-link>
         </button>
       </div>
     </div>
@@ -42,7 +52,6 @@
       <div class="inline-block">
         <button class= "signin-link">
         <router-link to="/users/new">ユーザー登録</router-link></button>
-
         <button @click="guestLogin" class="guest-link" >
         ゲストログイン</button>
       </div>
@@ -66,7 +75,6 @@
         <p class="home-subtitle">回答文は後で確認・添削可能</p>
         <img src="/assets/lp-img-1" class="border border-solid border-white mx-auto">
       </div>
-
     </div>
   </div>
 </template>
@@ -93,7 +101,7 @@
         })
         .catch(error => {
           this.$flashMessage.show({
-            type: 'error',
+            type: 'Error',
             text: 'エラーが発生しました'
           })
         });
