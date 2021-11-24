@@ -87,7 +87,7 @@
           .catch(error => {
             this.$flashMessage.show({
               type: 'error',
-              text: 'ログアウトできませんでした。'
+              text: 'ログアウトできませんでした'
             });
           })
         },

@@ -7,7 +7,8 @@
     </div>
 
     <label for ="inquiry_message">お問い合わせ内容</label>
-    <textarea  v-model="inquiry.message" class="content-center resize-none text-2xl h-36 pl-3 pt-3 w-full border-solid border-2 rounded border-gray-600" ></textarea>
+    <textarea  v-model="inquiry.message" class="content-center resize-none text-2xl h-36 pl-3 pt-3 w-full border-solid border-2 rounded border-gray-600" >
+    </textarea>
 
     <button @click="sendInquiry" class="my-10 w-1/2 bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
       送信する
@@ -29,6 +30,7 @@
       }
     },
     methods: {
+      //問い合わせ送信メソッド
       sendInquiry: function (){
         axios.post('/api/contacts',{
           inquiry: this.inquiry
@@ -37,14 +39,14 @@
           this.$flashMessage.show({
             type: 'success',
             text:'問い合わせ内容の送信が完了しました',
-            time: 5000
+            time: 1000
           });
           this.inquiry = ""
         })
         .catch(error => {
           this.$flashMessage.show({
             type: 'error',
-            text: '入力内容に誤りがあります。'
+            text: '入力内容に誤りがあります'
           });
         })
       }
