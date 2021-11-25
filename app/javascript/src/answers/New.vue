@@ -59,7 +59,6 @@
         .then(response => {
           this.question = response.data
           this.id = response.data.id
-
         })
       },
       saveAnswer: function() {
@@ -69,10 +68,17 @@
           mode_num: this.mode_num
         })
         .then(response => {
-          this.$router.go({path: this.$router.currentRoute.path})
+          // this.$router.go({path: this.$router.currentRoute.path})
+          this.answer.content = ""
+          this.setQuestion();
+          this.$clearInterval(this.$intervals);
+          this.setTimer();
         })
          .catch(err => {
-            this.$router.go({path: this.$router.currentRoute.path})
+            this.answer.content = ""
+            this.setQuestion();
+            this.$clearInterval(this.$intervals);
+            this.setTimer();
          })
       },
       setTimer: function() {

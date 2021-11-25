@@ -356,53 +356,6 @@
 
 
 
-//answer-index
-
-.answers{
-  overflow-wrap: break-word;
-  margin-bottom: 128px;
-  height: 92px;
-  list-style: none;
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.course-btn{
-  text-align: center;
-  margin-top: 256px;
-}
-
-.answer-text-content {
-  background-color: white;
-  color: black;
-  width: 100%;
-  resize: none;
-  padding: 8px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
-  border-radius: 0.5rem;
-}
-
-.question-content {
-  color: white;
-
-}
-
-.edit-btn{
- width: 120px;
- background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
- border-radius: 9999px;
- color: white;
- text-align: center;
- margin-top: 24px;
- padding-top: 0.5rem;
- padding-bottom: 0.5rem;
-}
-
-.edit-btn:hover{
-  background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
-}
 
 
 
@@ -499,14 +452,58 @@
 }
 
 .password-reset-link {
- color: rgba(30, 58, 138, var(--tw-text-opacity));
- text-decoration: underline;
- --tw-text-opacity: 1;
- &:hover{
+  color: rgba(30, 58, 138, var(--tw-text-opacity));
+  text-decoration: underline;
   --tw-text-opacity: 1;
-  color: rgba(219, 234, 254, var(--tw-text-opacity));
- }
+  &:hover{
+    --tw-text-opacity: 1;
+    color: rgba(219, 234, 254, var(--tw-text-opacity));
+  }
 }
 
-//answer-edit
+//answer-index
 
+.answers{
+  overflow-wrap: break-word;
+  margin-bottom: 128px;
+  height: 92px;
+  list-style: none;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.course-btn{
+  text-align: center;
+  margin-top: 256px;
+}
+
+.answer-text-content {
+  background-color: white;
+  color: black;
+  width: 100%;
+  resize: none;
+  padding: 8px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 0.5rem;
+}
+
+.question-content {
+  color: white;
+}
+
+.edit-btn{
+ width: 120px;
+ background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+ border-radius: 9999px;
+ color: white;
+ text-align: center;
+ margin-top: 12px;
+ padding-top: 0.5rem;
+ padding-bottom: 0.5rem;
+}
+
+.edit-btn:hover{
+  background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+}
