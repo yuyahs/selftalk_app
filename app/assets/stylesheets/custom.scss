@@ -1,10 +1,12 @@
 //全体
+
 .contents {
   padding: 96px;
   flex-grow: 1;
 }
 
 //header
+
 #header-wrapper{
   height: 64px;
 }
@@ -60,7 +62,8 @@
   display: block;
   transition: 1s;
 }
-//nav-menu
+
+//クリック後のhamburger icon
 
 .in{
   transform: translateX(-100%);
@@ -71,7 +74,6 @@
 }
 
 .line_1 {
-  /*45度回転させる*/
   top: 0px;
   transform: rotate(-45deg);
 }
@@ -79,7 +81,6 @@
   opacity: 0;
 }
 .line_3 {
-  /*45度回転させる*/
   top: 0px;
   transform: rotate(45deg);
 }
@@ -115,6 +116,7 @@
 
 
 //home not login
+
 .home-title-wrapper {
   padding-top: 24px;
   color: #ffffff;
@@ -195,6 +197,7 @@
 }
 
 //home after login
+
 .course-layout{
   padding: 16px;
   margin-top: 32px;
@@ -252,31 +255,31 @@
 //admin page
 
 .admin-title {
+ margin-top: 24px;
+ margin-bottom: 24px;
  text-align: center;
  font-weight: bold;
  font-size: 1.5rem;
- margin-bottom: 24px;
- margin-top: 24px;
 }
 
 .question-list {
+  padding-top: 4px;
   margin: 0 auto;
   margin-bottom: 16px;
-  padding-top: 4px;
-  background-color: white;
+  width: 66%;
   height: 48px;
-  width: 50%;
-  font-size: 1.5rem;
-  color: black;
-  border-width: 1px;
+  color: #000000;
+  background-color: #ffffff;
   border-style: solid;
-  border-color: black;
+  border-width: 1px;
+  border-color: rgb(156, 141, 141);
   border-radius: 0.25rem;
+  font-size: 1.5rem;
 }
 
 .question-delete {
-  text-decoration: underline;
   margin-right: 16px;
+  text-decoration: underline;
   float: right;
   &:hover {
     color: rgba(147, 197, 253, var(--tw-text-opacity));
@@ -285,76 +288,46 @@
 
 .course-small-icon {
   margin-left: 16px;
-  height: 48px;
   width: 48px;
-  object-fit: cover;
-  border-width: 1px;
+  height: 48px;
   border-style: solid;
+  border-width: 1px;
   border-color: white;
   border-radius: 9999px;
+  object-fit: cover;
   &:hover {
     background-color: white;
   }
 }
 
 .mode-select {
-  width: 64px;
   margin-bottom: 24px;
-  color: black;
+  width: 64px;
+  color: #000000;
 }
 
 .new-question-text {
-  color: black;
-  font-size: 1.5rem;
+  padding-top: 24px;
+  padding-bottom: 32px;
+  padding-left: 16px;
+  margin-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   max-width: 28rem;
   height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: white;
+  color: #000000;
+  background-color: #ffffff;
   border-radius: 0.5rem;
-  padding-left: 16px;
-  padding-top: 24px;
-  padding-bottom: 32px;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
 }
 
 .user-list {
+  margin-top: 16px;
+  margin-bottom: 16px;
   text-decoration: underline;
   list-style: none;
-  margin-bottom: 16px;
-  margin-top: 16px;
 }
-
-
-
-//answer new progress
-
-#progress::-webkit-progress-bar {
-  border-radius: 15px;
-  background-color: #D1D5DB;
-}
-
-#progress::-webkit-progress-value {
-  border-radius: 15px;
-  background-color: #3B82F6;
-
-}
-
-#progress::-moz-progress-bar {
-  border-radius: 15px;
-  background-color: #3B82F6;
-
-}
-
-#progress::-ms-fill {
-   border-radius: 15px;
-   background-color: #3B82F6;
-
-}
-
-
-
 
 
 
@@ -494,16 +467,38 @@
 }
 
 .edit-btn{
- width: 120px;
- background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
- border-radius: 9999px;
- color: white;
- text-align: center;
- margin-top: 12px;
- padding-top: 0.5rem;
- padding-bottom: 0.5rem;
+  width: 120px;
+  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+  border-radius: 9999px;
+  color: white;
+  text-align: center;
+  margin-top: 12px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .edit-btn:hover{
   background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+}
+
+//answer new progress
+
+#progress::-webkit-progress-bar {
+  background-color: #D1D5DB;
+  border-radius: 15px;
+}
+
+#progress::-webkit-progress-value {
+  background-color: #3B82F6;
+  border-radius: 15px;
+}
+
+#progress::-moz-progress-bar {
+  background-color: #3B82F6;
+  border-radius: 15px;
+}
+
+#progress::-ms-fill {
+  background-color: #3B82F6;
+  border-radius: 15px;
 }
