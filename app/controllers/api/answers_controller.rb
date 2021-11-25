@@ -4,8 +4,9 @@ class Api::AnswersController < ApplicationController
 
   def index
     @answers = current_user.answers.where(["created_at Like ?", "%#{params[:created_at]}%"])
-    @answers_q_ids = @answers.map{|answer| answer.question.id}
-    @questions = Question.where(id: @answers_q_ids)
+    # @answers_q_ids = @answers.map{|answer| answer.question.id}
+    # @questions = Question.where(id: @answers_q_ids)
+
   end
 
   def new
