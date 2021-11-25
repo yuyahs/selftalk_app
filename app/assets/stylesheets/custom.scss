@@ -411,7 +411,7 @@
 .my-menu{
   margin-bottom: 24px;
   width: 120px;
-  color: white;
+  color: #ffffff;
   text-align: center;
   font-size: 1.25rem;
 
@@ -419,9 +419,9 @@
 
 .course-link{
   background-color: rgba(99, 102, 241, var(--tw-bg-opacity));
-  border-width: 1px;
   border-style: solid;
-  border-color: white;
+  border-width: 1px;
+  border-color: #ffffff;
   display: block;
 }
 
@@ -430,9 +430,9 @@
 }
 .dictionary-link{
   background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
-  border-width: 1px;
   border-style: solid;
-  border-color: white;
+  border-width: 1px;
+  border-color: #ffffff;
   display: block;
 }
 
@@ -443,25 +443,25 @@
 //mypage
 
 .learning-day {
+  padding-top: 32px;
   width: 96px;
   height: 96px;
-  padding-top: 32px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffffff;
+  border-radius: 9999px;
   text-align: center;
   object-fit: cover;
-  border-width: 1px;
-  border-style: solid;
-  border-color: white;
-  border-radius: 9999px;
 }
 
 .user-page {
   padding: 4px;
   margin-right: 80px;
-  border-width: 1px;
+  background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
   border-style: solid;
+  border-width: 1px;
   border-color: rgba(255, 255, 255, var(--tw-border-opacity));
   border-radius: 9999px;
-  background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
 }
 
 .user-page:hover{
@@ -473,21 +473,21 @@
 }
 
 .answer-list-title {
-  text-align: center;
-  font-size: 1.875rem;
-  color: white;
-  font-weight: bold;
   margin-top: 24px;
   margin-bottom: 24px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: bold;
 }
 
 .contribution-progress {
-  width: 128px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: white;
-  height: 16px;
   margin-top: 4px;
+  width: 128px;
+  height: 16px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffffff;
 }
 
 
@@ -499,9 +499,9 @@
 }
 
 .password-reset-link {
+ color: rgba(30, 58, 138, var(--tw-text-opacity));
  text-decoration: underline;
  --tw-text-opacity: 1;
- color: rgba(30, 58, 138, var(--tw-text-opacity));
  &:hover{
   --tw-text-opacity: 1;
   color: rgba(219, 234, 254, var(--tw-text-opacity));
