@@ -1,11 +1,13 @@
 <template>
   <div class="items-center justify-center">
-    <h1 class="font-bold text-2xl text-center text-white">回答集</h1>
+    <h1 class="font-bold text-2xl text-center text-white">
+      回答集
+    </h1>
     <MyMenu />
+
+    <!-- 回答一覧を表示 -->
     <div v-for="answer in answers" class="answers" :key="answer">
-
       <textarea v-model="answer.content" disabled class="answer-text-content"></textarea>
-
       <li class="edit-btn">
        <router-link :to="{name: 'answerEdit', params: {id: answer.id}}">
          添削する
@@ -34,6 +36,7 @@
       this.getAnswers();
     },
     methods: {
+      //特定日付のanswer一覧のデータを受け取るメソッド
       getAnswers: function() {
         axios.get('api/answers', {
           params: {
@@ -42,7 +45,6 @@
         })
         .then(response => {
           this.answers = response.data.answers
-          // this.questions = response.data.questions
         })
       }
     }
