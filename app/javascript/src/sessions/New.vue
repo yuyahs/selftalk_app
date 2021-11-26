@@ -1,20 +1,29 @@
 <template>
   <div class="flex flex-col w-full max-w-md h-full container mx-auto bg-white 　　　　　　　　shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
-    <h1 class="text-center font-bold text-2xl mb-6">ログイン</h1>
-
+    <h1 class="text-center font-bold text-2xl mb-6">
+      ログイン
+    </h1>
+      <!-- ログインフォーム -->
       <div class="form-p">
-        <label for ="session_e-mail"> メールアドレス</label>
+        <label for ="session_e-mail">
+          メールアドレス
+        </label>
         <input type="text" v-model="session.email" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
       </div>
+
       <div class="form-p">
-        <label for="session_password"> パスワード </label>
-        <router-link to='/password_resets/new' class="password-reset-link">(パスワードを忘れた場合)</router-link>
+        <label for="session_password">
+          パスワード
+        </label>
+        <router-link to='/password_resets/new' class="password-reset-link">
+          (パスワードを忘れた場合)
+        </router-link>
         <input type="password" v-model="session.password" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
       </div>
 
       <div class="mt-4">
         <button @click="createSession" class="w-1/2 bg-blue-500  text-white font-semibold hover:bg-blue-300 py-2 px-4 border border-white rounded-full" >
-        ログイン
+         ログイン
         </button>
       </div>
   </div>
@@ -23,6 +32,7 @@
 
 <script>
   import axios from 'axios';
+  //CSRFトークン設定
   axios.defaults.headers.common = {
     'X-Requested-With': 'XMLHttpRequest',
     'X-CSRF-TOKEN' : document.querySelector('meta[name="csrf-token"]').getAttribute('content')
@@ -42,6 +52,7 @@
       }
     },
     methods: {
+      //ログインメソッド
       createSession: function () {
         axios.post('/api/login', {
           session: this.session
@@ -50,37 +61,36 @@
           const id = response.data.id
           this.$store.commit('setId', id),
           this.$store.commit('login', token)
-          if(id == 1) {
+          if(id == 1) {                   //管理ユーザー（id:1)の時の動作
             this.$store.commit('admin')
           }
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({
             type: 'success',
-            title: 'ログイン',
             text:'ログインに成功しました。',
-            time: 5000
+            time: 1000
           });
         })
         .catch((error) => {
+          //validationエラー
           if(error.message === "Request failed with status code 400") {
              this.$flashMessage.show({
               type: 'error',
               title: 'ログインに失敗しました。',
               text: '入力内容に誤りがある可能性があります。',
-              time: 5000
+              time: 1000
             })
+           //アカウント有効化前にログインされた場合のエラー
            } if(error.message === "Request failed with status code 401") {
              this.$flashMessage.show({
               type: 'error',
               title: 'ログインに失敗しました。',
               text: 'アカウントが有効化されていません。',
-              time: 5000
+              time: 1000
            })
           }
         })
       }
     }
-
   }
-
 </script>
