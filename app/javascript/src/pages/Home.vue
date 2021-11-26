@@ -46,7 +46,7 @@
       <div class="home-title-wrapper">
         <h1 class="home-title">SelfTalkEnglish</h1>
         <h2 class="home-subtitle">”独り言英語学習”で実践力を磨く</h2>
-        <h3>中級者〜上級者向け英語学習アプリ</h3>
+        <h3 class="home-subtitle">中級者〜上級者向け英語学習アプリ</h3>
       </div>
 
       <div class="inline-block">
@@ -105,12 +105,7 @@
             text: 'エラーが発生しました'
           })
         });
-
       }
     }
-
-
-
-
   }
 </script>
