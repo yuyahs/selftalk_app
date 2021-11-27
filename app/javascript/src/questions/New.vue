@@ -46,8 +46,9 @@
         .then(response => {
           this.$flashMessage.show({
             type: 'success',
+            title: '問題作成',
             text:'問題を作成しました',
-            time: 1000
+            time: 3000
           });
           this.question.content=""
         })
@@ -55,7 +56,7 @@
           this.$flashMessage.show({
             type: 'error',
             text: '作成に失敗しました',
-            time: 1000
+            time: 3000
           });
         })
      　}

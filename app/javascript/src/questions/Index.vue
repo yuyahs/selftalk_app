@@ -89,7 +89,7 @@
             this.$flashMessage.show({
               type: 'error',
               text: '削除に失敗しました',
-              time: 1000
+              time: 3000
             });
          })
        })

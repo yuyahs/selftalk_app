@@ -42,15 +42,17 @@
         .then(response => {
           this.$flashMessage.show({
             type: 'success',
+            title: '問い合わせ送信',
             text:'問い合わせ内容の送信が完了しました',
-            time: 1000
+            time: 3000
           });
           this.inquiry = ""
         })
         .catch(error => {
           this.$flashMessage.show({
             type: 'error',
-            text: '入力内容に誤りがあります'
+            text: '入力内容に誤りがあります',
+            time: 3000
           });
         })
       }

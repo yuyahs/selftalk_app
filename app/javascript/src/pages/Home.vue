@@ -81,7 +81,7 @@
 
 <script>
   import axios from 'axios';
-  const token = Math.random().toString(32).substring(2)
+
   export default {
     name: 'Home',
     methods: {
@@ -89,20 +89,21 @@
       guestLogin: function () {
         axios.post('/api/guest_sign_in')
         .then(response => {
-           this.$store.commit('login', token)
+           this.$store.commit('login')
            this.$store.commit('notGuest') //notGuestをfalseにする
            this.$store.commit('inGuest')　//inGuestをtrueにする
            this.$flashMessage.show({
             type: 'success',
             title: 'ゲストログイン',
             text:'ゲストユーザーとしてログインに成功しました',
-            time: 1000
+            time: 3000
           });
         })
         .catch(error => {
           this.$flashMessage.show({
             type: 'Error',
-            text: 'エラーが発生しました'
+            text: 'エラーが発生しました',
+            time: 3000
           })
         });
       }

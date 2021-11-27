@@ -3,7 +3,7 @@
     <h1 class="text-center font-bold text-2xl mb-6">
       アカウント新規登録
     </h1>
-    
+
       <!-- 新規登録フォーム -->
       <div class="form-p">
         <label for ="user_name"> ユーザーネーム</label>
@@ -25,7 +25,7 @@
       <!-- 新規登録ボタン -->
       <div class="mt-4">
         <button @click="createUser" class="w-1/2 bg-blue-500  text-white font-semibold hover:bg-blue-300 py-2 px-4 border border-white rounded-full" >
-         ザー登録
+         ユーザー登録
         </button>
       </div>
   </div>
@@ -60,7 +60,7 @@
            type: 'success',
            title: 'ユーザー登録が完了しました',
            text:'アカウント有効化メールを送信しました',
-           time: 1000
+           time: 3000
           });
         })
         .catch(err => {
@@ -69,7 +69,7 @@
            type: 'error',
            title: 'ユーザー登録に失敗しました',
            text: '入力内容に誤りがある可能性があります',
-           time: 1000
+           time: 3000
           });
         })
       }

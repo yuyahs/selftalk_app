@@ -74,20 +74,19 @@
           .then(response => {
             this.$store.commit('logout'),
             this.$store.commit('removeId'),
-            this.$store.commit('beGuest'),
-            this.$store.commit('outGuest'),
             this.$router.push({ path: '/'}),
             this.$flashMessage.show({
               type: 'success',
               title: 'Logout',
               text:'ログアウトしました',
-              time: 1000
+              time: 3000
             });
           })
           .catch(error => {
             this.$flashMessage.show({
               type: 'error',
-              text: 'ログアウトできませんでした'
+              text: 'ログアウトできませんでした',
+              time: 3000
             });
           })
         },
@@ -96,25 +95,26 @@
           if(window.confirm('データが全て削除されますが退会しますか？')) {
           axios.delete('/api/users/' + id)
           .then(response => {
-          this.$store.commit('guest'),
           this.$store.commit('logout'),
           this.$store.commit('removeId'),
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({
             type: 'success',
-            text: "退会しました"
+            title: '退会',
+            text: '退会しました',
+            time: 3000
           })
           .catch(err => {
           this.$flashMessage.show({
             type: 'error',
             text: 'エラーが発生しました',
-            time: 1000
+            time: 3000
           });
         })
       })
     }
   },
-      //hamburger menu method
+      //ハンバーガーメニューメソッド
       showMenu: function() {
         document.getElementById('line1').classList.toggle('line_1');
         document.getElementById('line2').classList.toggle('line_2');
