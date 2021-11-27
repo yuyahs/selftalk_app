@@ -38,8 +38,9 @@
          this.$router.push({ path: '/'}),
          this.$flashMessage.show({
           type: 'success',
+          title: 'パスワードリセット',
           text:'パスワード再設定用リンクを送信しました',
-          time: 1000
+          time: 3000
          });
         })
         .catch(error => {
@@ -47,7 +48,7 @@
           this.$flashMessage.show({
            type: 'error',
            text: '入力内容に誤りがあります',
-           time: 1000
+           time: 3000
           });
         })
       }

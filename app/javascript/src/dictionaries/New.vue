@@ -50,7 +50,8 @@ export default {
         .catch(error => {
           this.$flashMessage.show({
             type: 'error',
-            text: '入力内容に誤りがあります。'
+            text: '入力内容に誤りがあります',
+            time: 3000
           });
         })
     },

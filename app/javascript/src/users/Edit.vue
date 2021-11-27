@@ -32,8 +32,6 @@
 <script>
   import axios from 'axios';
 
-  const token = Math.random().toString(32).substring(2)
-
   export default {
 
     name: 'userEdit',
@@ -63,14 +61,16 @@
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({
             type: 'success',
+            title: 'ユーザー情報変更',
             text:'ユーザー情報を変更しました',
-            time: 5000
+            time: 3000
           });
         })
         .catch(error => {
           this.$flashMessage.show({
             type: 'error',
-            text: '入力内容に誤りがあります。'
+            text: '入力内容に誤りがあります',
+            time: 3000
           });
         })
       }

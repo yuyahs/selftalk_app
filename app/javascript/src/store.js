@@ -13,37 +13,37 @@ export const store = createStore ({
     }
   },
   mutations: {
-    login: (state, token) => {
-      localStorage.setItem('Token', token);
+    //ログイン状態にする
+    login: (state) => {
       state.loggedIn = true;
     },
+    //ログアウトする
     logout: (state)=> {
-      localStorage.removeItem('Token');
       state.loggedIn = false;
       state.admin = false;
+      state.notGuest = true;
+      state.guest = false;
     },
+    //user.idをいつでも取り出せるように保存する
     setId: (state, id) => {
       state.userId = id
     },
+    //保存したuser.idを削除する
     removeId: (state) => {
       state.userId = 0
     },
+    //管理者権限を与える
     admin: (state) => {
       state.admin = true
     },
+    //ゲストユーザーではないことを示す
     notGuest: (state) => {
       state.notGuest = false
     },
-    beGuest: (state) => {
-      state.notGuest = true
-    },
+    //ゲストユーザーであることを示す
     inGuest: (state) => {
       state.guest = true
-    },
-    outGuest: (state) => {
-      state.guest = false
     }
-
   },
   plugins : [
     createPersistedState(),

@@ -6,7 +6,6 @@ class Api::AccountActivationsController < ApplicationController
       redirect_to login_path
     else
       redirect_to root_path
-
     end
   end
 end

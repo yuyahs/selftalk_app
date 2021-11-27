@@ -13,7 +13,7 @@
     <label for="user_password_confirmation">パスワード再入力</label>
     <input type="password" v-model="user.password_confirmation" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
 
-    <button @click="setNewPassword" class="mt-4 w-2/5 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+    <button @click="setNewPassword" class="w-1/2 bg-blue-500  text-white font-semibold hover:bg-blue-300 py-2 px-4 border border-white rounded-full mt-8">
       再設定
     </button>
 
@@ -23,8 +23,6 @@
 
 <script>
   import axios from 'axios';
-
-  const token = Math.random().toString(32).substring(2)
 
   export default {
 
@@ -47,19 +45,20 @@
         .then(response => {
           const id = response.data.id
           this.$store.commit('setId', id),
-          this.$store.commit('login', token),
+          this.$store.commit('login'),
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({
             type: 'success',
+            title: 'パスワード再設定',
             text:'パスワード再設定しました。',
-            time: 1000
+            time: 3000
           });
         })
         .catch(error => {
           this.$flashMessage.show({
             type: 'error',
             text: '入力内容に誤りがあります',
-            time: 1000
+            time: 3000
           });
         })
       }
