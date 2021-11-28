@@ -340,7 +340,17 @@
   color: #ffffff;
   text-align: center;
   font-size: 1.25rem;
+}
 
+.mypage-link {
+  background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffffff;
+  display: block;
+  &:hover {
+    background-color: rgba(252, 211, 77, var(--tw-bg-opacity));
+  }
 }
 
 .course-link{
@@ -349,21 +359,20 @@
   border-width: 1px;
   border-color: #ffffff;
   display: block;
+  &:hover {
+    background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+  }
 }
 
-.course-link:hover{
-  background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
-}
 .dictionary-link{
   background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
   border-style: solid;
   border-width: 1px;
   border-color: #ffffff;
   display: block;
-}
-
-.dictionary-link:hover{
-  background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
+  &:hover {
+    background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
+  }
 }
 
 //mypage
@@ -417,6 +426,45 @@
 }
 
 //dictionary
+
+.items {
+ margin-top: 24px;
+ display: flex;
+ flex-direction: row;
+ list-style: none;
+ font-size: 1.125rem;
+}
+
+.items-colum {
+  padding: 16px;
+  height: 80px;
+  background-color: #ffffff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000000;
+  resize: none;
+}
+
+.items-memo {
+  padding: 16px;
+  width: 400px;
+  height: 80px;
+  background-color: #ffffff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000000;
+  overflow-wrap: break-word;
+  resize: none;
+}
+
+.items-delete {
+  margin-left: 24px;
+  color: #ffffff;
+  text-decoration: underline;
+  &:hover {	--tw-text-opacity: 1;
+            color: rgba(59, 130, 246, var(--tw-text-opacity));
+  }
+}
 
 .checkbox {
   margin-left: 24px;
