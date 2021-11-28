@@ -1,12 +1,12 @@
 <template>
   <div class="text-white font-bold text-center">
     <h1 class="about-css">SelfTalkEnglishとは</h1>
-    <p>SelfTalkEnglishは英会話勉強法の一つである「独り言英語学習」を
+    <p>SelfTalkEnglishは英会話勉強法の一つである「独り言英語学習」を<br>
        効果的に行うための学習サービスです。
     </p>
 
     <h2 class="about-css">「独り言英語学習」とは</h2>
-    <p>「独り言英語学習」はスピーキングトレーニングの一種で、
+    <p>「独り言英語学習」はスピーキングトレーニングの一種で<br>
       その名の通り英語を一人で自由に話してみるというものです。
     </p>
 
