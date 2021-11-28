@@ -10,16 +10,14 @@
       <AddItems />
     </div>
 
-    <div v-for="item in items" :key="item" class="flex flex-row list-none text-lg mt-8">
-      <textarea v-model="item.content" disabled class="border border-solid border-black bg-white p-4 h-20 resize-none"></textarea>
+    <div v-for="item in items" :key="item" class="items">
+      <textarea v-model="item.content" disabled class="items-colum"></textarea>
 
+      <textarea v-model="item.meaning" disabled class="items-colum"></textarea>
 
-      <textarea v-model="item.meaning" disabled class="border border-solid border-black bg-white p-4 h-20 resize-none"></textarea>
+      <textarea v-model="item.memo" disabled class="items-memo"></textarea>
 
-      <textarea v-model="item.memo" disabled class="break-words border border-solid border-black bg-white p-4 h-20 w-96 resize-none"></textarea>
-
-
-      <button @click="deleteItem(item.id)" class="text-white ml-8 underline hover:text-blue-500">
+      <button @click="deleteItem(item.id)" class="items-delete">
         削除
       </button>
 
