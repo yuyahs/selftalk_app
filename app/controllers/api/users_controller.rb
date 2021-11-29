@@ -1,8 +1,8 @@
 class Api::UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update]
-  before_action :not_guest_user, only: [:index, :show, :edit, :update]
+  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:index, :show, :edit, :update, :destroy]
+  before_action :not_guest_user, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -35,6 +35,7 @@ class Api::UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      response_success(:user, :update)
     else
       response_bad_request
     end
