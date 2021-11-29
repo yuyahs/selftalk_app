@@ -22,26 +22,26 @@
 #       end
 #     end
 
-#     describe "POST /create" do
-#       context "空欄なく入力した場合" do
-#         it "redirects to root path" do
-#           expect{
-#           post questions_path, params: {form_question_collection:
-#                                       {questions_attributes:
-#                                       {0=> {content: "test question1", mode_num:1},
-#                                         1 =>{content: "test question2", mode_num:1},
-#                                         2 =>{content: "test question3", mode_num:1},
-#                                         3 =>{content: "test question4", mode_num:1},
-#                                         4 =>{content: "test question5", mode_num:1},
-#                                         5 =>{content: "test question6", mode_num:1},
-#                                         6 =>{content: "test question7", mode_num:1},
-#                                         7 =>{content: "test question8", mode_num:1},
-#                                         8 =>{content: "test question9", mode_num:1},
-#                                         9 =>{content: "test question10", mode_num:1}}}}
-#            }.to change(Question, :count).by (10)
-#           expect(response).to redirect_to root_path
-#         end
-#       end
+    # describe "POST /create" do
+    #   context "空欄なく入力した場合" do
+    #     it "redirects to root path" do
+    #       expect{
+    #       post questions_path, params: {form_question_collection:
+    #                                   {questions_attributes:
+    #                                   {0=> {content: "test question1", mode_num:1},
+    #                                     1 =>{content: "test question2", mode_num:1},
+    #                                     2 =>{content: "test question3", mode_num:1},
+    #                                     3 =>{content: "test question4", mode_num:1},
+    #                                     4 =>{content: "test question5", mode_num:1},
+    #                                     5 =>{content: "test question6", mode_num:1},
+    #                                     6 =>{content: "test question7", mode_num:1},
+    #                                     7 =>{content: "test question8", mode_num:1},
+    #                                     8 =>{content: "test question9", mode_num:1},
+    #                                     9 =>{content: "test question10", mode_num:1}}}}
+    #        }.to change(Question, :count).by (10)
+    #       expect(response).to redirect_to root_path
+    #     end
+    #   end
 
 #       context "空欄があった場合" do
 #         it "render new" do

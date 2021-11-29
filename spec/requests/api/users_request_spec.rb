@@ -4,30 +4,35 @@ RSpec.describe "Api::Users", type: :request do
   let(:user){create(:user)}
   let(:other_user){create(:user)}
 
-  describe "show/ user_path" do
-    let!(:answer){create(:answer)}
-      before do
-        log_in_as user
-      end
-
+  #beforeアクションに引っかからないパターンのテスト
+  describe "GET/ show" do
     it "成功レスポンス200を返す" do
+      log_in_as user
       get api_user_path(user)
       expect(response).to have_http_status "200"
     end
   end
 
-  describe "post/ signup_path " do
+  describe "GET/ new" do
+    it "成功レスポンス204を返す" do
+      get new_api_user_path
+      expect(response).to have_http_status "204"
+    end
+  end
+
+  describe "POST/ create" do
     it "不正な入力情報に対してエラー400を返す" do
-      post '/api/users', params: { user: { name:  "",
-                                  email: "user@invalid",
-                                  password:              "foo",
-                                  password_confirmation: "bar" } }
+      post api_users_path, params:
+      { user: { name:  "",
+        email: "user@invalid",
+        password: "foo",
+        password_confirmation: "bar" } }
       expect(response).to have_http_status "400"
     end
 
     it "有効な入力情報に対しユーザーの保存に成功する" do
       expect{
-        post '/api/users', params:
+        post api_users_path, params:
         { user: { name:  "example",
           email: "user@example.com",
           password: "password",
@@ -35,98 +40,200 @@ RSpec.describe "Api::Users", type: :request do
         }.to change(User, :count).by(1)
       expect(ActionMailer::Base.deliveries.size).to eq(1)
       expect(response).to have_http_status "204"
+    end
 
+    context "既にログイン中の場合" do
+      it "ユーザー作成に失敗し、エラー400を返す"do
+        log_in_as user
+        expect{
+          post api_users_path, params: { user: { name:  "examaple2",
+            email: "user2@example.com",
+            password: "password",
+            password_confirmation: "bpassword" } }
+          }.to change(User, :count).by(0)
+        expect(response).to have_http_status "400"
+      end
     end
   end
 
 
-  describe "get/ edit_user_path" do
+  describe "GET/ edit" do
     context "ログイン済みユーザーのアクセス" do
-      it "user.nameとuser.emailが入力済みのフォームを表示する" do
+      it "user.nameとuser.emailが入力済みのフォームを表示し、成功レスポンス200を返す" do
         log_in_as user
         get edit_api_user_path(user)
         expect(response.body).to include user.name
         expect(response.body).to include user.email
+        expect(response).to have_http_status "200"
       end
     end
-    context "未ログインユーザーのアクセス" do
-      it "login_pathに飛ばされる" do
+  end
+
+  describe "PATCH/ update" do
+    context "ログイン済みユーザーのアクセス" do
+      before do
+        log_in_as user
+      end
+
+      it "passwordが空欄の時に成功レスポンス200を返す" do
+        patch api_user_path(user), params: {user: {
+            name: "Foo Bar",
+            email: "foo@bar.com",
+            password: "",
+            password_confirmation: ""
+        }}
+        expect(response).to have_http_status "200"
+      end
+
+      it "不正なユーザー情報に対してレスポンス400を返す" do
+        patch api_user_path(user), params: {user: {
+            name: "",
+            emai: "foo@invalid",
+            password: "foo",
+            password_confirmation: "bar"
+        }}
+        expect(response).to have_http_status "400"
+      end
+    end
+  end
+
+  describe "Delete/ destroy" do
+    it "ユーザーが削除され、成功レスポンス200を返す" do
+      log_in_as user
+      expect{
+        delete api_user_path(user), params: {id: user.id}
+      }.to change(User, :count).by(-1)
+      expect(response).to have_http_status "200"
+    end
+  end
+
+  # logged_in_userのテスト [show,edit,update,destory]
+
+  context "未ログインの場合" do
+    describe "GET/ show" do
+      it "login_pathにリダイレクトする" do
+        get api_user_path(user)
+        expect(response).to redirect_to login_path
+      end
+    end
+
+    describe "GET/ edit" do
+      it "login_pathにリダイレクトする" do
         get edit_api_user_path(user)
         expect(response).to redirect_to login_path
       end
     end
 
-    context "間違ったユーザーのアクセス" do
-      it "root_pathに飛ばされる" do
-        log_in_as user
-        get edit_api_user_path(other_user)
-        expect(response).to redirect_to root_path
+    describe "PATCH/ update" do
+      it "login_pathにリダイレクトする" do
+        patch api_user_path(user), params: {user: {
+          name: "Foo Bar",
+          email: "foo@bar.com",
+          password: "",
+          password_confirmation: ""
+       }}
+       expect(response).to redirect_to login_path
       end
     end
   end
 
-    describe "patch/ edit_user_path" do
-      context "ログイン済みユーザーのアクセス" do
-        before do
-          log_in_as user
-        end
+  #correct_userのテスト [show,edit,update,destory]
 
-        it "accepts valid information even if password is blank" do
-          patch api_user_path(user), params: {user: {
-              name: "Foo Bar",
-              email: "foo@bar.com",
-              password: "",
-              password_confirmation: ""
-          } }
-          expect(response).to have_http_status "204"
-        end
+  context "間違ったユーザーがアクセスした場合" do
+    before do
+      log_in_as other_user
+    end
 
-        it "rejects invalid information" do
-          patch api_user_path(user), params: {user: {
-              name: "",
-              emai: "foo@invalid",
-              password: "foo",
-              password_confirmation: "bar"
-          } }
-          expect(response).to have_http_status "400"
-        end
-      end
-      context "未ログインユーザーのアクセス" do
-        it "returns to login_path" do
-          patch api_user_path(user), params: {user: {
-            name: "Foo Bar",
-            email: "foo@bar.com",
-            password: "",
-            password_confirmation: ""
-        } }
-        expect(response).to redirect_to login_path
-        end
-      end
-
-      context "間違ったユーザーのアクセス" do
-        it "redirects to root_path" do
-          log_in_as user
-          patch api_user_path(other_user), params: {user: {
-            name: "Foo Bar",
-            email: "foo@bar.com",
-            password: "",
-            password_confirmation: ""
-          } }
-          expect(response).to redirect_to root_path
-         end
+    describe "GET/ show" do
+      it "root_pathにリダイレクトする" do
+        get api_user_path(user)
+        expect(response).to redirect_to root_path
       end
     end
 
-    describe "Delete/ destroy" do
-      it "ユーザーが削除され、成功レスポンス200を返す" do
-        log_in_as user
-        expect{
-          delete api_user_path(user), params: {id: user.id}
-        }.to change(User, :count).by(-1)
-        expect(response).to have_http_status "200"
+    describe "GET/ edit" do
+      it "root_pathにリダイレクトする" do
+        get edit_api_user_path(user)
+        expect(response).to redirect_to root_path
       end
     end
 
+    describe "PATCH/ update" do
+      it "root_pathにリダイレクトする" do
+        patch api_user_path(user), params: {user: {
+          name: "Foo Bar",
+          email: "foo@bar.com",
+          password: "",
+          password_confirmation: ""
+        }}
+        expect(response).to redirect_to root_path
+      end
+    end
 
+    describe "DELETE/ destroy" do
+      it "root_pathにリダイレクトする" do
+        delete api_user_path(user), params: {id: user.id}
+        expect(response).to redirect_to root_path
+      end
+    end
 
+  end
+
+  #not_guest_userのテスト [show,new,create,edit,update,destory]
+
+  context "ゲストログイン中の場合" do
+    before do
+      guest_login
+    end
+
+    describe "GET/ show" do
+      it "root_pathにリダイレクトする" do
+        get api_user_path(user)
+        expect(response).to redirect_to root_path
+      end
+    end
+
+    describe "GET/ new" do
+      it "root_pathにリダイレクトする" do
+        get new_api_user_path
+        expect(response).to redirect_to root_path
+      end
+    end
+
+    describe "POST/ create" do
+      it "root_pathにリダイレクトする" do
+        post api_users_path, params:
+        { user: { name:  "example",
+          email: "user@example.com",
+          password: "password",
+          password_confirmation: "password" } }
+        expect(response).to redirect_to root_path
+      end
+    end
+
+    describe "GET/ edit" do
+      it "root_pathにリダイレクトする" do
+        get edit_api_user_path(user)
+        expect(response).to redirect_to root_path
+      end
+    end
+
+    describe "PATCH/ update" do
+      it "root_pathにリダイレクトする" do
+        patch api_user_path(user), params: {user: {
+          name: "Foo Bar",
+          email: "foo@bar.com",
+          password: "",
+          password_confirmation: ""} }
+        expect(response).to redirect_to root_path
+      end
+    end
+
+    describe "DELETE/ destroy" do
+      it "root_pathにリダイレクトする" do
+        delete api_user_path(user), params: {id: user.id}
+        expect(response).to redirect_to root_path
+      end
+    end
+  end
 end

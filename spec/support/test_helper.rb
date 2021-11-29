@@ -12,6 +12,10 @@ module TestHelper
     } }
   end
 
+  def guest_login
+    post '/api/guest_sign_in'
+  end
+
   def log_in(user)
     visit api_login_path
     fill_in 'メールアドレス', with: user.email
