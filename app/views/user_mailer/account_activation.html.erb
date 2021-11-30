@@ -1,10 +1,10 @@
-<h1>Sample App</h1>
+<h1>SelfTalkEnglish</h1>
 
-<p>Hi <%= @user.name %>,</p>
+<p><%= @user.name %>様</p>
 
 <p>
-Welcome to the Sample App! Click on the link below to activate your account:
+　ご登録頂きありがとうございます。現在は仮登録状態です。下記URLからログインを行ってください。
 </p>
 
-<%= link_to "Activate", edit_api_account_activation_url(@user.activation_token,
+<%= link_to "ログインを行う", edit_api_account_activation_url(@user.activation_token,
                                                     email: @user.email) %>
