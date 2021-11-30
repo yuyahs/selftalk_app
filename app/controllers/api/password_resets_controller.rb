@@ -1,29 +1,18 @@
 class Api::PasswordResetsController < ApplicationController
-  skip_before_action :verify_authenticity_token
-  before_action :get_user,   only: [:edit, :update]
-  before_action :valid_user, only: [:edit, :update]
-  before_action :check_expiration, only: [:edit, :update]
-
-  def new
-  end
+  before_action :get_user,   only: [:update]
+  before_action :valid_user, only: [:update]
+  before_action :check_expiration, only: [:update]
+  before_action :not_logged_in, only: [:create, :update]
+  before_action :not_guest_user, only: [:create, :update]
 
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase)
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email
-      # flash[:success] = "パスワード再設定用のメールを送信しました。"
-      # redirect_to root_url
-      # render json: { id: @user.id }
     else
-      # flash[:danger] = "未登録のメールアドレスです。"
-      # render 'new'
       response_bad_request
     end
-  end
-
-
-  def edit
   end
 
   def update
@@ -34,8 +23,6 @@ class Api::PasswordResetsController < ApplicationController
       log_in @user
       @user.update_attribute(:reset_digest, nil)
       render json: { id: @user.id }
-      # flash[:success] = "パスワードを再設定しました。"
-      # redirect_to root_url
     else
       response_bad_request
     end

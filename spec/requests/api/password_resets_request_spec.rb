@@ -7,7 +7,7 @@ RSpec.describe "Api::PasswordResets", type: :request do
   describe "POST /create" do
     context "誤ったメールアドレスが入力された場合" do
       it "エラー400を返す" do
-        post '/api/password_resets', params: {password_reset: {email: ""}}
+        post api_password_resets_path, params: {password_reset: {email: ""}}
         expect(response).to have_http_status "400"
 
       end
@@ -15,7 +15,7 @@ RSpec.describe "Api::PasswordResets", type: :request do
 
     context "正しいメールアドレスが入力された場合" do
       it "レスポンス204を返す" do
-        post '/api/password_resets', params: {password_reset: {email: user.email}}
+        post api_password_resets_path, params: {password_reset: {email: user.email}}
         expect(ActionMailer::Base.deliveries.size).to eq(1)
         expect(response).to have_http_status "204"
       end
@@ -31,7 +31,6 @@ RSpec.describe "Api::PasswordResets", type: :request do
                   password: "foobaz",
                   password_confirmation: "abcdefg" }}
           expect(response).to have_http_status "400"
-
       end
     end
 
@@ -43,7 +42,6 @@ RSpec.describe "Api::PasswordResets", type: :request do
                    password: "",
                    password_confirmation: "" }}
           expect(response).to have_http_status "400"
-
       end
     end
 
@@ -60,9 +58,7 @@ RSpec.describe "Api::PasswordResets", type: :request do
     end
   end
 
-
-
-    describe "Securities" do
+    describe "Securities test" do
       context "パスワード再設定の期限が切れた場合" do
         it "エラー400を返す" do
           user.update_attribute(:reset_sent_at, 3.hours.ago)
@@ -89,6 +85,53 @@ RSpec.describe "Api::PasswordResets", type: :request do
       end
     end
 
+    context "ログイン中の場合" do
+      before do
+        log_in_as user
+      end
 
+      describe "POST/ create" do
+        it "root_pathにリダイレクトする" do
+          post api_password_resets_path, params: {password_reset: {email: user.email}}
+          expect(ActionMailer::Base.deliveries.size).to eq(0)
+          expect(response).to redirect_to root_path
+        end
+      end
 
+      describe "PATCH/ update" do
+        it "root_pathにリダイレクトする" do
+          patch api_password_reset_path(user.reset_token),
+            params: {email: user.email,
+                     user: {
+                     password: "password",
+                     password_confirmation: "password" }}
+            expect(response).to redirect_to root_path
+        end
+      end
+    end
+
+    context "ゲストログイン中の場合" do
+      before do
+        guest_login
+      end
+
+      describe "POST/ create" do
+        it "root_pathにリダイレクトする" do
+          post api_password_resets_path, params: {password_reset: {email: user.email}}
+          expect(ActionMailer::Base.deliveries.size).to eq(0)
+          expect(response).to redirect_to root_path
+        end
+      end
+
+      describe "PATCH/ update" do
+        it "root_pathにリダイレクトする" do
+          patch api_password_reset_path(user.reset_token),
+            params: {email: user.email,
+                     user: {
+                     password: "password",
+                     password_confirmation: "password" }}
+            expect(response).to redirect_to root_path
+        end
+      end
+    end
 end
