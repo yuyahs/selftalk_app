@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  #routing
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
   get '/policy', to: 'static_pages#policy'
@@ -38,7 +40,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :password_resets, only: [:create, :edit, :update]
+    resources :password_resets, only: [:create, :update]
   end
 
   namespace :api do
