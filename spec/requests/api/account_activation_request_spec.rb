@@ -4,6 +4,7 @@ RSpec.describe "Api::AccountActivations", type: :request do
   let(:user) { create(:user, :no_activated) }
 
   context "トークンは有効だがメールアドレスが無効な場合" do
+    
     before do
       get edit_api_account_activation_path(
         user.activation_token,
@@ -19,6 +20,7 @@ RSpec.describe "Api::AccountActivations", type: :request do
   end
 
   context "有効なトークンと有効なメールアドレスが送信された場合" do
+
    before do
      get edit_api_account_activation_path(
         user.activation_token,
@@ -26,8 +28,7 @@ RSpec.describe "Api::AccountActivations", type: :request do
       )
     end
 
-
-    it "ログインに成功する" do
+    it "ログイン画面に遷移し、レスポンス200を返す" do
       expect(response).to redirect_to login_path
       post '/api/login', params: { session: { email: user.email,
         password: 'password' } }
