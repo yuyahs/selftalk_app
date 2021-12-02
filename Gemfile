@@ -61,6 +61,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+#追加
 gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
 
@@ -71,3 +72,7 @@ gem "tailwindcss-rails",
 
 gem 'rails-i18n'
 gem 'kaminari'
+
+group :production do
+  gem 'unicorn', '6.0.0'
+end
