@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get '/contacts', to: 'api/contacts#new'
+  get '/users/new', to: 'api/users#new'
+  get '/users/:id', to: 'api/users#show'
+  get '/users/:id/edit', to: 'api/users#edit'
   #routing
   get '/about', to: 'static_pages#about'
   get '/policy', to: 'static_pages#policy'
@@ -8,8 +12,7 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  resources :users
-  resources :contacts, only: [:new]
+  # resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :questions
