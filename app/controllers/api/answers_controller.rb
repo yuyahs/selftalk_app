@@ -2,16 +2,19 @@ class Api::AnswersController < ApplicationController
   before_action :logged_in_user
   before_action :not_guest_user, only: [:index, :edit, :update]
 
+  #解答一覧表示機能
   def index
-    @answers = current_user.answers.where(["created_at Like ?", "%#{params[:created_at]}%"])
-    # @answers_q_ids = @answers.map{|answer| answer.question.id}
-    # @questions = Question.where(id: @answers_q_ids)
-
+    #マイページの日付リンクをクリックすることでその日付に作成されたanswerを取得する
+    @answers = current_user.answers.like_created(params[:created_at])
   end
 
+  #メインの解答機能
   def new
+    #mode_numによって異なるコースの問題集を取得する
     @questions = Question.where(mode_num: params[:mode_num])
+    #問題をランダムに出題する
     @question = @questions.find(@questions.pluck(:id).sample)
+
     render json: @question
   end
 
@@ -26,6 +29,7 @@ class Api::AnswersController < ApplicationController
 
   def edit
     @answer = current_user.answers.find(params[:id])
+    #添削するanswerの作成日を取得する
     @date = @answer.created_at.to_date
     @question = Question.find_by(id: @answer.question_id)
   end

@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
     @dates = current_user.answers.map{|dates| dates.created_at.to_date}.uniq
     @learning_days = @dates.count
     @wdays = ['(月)','(火)','(水)','(木)','(金)','(土)','(日)']
-    @contributions = current_user.answers.where(created_at: Time.current.all_week)
+    @contributions = current_user.answers.created_in_a_week
     @contributions = @contributions.map{|days| I18n.l(days.created_at)}
   end
 

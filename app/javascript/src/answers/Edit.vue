@@ -60,9 +60,19 @@
       },
       //answerの編集内容を保存するメソッド
       editAnswer: function() {
-        axios.patch(`/api/answers/${this.$route.params.id}`, {
-        answer: this.answer
-        })
+        if(window.confirm('変更内容を保存しますか？')) {
+          axios.patch(`/api/answers/${this.$route.params.id}`, {
+          answer: this.answer
+          })
+          .then(response => {
+            this.$flashMessage.show({
+              type: 'success',
+              title: '添削保存',
+              text: '変更を保存しました',
+              time: 3000
+            });
+          })
+        }
       }
     }
   }

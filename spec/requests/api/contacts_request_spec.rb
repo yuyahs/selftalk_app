@@ -9,7 +9,7 @@ RSpec.describe "Api::Contacts", type: :request do
     end
   end
 
-  describe "POST/create" do
+  describe "POST/ create" do
     context "名前が空欄でメッセージは入力されている場合" do
       it "エラーレスポンス400を返す" do
         expect{
