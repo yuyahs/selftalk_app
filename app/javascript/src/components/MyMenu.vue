@@ -10,7 +10,7 @@
         </router-link>
       </li>
       <li>
-        <router-link to="/items" class="dictionary-link">
+        <router-link to="/dictionaries" class="dictionary-link">
           単語帳
         </router-link>
       </li>

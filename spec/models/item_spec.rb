@@ -3,30 +3,30 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   let(:item){create(:item)}
 
-  it "is invalid with more than 50 leters in content" do
+  it "contentが51字以上の時、無効" do
     item.content = "a" * 51
     expect(item).to_not be_valid
   end
 
-  it "is invalid with more than 50 leters in meaning" do
+  it "maniengが51字以上の時、無効" do
     item.meaning = "a" * 51
     expect(item).to_not be_valid
   end
-  it "is invalid with more than 50 leters in memo" do
+  it "memoが101字以上の時、無効" do
     item.memo = "a" * 101
     expect(item).to_not be_valid
   end
 
-  it "is valid with less than 50 leters in content" do
+  it "contentが50字以下の時、有効" do
     item.content = "a" * 50
     expect(item).to be_valid
   end
-  it "is valid with less than 50 leters in meaning" do
+  it "maniengが50字以下の時、有効" do
     item.meaning = "a" * 50
     expect(item).to be_valid
   end
 
-  it "is valid with less than 100 leters in memo" do
+  it "memoが100字以下の時、有効" do
     item.memo = "a" * 100
     expect(item).to be_valid
   end

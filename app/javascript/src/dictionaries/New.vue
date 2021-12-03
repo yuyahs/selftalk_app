@@ -15,7 +15,7 @@
         </textarea>
       </div>
       <div>
-        <label for="item_memo" class="text-white">例文</label>
+        <label for="item_memo" class="text-white">例文・メモ</label>
         <textarea
           v-model="item.memo"
           class="border border-solid border-black pl-3 pt-3 h-20 w-64 resize-none">

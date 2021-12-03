@@ -6,7 +6,6 @@ class Api::QuestionsController < ApplicationController
     @questions1 = Question.where(mode_num: 1) #explain course
     @questions2 = Question.where(mode_num: 2) #reaction course
     @questions3 = Question.where(mode_num: 3) #translate course
-
   end
 
   #ランダムな出題を行う機能
