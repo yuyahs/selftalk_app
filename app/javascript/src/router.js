@@ -12,7 +12,7 @@ import userEdit from './users/Edit.vue'
 import Courses from './answers/New.vue'
 import Answers from './answers/Index.vue'
 import AnswerEdit from './answers/Edit.vue'
-import Questions from './questions/Index.vue'
+import Questions from './questions/Admin.vue'
 import QuestionNew from './questions/New.vue'
 import Items from './dictionaries/Index.vue'
 
@@ -100,8 +100,8 @@ export const router = createRouter({
       component: QuestionNew
     },
     {
-      path: '/questions',
-      name: 'questions',
+      path: '/admin_page',
+      name: 'adminPage',
       component: Questions
     },
     {

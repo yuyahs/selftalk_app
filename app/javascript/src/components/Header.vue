@@ -3,7 +3,7 @@
     <router-link to="/" class="font-serif text-3xl ">
      SelfTalkEnglish
     </router-link>
-    
+
     <div id="not-login-menu" class="float-right flex flex-row text-white font-bold">
       <div v-if="$store.state.loggedIn && $store.state.notGuest">
         <button class="user-page">
@@ -35,7 +35,7 @@
               退会
             </li>
             <li v-if="$store.state.admin">
-              <router-link :to="{ name: 'questions' }">管理用ページ</router-link>
+              <router-link :to="{ name: 'adminPage' }">管理用ページ</router-link>
             </li>
           </ul>
         </nav>
