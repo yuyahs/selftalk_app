@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'api/users#show'
   get '/users/:id/edit', to: 'api/users#edit'
   get '/admin_page', to: 'api/questions#index'
+  get '/dictionaries', to: 'api/items#index'
   #routing
   get '/about', to: 'static_pages#about'
   get '/policy', to: 'static_pages#policy'
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   # resources :questions
   resources :answers
-  resources :items
+  # resources :items
 
 
   # API controller

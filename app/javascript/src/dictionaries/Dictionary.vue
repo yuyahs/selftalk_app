@@ -6,10 +6,12 @@
 
     <MyMenu />
 
+    <!-- 新規追加欄 -->
     <div>
       <AddItems />
     </div>
 
+    <!-- 保存した単語・フレーズ一覧表示 -->
     <div v-for="item in items" :key="item" class="items">
       <textarea v-model="item.content" disabled class="items-colum"></textarea>
 
@@ -22,11 +24,7 @@
       </button>
 
       <input type="checkbox" class="checkbox">
-
-
-
     </div>
-
   </div>
 
 </template>
@@ -37,7 +35,7 @@
   import axios from 'axios';
 
   export default {
-    name: 'Items',
+    name: 'Dictionary',
     components: {
       AddItems,
       MyMenu
@@ -55,8 +53,7 @@
       getItems: function() {
         axios.get('/api/items')
         .then(response => {
-          this.items = response.data
-          console.log(response.data)
+          this.items = response.data.items
         })
       },
       //保存したフレーズを削除するメソッド
