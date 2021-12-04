@@ -1,8 +1,5 @@
 class Api::ContactsController < ApplicationController
 
-  def new
-  end
-
   #問い合わせ機能
   def create
     @inquiry = Inquiry.new(inquiry_params)

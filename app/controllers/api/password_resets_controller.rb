@@ -2,11 +2,8 @@ class Api::PasswordResetsController < ApplicationController
   before_action :get_user,   only: [:update]
   before_action :valid_user, only: [:update]
   before_action :check_expiration, only: [:update]
-  before_action :not_logged_in, only: [:new, :create, :edit, :update]
-  before_action :not_guest_user, only: [:new, :create, :edit, :update]
-
-  def new
-  end
+  before_action :not_logged_in, only: [:create, :edit, :update]
+  before_action :not_guest_user, only: [:create, :edit, :update]
 
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase)

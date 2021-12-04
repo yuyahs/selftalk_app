@@ -13,13 +13,6 @@ RSpec.describe "Api::Users", type: :request do
     end
   end
 
-  describe "GET/ new" do
-    it "成功レスポンス204を返す" do
-      get new_api_user_path
-      expect(response).to have_http_status "204"
-    end
-  end
-
   describe "POST/ create" do
     it "不正な入力情報に対してエラー400を返す" do
       post api_users_path, params:
@@ -52,19 +45,6 @@ RSpec.describe "Api::Users", type: :request do
             password_confirmation: "bpassword" } }
           }.to change(User, :count).by(0)
         expect(response).to have_http_status "400"
-      end
-    end
-  end
-
-
-  describe "GET/ edit" do
-    context "ログイン済みユーザーのアクセス" do
-      it "user.nameとuser.emailが入力済みのフォームを表示し、成功レスポンス200を返す" do
-        log_in_as user
-        get edit_api_user_path(user)
-        expect(response.body).to include user.name
-        expect(response.body).to include user.email
-        expect(response).to have_http_status "200"
       end
     end
   end
@@ -110,19 +90,6 @@ RSpec.describe "Api::Users", type: :request do
   # logged_in_userのテスト [show,edit,update,destory]
 
   context "未ログインの場合" do
-    describe "GET/ show" do
-      it "login_pathにリダイレクトする" do
-        get api_user_path(user)
-        expect(response).to redirect_to login_path
-      end
-    end
-
-    describe "GET/ edit" do
-      it "login_pathにリダイレクトする" do
-        get edit_api_user_path(user)
-        expect(response).to redirect_to login_path
-      end
-    end
 
     describe "PATCH/ update" do
       it "login_pathにリダイレクトする" do
@@ -147,13 +114,6 @@ RSpec.describe "Api::Users", type: :request do
     describe "GET/ show" do
       it "root_pathにリダイレクトする" do
         get api_user_path(user)
-        expect(response).to redirect_to root_path
-      end
-    end
-
-    describe "GET/ edit" do
-      it "root_pathにリダイレクトする" do
-        get edit_api_user_path(user)
         expect(response).to redirect_to root_path
       end
     end
@@ -193,13 +153,6 @@ RSpec.describe "Api::Users", type: :request do
       end
     end
 
-    describe "GET/ new" do
-      it "root_pathにリダイレクトする" do
-        get new_api_user_path
-        expect(response).to redirect_to root_path
-      end
-    end
-
     describe "POST/ create" do
       it "root_pathにリダイレクトする" do
         post api_users_path, params:
@@ -207,13 +160,6 @@ RSpec.describe "Api::Users", type: :request do
           email: "user@example.com",
           password: "password",
           password_confirmation: "password" } }
-        expect(response).to redirect_to root_path
-      end
-    end
-
-    describe "GET/ edit" do
-      it "root_pathにリダイレクトする" do
-        get edit_api_user_path(user)
         expect(response).to redirect_to root_path
       end
     end

@@ -14,7 +14,6 @@ class Api::AnswersController < ApplicationController
     @questions = Question.where(mode_num: params[:mode_num])
     #問題をランダムに出題する
     @question = @questions.find(@questions.pluck(:id).sample)
-
     render json: @question
   end
 

@@ -1,5 +1,5 @@
 class Api::QuestionsController < ApplicationController
-  before_action :admined_user
+  before_action :admined_user, only: [:index, :create, :destroy]
 
   #出題文一覧表示機能（管理ユーザー用）
   def index

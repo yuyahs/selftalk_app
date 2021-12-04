@@ -2,13 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "Api::Contacts", type: :request do
 
-  describe "GET/ new" do
-    it "成功レスポンス204を返す" do
-      get new_api_contact_path
-      expect(response).to have_http_status "204"
-    end
-  end
-
   describe "POST/ create" do
     context "名前が空欄でメッセージは入力されている場合" do
       it "エラーレスポンス400を返す" do
