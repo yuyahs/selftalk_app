@@ -4,12 +4,18 @@ RSpec.describe "Api::PasswordResets", type: :request do
   let(:user) { create(:user) }
   before { user.create_reset_digest }
 
+  describe "GET /new" do
+    it "成功レスポンス204返す" do
+      get new_api_password_reset_path
+      expect(response).to have_http_status "204"
+    end
+  end
+
   describe "POST /create" do
     context "誤ったメールアドレスが入力された場合" do
       it "エラー400を返す" do
         post api_password_resets_path, params: {password_reset: {email: ""}}
         expect(response).to have_http_status "400"
-
       end
     end
 
@@ -17,6 +23,15 @@ RSpec.describe "Api::PasswordResets", type: :request do
       it "レスポンス204を返す" do
         post api_password_resets_path, params: {password_reset: {email: user.email}}
         expect(ActionMailer::Base.deliveries.size).to eq(1)
+        expect(response).to have_http_status "204"
+      end
+    end
+  end
+
+  describe "GET /edit" do
+    context "メールアドレス・トークンが有効な場合" do
+      it "成功レスポンス204を返す" do
+        get edit_api_password_reset_path(user.reset_token, email: user.email)
         expect(response).to have_http_status "204"
       end
     end
