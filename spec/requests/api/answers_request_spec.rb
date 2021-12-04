@@ -47,7 +47,7 @@ RSpec.describe "Answers", type: :request do
 
     describe "GET/ edit" do
       it "成功レスポンス200を返す" do
-        get edit_api_answer_path(answer)
+        get edit_user_api_answer_path(user, answer)
         expect(response).to have_http_status "200"
       end
     end
@@ -95,7 +95,7 @@ RSpec.describe "Answers", type: :request do
 
     describe "GET/ edit" do
       it "login_pathにリダイレクトする" do
-        get edit_api_answer_path(answer)
+        get edit_user_api_answer_path(user, answer)
         expect(response).to redirect_to login_path
       end
     end
@@ -122,7 +122,7 @@ RSpec.describe "Answers", type: :request do
 
     describe "GET/ edit" do
       it "root_pathにリダイレクトする" do
-        get edit_api_answer_path(answer)
+        get edit_user_api_answer_path(user, answer)
         expect(response).to redirect_to root_path
       end
     end

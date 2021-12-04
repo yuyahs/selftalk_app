@@ -51,7 +51,8 @@
     methods: {
       //answerのデータを受け取るメソッド
       getAnswer: function () {
-        axios.get(`/api/answers/${this.$route.params.id}/edit`)
+        axios.get(`/users/${this.$store.state.userId}/api/answers/
+        ${this.$route.params.id}/edit`)
         .then(response => {
           this.question = response.data.question
           this.answer= response.data
