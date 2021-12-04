@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/dictionaries', to: 'api/items#index'
   get '/course', to: 'api/answers#new'
   get '/users/:id/answers', to: 'api/answers#index'
+  get '/users/:id/answers/:id/edit', to: 'api/answers#edit'
   #routing
   get '/about', to: 'static_pages#about'
   get '/policy', to: 'static_pages#policy'
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   # resources :questions
-  resources :answers
+  # resources :answers
   # resources :items
 
 
@@ -31,12 +32,12 @@ Rails.application.routes.draw do
 
   resources :users do
     namespace :api, format: 'json' do
-      resources :answers, only: [:index]
+      resources :answers, only: [:index, :edit]
     end
   end
 
   namespace :api, format: 'json' do
-    resources :answers, only: [:new, :create, :edit, :update]
+    resources :answers, only: [:new, :create, :update]
   end
 
   namespace :api, format: 'json' do

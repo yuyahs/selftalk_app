@@ -90,7 +90,7 @@ export const router = createRouter({
       component: Answers
     },
     {
-      path: '/answers/:id/edit',
+      path: '/users/:user_id/answers/:id/edit',
       name: 'answerEdit',
       component: AnswerEdit
     },

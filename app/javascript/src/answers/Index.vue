@@ -9,7 +9,8 @@
     <div v-for="answer in answers" class="answers" :key="answer">
       <textarea v-model="answer.content" disabled class="answer-text-content"></textarea>
       <li class="edit-btn">
-       <router-link :to="{name: 'answerEdit', params: {id: answer.id}}">
+       <router-link :to="{name: 'answerEdit', params: {user_id: $store.state.userId,
+       id: answer.id}}">
          添削する
        </router-link>
       </li>
