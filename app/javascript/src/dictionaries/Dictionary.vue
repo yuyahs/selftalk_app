@@ -51,7 +51,7 @@
     //保存したフレーズ集を取得するメソッド
     methods: {
       getItems: function() {
-        axios.get('/api/items')
+        axios.get(`/users/${this.$route.params.id}/api/items`)
         .then(response => {
           this.items = response.data.items
         })

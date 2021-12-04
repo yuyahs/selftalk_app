@@ -105,7 +105,7 @@ export const router = createRouter({
       component: Questions
     },
     {
-      path: '/dictionaries',
+      path: '/users/:id/dictionaries',
       name: 'dictionary',
       component: Dictionary
     }
