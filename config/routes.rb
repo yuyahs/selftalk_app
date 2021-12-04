@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  
-　#vue-routerで設定したurlをapi/controllerに割り振り
+
+  #vue-routerで設定したurlをapi/controllerに割り振り
   get '/contacts', to: 'api/contacts#new'
   get '/users/new', to: 'api/users#new'
   get '/users/:id', to: 'api/users#show'
