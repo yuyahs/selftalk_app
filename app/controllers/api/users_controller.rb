@@ -1,8 +1,8 @@
 class Api::UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :update]
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :correct_user, only: [:index, :show, :edit, :update, :destroy]
-  before_action :not_guest_user, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :not_guest_user, only: [:index, :show, :create, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -16,9 +16,6 @@ class Api::UsersController < ApplicationController
     @wdays = ['(月)','(火)','(水)','(木)','(金)','(土)','(日)']
     @contributions = current_user.answers.created_in_a_week
     @contributions = @contributions.map{|days| I18n.l(days.created_at)}
-  end
-
-  def new
   end
 
   def create

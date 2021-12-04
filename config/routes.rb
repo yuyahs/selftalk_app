@@ -1,26 +1,34 @@
 Rails.application.routes.draw do
 
-  #vue-routerで設定したurlをapi/controllerに割り振り
-  get '/contacts', to: 'api/contacts#new'
-  get '/users/new', to: 'api/users#new'
-  get '/users/:id', to: 'api/users#show'
-  get '/users/:id/edit', to: 'api/users#edit'
-  get '/password_resets/new', to: 'api/password_resets#new'
-  get '/password_resets/:reset_token/edit', to: 'api/password_resets#edit'
-  get '/admin_page', to: 'api/questions#index'
-  get '/users/:id/dictionaries', to: 'api/items#index'
-  get '/course', to: 'api/answers#new'
-  get '/users/:id/answers', to: 'api/answers#index'
-  get '/users/:id/answers/:id/edit', to: 'api/answers#edit'
-
-  #routing
-  get '/about', to: 'static_pages#about'
-  get '/policy', to: 'static_pages#policy'
   root 'static_pages#home'
-  get '/signup', to: 'users#new'
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
+  #vue-routerで設定したurlをcontrollerに割り振り
+  get '/contacts', to: 'static_pages#home'
+  get '/about', to: 'static_pages#home'
+  get '/policy', to: 'static_pages#home'
+  get '/users/new', to: 'static_pages#home'
+  get '/users/:id', to: 'static_pages#home'
+  get '/users/:id/edit', to: 'static_pages#home'
+  get '/login', to: 'static_pages#home'
+  get '/password_resets/new', to: 'static_pages#home'
+  get '/password_resets/:reset_token/edit', to: 'static_pages#home'
+  get '/admin_page', to: 'static_pages#home'
+  get '/users/:id/dictionaries', to: 'static_pages#home'
+  get '/course', to: 'static_pages#home'
+  get '/users/:id/answers', to: 'static_pages#home'
+  get '/users/:id/answers/:id/edit', to: 'static_pages#home'
+
+  # get '/contacts', to: 'api/contacts#new'
+  # get '/users/new', to: 'api/users#new'
+  # get '/users/:id', to: 'api/users#show'
+  # get '/users/:id/edit', to: 'api/users#edit'
+  # get '/login', to: 'static_pages#home'
+  # get '/password_resets/new', to: 'api/password_resets#new'
+  # get '/password_resets/:reset_token/edit', to: 'api/password_resets#edit'
+  # get '/admin_page', to: 'api/questions#index'
+  # get '/users/:id/dictionaries', to: 'api/items#index'
+  # get '/course', to: 'api/answers#new'
+  # get '/users/:id/answers', to: 'api/answers#index'
+  # get '/users/:id/answers/:id/edit', to: 'api/answers#edit'
 
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:edit]
@@ -56,7 +64,7 @@ Rails.application.routes.draw do
     resources :contacts
   end
 
-  namespace :api do
+  namespace :api, format: 'json' do
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
   end

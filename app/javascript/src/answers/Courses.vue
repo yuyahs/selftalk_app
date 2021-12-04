@@ -68,7 +68,6 @@
           mode_num: this.mode_num
         })
         .then(response => {
-          // this.$router.go({path: this.$router.currentRoute.path})
           this.answer.content = ""
           this.setQuestion();
           this.$clearInterval(this.$intervals);

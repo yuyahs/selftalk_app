@@ -4,13 +4,6 @@ RSpec.describe "Api::PasswordResets", type: :request do
   let(:user) { create(:user) }
   before { user.create_reset_digest }
 
-  describe "GET /new" do
-    it "成功レスポンス204返す" do
-      get new_api_password_reset_path
-      expect(response).to have_http_status "204"
-    end
-  end
-
   describe "POST /create" do
     context "誤ったメールアドレスが入力された場合" do
       it "エラー400を返す" do
