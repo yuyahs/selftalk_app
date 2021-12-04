@@ -9,7 +9,7 @@ import Login from './sessions/New.vue'
 import Reset from './password_resets/New.vue'
 import Change from './password_resets/Edit.vue'
 import userEdit from './users/Edit.vue'
-import Courses from './answers/New.vue'
+import Courses from './answers/Courses.vue'
 import Answers from './answers/Index.vue'
 import AnswerEdit from './answers/Edit.vue'
 import Questions from './questions/Admin.vue'
@@ -80,7 +80,7 @@ export const router = createRouter({
       component: Home
     },
     {
-      path: '/answers/new',
+      path: '/course',
       name: 'courses',
       component: Courses
     },

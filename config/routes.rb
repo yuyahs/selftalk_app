@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/users/:id/edit', to: 'api/users#edit'
   get '/admin_page', to: 'api/questions#index'
   get '/dictionaries', to: 'api/items#index'
+  get '/course', to: 'api/answers#new'
   #routing
   get '/about', to: 'static_pages#about'
   get '/policy', to: 'static_pages#policy'
