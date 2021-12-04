@@ -85,7 +85,7 @@ export const router = createRouter({
       component: Courses
     },
     {
-      path: '/answers',
+      path: '/users/:id/answers',
       name: 'answers',
       component: Answers
     },

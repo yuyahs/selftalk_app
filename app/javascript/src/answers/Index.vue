@@ -38,7 +38,7 @@
     methods: {
       //特定日付のanswer一覧のデータを受け取るメソッド
       getAnswers: function() {
-        axios.get('api/answers', {
+        axios.get(`/users/${this.$route.params.id}/api/answers`, {
           params: {
             created_at: this.$route.query.created_at
           }

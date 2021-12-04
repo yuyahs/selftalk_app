@@ -14,7 +14,7 @@ RSpec.describe "Answers", type: :request do
       describe "GET/ index" do
         let!(:answer){create(:answer)}
         it "成功レスポンス200を返す" do
-          get api_answers_path
+          get user_api_answers_path(user)
           expect(response).to have_http_status "200"
         end
       end
@@ -72,7 +72,7 @@ RSpec.describe "Answers", type: :request do
   context "ログイン済みでないユーザーの場合" do
     describe "GET/ index" do
       it "login_pathにリダイレクトする" do
-        get api_answers_path
+        get user_api_answers_path(user)
         expect(response).to redirect_to login_path
       end
     end
@@ -115,7 +115,7 @@ RSpec.describe "Answers", type: :request do
 
     describe "GET/ index" do
       it "root_pathにリダイレクトする" do
-        get api_answers_path
+        get user_api_answers_path(user)
         expect(response).to redirect_to root_path
       end
     end
