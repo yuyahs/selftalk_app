@@ -10,7 +10,7 @@
         </router-link>
       </li>
       <li>
-        <router-link to="/dictionaries" class="dictionary-link">
+        <router-link :to="{name: 'dictionary', params: {id: $store.state.userId}}" class="dictionary-link">
           単語帳
         </router-link>
       </li>

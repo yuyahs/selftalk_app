@@ -11,7 +11,7 @@ RSpec.describe "Api::Items", type: :request do
     describe "GET /index" do
       let!(:item){create(:item)}
       it "成功レスポンス200を返す" do
-        get api_items_path
+        get user_api_items_path(user)
         expect(response).to have_http_status "200"
       end
     end
@@ -50,7 +50,7 @@ RSpec.describe "Api::Items", type: :request do
   context "ログイン済みでないユーザーの場合" do
     describe "GET /index" do
       it "redirects to login path" do
-        get api_items_path
+        get user_api_items_path(user)
         expect(response).to redirect_to login_path
       end
     end
@@ -82,7 +82,7 @@ RSpec.describe "Api::Items", type: :request do
 
     describe "GET /index" do
       it "redirects to root_path" do
-        get api_items_path
+        get user_api_items_path(user)
         expect(response).to redirect_to root_path
       end
     end
