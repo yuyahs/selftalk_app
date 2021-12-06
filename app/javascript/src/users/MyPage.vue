@@ -56,7 +56,7 @@
   import MyMenu from '../components/MyMenu'
 
  export default {
-  name: 'Show',
+  name: 'mypage',
   components: {
     MyMenu
   },
@@ -71,6 +71,7 @@
   },
   mounted() {
     this.setUser();
+    this.correctUser();
   },
   methods: {
     //user情報を取得するメソッド
@@ -83,6 +84,12 @@
         this.days = response.data.days //曜日の配列
         this.contributions = response.data.contributions //answerの作成された数の配列
       })
+    },
+    correctUser: function(){
+      const currentUserId = this.$store.state.userId
+      if(!(currentUserId == this.$route.params.id)){
+        this.$router.push({name: 'home'})
+      }
     }
   }
 }
