@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get '/password_resets/:reset_token/edit', to: 'static_pages#home'
   get '/admin_page', to: 'static_pages#home'
   get '/course', to: 'static_pages#home'
+  resources :account_activations, only: [:edit]
+  resources :password_resets, only: [:edit]
 
   # get '/contacts', to: 'api/contacts#new'
   # get '/users/new', to: 'api/users#new'
@@ -30,8 +32,6 @@ Rails.application.routes.draw do
   # get '/users/:id/answers', to: 'api/answers#index'
   # get '/users/:id/answers/:id/edit', to: 'api/answers#edit'
 
-  resources :account_activations, only: [:edit]
-  resources :password_resets, only: [:edit]
 
 
 
@@ -73,14 +73,7 @@ Rails.application.routes.draw do
     resources :password_resets, only: [:new, :create, :edit, :update]
   end
 
-  namespace :api do
-    resources :account_activations, only: [ :edit ]
-  end
-
   namespace :api, format: 'json' do
     resources :questions
   end
-
-
-
 end
