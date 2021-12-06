@@ -14,7 +14,6 @@ import Courses from './answers/Courses.vue'
 import Answers from './answers/Index.vue'
 import AnswerEdit from './answers/Edit.vue'
 import Questions from './questions/Admin.vue'
-import QuestionNew from './questions/New.vue'
 import Dictionary from './dictionaries/Dictionary.vue'
 
 export const router = createRouter({
@@ -47,32 +46,56 @@ export const router = createRouter({
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
+        if (store.state.notGuest) next()
+        else next({name: 'home'})
       }
     },
     {
       path: '/users/new',
       name: 'new',
       component: New,
+      beforeEnter: (to, from, next) => {
+        if (store.state.loggedIn) next({name: 'home'})
+        else next()
+      }
     },
     {
       path: '/users/:id/edit',
       name: 'change info',
       component: userEdit,
+      beforeEnter: (to, from, next) => {
+        if (store.state.loggedIn) next()
+        else next({name: 'login'})
+        if (store.state.notGuest) next()
+        else next({name: 'home'})
+      }
     },
     {
       path: '/login',
       name: 'login',
       component: Login,
+      beforeEnter: (to, from, next) => {
+        if (store.state.loggedIn) next({name: 'home'})
+        else next()
+      }
     },
     {
       path: '/password_resets/new',
       name: 'reset',
       component: Reset,
+      beforeEnter: (to, from, next) => {
+        if (store.state.loggedIn) next({name: 'home'})
+        else next()
+      }
     },
     {
       path: '/password_resets/:reset_token/edit',
       name: 'change',
       component: Change,
+      beforeEnter: (to, from, next) => {
+        if (store.state.loggedIn) next({name: 'home'})
+        else next()
+      }
     },
     {
       path: '/api/account_activation/:activation_token/edit',
@@ -96,6 +119,8 @@ export const router = createRouter({
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
+        if (store.state.notGuest) next()
+        else next({name: 'home'})
       }
     },
     {
@@ -105,17 +130,18 @@ export const router = createRouter({
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
+        if (store.state.notGuest) next()
+        else next({name: 'home'})
       }
-    },
-    {
-      path: '/questions/new',
-      name: 'questionNew',
-      component: QuestionNew
     },
     {
       path: '/admin_page',
       name: 'adminPage',
-      component: Questions
+      component: Questions,
+      beforeEnter: (to, from, next) => {
+        if (store.state.admin) next()
+        else next({name: 'home'})
+      }
     },
     {
       path: '/users/:id/dictionaries',
@@ -124,6 +150,8 @@ export const router = createRouter({
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
+        if (store.state.notGuest) next()
+        else next({name: 'home'})
       }
     }
   ],
