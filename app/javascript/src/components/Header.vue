@@ -7,7 +7,7 @@
     <div id="not-login-menu" class="float-right flex flex-row text-white font-bold">
       <div v-if="$store.state.loggedIn && $store.state.notGuest">
         <button class="user-page">
-          <router-link :to="{name: 'show', params: {id: $store.state.userId }}">
+          <router-link :to="{name: 'myPage', params: {id: $store.state.userId }}">
           マイページ</router-link>
         </button>
 

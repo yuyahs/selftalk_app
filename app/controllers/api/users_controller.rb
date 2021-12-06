@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update]
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:index, :show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   before_action :not_guest_user, only: [:index, :show, :create, :edit, :update, :destroy]
 
   def index

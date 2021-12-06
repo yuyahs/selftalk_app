@@ -1,11 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router"
+import { store } from './store.js';
 import Home from './pages/Home.vue'
 import About from './pages/About.vue'
 import Contact from './pages/Contact.vue'
 import Policy from './pages/Policy.vue'
-import Show from './users/Show.vue'
+import MyPage from './users/MyPage.vue'
 import New from './users/New.vue'
-import Login from './sessions/New.vue'
+import Login from './sessions/Login.vue'
 import Reset from './password_resets/New.vue'
 import Change from './password_resets/Edit.vue'
 import userEdit from './users/Edit.vue'
@@ -15,10 +16,6 @@ import AnswerEdit from './answers/Edit.vue'
 import Questions from './questions/Admin.vue'
 import QuestionNew from './questions/New.vue'
 import Dictionary from './dictionaries/Dictionary.vue'
-
-
-
-
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -45,8 +42,12 @@ export const router = createRouter({
     },
     {
       path: '/users/:id',
-      name: 'show',
-      component: Show,
+      name: 'myPage',
+      component: MyPage,
+      beforeEnter: (to, from, next) => {
+        if (store.state.loggedIn) next()
+        else next({name: 'login'})
+      }
     },
     {
       path: '/users/new',
@@ -82,17 +83,29 @@ export const router = createRouter({
     {
       path: '/course',
       name: 'courses',
-      component: Courses
+      component: Courses,
+      beforeEnter: (to, from, next) => {
+        if (store.state.loggedIn) next()
+        else next({name: 'login'})
+      }
     },
     {
       path: '/users/:id/answers',
       name: 'answers',
-      component: Answers
+      component: Answers,
+      beforeEnter: (to, from, next) => {
+        if (store.state.loggedIn) next()
+        else next({name: 'login'})
+      }
     },
     {
       path: '/users/:user_id/answers/:id/edit',
       name: 'answerEdit',
-      component: AnswerEdit
+      component: AnswerEdit,
+      beforeEnter: (to, from, next) => {
+        if (store.state.loggedIn) next()
+        else next({name: 'login'})
+      }
     },
     {
       path: '/questions/new',
@@ -107,7 +120,11 @@ export const router = createRouter({
     {
       path: '/users/:id/dictionaries',
       name: 'dictionary',
-      component: Dictionary
+      component: Dictionary,
+      beforeEnter: (to, from, next) => {
+        if (store.state.loggedIn) next()
+        else next({name: 'login'})
+      }
     }
   ],
 })

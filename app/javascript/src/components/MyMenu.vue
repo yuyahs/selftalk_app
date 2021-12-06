@@ -2,7 +2,7 @@
   <div class="my-menu">
     <ul>
       <li>
-        <router-link :to="{name: 'show', params: {id: $store.state.userId }}" class="mypage-link">
+        <router-link :to="{name: 'myPage', params: {id: $store.state.userId }}" class="mypage-link">
           マイページ
         </router-link>
         <router-link to="/" class="course-link">
