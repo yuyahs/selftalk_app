@@ -35,6 +35,7 @@
     },
     mounted() {
       this.getAnswers();
+      this.correctUser();
     },
     methods: {
       //特定日付のanswer一覧のデータを受け取るメソッド
@@ -47,7 +48,13 @@
         .then(response => {
           this.answers = response.data.answers
         })
+      },
+      correctUser: function(){
+      const currentUserId = this.$store.state.userId
+      if(!(currentUserId == this.$route.params.id)){
+        this.$router.push({name: 'home'})
       }
+    }
     }
   }
 </script>

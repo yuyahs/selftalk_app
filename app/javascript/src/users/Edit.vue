@@ -43,6 +43,7 @@
     },
     mounted() {
       this.setUser();
+      this.correctUser();
     },
     methods: {
       //ログイン中のユーザー情報を取得するメソッド
@@ -73,7 +74,13 @@
             time: 3000
           });
         })
+      },
+      correctUser: function(){
+      const currentUserId = this.$store.state.userId
+      if(!(currentUserId == this.$route.params.id)){
+        this.$router.push({name: 'home'})
       }
+    }
     }
   }
 </script>
