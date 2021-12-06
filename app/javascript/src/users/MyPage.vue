@@ -71,7 +71,8 @@
   },
   mounted() {
     this.setUser();
-    this.correctUser();
+    this.checkCorrectUser();
+    this.checkNotGuestUser();
   },
   methods: {
     //user情報を取得するメソッド
@@ -85,9 +86,14 @@
         this.contributions = response.data.contributions //answerの作成された数の配列
       })
     },
-    correctUser: function(){
+    checkCorrectUser: function(){
       const currentUserId = this.$store.state.userId
       if(!(currentUserId == this.$route.params.id)){
+        this.$router.push({name: 'home'})
+      }
+    },
+    checkNotGuestUser: function() {
+      if(this.$store.state.guest){
         this.$router.push({name: 'home'})
       }
     }

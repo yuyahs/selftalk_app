@@ -35,7 +35,8 @@
     },
     mounted() {
       this.getAnswers();
-      this.correctUser();
+      this.checkCorrectUser();
+      this.checkNotGuestUser();
     },
     methods: {
       //特定日付のanswer一覧のデータを受け取るメソッド
@@ -49,12 +50,17 @@
           this.answers = response.data.answers
         })
       },
-      correctUser: function(){
-      const currentUserId = this.$store.state.userId
-      if(!(currentUserId == this.$route.params.id)){
-        this.$router.push({name: 'home'})
+      checkCorrectUser: function() {
+        const currentUserId = this.$store.state.userId
+        if(!(currentUserId == this.$route.params.id)){
+          this.$router.push({name: 'home'})
+        }
+      },
+      checkNotGuestUser: function() {
+        if(this.$store.state.guest){
+          this.$router.push({name: 'home'})
+        }
       }
-    }
     }
   }
 </script>

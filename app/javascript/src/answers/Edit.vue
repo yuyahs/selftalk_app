@@ -48,6 +48,7 @@
     mounted() {
       this.getAnswer();
       this.correctUser();
+      this.checkNotGuestUser();
     },
     methods: {
       //answerのデータを受け取るメソッド
@@ -77,11 +78,16 @@
         }
       },
       correctUser: function(){
-      const currentUserId = this.$store.state.userId
-      if(!(currentUserId == this.$route.params.user_id)){
-        this.$router.push({name: 'home'})
+        const currentUserId = this.$store.state.userId
+        if(!(currentUserId == this.$route.params.user_id)){
+          this.$router.push({name: 'home'})
+        }
+      },
+      checkNotGuestUser: function() {
+        if(this.$store.state.guest){
+          this.$router.push({name: 'home'})
+        }
       }
-    }
     }
   }
 </script>
