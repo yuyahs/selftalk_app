@@ -54,7 +54,6 @@ class Api::PasswordResetsController < ApplicationController
      # トークンが期限切れかどうか確認する
      def check_expiration
         if @user.password_reset_expired?
-          # flash[:danger] = "Password reset has expired."
           response_bad_request
         end
       end
