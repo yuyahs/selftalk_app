@@ -47,6 +47,7 @@
     },
     mounted() {
       this.getAnswer();
+      this.correctUser();
     },
     methods: {
       //answerのデータを受け取るメソッド
@@ -74,7 +75,13 @@
             });
           })
         }
+      },
+      correctUser: function(){
+      const currentUserId = this.$store.state.userId
+      if(!(currentUserId == this.$route.params.user_id)){
+        this.$router.push({name: 'home'})
       }
+    }
     }
   }
 </script>
