@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   get '/users/:id/edit', to: 'static_pages#home'
   get '/users/:id/answers', to: 'static_pages#home'
   get '/users/:id/answers/:id/edit', to: 'static_pages#home'
+  get '/users/:id/dictionaries', to: 'static_pages#home'
   get '/login', to: 'static_pages#home'
   get '/password_resets/new', to: 'static_pages#home'
   get '/password_resets/:reset_token/edit', to: 'static_pages#home'
   get '/admin_page', to: 'static_pages#home'
-  get '/users/:id/dictionaries', to: 'static_pages#home'
   get '/course', to: 'static_pages#home'
 
   # get '/contacts', to: 'api/contacts#new'

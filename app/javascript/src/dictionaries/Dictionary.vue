@@ -47,6 +47,8 @@
     },
     mounted() {
       this.getItems();
+      this.checkCorrectUser();
+      this.checkNotGuestUser();
     },
     //保存したフレーズ集を取得するメソッド
     methods: {
@@ -58,19 +60,30 @@
       },
       //保存したフレーズを削除するメソッド
       deleteItem: function(id) {
-         if(window.confirm('本当に削除してよろしいですか？')) {
-           axios.delete('/api/items/' + id)
-           .then(response => {
-             location.reload()
-           .catch(err => {
-             this.$flashMessage.show({
-                 type: 'error',
-                 text: '削除に失敗しました',
-                 time: 5000
-               });
-             })
-           })
-         }
+        if(window.confirm('本当に削除してよろしいですか？')) {
+          axios.delete('/api/items/' + id)
+          .then(response => {
+           location.reload()
+          .catch(err => {
+            this.$flashMessage.show({
+              type: 'error',
+              text: '削除に失敗しました',
+              time: 5000
+            });
+          })
+          })
+        }
+      },
+      checkCorrectUser: function () {
+        const currentUserId = this.$store.state.userId
+        if(!(currentUserId == this.$route.params.id)){
+          this.$router.push({name: 'home'})
+        }
+      },
+      checkNotGuestUser: function() {
+        if(this.$store.state.guest){
+          this.$router.push({name: 'home'})
+        }
       }
     }
   }

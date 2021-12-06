@@ -43,7 +43,8 @@
     },
     mounted() {
       this.setUser();
-      this.correctUser();
+      this.checkCorrectUser();
+      this.checkNotGuestUser();
     },
     methods: {
       //ログイン中のユーザー情報を取得するメソッド
@@ -75,12 +76,17 @@
           });
         })
       },
-      correctUser: function(){
-      const currentUserId = this.$store.state.userId
-      if(!(currentUserId == this.$route.params.id)){
-        this.$router.push({name: 'home'})
+      checkCorrectUser: function(){
+        const currentUserId = this.$store.state.userId
+        if(!(currentUserId == this.$route.params.id)){
+          this.$router.push({name: 'home'})
+        }
+      },
+      checkNotGuestUser: function() {
+        if(this.$store.state.guest){
+          this.$router.push({name: 'home'})
+        }
       }
-    }
     }
   }
 </script>

@@ -46,8 +46,6 @@ export const router = createRouter({
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
-        if (store.state.notGuest) next()
-        else next({name: 'home'})
       }
     },
     {
@@ -66,8 +64,6 @@ export const router = createRouter({
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
-        if (store.state.notGuest) next()
-        else next({name: 'home'})
       }
     },
     {
@@ -119,8 +115,6 @@ export const router = createRouter({
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
-        if (store.state.notGuest) next()
-        else next({name: 'home'})
       }
     },
     {
@@ -130,8 +124,6 @@ export const router = createRouter({
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
-        if (store.state.notGuest) next()
-        else next({name: 'home'})
       }
     },
     {
@@ -150,8 +142,6 @@ export const router = createRouter({
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
-        if (store.state.notGuest) next()
-        else next({name: 'home'})
       }
     }
   ],
