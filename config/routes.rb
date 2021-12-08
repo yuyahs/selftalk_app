@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  # match "*path" => "static_pages#home", via: :all
   root 'static_pages#home'
   #vue-routerで設定したurlをcontrollerに割り振り
   get '/contacts', to: 'static_pages#home'
