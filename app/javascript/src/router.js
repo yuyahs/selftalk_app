@@ -94,12 +94,6 @@ export const router = createRouter({
       }
     },
     {
-      path: '/api/account_activation/:activation_token/edit',
-      redirect: '/',
-      name: 'activation',
-      component: Home
-    },
-    {
       path: '/course',
       name: 'courses',
       component: Courses,
