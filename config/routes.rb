@@ -76,4 +76,6 @@ Rails.application.routes.draw do
   namespace :api, format: 'json' do
     resources :questions
   end
+
+  match '*path', :to => 'static_pages#home', :via => :all
 end
