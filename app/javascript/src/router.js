@@ -15,6 +15,7 @@ import Answers from './answers/Index.vue'
 import AnswerEdit from './answers/Edit.vue'
 import Questions from './questions/Admin.vue'
 import Dictionary from './dictionaries/Dictionary.vue'
+import Error from './pages/Error.vue'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -137,6 +138,11 @@ export const router = createRouter({
         if (store.state.loggedIn) next()
         else next({name: 'login'})
       }
+    },
+    {
+      path: '/*',
+      name: 'Error',
+      component: Error
     }
   ],
 })
