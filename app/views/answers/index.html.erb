@@ -1,16 +1,2 @@
-<% provide(:title, "回答一覧") %>
-
-<div class="text-center items-center justify-center">
-  <h1 class="font-bold text-2xl text-white">回答記録(<%= params[:created_at] %>)</h1>
-  <% @answers.each do |answer| %>
-    <li class="mt-4 break-words h-32 bg-white list-none text-2xl border border-solid border-black rounded-lg">
-    <%= answer.content %> </li>
-    <button class="my-10 bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
-    <%= link_to "添削する", edit_answer_path(answer), class: "block" %></button>
-  <% end %>
-  <div class="text-center">
-    <%= paginate @answers %>
-  </div>
-</div>
 
 
