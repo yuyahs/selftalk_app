@@ -140,7 +140,7 @@ export const router = createRouter({
       }
     },
     {
-      path: '/*',
+      path: '/404NotFound',
       name: 'Error',
       component: Error
     }

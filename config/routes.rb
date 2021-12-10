@@ -77,5 +77,5 @@ Rails.application.routes.draw do
     resources :questions
   end
 
-  match '*path', :to => 'static_pages#home', :via => :all
+  match '*path', :to => 'application#error404', :via => :all
 end

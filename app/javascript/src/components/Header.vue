@@ -70,61 +70,73 @@
       nav1: String,
       nav2: String
     },
+    mounted() {
+      this.notFoundPage();
+    },
     methods: {
       //logoutメソッド
-       destroySession: function() {
-          axios.delete('/api/logout')
-          .then(response => {
-            this.$store.commit('logout'),
-            this.$store.commit('removeId'),
-            this.$router.push({ path: '/'}),
-            this.$flashMessage.show({
-              type: 'success',
-              title: 'Logout',
-              text:'ログアウトしました',
-              time: 3000
-            });
-          })
-          .catch(error => {
-            this.$flashMessage.show({
-              type: 'error',
-              text: 'ログアウトできませんでした',
-              time: 3000
-            });
-          })
-        },
-        //退会メソッド
-       deleteUser: function(id) {
-          if(window.confirm('データが全て削除されますが退会しますか？')) {
-          axios.delete('/api/users/' + id)
-          .then(response => {
+      destroySession: function() {
+        axios.delete('/api/logout')
+        .then(response => {
           this.$store.commit('logout'),
           this.$store.commit('removeId'),
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({
             type: 'success',
-            title: '退会',
-            text: '退会しました',
-            time: 3000
-          })
-          .catch(err => {
-          this.$flashMessage.show({
-            type: 'error',
-            text: 'エラーが発生しました',
+            title: 'Logout',
+            text:'ログアウトしました',
             time: 3000
           });
         })
-      })
-    }
-  },
+        .catch(error => {
+          this.$flashMessage.show({
+            type: 'error',
+            text: 'ログアウトできませんでした',
+            time: 3000
+          });
+        })
+      },
+      //退会メソッド
+      deleteUser: function(id) {
+        if(window.confirm('データが全て削除されますが退会しますか？')) {
+        axios.delete('/api/users/' + id)
+        .then(response => {
+         this.$store.commit('logout'),
+         this.$store.commit('removeId'),
+         this.$router.push({ path: '/'}),
+         this.$flashMessage.show({
+           type: 'success',
+           title: '退会',
+           text: '退会しました',
+           time: 3000
+         })
+        .catch(err => {
+          this.$flashMessage.show({
+           type: 'error',
+           text: 'エラーが発生しました',
+           time: 3000
+          });
+        })
+       })
+       }
+      },
       //ハンバーガーメニューメソッド
       showMenu: function() {
         document.getElementById('line1').classList.toggle('line_1');
         document.getElementById('line2').classList.toggle('line_2');
         document.getElementById('line3').classList.toggle('line_3');
         document.getElementById('nav').classList.toggle('in');
-        }
+      },
+      //ルーティングエラー時に専用のコンポーネントへ遷移する
+      notFoundPage: function() {
+        axios.get(location.pathname)
+        .catch(error => {
+          if(error.response.status === 404) {
+            this.$router.push({name: 'Error'})
+          }
+        })
       }
+    }
   }
 </script>
 

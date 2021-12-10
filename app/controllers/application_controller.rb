@@ -71,7 +71,7 @@ class ApplicationController < ActionController::Base
 
   #error handling
 
-  rescue_from Exception, with: :error500
+  rescue_from Exception, with: :error404
   rescue_from ActiveRecord::RecordNotFound,
   ActionController::RoutingError, with: :error404
 
