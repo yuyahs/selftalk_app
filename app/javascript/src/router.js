@@ -24,26 +24,31 @@ export const router = createRouter({
       path: '/',
       name: 'home',
       component: Home,
+      meta: { title: 'Home' }
     },
     {
       path: '/about',
       name: 'about',
-      component: About
+      component: About,
+      meta: { title: 'About' }
     },
     {
       path: '/contacts',
       name: 'contact',
-      component: Contact
+      component: Contact,
+      meta: { title: 'お問い合わせ' }
     },
     {
       path: '/policy',
       name: 'policy',
-      component: Policy
+      component: Policy,
+      meta: { title: '利用規約' }
     },
     {
       path: '/users/:id',
       name: 'myPage',
       component: MyPage,
+      meta: { title: 'MyPage' },
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
@@ -53,6 +58,7 @@ export const router = createRouter({
       path: '/users/new',
       name: 'new',
       component: New,
+      meta: { title: '新規登録' },
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next({name: 'home'})
         else next()
@@ -62,6 +68,7 @@ export const router = createRouter({
       path: '/users/:id/edit',
       name: 'change info',
       component: userEdit,
+      meta: { title: '登録情報変更' },
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
@@ -71,6 +78,7 @@ export const router = createRouter({
       path: '/login',
       name: 'login',
       component: Login,
+      meta: { title: 'ログイン' },
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next({name: 'home'})
         else next()
@@ -80,6 +88,7 @@ export const router = createRouter({
       path: '/password_resets/new',
       name: 'reset',
       component: Reset,
+      meta: { title: 'パスワードリセット' },
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next({name: 'home'})
         else next()
@@ -89,6 +98,7 @@ export const router = createRouter({
       path: '/password_resets/:reset_token/edit',
       name: 'change',
       component: Change,
+      meta: { title: 'パスワード再設定' },
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next({name: 'home'})
         else next()
@@ -98,6 +108,7 @@ export const router = createRouter({
       path: '/course',
       name: 'courses',
       component: Courses,
+      meta: { title: 'SelfTalk コース'},
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
@@ -107,6 +118,7 @@ export const router = createRouter({
       path: '/users/:id/answers',
       name: 'answers',
       component: Answers,
+      meta: { title: '回答一覧'},
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
@@ -116,6 +128,7 @@ export const router = createRouter({
       path: '/users/:user_id/answers/:id/edit',
       name: 'answerEdit',
       component: AnswerEdit,
+      meta: { title: '回答添削' },
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
@@ -125,6 +138,7 @@ export const router = createRouter({
       path: '/admin_page',
       name: 'adminPage',
       component: Questions,
+      meta: { title: '管理者用ページ' },
       beforeEnter: (to, from, next) => {
         if (store.state.admin) next()
         else next({name: 'home'})
@@ -134,6 +148,7 @@ export const router = createRouter({
       path: '/users/:id/dictionaries',
       name: 'dictionary',
       component: Dictionary,
+      meta: { title: 'My単語帳' },
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})
@@ -142,7 +157,8 @@ export const router = createRouter({
     {
       path: '/404NotFound',
       name: 'Error',
-      component: Error
+      component: Error,
+      meta: { title: 'Page Not Found'}
     }
   ],
 })
