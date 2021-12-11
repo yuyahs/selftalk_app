@@ -4,7 +4,7 @@ lock '3.16.0'
 
 # Capistranoのログの表示に利用する
 set :application, 'selftalk_app'
-set :deploy_to, '/var/NEW_APP/selftalk_app'
+set :deploy_to, '/var/www/selftalk_app'
 
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'git@github.com:yuyahs/selftalk_app.git'
