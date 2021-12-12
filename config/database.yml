@@ -59,15 +59,6 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-# production:
-#   adapter: mysql2
-#   encoding: utf8
-#   reconnect: false
-#   database: heroku_2a4b1a41aa00433
-#   pool: 5
-#   username: bf8803ffa297bc
-#   password: 8e957eb3
-#   host: us-cdbr-east-04.cleardb.com
 production:
   <<: *default
   database: <%= Rails.application.credentials.db[:database] %>
