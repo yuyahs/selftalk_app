@@ -13,7 +13,7 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
- 
+
 
 development:
   adapter: mysql2
@@ -63,3 +63,4 @@ production:
   username: <%= Rails.application.credentials.db[:username] %>
   password: "<%= Rails.application.credentials.db[:password] %>"
   socket: <%= Rails.application.credentials.db[:socket] %>
+  RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
