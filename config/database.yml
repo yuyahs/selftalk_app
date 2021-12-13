@@ -13,9 +13,7 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  # username: root
-  # password:
-  # socket: /tmp/mysql.sock
+ 
 
 development:
   adapter: mysql2
@@ -61,7 +59,7 @@ test:
 #
 production:
   <<: *default
-  database: selftalk_app
+  database: <%= Rails.application.credentials.db[:database] %>
   username: <%= Rails.application.credentials.db[:username] %>
-  password: <%= Rails.application.credentials.db[:password] %>
+  password: "<%= Rails.application.credentials.db[:password] %>"
   socket: <%= Rails.application.credentials.db[:socket] %>
