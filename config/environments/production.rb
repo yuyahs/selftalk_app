@@ -123,6 +123,7 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
+  config.require_master_key = true
 end
 
 
