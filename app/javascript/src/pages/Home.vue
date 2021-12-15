@@ -7,7 +7,7 @@
        <!--self explainコース -->
       <div class ="course-layout">
         <h1 class = "font-bold mb-4">Self Explain</h1>
-        <img class="course-icon" src="/assets/explain.svg">
+        <img class="course-icon" src="/public/assets/explain.svg">
         <p class="course-text">質問に対して説明形式で回答<br>目標回答時間：45秒<br></p>
         <button class= "start-btn" >
           <router-link :to="{ name: 'courses', query: {mode_num: 1}}">
