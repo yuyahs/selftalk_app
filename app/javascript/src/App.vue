@@ -18,6 +18,26 @@
     components: {
       Header,
       Footer,
+    },
+    mounted : function(){
+      const routeInstance = this.$route;
+      this.createTitleDesc(routeInstance);
+    },
+    methods : {
+    createTitleDesc : function(routeInstance){
+         // タイトルを設定
+        if(routeInstance.meta.title){
+            const setTitle = routeInstance.meta.title;
+            document.title = setTitle;
+        } else {
+            document.title = 'SelfTalkEnglish'
+        }
+      }
+    },
+    watch: {
+      '$route' (routeInstance, from) {
+          this.createTitleDesc(routeInstance);
+      }
     }
   }
 </script>
