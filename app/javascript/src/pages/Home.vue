@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <!-- ログイン済み・ゲストユーザーに表示されるページ -->
+    <!-- ログイン・ゲストユーザーに表示されるページ -->
     <div v-if="$store.state.loggedIn">
       <h1 class="text-white text-3xl">学習コース一覧</h1>
 
