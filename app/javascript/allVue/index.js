@@ -4,6 +4,7 @@ import { router } from '../src/router';
 import FlashMessage from '@smartweb/vue-flash-message';
 import { store } from '../src/store.js';
 import SetInterval from '../src/plugins/SetInterval';
+import '../src/index.css'
 
 
 
