@@ -65,15 +65,15 @@
           Writing形式の問題で独り言英語学習を行うためのコースを用意
         </p>
         <ul class="mx-auto max-w-md flex flex-col w-full">
-          <li><img src="/assets/lp-img-2"></li>
-          <li><img src="/assets/lp-img-3"></li>
-          <li><img src="/assets/lp-img-4"></li>
+          <li><img src="/assets/lp-img-2.png"></li>
+          <li><img src="/assets/lp-img-3.png"></li>
+          <li><img src="/assets/lp-img-4.png"></li>
         </ul>
       </div>
 
       <div class="home-div">
         <p class="home-subtitle">回答文は後で確認・添削可能</p>
-        <img src="/assets/lp-img-1" class="border border-solid border-white mx-auto">
+        <img src="/assets/lp-img-1.png" class="border border-solid border-white mx-auto">
       </div>
     </div>
   </div>

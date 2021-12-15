@@ -124,6 +124,7 @@ Rails.application.configure do
   }
 
   config.require_master_key = true
+  config.public_file_server.enabled = false
 end
 
 
