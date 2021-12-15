@@ -25,7 +25,6 @@
     },
     methods : {
     createTitleDesc : function(routeInstance){
-         // タイトルを設定
         if(routeInstance.meta.title){
             const setTitle = routeInstance.meta.title;
             document.title = setTitle;
