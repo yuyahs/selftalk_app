@@ -114,7 +114,10 @@
   }
 }
 
-
+//home overall
+.text-position {
+  text-align: center;
+}
 //home not login
 
 .home-title-wrapper {
@@ -130,7 +133,7 @@
 
 .home-subtitle {
   margin-bottom: 32px;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -196,7 +199,32 @@
   line-height: 2.5rem;
 }
 
+.course-images {
+  margin: 0 auto;
+  max-width: 28rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.edit-image {
+  margin: 0 auto;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffffff;
+}
+
 //home after login
+
+.home-title {
+  color: #ffffff;
+  font-size: 1.875rem;
+}
+
+.course-title {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
 
 .course-layout{
   padding: 16px;
