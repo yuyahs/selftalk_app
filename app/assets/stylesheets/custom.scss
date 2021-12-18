@@ -114,6 +114,30 @@
   }
 }
 
+//footer
+
+.footer-overall {
+  color: #ffffff;
+  border-top-width: 2px;
+  text-align: center;
+}
+
+.footer-div {
+  padding: 64px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: row;
+  border-bottom-width: 2px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-link {
+  margin-right: 24px;
+}
+
 //home overall
 .text-position {
   text-align: center;
