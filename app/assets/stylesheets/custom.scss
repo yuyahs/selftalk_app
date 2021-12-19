@@ -330,7 +330,58 @@
   height: 96px;
 }
 
+//signup form
 
+.form-overall {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+  padding-bottom: 32px;
+  padding-right: 32px;
+  padding-left: 32px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 28rem;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.form-column {
+  padding-left: 12px;
+  width: 100%;
+  height: 40px;
+  border-style: solid;
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgba(75, 85, 99, var(--tw-border-opacity));
+  border-radius: 0.25rem;
+}
+
+.btn-div {
+  margin-top: 16px;
+}
+
+.form-btn {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 16px;
+  padding-left: 16px;
+  width: 50%;
+  color: #ffffff;
+  --tw-bg-opacity: 1;
+  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+  font-weight: 600;
+  border-width: 1px;
+  border-color: #ffffff;
+  border-radius: 9999px;
+  &:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+  }
+}
 
 //about
 
