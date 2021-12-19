@@ -7,13 +7,47 @@
 
 //header
 
-#header-wrapper{
+.header-overall {
+  position: fixed;
+  width: 100%;
   height: 64px;
+  color: #ffffff;
+  --tw-bg-opacity: 1;
+  background-color: rgba(30, 58, 138, var(--tw-bg-opacity));
+  border-bottom-width: 2px;
 }
 
-#not-login-menu{
-  padding: 16px;;
+.app-title {
+  font-size: 1.875rem;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
+
+.login-menu{
+  float: right;
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.not-login-menu {
+  margin-right: 16px;
+  &:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+  }
+}
+
+.guest-menu {
+  margin-right: 16px;
+  font-weight: bold;
+  &:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+  }
+}
+
 
 //hamburger
 
@@ -104,6 +138,7 @@
 #nav ul li{
   margin-top: 16px;
   font-size: 18px;
+  font-weight: bold;
   text-decoration: underline;
   list-style-type: none;
   &:hover{
