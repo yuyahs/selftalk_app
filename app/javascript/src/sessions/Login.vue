@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-full max-w-md h-full container mx-auto bg-white 　　　　　　　　shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
+  <div class="form-overall">
     <h1 class="text-center font-bold text-2xl mb-6">
       ログイン
     </h1>
@@ -8,7 +8,7 @@
         <label for ="session_e-mail">
           メールアドレス
         </label>
-        <input type="text" v-model="session.email" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
+        <input type="text" v-model="session.email" class="form-column">
       </div>
 
       <div class="form-p">
@@ -18,11 +18,11 @@
         <router-link to='/password_resets/new' class="password-reset-link">
           (パスワードを忘れた場合)
         </router-link>
-        <input type="password" v-model="session.password" class="pl-3 h-10 w-full border-solid border-2 rounded border-gray-600">
+        <input type="password" v-model="session.password" class="form-column">
       </div>
 
-      <div class="mt-4">
-        <button @click="createSession" class="w-1/2 bg-blue-500  text-white font-semibold hover:bg-blue-300 py-2 px-4 border border-white rounded-full" >
+      <div class="btn-div">
+        <button @click="createSession" class="form-btn" >
          ログイン
         </button>
       </div>
