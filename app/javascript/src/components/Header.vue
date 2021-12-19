@@ -1,10 +1,10 @@
 <template>
-  <header id="header-wrapper" class="fixed bg-blue-900 w-full text-white border-b-2 border-fuchsia-600">
-    <router-link to="/" class="font-serif text-3xl ">
+  <header class="header-overall">
+    <router-link to="/" class="app-title">
      SelfTalkEnglish
     </router-link>
 
-    <div id="not-login-menu" class="float-right flex flex-row text-white font-bold">
+    <div class="login-menu">
       <div v-if="$store.state.loggedIn && $store.state.notGuest">
         <button class="user-page">
           <router-link :to="{name: 'myPage', params: {id: $store.state.userId }}">
@@ -43,17 +43,17 @@
 
       <!-- ゲストユーザーに表示されるメニュー -->
       <div v-else-if="$store.state.guest">
-        <button @click="destroySession" class="mr-4 font-bold hover:bg-blue-300">
+        <button @click="destroySession" class="guest-menu">
           ログアウト
         </button>
       </div>
 
       <!-- 未ログインユーザーに表示されるメニュー -->
       <div v-else>
-          <router-link to="/login" class="mr-4 hover:bg-blue-300">
+          <router-link to="/login" class="not-login-menu">
             {{nav1}}
           </router-link>
-          <router-link to="/users/new" class="mr-4 hover:bg-blue-300 ">
+          <router-link to="/users/new" class="not-login-menu">
            {{nav2}}
           </router-link>
       </div>
