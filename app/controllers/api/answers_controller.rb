@@ -5,7 +5,8 @@ class Api::AnswersController < ApplicationController
   #解答一覧表示機能
   def index
     #マイページの日付リンクをクリックすることでその日付に作成されたanswerを取得する
-    @answers = current_user.answers.like_created(params[:created_at])
+    @answers = current_user.answers.where(["created_at Like ?",
+    "%#{params[:created_at]}%"])
   end
 
   #メインの解答機能
