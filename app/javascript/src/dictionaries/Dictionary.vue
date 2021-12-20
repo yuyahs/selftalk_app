@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="font-bold text-2xl text-center text-white mb-8">
+    <h1 class="dictionary-title">
       単語帳
     </h1>
 
