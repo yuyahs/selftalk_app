@@ -1,6 +1,6 @@
 <template>
   <div class="form-overall">
-    <h1 class="text-center font-bold text-2xl mb-6">
+    <h1 class="form-title">
       ログイン
     </h1>
       <!-- ログインフォーム -->
