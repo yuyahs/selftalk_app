@@ -350,6 +350,14 @@
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.form-title {
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
 .form-column {
   padding-left: 12px;
   width: 100%;
