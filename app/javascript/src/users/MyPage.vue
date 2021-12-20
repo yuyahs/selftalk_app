@@ -1,24 +1,24 @@
 <template>
   <div>
-    <h1 class="text-center text-3xl text-white font-bold pb-5">
+    <h1 class="user-name">
       {{user.name}}さんの学習記録
     </h1>
 
     <MyMenu />
 
     <!-- 学習記録・contributions -->
-    <div class="flex flex-row text-white my-4 p-2 max-w-md mx-auto border border-solid border-white rounded">
+    <div class="learning-status">
 
       <div class="contribution">
-        <p class="pl-4">学習日数</p>
+        <p class="learning-day-p">学習日数</p>
         <section class="learning-day">
           {{learningDays}}日
         </section>
       </div>
 
       <div class="contribution">
-        <p class="pl-6">今週の学習状況</p>
-        <section v-for="day in days" :key="day" class="flex flex-row">
+        <p class="this-week-p">今週の学習状況</p>
+        <section v-for="day in days" :key="day" class="week-contributions-prop">
           <span>
             {{day}}
           </span>
@@ -36,11 +36,10 @@
     </h2>
 
     <!-- answersリンク集（日付ごとに集計） -->
-    <div class="text-center p-4 flex flex-col items-center justify-center list-none">
-      <div v-for="date in dates" class="w-1/2 underline p-4" :key="date">
-        <li class="bg-blue-500 p-2 text-white font-bold text-2xl
-                 border border-solid border-blue-500 rounded-full hover:bg-blue-300">
-          <router-link :to="{name: 'answers', query: {created_at: date}}" class="block">
+    <div class="answer-list-wrapper">
+      <div v-for="date in dates" class="answer-list-prop" :key="date">
+        <li class="answer-list-column">
+          <router-link :to="{name: 'answers', query: {created_at: date}}" class="link-block">
             {{date}}の回答集
           </router-link>
         </li>
