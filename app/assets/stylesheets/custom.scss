@@ -781,6 +781,53 @@
 
 //dictionary
 
+.dictionary-wrapper {
+  margin: 0 auto;
+  max-width: 28rem;
+}
+
+.add-item-btn {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 16px;
+  padding-left: 16px;
+  color: #ffffff;
+  --tw-bg-opacity: 1;
+  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+  font-weight: 600;
+  &:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+  }
+}
+
+.add-item-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.add-item-title {
+  color: #ffffff;
+}
+
+.add-item-column {
+  padding-top: 12px;
+  padding-left: 12px;
+  height: 80px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000000;
+  resize: none;
+}
+
+.dictionary-title {
+  margin-bottom: 32px;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
 .items {
  margin-top: 24px;
  display: flex;
