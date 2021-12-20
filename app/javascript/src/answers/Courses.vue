@@ -1,23 +1,23 @@
 <template>
-  <div class="text-center">
-     <div class="text-white mb-10">
-        <progress id="progress" value="45" max="45" class="bg-white w-1/2 border border-solid border-white rounded-full"></progress>
+  <div class="course-overall">
+     <div class="course-progress-wrapper">
+        <progress id="progress" value="45" max="45" class="progress-prop"></progress>
         <span id="countdown">45</span>
     </div>
-     <div class="text-left text-2xl w-full max-w-md h-full container mx-auto bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
+     <div class="question-display">
        <div>{{question.content}}</div>
      </div>
 
      <input type="hidden" :value="mode_num">
      <input type="hidden" :value="id">
 
-     <textarea id="text1" v-model="answer.content" class="content-center resize-none text-2xl h-36 pl-3 pt-3 w-full border-solid border-2 rounded border-gray-600" >
+     <textarea id="text1" v-model="answer.content" class="answer-input-form" >
      </textarea>
 
-     <button @click="saveAnswer" class="my-10 bg-blue-500 hover:bg-blue-300 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
+     <button @click="saveAnswer" class="next-question-btn">
       次の問題へ進む
      </button>
-     <router-link to="/" class="ml-4 my-10 bg-white hover:bg-blue-500 text-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
+     <router-link to="/" class="finish-btn">
       終了する
      </router-link>
   </div>
