@@ -820,7 +820,7 @@
   resize: none;
 }
 
-.dictionary-title {
+.content-title {
   margin-bottom: 32px;
   color: #ffffff;
   font-size: 1.5rem;
@@ -876,6 +876,11 @@
 
 
 //answer-index
+
+.answer-index-wrapper {
+  justify-content: center;
+  align-items: center;
+}
 
 .answers{
   overflow-wrap: break-word;

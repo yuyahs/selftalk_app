@@ -1,13 +1,14 @@
 <template>
-  <div class="items-center justify-center">
-    <h1 class="font-bold text-2xl text-center text-white">
+  <div class="answer-index-wrapper">
+    <h1 class="content-title">
       回答集
     </h1>
     <MyMenu />
 
     <!-- 回答一覧を表示 -->
     <div v-for="answer in answers" class="answers" :key="answer">
-      <textarea v-model="answer.content" disabled class="answer-text-content"></textarea>
+      <textarea v-model="answer.content" disabled class="answer-text-content">
+      </textarea>
       <li class="edit-btn">
        <router-link :to="{name: 'answerEdit', params: {user_id: $store.state.userId,
        id: answer.id}}">
