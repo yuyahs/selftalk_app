@@ -252,18 +252,6 @@
   color: #ffffff;
 }
 
-.about-css{
-  margin-top: 48px;
-  margin-bottom: 48px;
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.about-sentence {
-  text-align: justify;
-  line-height: 2.5rem;
-}
-
 .course-images {
   margin: 0 auto;
   max-width: 28rem;
@@ -415,11 +403,120 @@
 
 //about
 
-#demerit {
-  --tw-bg-opacity: 1;
-  background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
+.about-wrapper {
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
 }
 
+.about-section {
+  margin-top: 48px;
+  margin-bottom: 48px;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.about-sentence {
+  text-align: justify;
+  line-height: 2.5rem;
+}
+
+.merit {
+  margin: 0 auto;
+  max-width: 28rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+  text-align: center;
+  line-height: 2.5rem;
+}
+
+.point-sentence {
+  border-style: solid;
+  border-width: 1px;
+}
+
+
+
+.demerit {
+  margin: 0 auto;
+  max-width: 28rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
+  text-align: center;
+  line-height: 2.5rem;
+}
+
+//contact
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+  padding-bottom: 32px;
+  padding-right: 32px;
+  padding-left: 32px;
+  margin: 0 auto;
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 28rem;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.contact-name {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.contact-content {
+  align-content: center;
+  padding-top: 12px;
+  padding-left: 12px;
+  margin-bottom: 24px;
+  width: 100%;
+  height: 144px;
+  border-style: solid;
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgba(75, 85, 99, var(--tw-border-opacity));
+  border-radius: 0.25rem;
+  font-size: 1.5rem;
+  resize: none;
+}
+
+//policy
+
+.policy-wrapper {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.policy-title {
+  margin-bottom: 32px;
+  text-align: center;
+  font-size: 1.875rem;
+}
+
+.policy-content-prop {
+  text-align: justify;
+}
+
+.policy-content {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-size: 1.125rem;
+}
+
+.policy-mb {
+  margin-bottom: 16px
+}
+
+.policy-text {
+  font-size: 1.125rem;
+}
 //admin page
 
 .admin-section-wrapper {
