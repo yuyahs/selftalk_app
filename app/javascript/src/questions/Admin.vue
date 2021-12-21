@@ -1,5 +1,5 @@
 <template>
-  <div class="text-white">
+  <div class="txt-white">
     <h1 class="admin-title">
       管理画面
     </h1>
