@@ -3,29 +3,29 @@
     <h1 class="admin-title">
       管理画面
     </h1>
-    <div class="text-center border border-solid border-white">
-      <h2 class="text-center font-bold text-2xl my-8">
-        {{courseTitle}}
+    <div class="admin-section-wrapper">
+      <h2 class="admin-section-title">
+        出題問題集
       </h2>
       <!-- 出題文一覧 -->
-      <div class="flex flex-row mb-10">
-        <p class="mt-2">
+      <div class="icons-wrapper">
+        <p class="icons-title">
           出題モード一覧▶︎
         </p>
-        <div class="flex flex-row">
+        <div>
           <button @click="showQuestions1">
-            <img src="/assets/explain.svg" class="course-small-icon">
+            <img src="../assets/explain.svg" class="course-small-icon">
           </button>
           <button @click="showQuestions2">
-            <img src="/assets/reaction.svg" class="course-small-icon">
+            <img src="../assets/reaction.svg" class="course-small-icon">
           </button>
           <button @click="showQuestions3">
-            <img src="/assets/translation.svg" class="course-small-icon">
+            <img src="../assets/translation.svg" class="course-small-icon">
           </button>
         </div>
       </div>
 
-      <!-- 出題文削除ボタン -->
+      <!-- 出題文一覧 -->
       <div v-for="question in questions" class="question-list" :key="question">
         <li class="list-none">
           {{question.content}}
@@ -54,8 +54,7 @@
     },
     data() {
       return {
-        questions: "",
-        courseTitle: "出題問題集"
+        questions: ""
       }
     },
     methods: {

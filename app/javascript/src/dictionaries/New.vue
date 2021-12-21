@@ -4,18 +4,18 @@
     </button>
     <section class="add-item-section">
       <div>
-        <label for="item_content" class="add-item-title">単語・フレーズ</label>
+        <label for="item_content" class="txt-white">単語・フレーズ</label>
         <textarea v-model="item.content" class="add-item-column">
         </textarea>
       </div>
       <div>
-        <label for="item_meaning" class="add-item-title">意味</label>
+        <label for="item_meaning" class="txt-white">意味</label>
         <textarea v-model="item.meaning"
           class="add-item-column">
         </textarea>
       </div>
       <div>
-        <label for="item_memo" class="add-item-title">例文・メモ</label>
+        <label for="item_memo" class="txt-white">例文・メモ</label>
         <textarea
           v-model="item.memo"
           class="add-item-column">
