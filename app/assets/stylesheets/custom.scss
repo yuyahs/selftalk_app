@@ -336,7 +336,7 @@
   height: 96px;
 }
 
-//signup form
+//forms
 
 .form-overall {
   display: flex;
@@ -925,6 +925,59 @@
 
 .edit-btn:hover{
   background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+}
+
+//answer-edit
+
+.answer-edit-wrapper {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.edit-save-btn {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 16px;
+  color: #ffffff;
+  --tw-bg-opacity: 1;
+  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgba(59, 130, 246, var(--tw-border-opacity));
+  border-radius: 9999px;
+  font-weight: 600;
+  &:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+  }
+}
+
+.to-answer-index-btn {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 16px;
+  --tw-text-opacity: 1;
+  color: rgba(59, 130, 246, var(--tw-text-opacity));
+  background-color: #ffffff;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgba(59, 130, 246, var(--tw-border-opacity));
+  border-radius: 9999px;
+  font-weight: 600;
+  &:hover {
+   color: #ffffff;
+   --tw-bg-opacity: 1;
+   background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+  }
 }
 
 

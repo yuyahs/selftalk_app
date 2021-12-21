@@ -1,6 +1,6 @@
 <template>
- <div class="form-overall">
-    <h1 class="form-tilte">
+  <div class="form-overall">
+    <h1 class="form-title">
       登録情報を変更する
     </h1>
 
