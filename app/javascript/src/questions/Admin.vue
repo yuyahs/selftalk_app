@@ -27,7 +27,7 @@
 
       <!-- 出題文一覧 -->
       <div v-for="question in questions" class="question-list" :key="question">
-        <li class="list-none">
+        <li class="question-list-style">
           {{question.content}}
           <button @click="deleteQuestion(question.id)" class="question-delete">
             削除
