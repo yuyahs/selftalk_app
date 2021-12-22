@@ -534,7 +534,6 @@
   font-weight: bold;
 }
 
-
 .admin-title {
  margin-top: 24px;
  margin-bottom: 24px;
@@ -556,6 +555,10 @@
   border-color: rgb(156, 141, 141);
   border-radius: 0.25rem;
   font-size: 1.5rem;
+}
+
+.question-list-style {
+  list-style: none;
 }
 
 .question-delete {
