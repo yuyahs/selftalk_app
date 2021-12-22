@@ -1138,4 +1138,27 @@
   }
 }
 
+//error404
 
+.error-wrapper {
+  color: #ffffff;
+  font-size: 1.875rem;
+  text-align: center;
+}
+
+.error-title {
+  margin-bottom: 120px;
+}
+
+.error-sentence {
+  margin-bottom: 144px;
+  text-align: justify;
+}
+
+.error-home-link {
+  text-decoration: underline;
+  &:hover {
+    --tw-text-opacity: 1;
+    color: rgba(59, 130, 246, var(--tw-text-opacity));
+  }
+}
