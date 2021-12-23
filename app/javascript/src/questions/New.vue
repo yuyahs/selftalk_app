@@ -17,7 +17,7 @@
 
       <!-- question作成 -->
       <input type="text" v-model="question.content" class="new-question-text">
-      <button @click="questionNew" class="question-save-btn">
+      <button @click="questionNew" class="model-save-btn">
         作成する
       </button>
     </div>

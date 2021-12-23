@@ -2,10 +2,10 @@
 # メインのサンプルユーザーを1人作成する
 User.create(
   id: 1,
-  name:  "Example User",
-  email: "example@railstutorial.org",
-  password:              "foobar",
-  password_confirmation: "foobar",
+  name:  "Yuya Hoshi",
+  email: "yuya.tennis216@icloud.com",
+  password:              "@lasvegas216",
+  password_confirmation: "@lasvegas216",
   activated: true,
   activated_at: Time.zone.now,
   admin: true)
@@ -48,6 +48,11 @@ Item.create(
   meaning: "testtesttest",
   memo: "This is a test sentence.",
   user_id: 1
+)
+
+Notice.create(
+  title: "test title",
+  content: "test content"
 )
 
 

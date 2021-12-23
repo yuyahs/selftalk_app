@@ -36,6 +36,7 @@
       </div>
     </div>
     <QuestionNew />
+    <NoticeNew />
     <UserIndex />
   </div>
 
@@ -44,12 +45,14 @@
 <script>
   import axios from 'axios';
   import QuestionNew from './New.vue';
+  import NoticeNew from '../notices/New.vue';
   import UserIndex from '../users/Index.vue';
 
   export default {
     name: 'Questions',
     components: {
       QuestionNew,
+      NoticeNew,
       UserIndex
     },
     data() {
