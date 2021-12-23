@@ -16,21 +16,10 @@ Rails.application.routes.draw do
   get '/password_resets/:reset_token/edit', to: 'static_pages#home'
   get '/admin_page', to: 'static_pages#home'
   get '/course', to: 'static_pages#home'
+  get '/notices', to: 'static_pages#home'
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:edit]
 
-  # get '/contacts', to: 'api/contacts#new'
-  # get '/users/new', to: 'api/users#new'
-  # get '/users/:id', to: 'api/users#show'
-  # get '/users/:id/edit', to: 'api/users#edit'
-  # get '/login', to: 'static_pages#home'
-  # get '/password_resets/new', to: 'api/password_resets#new'
-  # get '/password_resets/:reset_token/edit', to: 'api/password_resets#edit'
-  # get '/admin_page', to: 'api/questions#index'
-  # get '/users/:id/dictionaries', to: 'api/items#index'
-  # get '/course', to: 'api/answers#new'
-  # get '/users/:id/answers', to: 'api/answers#index'
-  # get '/users/:id/answers/:id/edit', to: 'api/answers#edit'
 
 
 
