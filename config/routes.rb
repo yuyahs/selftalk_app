@@ -77,5 +77,9 @@ Rails.application.routes.draw do
     resources :questions
   end
 
+  namespace :api, format: 'json' do
+    resources :notices, only: [:index, :show, :create, :destroy]
+  end
+
   match '*path', :to => 'application#error404', :via => :all
 end
