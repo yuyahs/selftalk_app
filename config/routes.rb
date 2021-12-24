@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/admin_page', to: 'static_pages#home'
   get '/course', to: 'static_pages#home'
   get '/notices', to: 'static_pages#home'
+  get '/notice/:is', to: 'static_pages#home'
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:edit]
 

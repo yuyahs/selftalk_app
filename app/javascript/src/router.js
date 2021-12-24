@@ -16,6 +16,7 @@ import AnswerEdit from './answers/Edit.vue'
 import Questions from './questions/Admin.vue'
 import Dictionary from './dictionaries/Dictionary.vue'
 import Notices from './notices/Index.vue'
+import Notice from './notices/Notice.vue'
 import Error from './pages/Error.vue'
 
 export const router = createRouter({
@@ -160,6 +161,16 @@ export const router = createRouter({
       name: 'notices',
       component: Notices,
       meta: { title: 'お知らせ一覧'},
+      beforeEnter: (to, from, next) => {
+        if (store.state.loggedIn) next()
+        else next({name: 'login'})
+      }
+    },
+    {
+      path: '/notice/:id',
+      name: 'notice',
+      component: Notice,
+      meta: { title: 'お知らせ'},
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next()
         else next({name: 'login'})

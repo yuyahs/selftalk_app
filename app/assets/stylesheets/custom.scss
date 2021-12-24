@@ -1178,6 +1178,11 @@
 
 //notice index
 
+.notice-index-wrapper {
+  color: #ffffff;
+  margin-bottom: 210px;
+}
+
 .notices-title {
   margin-bottom: 24px;
   text-align: center;
@@ -1185,6 +1190,26 @@
   font-weight: bold;
 }
 
+.all-notices {
+  margin-bottom: 16px;
+  width: 100%;
+}
+.notice-list {
+  padding: 16px;
+  margin-bottom: 16px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  list-style: none;
+}
+
+.notice-list-title {
+  margin-left: 16px;
+  text-decoration: underline;
+  &:hover {
+    --tw-text-opacity: 1;
+    color: rgba(59, 130, 246, var(--tw-text-opacity));
+  }
+}
 //error404
 
 .error-wrapper {
