@@ -1,9 +1,12 @@
 <template>
-  <div class="txt-white">
-    <h1 class="form-title">運営からのお知らせ一覧</h1>
+  <div class="notice-index-wrapper">
+    <h1 class="notices-title">運営からのお知らせ一覧</h1>
 
-    <div>
-      <li v-for="notice in notices" :key="notice">{{notice.title}}</li>
+    <div class="all-notices">
+      <li v-for="notice in notices" :key="notice" class="notice-list">
+        {{notice.created_at.substr(0,10)}}
+        <router-link :to="{ name: 'notice', params: {id: notice.id}}" class="notice-list-title">{{notice.title}}</router-link>
+      </li>
     </div>
   </div>
 
