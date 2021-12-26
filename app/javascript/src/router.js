@@ -167,7 +167,7 @@ export const router = createRouter({
       }
     },
     {
-      path: '/notice/:id',
+      path: '/notices/:id',
       name: 'notice',
       component: Notice,
       meta: { title: 'お知らせ'},
