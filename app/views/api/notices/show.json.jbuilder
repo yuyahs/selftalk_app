@@ -1,1 +1,1 @@
-json.(@notice, :content)
+json.(@notice, :title, :content, :created_at)

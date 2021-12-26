@@ -1,7 +1,18 @@
 <template>
-  <div class="notice-index-wrapper">
-    <h1 class="notices-title">お知らせ</h1>
-  
+  <div class="notice-wrapper">
+    <h1 class="notice-title">お知らせ（{{notice.created_at.substr(0,10)}}):
+      {{notice.title}}
+    </h1>
+    <div class="notice-content-wrapper">
+      <p class="notice-content">{{notice.content}}</p>
+    </div>
+
+    <button class="link-to-notices">
+      <router-link :to='{ name: "notices"}'>
+        お知らせ一覧に戻る
+      </router-link>
+    </button>
+
 
 
 
@@ -17,18 +28,20 @@
   data() {
     return {
       notice: {
-        content: ""
+        title: "",
+        content: "",
+        created_at: ""
       }
     }
   },
-  // mounted() {
-  //   this.showNotice();
-  // },
+  mounted() {
+    this.showNotice();
+  },
   methods: {
     showNotice: function () {
-      axios.get(`/api/notice/${this.$route.params.id}`)
+      axios.get(`/api/notices/${this.$route.params.id}`)
       .then(response => {
-        this.notice.content = response.data
+        this.notice = response.data
       })
     }
   }

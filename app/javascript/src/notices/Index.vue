@@ -1,6 +1,6 @@
 <template>
-  <div class="notice-index-wrapper">
-    <h1 class="notices-title">運営からのお知らせ一覧</h1>
+  <div class="notice-wrapper">
+    <h1 class="notice-title">運営からのお知らせ一覧</h1>
 
     <div class="all-notices">
       <li v-for="notice in notices" :key="notice" class="notice-list">

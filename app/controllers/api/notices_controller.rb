@@ -6,6 +6,7 @@ class Api::NoticesController < ApplicationController
   end
 
   def show
+    @notice = Notice.find_by(id: params[:id])
   end
 
   def create
