@@ -6,9 +6,8 @@
 
     <div class="login-menu">
       <div v-if="$store.state.loggedIn && $store.state.notGuest">
-        <button class="user-page">
-          <router-link :to="{name: 'myPage', params: {id: $store.state.userId }}">
-          マイページ</router-link>
+        <button @click="linkToMypage" class="user-page">
+          マイページ
         </button>
 
         <!-- ハンバーガーメニューのアイコン -->
@@ -27,16 +26,13 @@
             <li @click="destroySession">
               ログアウト
             </li>
-            <li>
-              <router-link :to="{ name: 'change info',
-              params: { id: $store.state.userId }}">
+            <li @click="linkToUserEdit">
                登録情報変更
-              </router-link>
             </li>
             <li>
               <router-link :to="{ name: 'notices'}">お知らせ</router-link>
             </li>
-            <li @click="deleteUser($store.state.userId)">
+            <li @click="deleteUser(userId)">
               退会
             </li>
             <li v-if="$store.state.admin">
@@ -56,10 +52,10 @@
       <!-- 未ログインユーザーに表示されるメニュー -->
       <div v-else>
           <router-link to="/login" class="not-login-menu">
-            {{nav1}}
+            ログイン
           </router-link>
           <router-link to="/users/new" class="not-login-menu">
-           {{nav2}}
+           新規登録
           </router-link>
       </div>
     </div>
@@ -71,20 +67,31 @@
 
   export default {
    name: 'Header',
-    props: {
-      nav1: String,
-      nav2: String
-    },
+   data() {
+     return {
+       userId: ""
+     }
+   },
     mounted() {
       this.notFoundPage();
+      this.getIdfromLocal();
     },
     methods: {
+      getIdfromLocal: function () {
+        this.userId = localStorage.getItem('userId')
+      },
+      linkToMypage: function () {
+        this.$router.push({ path: `/users/${this.userId}`})
+      },
+      linkToUserEdit: function () {
+        this.$router.push({ path: `/users/${this.userId}/edit`})
+      },
       //logoutメソッド
       destroySession: function() {
         axios.delete('/api/logout')
         .then(response => {
           this.$store.commit('logout'),
-          this.$store.commit('removeId'),
+          localStorage.removeItem('userId')
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({
             type: 'success',

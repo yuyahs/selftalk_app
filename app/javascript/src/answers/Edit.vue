@@ -18,10 +18,9 @@
     </button>
 
    <!--回答一覧に戻るボタン-->
-    <router-link :to="{name: 'answers', params: {id: $store.state.userId},
-    query: {created_at: date}}" class="to-answer-index-btn">
+    <button @click="linkToAnswers" class="to-answer-index-btn">
     　回答一覧に戻る
-  　</router-link>
+  　</button>
   </div>
 
 </template>
@@ -54,7 +53,8 @@
     methods: {
       //answerのデータを受け取るメソッド
       getAnswer: function () {
-        axios.get(`/users/${this.$store.state.userId}/api/answers/
+        const id = localStorage.getItem('userId')
+        axios.get(`/users/${id}/api/answers/
         ${this.$route.params.id}/edit`)
         .then(response => {
           this.question = response.data.question
@@ -78,8 +78,12 @@
           })
         }
       },
+      linkToAnswers: function() {
+        const id = localStorage.getItem('userId')
+        this.$router.push({ path: `/users/${id}/answers`, query: {created_at: this.date}})
+      },
       correctUser: function(){
-        const currentUserId = this.$store.state.userId
+        const currentUserId = localStorage.getItem('userId')
         if(!(currentUserId == this.$route.params.user_id)){
           this.$router.push({name: 'home'})
         }

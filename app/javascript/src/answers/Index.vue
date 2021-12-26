@@ -9,11 +9,8 @@
     <div v-for="answer in answers" class="answers" :key="answer">
       <textarea v-model="answer.content" disabled class="answer-text-content">
       </textarea>
-      <li class="edit-btn">
-       <router-link :to="{name: 'answerEdit', params: {user_id: $store.state.userId,
-       id: answer.id}}">
+      <li @click="linkToAnswerEdit(answer.id)" class="edit-btn">
          添削する
-       </router-link>
       </li>
     </div>
   </div>
@@ -51,8 +48,12 @@
           this.answers = response.data.answers
         })
       },
+      linkToAnswerEdit: function(answerId) {
+        const id = localStorage.getItem('userId')
+        this.$router.push({ path: `/users/${id}/answers/${answerId}/edit`})
+      },
       checkCorrectUser: function() {
-        const currentUserId = this.$store.state.userId
+        const currentUserId = localStorage.getItem('userId')
         if(!(currentUserId == this.$route.params.id)){
           this.$router.push({name: 'home'})
         }

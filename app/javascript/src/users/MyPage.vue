@@ -86,7 +86,7 @@
       })
     },
     checkCorrectUser: function(){
-      const currentUserId = this.$store.state.userId
+      const currentUserId = localStorage.getItem('userId')
       if(!(currentUserId == this.$route.params.id)){
         this.$router.push({name: 'home'})
       }
