@@ -56,7 +56,7 @@
         })
         .then(response => {
           const id = response.data.id
-          this.$store.commit('setId', id),
+          localStorage.setItem('userId', id);
           this.$store.commit('login')
           if(id == 1) {                   //管理ユーザー（id:1)の時の動作
             this.$store.commit('admin')
