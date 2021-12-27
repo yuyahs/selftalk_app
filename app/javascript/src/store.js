@@ -9,6 +9,7 @@ export const store = createStore ({
       admin: false,
       notGuest: true,
       guest: false,
+      userId: 0
     }
   },
   mutations: {
@@ -22,6 +23,9 @@ export const store = createStore ({
       state.admin = false;
       state.notGuest = true;
       state.guest = false;
+    },
+    setId: (state, id) => {
+      state.userId = id
     },
     //管理者権限を与える
     admin: (state) => {

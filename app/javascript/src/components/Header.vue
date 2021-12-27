@@ -6,8 +6,9 @@
 
     <div class="login-menu">
       <div v-if="$store.state.loggedIn && $store.state.notGuest">
-        <button @click="linkToMypage" class="user-page">
-          マイページ
+        <button class="user-page">
+          <router-link :to="{name: 'myPage', params: {id: $store.state.userId }}">
+          マイページ</router-link>
         </button>
 
         <!-- ハンバーガーメニューのアイコン -->
@@ -26,13 +27,16 @@
             <li @click="destroySession">
               ログアウト
             </li>
-            <li @click="linkToUserEdit">
+            <li>
+              <router-link :to="{ name: 'change info',
+              params: { id: $store.state.userId }}">
                登録情報変更
+              </router-link>
             </li>
             <li>
               <router-link :to="{ name: 'notices'}">お知らせ</router-link>
             </li>
-            <li @click="deleteUser(userId)">
+            <li @click="deleteUser($store.state.userId)">
               退会
             </li>
             <li v-if="$store.state.admin">
@@ -64,34 +68,18 @@
 
 <script>
   import axios from 'axios';
-
   export default {
    name: 'Header',
-   data() {
-     return {
-       userId: ""
-     }
-   },
     mounted() {
       this.notFoundPage();
-      this.getIdfromLocal();
     },
     methods: {
-      getIdfromLocal: function () {
-        this.userId = localStorage.getItem('userId')
-      },
-      linkToMypage: function () {
-        this.$router.push({ path: `/users/${this.userId}`})
-      },
-      linkToUserEdit: function () {
-        this.$router.push({ path: `/users/${this.userId}/edit`})
-      },
       //logoutメソッド
       destroySession: function() {
         axios.delete('/api/logout')
         .then(response => {
           this.$store.commit('logout'),
-          localStorage.removeItem('userId')
+          this.$store.commit('removeId'),
           this.$router.push({ path: '/'}),
           this.$flashMessage.show({
             type: 'success',
@@ -151,5 +139,6 @@
     }
   }
 </script>
+
 
 

@@ -9,8 +9,11 @@
     <div v-for="answer in answers" class="answers" :key="answer">
       <textarea v-model="answer.content" disabled class="answer-text-content">
       </textarea>
-      <li @click="linkToAnswerEdit(answer.id)" class="edit-btn">
+      <li class="edit-btn">
+       <router-link :to="{name: 'answerEdit', params: {user_id: $store.state.userId,
+       id: answer.id}}">
          添削する
+       </router-link>
       </li>
     </div>
   </div>
@@ -20,7 +23,6 @@
 <script>
   import axios from 'axios';
   import MyMenu from '../components/MyMenu.vue'
-
   export default {
     name: 'Answers',
     components: {
@@ -48,12 +50,8 @@
           this.answers = response.data.answers
         })
       },
-      linkToAnswerEdit: function(answerId) {
-        const id = localStorage.getItem('userId')
-        this.$router.push({ path: `/users/${id}/answers/${answerId}/edit`})
-      },
       checkCorrectUser: function() {
-        const currentUserId = localStorage.getItem('userId')
+        const currentUserId = this.$store.state.userId
         if(!(currentUserId == this.$route.params.id)){
           this.$router.push({name: 'home'})
         }
@@ -66,5 +64,4 @@
     }
   }
 </script>
-
 
