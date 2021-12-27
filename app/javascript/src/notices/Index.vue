@@ -29,6 +29,7 @@
   },
   mounted() {
     this.getNotices();
+    this.checkNotGuestUser();
   },
   methods: {
     getNotices: function() {
@@ -51,9 +52,12 @@
           })
         })
       }
+    },
+    checkNotGuestUser: function() {
+      if(this.$store.state.guest){
+        this.$router.push({name: 'home'})
+      }
     }
   }
-
-
 }
 </script>
