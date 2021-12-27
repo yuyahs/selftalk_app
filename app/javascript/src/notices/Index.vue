@@ -6,6 +6,11 @@
       <li v-for="notice in notices" :key="notice" class="notice-list">
         {{notice.created_at.substr(0,10)}}
         <router-link :to="{ name: 'notice', params: {id: notice.id}}" class="notice-list-title">{{notice.title}}</router-link>
+        <button v-if="$store.state.admin" class="delete-notice"
+        @click="deleteNotice(notice.id)">
+          削除
+        </button>
+
       </li>
     </div>
   </div>
@@ -31,6 +36,21 @@
       .then( response => {
         this.notices = response.data.notices
       })
+    },
+    deleteNotice: function(id) {
+      if(window.confirm('削除してよろしいですか？')) {
+        axios.delete('/api/notices/' + id)
+        .then(response => {
+          location.reload()
+          .catch(err => {
+            this.$flashMessage.show({
+              type: 'error',
+              text: '削除に失敗しました',
+              time: 3000
+            });
+          })
+        })
+      }
     }
   }
 

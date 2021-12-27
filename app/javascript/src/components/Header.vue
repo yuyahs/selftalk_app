@@ -33,8 +33,11 @@
                登録情報変更
               </router-link>
             </li>
-            <li>
-              <router-link :to="{ name: 'notices'}">お知らせ</router-link>
+            <li @click ="confirmNewNotice">
+              <router-link :to="{ name: 'notices'}">
+                お知らせ
+                <span class="notice-sign">{{unreadNotice}}</span>
+              </router-link>
             </li>
             <li @click="deleteUser($store.state.userId)">
               退会
@@ -70,8 +73,14 @@
   import axios from 'axios';
   export default {
    name: 'Header',
+   data() {
+     return {
+       unreadNotice: ""
+     }
+   },
     mounted() {
       this.notFoundPage();
+      this.notifyNewNotice();
     },
     methods: {
       //logoutメソッド
@@ -135,6 +144,14 @@
             this.$router.push({name: 'Error'})
           }
         })
+      },
+      notifyNewNotice: function () {
+        if(this.$store.state.unreadNotice) {
+          this.unreadNotice = '●'
+        }
+      },
+      confirmNewNotice: function () {
+        this.$store.commit('readNotice')
       }
     }
   }

@@ -9,7 +9,8 @@ export const store = createStore ({
       admin: false,
       notGuest: true,
       guest: false,
-      userId: 0
+      userId: 0,
+      unreadNotice: false
     }
   },
   mutations: {
@@ -27,6 +28,10 @@ export const store = createStore ({
     setId: (state, id) => {
       state.userId = id
     },
+    //保存したuser.idを削除する
+    removeId: (state) => {
+      state.userId = 0
+    },
     //管理者権限を与える
     admin: (state) => {
       state.admin = true
@@ -38,6 +43,12 @@ export const store = createStore ({
     //ゲストユーザーであることを示す
     inGuest: (state) => {
       state.guest = true
+    },
+    notifyNotice: (state) => {
+      state.unreadNotice = true
+    },
+    readNotice: (state) => {
+      state.unreadNotice = false
     }
   },
   plugins : [

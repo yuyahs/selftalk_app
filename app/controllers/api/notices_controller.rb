@@ -19,6 +19,8 @@ class Api::NoticesController < ApplicationController
   end
 
   def destroy
+    Notice.find(params[:id]).destroy
+    response_success(:notice, :destroy)
   end
 
   private
