@@ -1,5 +1,7 @@
 class Api::NoticesController < ApplicationController
   before_action :admined_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:index, :show, :create, :destroy]
+  before_action :not_guest_user, only: [:index, :show, :create, :destroy]
 
   def index
     @notices = Notice.all
