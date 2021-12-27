@@ -84,17 +84,19 @@
       },
       //questionを削除するメソッド
       deleteQuestion: function(id) {
-        axios.delete('/api/questions/' + id)
-        .then(response => {
-         location.reload()
-        .catch(err => {
-            this.$flashMessage.show({
-              type: 'error',
-              text: '削除に失敗しました',
-              time: 3000
-            });
-         })
-       })
+        if(window.confirm('削除してよろしいですか？？')) {
+          axios.delete('/api/questions/' + id)
+          .then(response => {
+          location.reload()
+          .catch(err => {
+              this.$flashMessage.show({
+                type: 'error',
+                text: '削除に失敗しました',
+                time: 3000
+              });
+          })
+          })
+        }
       }
     }
    }

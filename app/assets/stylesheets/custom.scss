@@ -153,6 +153,12 @@
   }
 }
 
+.notice-sign {
+  --tw-text-opacity: 1;
+  color: rgba(217, 119, 6, var(--tw-text-opacity));
+  font-size: small;
+}
+
 //footer
 
 .footer-overall {
@@ -566,7 +572,8 @@
   text-decoration: underline;
   float: right;
   &:hover {
-    color: rgba(147, 197, 253, var(--tw-text-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(59, 130, 246, var(--tw-text-opacity));
   }
 }
 
@@ -1230,6 +1237,16 @@
 .link-to-notices {
   margin-top: 72px;
   text-decoration: underline;
+  &:hover {
+    --tw-text-opacity: 1;
+    color: rgba(59, 130, 246, var(--tw-text-opacity));
+  }
+}
+
+.delete-notice {
+  margin-right: 16px;
+  text-decoration: underline;
+  float: right;
   &:hover {
     --tw-text-opacity: 1;
     color: rgba(59, 130, 246, var(--tw-text-opacity));

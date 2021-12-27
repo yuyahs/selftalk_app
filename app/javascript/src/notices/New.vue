@@ -45,6 +45,7 @@
           });
           this.notice.title=""
           this.notice.content=""
+          this.$store.commit('notifyNotice')
         })
         .catch(err => {
           this.$flashMessage.show({
