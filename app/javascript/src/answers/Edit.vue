@@ -18,9 +18,10 @@
     </button>
 
    <!--回答一覧に戻るボタン-->
-    <button @click="linkToAnswers" class="to-answer-index-btn">
+    <router-link :to="{name: 'answers', params: {id: $store.state.userId},
+    query: {created_at: date}}" class="to-answer-index-btn">
     　回答一覧に戻る
-  　</button>
+  　</router-link>
   </div>
 
 </template>
@@ -28,7 +29,6 @@
 <script>
   import axios from 'axios';
   import MyMenu from '../components/MyMenu.vue'
-
   export default {
     name: 'AnswerEdit',
     components: {
@@ -53,8 +53,7 @@
     methods: {
       //answerのデータを受け取るメソッド
       getAnswer: function () {
-        const id = localStorage.getItem('userId')
-        axios.get(`/users/${id}/api/answers/
+        axios.get(`/users/${this.$store.state.userId}/api/answers/
         ${this.$route.params.id}/edit`)
         .then(response => {
           this.question = response.data.question
@@ -78,12 +77,8 @@
           })
         }
       },
-      linkToAnswers: function() {
-        const id = localStorage.getItem('userId')
-        this.$router.push({ path: `/users/${id}/answers`, query: {created_at: this.date}})
-      },
       correctUser: function(){
-        const currentUserId = localStorage.getItem('userId')
+        const currentUserId = this.$store.state.userId
         if(!(currentUserId == this.$route.params.user_id)){
           this.$router.push({name: 'home'})
         }
