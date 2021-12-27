@@ -27,7 +27,7 @@ RSpec.describe "Api::Items", type: :request do
         end
       end
       context "item追加欄に空欄がある場合" do
-        it "answerが保存されずレスポンス400を返す" do
+        it "noticeが保存されずレスポンス400を返す" do
           expect{
           post api_items_path, params:
           {id: user.id, item: {content: "", meaning:"test", memo:"test"}}
