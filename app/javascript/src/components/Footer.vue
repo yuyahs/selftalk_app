@@ -5,7 +5,7 @@
           <li class="footer-link"><router-link to="/">home</router-link></li>
           <li class="footer-link"><router-link to="/about">about</router-link></li>
           <li class="footer-link"><router-link to="/contacts">conatct</router-link></li>
-          <li class="footer-link"><router-link to="/policy">利用規約</router-link></li>
+          <li class="footer-link"><router-link to="/policy">policy</router-link></li>
       </ul>
     </div>
   </footer>
