@@ -26,6 +26,23 @@
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
+.user-page {
+  @media screen and (max-width: 480px) {
+    margin-right: 65px;
+  }
+  padding: 4px;
+  margin-right: 80px;
+  background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+  border-radius: 9999px;
+  &:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgba(252, 211, 77, var(--tw-bg-opacity));
+  }
+}
+
 .login-menu{
   float: right;
   display: flex;
@@ -36,6 +53,9 @@
 }
 
 .not-login-menu {
+  @media screen and (max-width: 480px) {
+    margin-right: 8px;
+  }
   margin-right: 16px;
   &:hover {
     --tw-bg-opacity: 1;
@@ -125,6 +145,10 @@
 
 //nav menu
 #nav {
+  @media screen and (max-width: 480px){
+    width: 60%;
+    right: -80%;
+  }
   position: absolute;
   top: 0px;
   right: -66.666667%;
@@ -906,20 +930,6 @@
 .week-contributions-prop {
  display: flex;
  flex-direction: row;
-}
-
-.user-page {
-  padding: 4px;
-  margin-right: 80px;
-  background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgba(255, 255, 255, var(--tw-border-opacity));
-  border-radius: 9999px;
-}
-
-.user-page:hover{
-  background-color: rgba(252, 211, 77, var(--tw-bg-opacity));
 }
 
 .contribution{
