@@ -44,6 +44,9 @@
 }
 
 .login-menu{
+  @media screen and (max-width:480px){
+    padding: 8px;
+  }
   float: right;
   display: flex;
   flex-direction: row;
@@ -76,6 +79,10 @@
 //hamburger
 
 .hamburger {
+  @media screen and (max-width: 480px) {
+    right: 14px;
+    top: 14px;
+  }
   position: absolute;
   top: 20px;
   right: 28px;
