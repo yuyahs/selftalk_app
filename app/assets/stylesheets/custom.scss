@@ -1,7 +1,12 @@
 //overall
 
 .contents {
-  padding: 96px;
+  @media screen and (min-width: 960px) {
+    padding-right: 96px;
+    padding-left: 96px;
+  }
+  padding-top: 96px;
+  padding-bottom: 96px;
   flex-grow: 1;
 }
 
@@ -217,9 +222,9 @@
   margin: 24px;
 }
 
-//home overall
 
-.text-position {
+//home overall
+.home-wrapper {
   text-align: center;
 }
 
@@ -457,6 +462,15 @@
 }
 
 .about-sentence {
+  @media screen and (max-width: 480px) {
+    font-size: 0.75rem;
+    text-align: justify;
+  }
+  text-align: center;
+  line-height: 2.5rem;
+}
+
+.about-sentence-2 {
   text-align: justify;
   line-height: 2.5rem;
 }
@@ -530,6 +544,10 @@
 //policy
 
 .policy-wrapper {
+  @media screen and (max-width: 480px) {
+    padding-right: 64px;
+    padding-left: 64px;
+  }
   color: #ffffff;
   font-weight: bold;
 }
@@ -545,6 +563,9 @@
 }
 
 .policy-content {
+  @media screen and (max-width: 480px){
+    font-size: 0.75rem;
+  }
   margin-top: 16px;
   margin-bottom: 16px;
   font-size: 1.125rem;
@@ -966,6 +987,9 @@
 }
 
 .answer-list-prop {
+  @media  screen and (max-width: 480px) {
+    width: 100%;
+  }
   padding: 16px;
   width: 50%;
   text-decoration: underline;
@@ -1051,16 +1075,21 @@
 }
 
 .items {
- margin-top: 24px;
- margin-left: 48px;
+  @media screen and ( max-width: 480px) {
+    font-size: 0.75rem;
+  }
  display: flex;
  flex-direction: row;
+ margin-top: 24px;
+ margin-left: 48px;
+ width: 100%;
  list-style: none;
  font-size: 1.125rem;
 }
 
-.items-colum {
+.items-column {
   padding: 16px;
+  width: 320px;
   height: 80px;
   background-color: #ffffff;
   border-style: solid;

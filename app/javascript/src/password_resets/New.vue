@@ -1,7 +1,7 @@
 <template>
   <div class="form-overall">
     <h1 class="form-title">
-      パスワード再設定リンクを送信する
+      パスワード再設定
     </h1>
 
     <!-- パスワードリセットリンク送信フォーム -->
