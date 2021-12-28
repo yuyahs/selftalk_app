@@ -1,7 +1,7 @@
 <template>
   <div class="form-overall">
     <h1 class="form-title">
-      新しいパスワードを設定する
+      新しいパスワード設定
     </h1>
 
     <!-- パスワード再設定フォーム -->

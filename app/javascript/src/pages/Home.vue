@@ -1,5 +1,5 @@
 <template>
-  <div class="text-position">
+  <div class="home-wrapper">
     <!-- ログイン・ゲストユーザーに表示されるページ -->
     <div v-if="$store.state.loggedIn">
       <h1 class="home-title">学習コース一覧</h1>

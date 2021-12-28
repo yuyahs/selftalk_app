@@ -1,12 +1,12 @@
 <template>
   <div class="about-wrapper">
     <h1 class="about-section">SelfTalkEnglishとは</h1>
-    <p>SelfTalkEnglishは英会話勉強法の一つである「独り言英語学習」を<br>
-       効果的に行うための学習サービスです。
+    <p class="about-sentence">SelfTalkEnglishは英会話勉強法の一つである「独り言英語学習」を
+      効果的に行うための学習サービスです。
     </p>
 
     <h2 class="about-section">「独り言英語学習」とは</h2>
-    <p>「独り言英語学習」はスピーキングトレーニングの一種で<br>
+    <p class="about-sentence">「独り言英語学習」はスピーキングトレーニングの一種で
       その名の通り英語を一人で自由に話してみるというものです。
     </p>
 
@@ -25,7 +25,7 @@
     </ul>
 
     <h5 class="about-section">"SelfTalkEnglish"のソリューション</h5>
-    <p class="about-sentence">当アプリは上記デメリットを解消するために学習記録の表示や添削機能、テーマの提供などの用意しております。さらに実際の独り言英語学習と同様にご自身の回答文を発音してみることで英語を話すこと自体に慣れていくことも推奨致します。
+    <p class="about-sentence-2">当アプリは上記デメリットを解消するために学習記録の表示や添削機能、テーマの提供などの用意しております。さらに実際の独り言英語学習と同様にご自身の回答文を発音してみることで英語を話すこと自体に慣れていくことも推奨致します。
     </p>
 
   </div>

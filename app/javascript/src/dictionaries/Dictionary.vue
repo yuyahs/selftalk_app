@@ -13,9 +13,9 @@
 
     <!-- 保存した単語・フレーズ一覧表示 -->
     <div v-for="item in items" :key="item" class="items">
-      <textarea v-model="item.content" disabled class="items-colum"></textarea>
+      <textarea v-model="item.content" disabled class="items-column"></textarea>
 
-      <textarea v-model="item.meaning" disabled class="items-colum"></textarea>
+      <textarea v-model="item.meaning" disabled class="items-column"></textarea>
 
       <textarea v-model="item.memo" disabled class="items-memo"></textarea>
 

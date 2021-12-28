@@ -25,7 +25,7 @@
 
     <div class="btn-div">
       <button @click="editInfo" class="form-btn" >
-        変更情報を保存する
+        変更情報を保存
       </button>
     </div>
   </div>
