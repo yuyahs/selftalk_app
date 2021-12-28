@@ -199,6 +199,9 @@
 }
 
 .footer-div {
+  @media screen and (max-width: 480px) {
+    padding: 48px;
+  }
   padding: 64px;
 }
 
@@ -211,7 +214,7 @@
 }
 
 .footer-link {
-  margin-right: 24px;
+  margin: 24px;
 }
 
 //home overall
