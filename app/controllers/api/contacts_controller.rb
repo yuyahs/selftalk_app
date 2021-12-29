@@ -1,6 +1,5 @@
 class Api::ContactsController < ApplicationController
 
-  #問い合わせ機能
   def create
     @inquiry = Inquiry.new(inquiry_params)
     if @inquiry.save
@@ -10,7 +9,6 @@ class Api::ContactsController < ApplicationController
       response_bad_request
     end
   end
-
 
   private
 
