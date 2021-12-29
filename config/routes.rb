@@ -60,11 +60,11 @@ Rails.application.routes.draw do
   end
 
   namespace :api, format: 'json' do
-    resources :password_resets, only: [:new, :create, :edit, :update]
+    resources :password_resets, only: [:create, :update]
   end
 
   namespace :api, format: 'json' do
-    resources :questions
+    resources :questions, only: [:index, :create, :destroy]
   end
 
   namespace :api, format: 'json' do
