@@ -50,11 +50,11 @@
       }
     },
     mounted() {
-      this.setQuestion();
-      this.setTimer();
+      this.getRandomQuestion();
+      this.startTimer();
     },
     methods: {
-      setQuestion: function () {
+      getRandomQuestion: function () {
         axios.get(`/api/answers/new?mode_num=${this.$route.query.mode_num}`)
         .then(response => {
           this.question = response.data
@@ -69,18 +69,18 @@
         })
         .then(response => {
           this.answer.content = ""
-          this.setQuestion();
+          this.getRandomQuestion();
           this.$clearInterval(this.$intervals);
-          this.setTimer();
+          this.startTimer();
         })
          .catch(err => {
             this.answer.content = ""
-            this.setQuestion();
+            this.getRandomQuestion();
             this.$clearInterval(this.$intervals);
-            this.setTimer();
+            this.startTimer();
          })
       },
-      setTimer: function() {
+      startTimer: function() {
         let i = 45;
         this.$setInterval(() => {
           i -- ;
