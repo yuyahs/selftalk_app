@@ -5,7 +5,6 @@
     </h1>
     <MyMenu />
 
-    <!-- 回答一覧を表示 -->
     <div v-for="answer in answers" class="answers" :key="answer">
       <textarea v-model="answer.content" disabled class="answer-text-content">
       </textarea>
@@ -34,13 +33,12 @@
       }
     },
     mounted() {
-      this.getAnswers();
-      this.checkCorrectUser();
-      this.checkNotGuestUser();
+      this.getAnswersOnTheDate();
+      this.mksureCorrectUser();
+      this.mksureNotGuestUser();
     },
     methods: {
-      //特定日付のanswer一覧のデータを受け取るメソッド
-      getAnswers: function() {
+      getAnswersOnTheDate: function() {
         axios.get(`/users/${this.$route.params.id}/api/answers`, {
           params: {
             created_at: this.$route.query.created_at
@@ -50,13 +48,13 @@
           this.answers = response.data.answers
         })
       },
-      checkCorrectUser: function() {
+      mksureCorrectUser: function() {
         const currentUserId = this.$store.state.userId
         if(!(currentUserId == this.$route.params.id)){
           this.$router.push({name: 'home'})
         }
       },
-      checkNotGuestUser: function() {
+      mksureNotGuestUser: function() {
         if(this.$store.state.guest){
           this.$router.push({name: 'home'})
         }
