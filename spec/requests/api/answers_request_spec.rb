@@ -8,7 +8,7 @@ RSpec.describe "Answers", type: :request do
   context "ログイン済みユーザーの場合" do
       before do
         log_in_as user
-        questions = create_list(:question, 10)
+        create_list(:question, 10)
       end
 
       describe "GET/ index" do
