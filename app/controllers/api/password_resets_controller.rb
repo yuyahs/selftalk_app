@@ -48,10 +48,10 @@ class Api::PasswordResetsController < ApplicationController
       end
     end
 
-     # トークンが期限切れかどうか確認する
-     def check_expiration
-        if @user.password_reset_expired?
-          response_bad_request
-        end
+    # トークンが期限切れかどうか確認する
+    def check_expiration
+      if @user.password_reset_expired?
+        response_bad_request
       end
+    end
 end
