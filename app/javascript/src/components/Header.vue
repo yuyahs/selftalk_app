@@ -12,7 +12,7 @@
         </button>
 
         <!-- ハンバーガーメニューのアイコン -->
-        <div @click="showMenu" class="hamburger">
+        <div @click="openHiddenMenu" class="hamburger">
         　<!-- 1番上の線 -->
           <span class="inner_line1" id="line1"></span>
         　<!-- 真ん中の線 -->
@@ -33,7 +33,7 @@
                登録情報変更
               </router-link>
             </li>
-            <li @click ="confirmNewNotice">
+            <li @click ="mkNoticeRead">
               <router-link :to="{ name: 'notices'}">
                 お知らせ
                 <span class="notice-sign">{{unreadNotice}}</span>
@@ -79,7 +79,7 @@
      }
    },
     mounted() {
-      this.notFoundPage();
+      this.navigateTo404Page();
       this.notifyNewNotice();
     },
     methods: {
@@ -130,14 +130,14 @@
        }
       },
       //ハンバーガーメニューメソッド
-      showMenu: function() {
+      openHiddenMenu: function() {
         document.getElementById('line1').classList.toggle('line_1');
         document.getElementById('line2').classList.toggle('line_2');
         document.getElementById('line3').classList.toggle('line_3');
         document.getElementById('nav').classList.toggle('in');
       },
       //ルーティングエラー時に専用のコンポーネントへ遷移する
-      notFoundPage: function() {
+      navigateTo404Page: function() {
         axios.get(location.pathname)
         .catch(error => {
           if(error.response.status === 404) {
@@ -150,7 +150,7 @@
           this.unreadNotice = '●'
         }
       },
-      confirmNewNotice: function () {
+      mkNoticeRead: function () {
         this.$store.commit('readNotice')
       }
     }

@@ -1,7 +1,7 @@
 <template>
   <main>
     <Header />
-    <div class="flex-grow pt-24 pb-24">
+    <div class="contents">
       <FlashMessage position="left top"/>
       <router-view />
     </div>
