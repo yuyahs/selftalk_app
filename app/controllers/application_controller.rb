@@ -75,7 +75,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound,
   ActionController::RoutingError, with: :error404
 
-  def error404(e)
+  def error404
     render "error404", status: 404
   end
 
