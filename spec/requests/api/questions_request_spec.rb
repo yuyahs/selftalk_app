@@ -21,7 +21,7 @@ RSpec.describe "Api::Questions", type: :request do
           expect{
             post api_questions_path ,params: { question:
             {content: "test", mode_num: 1}}
-            }.to change(Question, :count).by (1)
+            }.to change(Question, :count).by(1)
             expect(response).to have_http_status "200"
         end
       end
@@ -30,7 +30,7 @@ RSpec.describe "Api::Questions", type: :request do
         it "エラーレスポンス400を返す" do
           expect{
             post api_questions_path ,params: { question: {content: "", mode_num: ""}}
-            }.to change(Question, :count).by (0)
+            }.to change(Question, :count).by(0)
             expect(response).to have_http_status "400"
         end
       end
@@ -65,7 +65,7 @@ RSpec.describe "Api::Questions", type: :request do
         expect{
           post api_questions_path ,params: { question:
           {content: "test", mode_num: 1}}
-          }.to change(Question, :count).by (0)
+          }.to change(Question, :count).by(0)
           expect(response).to redirect_to root_path
       end
     end
@@ -93,7 +93,7 @@ RSpec.describe "Api::Questions", type: :request do
         expect{
           post api_questions_path ,params: { question:
           {content: "test", mode_num: 1}}
-          }.to change(Question, :count).by (0)
+          }.to change(Question, :count).by(0)
           expect(response).to redirect_to login_path
       end
     end
