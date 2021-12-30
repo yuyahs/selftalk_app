@@ -53,6 +53,30 @@ RSpec.describe "Api::PasswordResets", type: :request do
       end
     end
 
+    context "ユーザーが無効な場合" do
+      it "エラー400を返す" do
+        user.toggle!(:activated)
+        patch api_password_reset_path(user.reset_token),
+        params: {email: user.email,
+                 user: {
+                 password: "password",
+                 password_confirmation: "password" }}
+        expect(response).to have_http_status "400"
+      end
+    end
+
+    context "メールアドレスが有効でトークンが無効な場合" do
+      it "エラー400を返す" do
+          patch api_password_reset_path('wrong token'),
+          params: {email: user.email,
+                   user: {
+                   password: "password",
+                   password_confirmation: "password" }}
+          expect(response).to have_http_status "400"
+      end
+    end
+
+
     context "有効なパスワードとパスワード確認" do
       it "レスポンス204を返す" do
         patch api_password_reset_path(user.reset_token),
@@ -80,7 +104,7 @@ RSpec.describe "Api::PasswordResets", type: :request do
       end
 
       context "パスワード再設定後、ダイジェストがnilになる場合" do
-        it "レスポンス204を返す" do
+        it "レスポンス200を返す" do
           patch api_password_reset_path(user.reset_token),
           params: {email: user.email,
                    user: {
