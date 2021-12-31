@@ -1,8 +1,8 @@
 <template>
   <div class="about-wrapper">
     <h1 class="about-section">SelfTalkEnglishとは</h1>
-    <p class="about-sentence">SelfTalkEnglishは英会話勉強法の一つである「独り言英語学習」を
-      効果的に行うための学習サービスです。
+    <p class="about-sentence">英会話勉強法の一つである「独り言英語学習」を
+      効果的に行うための学習サービスです。「TOEICなどのテストでは高得点を取れるが話すことはできない」といった悩みを抱えた方にとって有効な勉強法です。
     </p>
 
     <h2 class="about-section">「独り言英語学習」とは</h2>
