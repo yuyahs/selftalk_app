@@ -1,24 +1,37 @@
-# README
+# Overview
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* どういうサイトか：アウトプット特化の英語学習用サイト
+* 何ができるか: ランダムに問題文が表示され、英作文で回答する
+　　　　　　　　 作成した回答の添削
+　　　　　　　　 オリジナルの単語帳作成
+* アピールポイント: 「独り言英語学習」という勉強法におけるデメリットを補える
 
-Things you may want to cover:
+# 使用技術
 
-* Ruby version
+* Ruby 3.0.2
+* Ruby on Rails 6.0,4
+* MySQL 5.7
+* Vue.js 3
+* Nginx
+* Unicorn
+* AWS
+    VPC
+    EC2
+    RDS
+    Route53
+* Capistrano3
+* RSpec
 
-* System dependencies
+# 機能一覧
+* ユーザー登録（メール認証）、ログイン機能
+* ゲストログイン機能
+* お知らせ通知機能
+* 問題出題機能、回答機能
+* 回答添削機能
+* 単語帳作成機能
 
-* Configuration
+# テスト
 
-* Database creation
+* RSpec 単体テスト（model)
+        機能テスト（request)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
