@@ -12,19 +12,19 @@
     </div>
 
     <!-- 保存した単語・フレーズ一覧表示 -->
-    <div v-for="item in items" :key="item" class="items">
-      <textarea v-model="item.content" disabled class="items-column"></textarea>
+    <section v-for="item in items" :key="item" class="items">
+      <div class="items-column">{{item.content}}</div>
 
-      <textarea v-model="item.meaning" disabled class="items-column"></textarea>
+      <div class="items-column">{{item.meaning}}</div>
 
-      <textarea v-model="item.memo" disabled class="items-memo"></textarea>
+      <div class="items-memo">{{item.memo}}</div>
 
       <button @click="deleteItem(item.id)" class="items-delete">
         削除
       </button>
 
       <input type="checkbox" class="checkbox">
-    </div>
+    </section>
   </div>
 
 </template>
