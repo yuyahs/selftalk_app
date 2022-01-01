@@ -52,7 +52,7 @@
       <div class="inline-block">
         <button class= "signin-link">
         <router-link to="/users/new">ユーザー登録</router-link></button>
-        <button @click="guestLogin" class="guest-link" >
+        <button @click="loginAsGuest" class="guest-link" >
         ゲストログイン</button>
       </div>
 
@@ -86,7 +86,7 @@
     name: 'Home',
     methods: {
       // ゲストログインメソッド
-      guestLogin: function () {
+      loginAsGuest: function () {
         axios.post('/api/guest_sign_in')
         .then(response => {
            this.$store.commit('login')
