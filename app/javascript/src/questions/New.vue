@@ -17,7 +17,7 @@
 
       <!-- question作成 -->
       <input type="text" v-model="question.content" class="new-question-text">
-      <button @click="questionNew" class="model-save-btn">
+      <button @click="createQuestion" class="model-save-btn">
         作成する
       </button>
     </div>
@@ -39,7 +39,7 @@
     },
     methods: {
       // questionを作成するメソッド
-      questionNew: function () {
+      createQuestion: function () {
         axios.post('/api/questions', {
           question: this.question
         })

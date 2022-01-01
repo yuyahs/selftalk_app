@@ -24,7 +24,7 @@
     </div>
 
     <div class="btn-div">
-      <button @click="editInfo" class="form-btn" >
+      <button @click="saveEditedInfo" class="form-btn" >
         変更情報を保存
       </button>
     </div>
@@ -42,20 +42,20 @@
       }
     },
     mounted() {
-      this.setUser();
-      this.checkCorrectUser();
-      this.checkNotGuestUser();
+      this.getUserInfo();
+      this.mksureCorrectUser();
+      this.mksureNotGuestUser();
     },
     methods: {
       //ログイン中のユーザー情報を取得するメソッド
-      setUser: function() {
+      getUserInfo: function() {
         axios.get(`/api/users/${this.$route.params.id}/edit`)
         .then(response => (
         this.user = response.data
         ))
       },
       //ユーザー情報の変更を保存するメソッド
-      editInfo: function () {
+      saveEditedInfo: function () {
         axios.patch(`/api/users/${this.$route.params.id}`, {
         user: this.user
         })
@@ -76,13 +76,13 @@
           });
         })
       },
-      checkCorrectUser: function(){
+      mksureCorrectUser: function(){
         const currentUserId = this.$store.state.userId
         if(!(currentUserId == this.$route.params.id)){
           this.$router.push({name: 'home'})
         }
       },
-      checkNotGuestUser: function() {
+      mksureNotGuestUser: function() {
         if(this.$store.state.guest){
           this.$router.push({name: 'home'})
         }
