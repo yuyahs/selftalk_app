@@ -4,7 +4,7 @@
     <MyMenu />
 
     <h1 class="question-display">
-      {{question.content}}
+      Q. {{question.content}}
     </h1>
 
     <textarea v-model="answer.content" class="answer-input-form" >
