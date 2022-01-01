@@ -28,11 +28,11 @@
     }
   },
   mounted() {
-    this.getNotices();
-    this.checkNotGuestUser();
+    this.getAllNotices();
+    this.mksureNotGuestUser();
   },
   methods: {
-    getNotices: function() {
+    getAllNotices: function() {
       axios.get('/api/notices')
       .then( response => {
         this.notices = response.data.notices
@@ -53,7 +53,7 @@
         })
       }
     },
-    checkNotGuestUser: function() {
+    mksureNotGuestUser: function() {
       if(this.$store.state.guest){
         this.$router.push({name: 'home'})
       }
