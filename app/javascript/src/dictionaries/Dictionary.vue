@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="content-title">
-      単語帳
+      My単語帳
     </h1>
 
     <MyMenu />
@@ -46,13 +46,13 @@
       }
     },
     mounted() {
-      this.getItems();
-      this.checkCorrectUser();
-      this.checkNotGuestUser();
+      this.getAllItems();
+      this.mksureCorrectUser();
+      this.mksureNotGuestUser();
     },
     //保存したフレーズ集を取得するメソッド
     methods: {
-      getItems: function() {
+      getAllItems: function() {
         axios.get(`/users/${this.$route.params.id}/api/items`)
         .then(response => {
           this.items = response.data.items
@@ -74,13 +74,13 @@
           })
         }
       },
-      checkCorrectUser: function () {
+      mksureCorrectUser: function () {
         const currentUserId = this.$store.state.userId
         if(!(currentUserId == this.$route.params.id)){
           this.$router.push({name: 'home'})
         }
       },
-      checkNotGuestUser: function() {
+      mksureNotGuestUser: function() {
         if(this.$store.state.guest){
           this.$router.push({name: 'home'})
         }
