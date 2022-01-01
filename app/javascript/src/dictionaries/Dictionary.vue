@@ -23,7 +23,7 @@
         </li>
       </div>
       <div>
-        <li v-for="item in items" :key="item" class="items-column">
+        <li v-for="item in items" :key="item" class="items-memo">
           {{item.memo}}
           <button @click="deleteItem(item.id)" class="items-delete">
             削除

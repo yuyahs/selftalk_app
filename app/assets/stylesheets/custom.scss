@@ -1058,17 +1058,23 @@
 }
 
 .add-item-section {
+  @media screen and (max-width: 480px){
+    flex-direction: column;
+  }
   display: flex;
   flex-direction: row;
 }
 
-.txt-white {
+.add-item-label {
   color: #ffffff;
 }
 
 .add-item-column {
-  padding-top: 12px;
-  padding-left: 12px;
+  @media screen and (max-width: 480px){
+    height: 60px;
+  }
+  padding-top: 4px;
+  padding-left: 4px;
   height: 80px;
   border-style: solid;
   border-width: 1px;
@@ -1092,7 +1098,20 @@
 
 .items-column {
   @media screen and (max-width: 480px) {
-    width: 240px;
+    height: 72px;
+    font-size: 0.75rem;
+  }
+ padding: 8px;
+ height: 96px;
+ background-color: #ffffff;
+ border-style: solid;
+ border-width: 1px;
+ list-style: none;
+}
+
+.items-memo {
+  @media screen and (max-width: 480px) {
+    width: 180px;
     height: 72px;
     font-size: 0.75rem;
   }
