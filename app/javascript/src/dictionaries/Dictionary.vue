@@ -11,19 +11,25 @@
       <AddItems />
     </div>
 
-    <!-- 保存した単語・フレーズ一覧表示 -->
-    <section v-for="item in items" :key="item" class="items">
-      <div class="items-column">{{item.content}}</div>
-
-      <div class="items-column">{{item.meaning}}</div>
-
-      <div class="items-memo">{{item.memo}}</div>
-
-      <button @click="deleteItem(item.id)" class="items-delete">
-        削除
-      </button>
-
-      <input type="checkbox" class="checkbox">
+    <section class="items">
+      <div>
+        <li v-for="item in items" :key="item" class="items-column">
+          {{item.content}}
+         </li>
+      </div>
+      <div>
+        <li v-for="item in items" :key="item" class="items-column">
+          {{item.meaning}}
+        </li>
+      </div>
+      <div>
+        <li v-for="item in items" :key="item" class="items-column">
+          {{item.memo}}
+          <button @click="deleteItem(item.id)" class="items-delete">
+            削除
+          </button>
+        </li>
+      </div>
     </section>
   </div>
 
