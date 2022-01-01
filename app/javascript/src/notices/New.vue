@@ -10,7 +10,7 @@
       <label for ="notice_content">内容</label>
       <textarea v-model="notice.content" class="new-notice-content"></textarea>
 
-      <button @click="noticeNew" class="model-save-btn">
+      <button @click="createNotice" class="model-save-btn">
         通知する
       </button>
     </div>
@@ -32,7 +32,7 @@
     },
     methods: {
       // noticeを作成するメソッド
-      noticeNew: function () {
+      createNotice: function () {
         axios.post('/api/notices', {
           notice: this.notice
         })
