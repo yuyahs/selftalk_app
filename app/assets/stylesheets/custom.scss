@@ -1106,6 +1106,9 @@
   border-width: 1px;
   border-color: #000000;
   resize: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
 .items-memo {
@@ -1118,6 +1121,9 @@
   border-color: #000000;
   overflow-wrap: break-word;
   resize: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
 .items-delete {
@@ -1169,6 +1175,9 @@
   border-style: solid;
   border-color: black;
   border-radius: 0.5rem;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
 .question-content {
