@@ -37,7 +37,7 @@
 
   export default {
 
-    name: 'New',
+    name: 'Signup',
     data() {
       return {
         user: {
