@@ -5,7 +5,7 @@ import About from './pages/About.vue'
 import Contact from './pages/Contact.vue'
 import Policy from './pages/Policy.vue'
 import MyPage from './users/MyPage.vue'
-import New from './users/New.vue'
+import Signup from './users/Signup.vue'
 import Login from './sessions/Login.vue'
 import Reset from './password_resets/New.vue'
 import Change from './password_resets/Edit.vue'
@@ -59,7 +59,7 @@ export const router = createRouter({
     {
       path: '/users/new',
       name: 'new',
-      component: New,
+      component: Signup,
       meta: { title: '新規登録' },
       beforeEnter: (to, from, next) => {
         if (store.state.loggedIn) next({name: 'home'})
