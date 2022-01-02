@@ -13,7 +13,6 @@
       </button>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -53,7 +52,5 @@
         })
       }
     }
-
   }
-
 </script>

@@ -6,7 +6,6 @@
 
     <MyMenu />
 
-    <!-- 新規追加欄 -->
     <div>
       <AddItems />
     </div>

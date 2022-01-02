@@ -6,6 +6,7 @@ module SessionsHelper
   end
 
   # ユーザーのセッションを永続的にする
+  #現行バージョンではリメンバー機能は使用していないがいつでも追加できるよう定義
   def remember(user)
     user.remember
     cookies.permanent.signed[:user_id] = user.id

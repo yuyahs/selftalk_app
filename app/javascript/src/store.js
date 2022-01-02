@@ -25,6 +25,7 @@ export const store = createStore ({
       state.notGuest = true;
       state.guest = false;
     },
+    //login中のユーザーのidを取り出せるようにする
     setId: (state, id) => {
       state.userId = id
     },
@@ -44,9 +45,11 @@ export const store = createStore ({
     inGuest: (state) => {
       state.guest = true
     },
+    //新着のお知らせを通知する
     notifyNotice: (state) => {
       state.unreadNotice = true
     },
+    //お知らせ一覧ページを既読にする
     readNotice: (state) => {
       state.unreadNotice = false
     }

@@ -19,7 +19,6 @@
     　回答一覧に戻る
   　</router-link>
   </div>
-
 </template>
 
 <script>

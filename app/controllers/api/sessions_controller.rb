@@ -10,6 +10,7 @@ class Api::SessionsController < ApplicationController
         remember(@user)
         render json: { id: @user.id }
       else
+        #flash messageでアカウントが有効化されていないことを表示するための分岐
         response_unauthorized
       end
     else

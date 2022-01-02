@@ -3,6 +3,7 @@ class Api::GuestLoginsController < ApplicationController
   def guest_sign_in
     @guest_user = User.find_or_create_by!(email: 'guest@example.com') do |guest_user|
       guest_user.name = "ゲストユーザー"
+      #外部からパスワード変更されないようにランダムな数値を保存
       guest_user.password = SecureRandom.urlsafe_base64
     end
 
