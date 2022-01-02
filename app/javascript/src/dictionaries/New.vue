@@ -1,4 +1,5 @@
 <template>
+  <!-- 単語・フレーズ作成欄  -->
   <div class="dictionary-wrapper">
     <button @click="addItem" class="add-item-btn">追加する+
     </button>

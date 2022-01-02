@@ -4,7 +4,7 @@
 
     <div class="all-notices">
       <li v-for="notice in notices" :key="notice" class="notice-list">
-        {{notice.created_at.substr(0,10)}}
+        {{notice.created_at.substr(0,10)}} <!--日付以外の余分な部分を表示しないため-->
         <router-link :to="{ name: 'notice', params: {id: notice.id}}" class="notice-list-title">{{notice.title}}</router-link>
         <button v-if="$store.state.admin" class="delete-notice"
         @click="deleteNotice(notice.id)">
@@ -14,7 +14,6 @@
       </li>
     </div>
   </div>
-
 </template>
 
 <script>

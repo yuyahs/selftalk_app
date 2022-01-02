@@ -17,7 +17,6 @@
       </li>
     </section>
   </div>
-
 </template>
 
 <script>

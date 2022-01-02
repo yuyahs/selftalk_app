@@ -12,12 +12,7 @@
         お知らせ一覧に戻る
       </router-link>
     </button>
-
-
-
-
   </div>
-
 </template>
 
 <script>

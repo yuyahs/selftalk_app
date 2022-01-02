@@ -18,9 +18,7 @@
         再設定
       </button>
     </div>
-
  </div>
-
 </template>
 
 <script>

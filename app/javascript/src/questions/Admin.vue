@@ -39,7 +39,6 @@
     <NoticeNew />
     <UserIndex />
   </div>
-
 </template>
 
 <script>

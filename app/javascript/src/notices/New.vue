@@ -4,7 +4,6 @@
       お知らせ作成
     </h1>
     <div class="notice-new-prop">
-      <!-- notice作成 -->
       <label for ="notice_title">タイトル</label>
       <input type="text" v-model="notice.title" class="new-notice-title">
       <label for ="notice_content">内容</label>
