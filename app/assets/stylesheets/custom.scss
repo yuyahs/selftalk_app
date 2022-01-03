@@ -355,74 +355,7 @@
 
 
 
-//notice
 
-.notice-wrapper {
-  color: #ffffff;
-  margin-bottom: 210px;
-}
-
-.notice-title {
-  margin-bottom: 24px;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.all-notices {
-  margin-bottom: 16px;
-  width: 100%;
-}
-.notice-list {
-  padding: 16px;
-  margin-bottom: 16px;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-  list-style: none;
-}
-
-.notice-list-title {
-  margin-left: 16px;
-  text-decoration: underline;
-  &:hover {
-    --tw-text-opacity: 1;
-    color: rgba(59, 130, 246, var(--tw-text-opacity));
-  }
-}
-
-.notice-content-wrapper {
-  background-color: #ffffff;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #000000
-}
-
-.notice-content {
-  padding: 16px;
-  height: 300px;
-  width: 100%;
-  color: #000000;
-  font-size: 1.5rem;
-}
-
-.link-to-notices {
-  margin-top: 72px;
-  text-decoration: underline;
-  &:hover {
-    --tw-text-opacity: 1;
-    color: rgba(59, 130, 246, var(--tw-text-opacity));
-  }
-}
-
-.delete-notice {
-  margin-right: 16px;
-  text-decoration: underline;
-  float: right;
-  &:hover {
-    --tw-text-opacity: 1;
-    color: rgba(59, 130, 246, var(--tw-text-opacity));
-  }
-}
 
 //error404
 
