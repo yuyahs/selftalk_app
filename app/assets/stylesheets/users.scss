@@ -1,3 +1,111 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+//mypage
+
+.user-name {
+  padding-bottom: 20px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: bold;
+}
+
+.learning-status {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  margin-top: 16px;
+  padding-bottom: 16px;
+  margin: 0 auto;
+  max-width: 28rem;
+  color: #ffffff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffffff;
+  border-radius: 0.25rem;
+}
+
+.learning-day-p {
+  padding-left: 16px;
+}
+
+.learning-day {
+  padding-top: 32px;
+  width: 96px;
+  height: 96px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffffff;
+  border-radius: 9999px;
+  text-align: center;
+  object-fit: cover;
+}
+
+.this-week-p {
+  padding-left: 24px;
+}
+
+.week-contributions-prop {
+ display: flex;
+ flex-direction: row;
+}
+
+.contribution{
+  margin-left: 48px;
+}
+
+.answer-list-title {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: bold;
+}
+
+.answer-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+  list-style: none;
+}
+
+.answer-list-prop {
+  @media  screen and (max-width: 480px) {
+    width: 100%;
+  }
+  padding: 16px;
+  width: 50%;
+  text-decoration: underline;
+}
+
+.answer-list-column {
+  padding: 8px;
+  color: #ffffff;
+  --tw-bg-opacity: 1;
+  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+  border-style: solid;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgba(59, 130, 246, var(--tw-border-opacity));
+  border-radius: 9999px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  &:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+  }
+}
+
+.contribution-progress {
+  margin-top: 4px;
+  width: 128px;
+  height: 16px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffffff;
+}
