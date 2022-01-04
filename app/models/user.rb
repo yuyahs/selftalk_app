@@ -73,6 +73,13 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  def find_or_create_from_auth_hash(auth_hash)
+    user_params = user_params_from_auth_hash(auth_hash)
+    find_or_create_by(email: user_params[:email]) do |user|
+      user.update(user_params)
+    end
+  end
+
   private
 
     # メールアドレスをすべて小文字にする
@@ -84,6 +91,14 @@ class User < ApplicationRecord
     def create_activation_digest
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
+    end
+
+    def user_params_from_auth_hash(auth_hash)
+      {
+        name: auth_hash.info.name,
+        email: auth_hash.info.email,
+        image: auth_hash.info.image,
+      }
     end
 end
 
