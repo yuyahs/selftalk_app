@@ -82,3 +82,7 @@ gem 'kaminari'
 group :production do
   gem 'unicorn', '6.0.0'
 end
+
+#googleログイン
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
