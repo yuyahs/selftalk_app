@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:edit]
 
 
+  post 'auth/:provider/callback', to: 'social_logins#create'
+
 
 
 

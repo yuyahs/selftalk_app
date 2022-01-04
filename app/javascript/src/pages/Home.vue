@@ -56,6 +56,8 @@
         ゲストログイン</button>
       </div>
 
+      <!-- <button @click="googleLogin">Google login</button> -->
+
       <div class="home-div">
         <router-link to="/about" class="home-link-about">"独り言英語学習"とは</router-link>
       </div>
@@ -106,6 +108,9 @@
             time: 3000
           })
         });
+      },
+      googleLogin: function () {
+        axios.post('/auth/google_oauth2')
       }
     }
   }
