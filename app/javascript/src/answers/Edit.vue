@@ -3,9 +3,12 @@
 
     <MyMenu />
 
-    <h1 class="question-display">
-      Q. {{question.content}}
+    <h1 class="from-course-name">
+      From {{course}}
     </h1>
+    <h2 class="question-display">
+      Q. {{question.content}}
+    </h2>
 
     <textarea v-model="answer.content" class="answer-input-form" >
     </textarea>
@@ -37,6 +40,7 @@
         answer: {
           content: ""
         },
+        course: "",
         date: ""
       }
     },
@@ -51,6 +55,13 @@
         ${this.$route.params.id}/edit`)
         .then(response => {
           this.question = response.data.question
+          if(this.question.mode_num == 1) {
+            this.course = "Self Explain"
+          } if (this.question.mode_num == 2) {
+            this.course = "Self Reaction"
+          } if (this.question.mode_num == 3) {
+            this.course = "Self translation"
+          }
           this.answer= response.data
           this.date = response.data.date
         })
