@@ -107,9 +107,6 @@
             time: 3000
           })
         });
-      },
-      googleLogin: function () {
-        axios.post('/auth/google_oauth2')
       }
     }
   }
