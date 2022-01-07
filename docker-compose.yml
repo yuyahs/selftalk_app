@@ -19,9 +19,6 @@ services:
       - db
     stdin_open: true
     tty: true
-    environment:
-      - MYSQL_HOST=db
-      - MYSQL_PASSWORD=yuya0216
 volumes:
   mysql-data:
     driver: local
