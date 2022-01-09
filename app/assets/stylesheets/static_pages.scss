@@ -13,13 +13,19 @@
   color: #ffffff;
 }
 
-.home-title {
+.lp-title {
+  @media screen and (max-width: 480px){
+    font-size: 1.875rem;
+  }
   margin-bottom: 24px;
   font-size: 4.5rem;
   font-weight: bold;
 }
 
 .home-subtitle {
+  @media screen and (max-width: 480px){
+    font-size: 1.25rem;
+  }
   margin-bottom: 32px;
   font-size: 1.5rem;
   font-weight: bold;
