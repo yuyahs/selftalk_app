@@ -5,7 +5,9 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: yuya0216
     ports:
-      - "3306:3306"
+      - "3307:3306"
+    expose:
+      - 3307
     volumes:
       - mysql-data:/var/lib/mysql
   web:
