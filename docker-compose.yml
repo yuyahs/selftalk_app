@@ -4,10 +4,12 @@ services:
     image: mysql:8.0.26
     environment:
       MYSQL_ROOT_PASSWORD: yuya0216
+      MYSQL_DATABASE: selftalk_app_development
+      MYSQL_USER: yuyahs
+      MYSQL_PASSWORD: yuya0216
     ports:
       - "3307:3306"
-    expose:
-      - 3307
+    
     volumes:
       - mysql-data:/var/lib/mysql
   web:
