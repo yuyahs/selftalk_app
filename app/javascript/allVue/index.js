@@ -8,6 +8,7 @@ import SetInterval from '../src/plugins/SetInterval';
 
 
 
+
 document.addEventListener("DOMContentLoaded", () => {
   const app = createApp(App);
   app.use(router);

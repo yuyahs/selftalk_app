@@ -27,6 +27,8 @@
 <script>
   import axios from 'axios';
   import MyMenu from '../components/MyMenu.vue'
+  import Export from '../shared/exports';
+
   export default {
     name: 'AnswerEdit',
     components: {
@@ -46,8 +48,8 @@
     },
     mounted() {
       this.getInfoAboutAnswer();
-      this.mksureCorrectUser();
-      this.mksureNotGuestUser();
+      Export.mksureCorrectUser(this.$route.params.id);
+      Export.mksureNotGuestUser();
     },
     methods: {
       getInfoAboutAnswer: function () {
@@ -79,17 +81,6 @@
               time: 3000
             });
           })
-        }
-      },
-      mksureCorrectUser: function(){
-        const currentUserId = this.$store.state.userId
-        if(!(currentUserId == this.$route.params.user_id)){
-          this.$router.push({name: 'home'})
-        }
-      },
-      mksureNotGuestUser: function() {
-        if(this.$store.state.guest){
-          this.$router.push({name: 'home'})
         }
       }
     }

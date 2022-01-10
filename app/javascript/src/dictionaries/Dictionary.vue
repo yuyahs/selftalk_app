@@ -38,6 +38,7 @@
   import AddItems from './New'
   import MyMenu from '../components/MyMenu.vue'
   import axios from 'axios';
+  import Export from '../shared/exports';
 
   export default {
     name: 'Dictionary',
@@ -52,8 +53,8 @@
     },
     mounted() {
       this.getAllItems();
-      this.mksureCorrectUser();
-      this.mksureNotGuestUser();
+      Export.mksureCorrectUser(this.$route.params.id);
+      Export.mksureNotGuestUser();
     },
     //保存したフレーズ集を取得するメソッド
     methods: {
@@ -77,17 +78,6 @@
             });
           })
           })
-        }
-      },
-      mksureCorrectUser: function () {
-        const currentUserId = this.$store.state.userId
-        if(!(currentUserId == this.$route.params.id)){
-          this.$router.push({name: 'home'})
-        }
-      },
-      mksureNotGuestUser: function() {
-        if(this.$store.state.guest){
-          this.$router.push({name: 'home'})
         }
       }
     }

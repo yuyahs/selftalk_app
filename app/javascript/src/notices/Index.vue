@@ -18,6 +18,7 @@
 
 <script>
  import axios from 'axios';
+ import Export from '../shared/exports';
 
  export default {
   name: 'Notices',
@@ -28,7 +29,7 @@
   },
   mounted() {
     this.getAllNotices();
-    this.mksureNotGuestUser();
+    Export.mksureNotGuestUser();
   },
   methods: {
     getAllNotices: function() {
@@ -50,11 +51,6 @@
             });
           })
         })
-      }
-    },
-    mksureNotGuestUser: function() {
-      if(this.$store.state.guest){
-        this.$router.push({name: 'home'})
       }
     }
   }
