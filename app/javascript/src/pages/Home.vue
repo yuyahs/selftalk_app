@@ -45,7 +45,8 @@
     <div v-else>
       <div class="home-title-wrapper">
         <h1 class="lp-title">SelfTalkEnglish</h1>
-        <h2 class="home-subtitle">「テストの点数は取れるけど、話せない、、」</h2>
+        <h2 class="home-subtitle">「テストの点数は取れるけど話せない、、」
+        </h2>
         <h3 class="home-subtitle">から脱する”独り言英語学習”実践アプリ</h3>
       </div>
 
