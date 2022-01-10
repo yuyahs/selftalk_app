@@ -52,7 +52,8 @@
 
 <script>
   import axios from 'axios';
-  import MyMenu from '../components/MyMenu'
+  import MyMenu from '../components/MyMenu';
+  import Export from '../shared/exports';
 
  export default {
   name: 'mypage',
@@ -70,8 +71,8 @@
   },
   mounted() {
     this.setUser();
-    this.checkCorrectUser();
-    this.checkNotGuestUser();
+    Export.mksureCorrectUser(this.$route.params.id);
+    Export.mksureNotGuestUser();
   },
   methods: {
     //user情報を取得するメソッド
@@ -84,17 +85,6 @@
         this.days = response.data.days //曜日の配列
         this.contributions = response.data.contributions //answerの作成された数の配列
       })
-    },
-    checkCorrectUser: function(){
-      const currentUserId = this.$store.state.userId
-      if(!(currentUserId == this.$route.params.id)){
-        this.$router.push({name: 'home'})
-      }
-    },
-    checkNotGuestUser: function() {
-      if(this.$store.state.guest){
-        this.$router.push({name: 'home'})
-      }
     }
   }
 }

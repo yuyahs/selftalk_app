@@ -33,6 +33,8 @@
 
 <script>
   import axios from 'axios';
+  import Export from '../shared/exports';
+
   export default {
     name: 'userEdit',
     data() {
@@ -43,8 +45,8 @@
     },
     mounted() {
       this.getUserInfo();
-      this.mksureCorrectUser();
-      this.mksureNotGuestUser();
+      Export.mksureCorrectUser(this.$route.params.id);
+      Export.mksureNotGuestUser();
     },
     methods: {
       //ログイン中のユーザー情報を取得するメソッド
@@ -75,17 +77,6 @@
             time: 3000
           });
         })
-      },
-      mksureCorrectUser: function(){
-        const currentUserId = this.$store.state.userId
-        if(!(currentUserId == this.$route.params.id)){
-          this.$router.push({name: 'home'})
-        }
-      },
-      mksureNotGuestUser: function() {
-        if(this.$store.state.guest){
-          this.$router.push({name: 'home'})
-        }
       }
     }
   }

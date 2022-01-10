@@ -17,6 +17,7 @@
 
 <script>
  import axios from 'axios';
+ import Export from '../shared/exports';
 
  export default {
   name: 'Notice',
@@ -31,6 +32,7 @@
   },
   mounted() {
     this.showNotice();
+    Export.mksureNotGuestUser();
   },
   methods: {
     showNotice: function () {
@@ -40,7 +42,5 @@
       })
     }
   }
-
-
 }
 </script>
