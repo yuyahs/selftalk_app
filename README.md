@@ -12,6 +12,7 @@
 * Ruby on Rails 6.0,4
 * MySQL 5.7
 * Vue.js 3
+* Docker
 * Nginx
 * Unicorn
 * AWS:
