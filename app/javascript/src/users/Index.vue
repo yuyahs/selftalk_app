@@ -10,7 +10,7 @@
 
     <!--user一覧を表示する -->
     <li v-for="user in users" :key="user" class="user-list">
-      {{user.name}}
+      {{user.name}} : {{user.email}}
     </li>
   </div>
 </template>
