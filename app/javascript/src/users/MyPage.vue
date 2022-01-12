@@ -10,9 +10,14 @@
     <div class="learning-status">
 
       <div class="contribution">
-        <p class="learning-day-p">学習日数</p>
+        <p class="learning-day-p">総学習日数</p>
         <section class="learning-day">
           {{learningDays}}日
+        </section>
+
+        <p class="sequential-learning-day">連続学習日数</p>
+        <section class="learning-day">
+          {{sequentialDays}}日
         </section>
       </div>
 
@@ -65,6 +70,7 @@
       user: "",
       dates: "",
       learningDays: "",
+      sequentialDays: "",
       days: "",
       contributions: ""
     }
@@ -82,6 +88,7 @@
         this.user = response.data
         this.dates = response.data.dates //answerの作成された日付の配列
         this.learningDays = response.data.learning //学習日数
+        this.sequentialDays = response.data.sequential_days //連続学習日数
         this.days = response.data.days //曜日の配列
         this.contributions = response.data.contributions //answerの作成された数の配列
       })
