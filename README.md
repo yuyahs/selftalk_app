@@ -18,6 +18,7 @@
 * AWS:
     VPC
     EC2
+    RDS
     Route53
 * Capistrano3
 * RSpec
