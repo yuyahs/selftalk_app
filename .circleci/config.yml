@@ -1,30 +1,79 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
-version: 2.1
+version: 2.1 # 2.1 を使うと Orb や他の機能を使用することができます。
 
-# Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
-# See: https://circleci.com/docs/2.0/orb-intro/
+# 設定で使用する Orb を宣言します。
+# Orb に関する詳細は、https://circleci.com/docs/ja/2.0/orb-intro/をご覧ください。
 orbs:
-  ruby: circleci/ruby@0.1.2
+  ruby: circleci/ruby@1.1.2
+  node: circleci/node@2
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  build:
+  build: #  "build"という名前の最初のジョブです。
     docker:
-      - image: circleci/ruby:3.0.2-stretch-node
-    executor: ruby/default
+      - image: circleci/ruby:3.0.2 # カスタマイズされた CircleCI Docker イメージを使用します。
+        auth:
+          username: yuyahs
+          password: @lasvegas216  # コンテキスト/ プロジェクト UI の環境変数を参照します。
+    working_directory: ~/selftalk_app
     steps:
-      - checkout
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+      - checkout:
+         path: ~/selftalk_app   # Git コードをプルダウンします。
+      - ruby/install-deps # Ruby Orb を使って依存関係をインストールします。
+      # Node Orb を使ってパッケージをインストールします。
+      # Yarn の使用および 依存関係のキャッシュに yarn.lock の使用を指定します。
+      # 詳細は、 https://circleci.com/docs/2.0/caching/　を参照してください。
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+  test:  # "test"という名前の２つ目のジョブです。
+    # テストを高速化するために「並列ジョブコンテナ」を実行します。
+    # これによりテストが複数のコンテナに分割されます。
+    parallelism: 3
+    # ここでは、2 つの Docker イメージを設定します。
+    docker:
+      - image: circleci/ruby:3.0.2-node # プライマリ Docker イメージです。ここでステップコマンドが実行されます。
+        auth:
+          username: yuyahs
+          password: @lasvegas216  # コンテキスト/ プロジェクト UI の環境変数を参照します。
+      - image: circleci/mysql:5.5
+        auth:
+          username: yuyahs
+          password: @lasvegas216  # コンテキスト/ プロジェクト UI の環境変数を参照します。
+        environment:
+          MYSQL_ROOT_PASSWORD: yuya0216
+          MYSQL_DATABASE: selftalk_app_test
+          MYSQL_USER: yuyahs
+    # Ruby/Rails 固有の環境変数をプライマリコンテナに適用します。
+    environment:
+      BUNDLE_JOBS: "3"
+      BUNDLE_RETRY: "3"
+      APP_DATABASE_HOST: "127.0.0.1"
+      RAILS_ENV: test
+    working_directory: ~/selftalk_app
+    # 実行する一連のステップです。「ビルド」のステップと似たステップもあります。
+    steps:
+      - checkout:
+         path: ~/selftalk_app
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
+      # ここでは、データベース上で実行する前に
+      # セカンダリコンテナが起動することを確認します。
+
+  - run:
+      name: データベースのセットアップ
+      command: bundle exec rails db:migrate
+      # RSpec を並列実行します。
+      - ruby/rspec-test
+
+# ワークフローを使って上記で宣言したジョブをオーケストレーションします。
+
 workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
-    jobs:
-      - build
+  version: 2
+  build_and_test:     # ワークフローの名前は "build_and_test" です。
+    jobs:             # このワークフローの一部として実行するジョブのリストです。
+      - build         # まず、ビルドを実行します。
+      - test:         # 次に、テストを実行します。
+          requires:   # テストを実行するにはビルドを渡す必要があります。
+            - build   # 最後に、ビルドしたジョブを実行します。
