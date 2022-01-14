@@ -46,12 +46,14 @@
         answer: {
           content: ""
         },
-        mode_num: this.$route.query.mode_num
+        mode_num: this.$route.query.mode_num,
+        answersCreatedToday: ""
       }
     },
     mounted() {
       this.getRandomQuestion();
       this.startTimer();
+      this.getAnswersCreatedToday();
     },
     methods: {
       getRandomQuestion: function () {
@@ -72,6 +74,9 @@
           this.getRandomQuestion();
           this.$clearInterval(this.$intervals);
           this.startTimer();
+          if(this.answersCreatedToday === 0){
+            this.$store.commit('countSequentialDays')
+          }
         })
          .catch(err => {
             this.answer.content = ""
@@ -91,6 +96,12 @@
             clearInterval(this.$intervals);
           }
       }, 1000)
+     },
+     getAnswersCreatedToday: function () {
+       axios.get('/api/questions/new')
+       .then(response => {
+         this.answersCreatedToday = response.data
+       })
      }
     }
   }

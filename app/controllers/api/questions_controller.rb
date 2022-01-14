@@ -1,10 +1,18 @@
 class Api::QuestionsController < ApplicationController
+  include UsersHelper
   before_action :admined_user, only: [:index, :create, :destroy]
 
   def index
     @questions1 = Question.where(mode_num: 1) #explain course
     @questions2 = Question.where(mode_num: 2) #reaction course
     @questions3 = Question.where(mode_num: 3) #translate course
+  end
+
+  def new
+    # questionとは関係ないコードだが単に@today_answersをCourse.vueで参照したいだけ
+    #他のコントローラーのアクションでは余計なDB通信が発生したりするため余っていたこれを利用
+    @today_answers = today_answers.count
+    render json: @today_answers
   end
 
   def create

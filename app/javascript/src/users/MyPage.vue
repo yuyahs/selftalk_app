@@ -17,7 +17,7 @@
 
         <p class="sequential-learning-day">連続学習日数</p>
         <section class="learning-day">
-          {{sequentialDays}}日
+          {{$store.state.sequentialDays}}日
         </section>
       </div>
 
@@ -70,9 +70,10 @@
       user: "",
       dates: "",
       learningDays: "",
-      sequentialDays: "",
       days: "",
-      contributions: ""
+      contributions: "",
+      answerCreatedYesterday: ""
+
     }
   },
   mounted() {
@@ -88,9 +89,12 @@
         this.user = response.data
         this.dates = response.data.dates //answerの作成された日付の配列
         this.learningDays = response.data.learning //学習日数
-        this.sequentialDays = response.data.sequential_days //連続学習日数
         this.days = response.data.days //曜日の配列
         this.contributions = response.data.contributions //answerの作成された数の配列
+        this.answerCreatedYesterday = response.data.answerCreatedYesterday //連続学習日数
+        if(this.answerCreatedYesterday === 0) {
+          this.$store.state.sequentialDays = 0
+        }
       })
     }
   }

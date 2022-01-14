@@ -61,7 +61,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api, format: 'json' do
-    resources :questions, only: [:index, :create, :destroy]
+    resources :questions, only: [:index, :new, :create, :destroy]
   end
 
   namespace :api, format: 'json' do

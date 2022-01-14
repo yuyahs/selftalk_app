@@ -2,7 +2,7 @@ json.(@user, :name , :email, :password, :password_confirmation)
 
 json.learning @learning_days
 
-json.sequential_days @sequential_days
+json.answerCreatedYesterday @yesterday_answer
 
 json.dates do
   json.array! @dates
