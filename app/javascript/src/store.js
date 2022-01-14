@@ -10,7 +10,8 @@ export const store = createStore ({
       notGuest: true,
       guest: false,
       userId: 0,
-      unreadNotice: false
+      unreadNotice: false,
+      sequentialDays: 0
     }
   },
   mutations: {
@@ -52,6 +53,9 @@ export const store = createStore ({
     //お知らせ一覧ページを既読にする
     readNotice: (state) => {
       state.unreadNotice = false
+    },
+    countSequentialDays: (state) => {
+      state.sequentialDays = +1
     }
   },
   plugins : [
