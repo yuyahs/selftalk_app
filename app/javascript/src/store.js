@@ -55,7 +55,7 @@ export const store = createStore ({
       state.unreadNotice = false
     },
     countSequentialDays: (state) => {
-      state.sequentialDays = +1
+      state.sequentialDays += 1
     }
   },
   plugins : [
