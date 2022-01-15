@@ -10,6 +10,7 @@
 
      <input type="hidden" :value="mode_num">
      <input type="hidden" :value="id">
+     <input type="hidden" :value="answersCreatedToday">
 
      <textarea id="text1" v-model="answer.content" class="answer-input-form" >
      </textarea>
