@@ -9,7 +9,7 @@ orbs:
 jobs:
   build: #  "build"という名前の最初のジョブです。
     docker:
-      - image: cimg/ruby:3.0.0-node # カスタマイズされた CircleCI Docker イメージを使用します。
+      - image: cimg/ruby:3.0.2-node # カスタマイズされた CircleCI Docker イメージを使用します。
         auth:
           username: yuyahs
           password: "@lasvegas216"  # コンテキスト/ プロジェクト UI の環境変数を参照します。
@@ -29,7 +29,7 @@ jobs:
     # テストを高速化するために「並列ジョブコンテナ」を実行します。
     # ここでは、2 つの Docker イメージを設定します。
     docker:
-      - image: cimg/ruby:3.0.0-node # プライマリ Docker イメージです。ここでステップコマンドが実行されます。
+      - image: cimg/ruby:3.0.2-node # プライマリ Docker イメージです。ここでステップコマンドが実行されます。
         auth:
           username: yuyahs
           password: "@lasvegas216"  # コンテキスト/ プロジェクト UI の環境変数を参照します。
