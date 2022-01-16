@@ -58,14 +58,13 @@ jobs:
           cache-key: "yarn.lock"
       # ここでは、データベース上で実行する前に
       # セカンダリコンテナが起動することを確認します。
-
-  - run:
-      name: データベースのセットアップ
-      command: bundle exec rails db:migrate
-      # RSpec を並列実行します。
-  - run:
-      name: test
-      command: bundle exec rspec
+      - run:
+          name: データベースのセットアップ
+          command: bundle exec rails db:migrate
+          # RSpec を並列実行します。
+      - run:
+          name: test
+          command: bundle exec rspec
 
 
 # ワークフローを使って上記で宣言したジョブをオーケストレーションします。
