@@ -74,6 +74,7 @@
           this.getRandomQuestion();
           this.$clearInterval(this.$intervals);
           this.startTimer();
+          //作成されたanswerが本日一個めなら連続学習日数記録を更新する
           if(this.answersCreatedToday === 0){
             this.$store.commit('countSequentialDays')
           }
