@@ -9,10 +9,10 @@ orbs:
 jobs:
   build: #  "build"という名前の最初のジョブです。
     docker:
-      - image: circleci/ruby:3.0.2 # カスタマイズされた CircleCI Docker イメージを使用します。
+      - image: cimg/ruby:3.0.0-node # カスタマイズされた CircleCI Docker イメージを使用します。
         auth:
           username: yuyahs
-          password: @lasvegas216  # コンテキスト/ プロジェクト UI の環境変数を参照します。
+          password: "@lasvegas216"  # コンテキスト/ プロジェクト UI の環境変数を参照します。
     working_directory: ~/selftalk_app
     steps:
       - checkout:
@@ -27,18 +27,16 @@ jobs:
 
   test:  # "test"という名前の２つ目のジョブです。
     # テストを高速化するために「並列ジョブコンテナ」を実行します。
-    # これによりテストが複数のコンテナに分割されます。
-    parallelism: 3
     # ここでは、2 つの Docker イメージを設定します。
     docker:
-      - image: circleci/ruby:3.0.2-node # プライマリ Docker イメージです。ここでステップコマンドが実行されます。
+      - image: cimg/ruby:3.0.0-node # プライマリ Docker イメージです。ここでステップコマンドが実行されます。
         auth:
           username: yuyahs
-          password: @lasvegas216  # コンテキスト/ プロジェクト UI の環境変数を参照します。
+          password: "@lasvegas216"  # コンテキスト/ プロジェクト UI の環境変数を参照します。
       - image: circleci/mysql:5.5
         auth:
           username: yuyahs
-          password: @lasvegas216  # コンテキスト/ プロジェクト UI の環境変数を参照します。
+          password: "@lasvegas216"  # コンテキスト/ プロジェクト UI の環境変数を参照します。
         environment:
           MYSQL_ROOT_PASSWORD: yuya0216
           MYSQL_DATABASE: selftalk_app_test
@@ -65,7 +63,10 @@ jobs:
       name: データベースのセットアップ
       command: bundle exec rails db:migrate
       # RSpec を並列実行します。
-      - ruby/rspec-test
+  - run:
+      name: test
+      command: bundle exec rspec
+
 
 # ワークフローを使って上記で宣言したジョブをオーケストレーションします。
 
