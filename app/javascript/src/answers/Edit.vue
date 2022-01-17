@@ -48,7 +48,7 @@
     },
     mounted() {
       this.getInfoAboutAnswer();
-      Export.mksureCorrectUser(this.$route.params.id);
+      Export.mksureCorrectUser(this.$route.params.user_id);
       Export.mksureNotGuestUser();
     },
     methods: {
