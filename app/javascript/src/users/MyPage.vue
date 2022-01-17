@@ -91,7 +91,7 @@
         this.learningDays = response.data.learning //学習日数
         this.days = response.data.days //曜日の配列
         this.contributions = response.data.contributions //answerの作成された数の配列
-        this.answerCreatedYesterday = response.data.answerCreatedYesterday //連続学習日数
+        this.answerCreatedYesterday = response.data.answerCreatedYesterday //昨日移行作成されたanswerがあるかどうか確認する。なければ連続学習日数をリセットする
         if(this.answerCreatedYesterday === 0) {
           this.$store.state.sequentialDays = 0
         }
