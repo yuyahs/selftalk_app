@@ -30,7 +30,7 @@ jobs:
         auth:
           username: yuyahs
           password: "@lasvegas216"  # コンテキスト/ プロジェクト UI の環境変数を参照します。
-      - image: circleci/mysql:5.5
+      - image: circleci/mysql:8.0.26
         auth:
           username: yuyahs
           password: "@lasvegas216"  # コンテキスト/ プロジェクト UI の環境変数を参照します。
