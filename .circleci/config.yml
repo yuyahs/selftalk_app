@@ -38,6 +38,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: yuya0216
           MYSQL_DATABASE: selftalk_app_test
           MYSQL_USER: yuyahs
+          MYSQL_PASSWORD: yuya0216
     # Ruby/Rails 固有の環境変数をプライマリコンテナに適用します。
     environment:
       BUNDLE_JOBS: "3"
@@ -50,9 +51,7 @@ jobs:
       - checkout:
          path: ~/selftalk_app
       - ruby/install-deps
-      - node/install-packages:
-          pkg-manager: yarn
-          cache-key: "yarn.lock"
+
       # ここでは、データベース上で実行する前に
       # セカンダリコンテナが起動することを確認します。
       - run:
