@@ -1,11 +1,3 @@
-GIT
-  remote: https://github.com/dorianmariefr/tailwindcss-rails.git
-  revision: 609e9a65a0b00b9d600a20103cb8f34f05e7ed10
-  branch: minimal
-  specs:
-    tailwindcss-rails (0.4.2)
-      rails (>= 6.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -264,6 +256,10 @@ GEM
     sshkit (1.21.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    tailwindcss-rails (2.0.5-x86_64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.5-x86_64-linux)
+      railties (>= 6.0.0)
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -324,7 +320,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
-  tailwindcss-rails!
+  tailwindcss-rails
   tzinfo-data
   unicorn (= 6.0.0)
   web-console (>= 3.3.0)
