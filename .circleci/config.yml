@@ -24,6 +24,7 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
           cache-key: "yarn.lock"
+          working_directory: ~/selftalk_app
 
   test:  # "test"という名前の２つ目のジョブです。
     # テストを高速化するために「並列ジョブコンテナ」を実行します。
