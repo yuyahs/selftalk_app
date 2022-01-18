@@ -14,6 +14,7 @@ class Api::UsersController < ApplicationController
     @user = current_user
     @dates = current_user.answers.map{|dates| dates.created_at.to_date}.uniq
     @learning_days = @dates.count
+    #昨日から今日にかけて作成されたanswerの数を取り出したい
     @yesterday_answer = yesterday_answer.count
     #MyPage.vueで曜日毎のanswerを取り出す際に~月~日の'月日'を弾くために（）を付けている
     @wdays = ['(月)','(火)','(水)','(木)','(金)','(土)','(日)']
