@@ -21,9 +21,6 @@ jobs:
       # Node Orb を使ってパッケージをインストールします。
       # Yarn の使用および 依存関係のキャッシュに yarn.lock の使用を指定します。
       # 詳細は、 https://circleci.com/docs/2.0/caching/　を参照してください。
-      - node/install-packages:
-          pkg-manager: yarn
-          cache-key: "yarn.lock"
 
   test:  # "test"という名前の２つ目のジョブです。
     # テストを高速化するために「並列ジョブコンテナ」を実行します。
@@ -33,7 +30,7 @@ jobs:
         auth:
           username: yuyahs
           password: "@lasvegas216"  # コンテキスト/ プロジェクト UI の環境変数を参照します。
-      - image: circleci/mysql:5.5
+      - image: circleci/mysql:8.0.26
         auth:
           username: yuyahs
           password: "@lasvegas216"  # コンテキスト/ プロジェクト UI の環境変数を参照します。
@@ -41,6 +38,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: yuya0216
           MYSQL_DATABASE: selftalk_app_test
           MYSQL_USER: yuyahs
+          MYSQL_PASSWORD: yuya0216
     # Ruby/Rails 固有の環境変数をプライマリコンテナに適用します。
     environment:
       BUNDLE_JOBS: "3"
@@ -53,9 +51,7 @@ jobs:
       - checkout:
          path: ~/selftalk_app
       - ruby/install-deps
-      - node/install-packages:
-          pkg-manager: yarn
-          cache-key: "yarn.lock"
+
       # ここでは、データベース上で実行する前に
       # セカンダリコンテナが起動することを確認します。
       - run:
