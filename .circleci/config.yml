@@ -7,7 +7,7 @@ orbs:
   node: circleci/node@2
 
 jobs:
-  build: #  "build"という名前の最初のジョブです。
+  build: 
     docker:
       - image: cimg/ruby:3.0.2-node # カスタマイズされた CircleCI Docker イメージを使用します。
         auth:
