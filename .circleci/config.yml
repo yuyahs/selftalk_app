@@ -43,6 +43,7 @@ jobs:
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
+      APP_DATABASE_HOST: "127.0.0.1"
       RAILS_ENV: test
     working_directory: ~/selftalk_app
     # 実行する一連のステップです。「ビルド」のステップと似たステップもあります。
@@ -54,8 +55,13 @@ jobs:
       # ここでは、データベース上で実行する前に
       # セカンダリコンテナが起動することを確認します。
       - run:
+          name: データベースの作成
+          command: bundle exec rails db:create
+          working_directory: ~/selftalk_app
+      - run:
           name: データベースのセットアップ
           command: bundle exec rails db:migrate
+          working_directory: ~/selftalk_app
           # RSpec を並列実行します。
       - run:
           name: rspec実行
