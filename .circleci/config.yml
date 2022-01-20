@@ -39,12 +39,18 @@ jobs:
           MYSQL_DATABASE: selftalk_app_test
           MYSQL_USER: yuyahs
           MYSQL_PASSWORD: yuya0216
+          APP_DATABASE_HOST: "127.0.0.1"
+          RAILS_ENV: test
     # Ruby/Rails 固有の環境変数をプライマリコンテナに適用します。
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
       APP_DATABASE_HOST: "127.0.0.1"
       RAILS_ENV: test
+      MYSQL_ROOT_PASSWORD: yuya0216
+      MYSQL_DATABASE: selftalk_app_test
+      MYSQL_USER: yuyahs
+      MYSQL_PASSWORD: yuya0216
     working_directory: ~/selftalk_app
     # 実行する一連のステップです。「ビルド」のステップと似たステップもあります。
     steps:
@@ -65,6 +71,9 @@ jobs:
               sleep 1
             done
             echo Failed waiting for MySQL && exit 1
+      - run:
+          name: データベースの作成
+          command: bundle exec rails db:create
       - run:
           name: データベースのセットアップ
           command: bundle exec rails db:migrate
