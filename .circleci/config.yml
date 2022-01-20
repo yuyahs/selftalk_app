@@ -71,7 +71,6 @@ jobs:
       - run:
           name: データベースのセットアップ
           command: bundle exec rake db:migrate
-          # RSpec を並列実行します。
       - run:
           name: test
           command: bundle exec rspec
