@@ -78,14 +78,36 @@ jobs:
           name: Rubocop
           command: bundle exec  rubocop --fail-level W --display-only-fail-level-offenses
 
+  deploy:
+    docker:
+      - image: cimg/ruby:3.0.2-node # カスタマイズされた CircleCI Docker イメージを使用します。
+        auth:
+          username: yuyahs
+          password: "@lasvegas216"  # コンテキスト/ プロジェクト UI の環境変数を参照します。
+    working_directory: ~/selftalk_app
+    steps:
+      - checkout:
+         path: ~/selftalk_app   # Git コードをプルダウンします。
+      - ruby/install-deps # Ruby Orb を使って依存関係をインストールします。
+      - add_ssh_keys:
+          fingerprints: SHA256:Nygwji3iGTwnKKIPmqbkWoN77aj9dyHN1VjUQWKnM6s
+      - run:
+          name: 自動デプロイ
+          command: bundle exec cap production deploy
 
-# ワークフローを使って上記で宣言したジョブをオーケストレーションします。
+
 
 workflows:
   version: 2
-  build_and_test:     # ワークフローの名前は "build_and_test" です。
+  build_and_test_and_deploy:     # ワークフローの名前は "build_and_test" です。
     jobs:             # このワークフローの一部として実行するジョブのリストです。
       - build         # まず、ビルドを実行します。
       - test:         # 次に、テストを実行します。
           requires:   # テストを実行するにはビルドを渡す必要があります。
             - build   # 最後に、ビルドしたジョブを実行します。
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
