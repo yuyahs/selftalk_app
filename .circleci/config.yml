@@ -99,7 +99,7 @@ jobs:
 
 workflows:
   version: 2
-  build_and_test_and_deploy:     # ワークフローの名前は "build_and_test" です。
+  build_and_test_and_deploy:     
     jobs:             # このワークフローの一部として実行するジョブのリストです。
       - build         # まず、ビルドを実行します。
       - test:         # 次に、テストを実行します。
