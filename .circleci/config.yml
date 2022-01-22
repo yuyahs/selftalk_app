@@ -90,7 +90,7 @@ jobs:
          path: ~/selftalk_app   # Git コードをプルダウンします。
       - ruby/install-deps # Ruby Orb を使って依存関係をインストールします。
       - add_ssh_keys:
-          fingerprints: 9e:d2:31:b7:26:a3:71:15:11:bc:52:7d:3f:02:fb:0b
+          fingerprints: 35:5a:cb:c6:0e:b3:5b:5e:48:fb:dd:99:4c:90:cb:a3
       - run:
           name: 自動デプロイ
           command: bundle exec cap production deploy
@@ -99,7 +99,7 @@ jobs:
 
 workflows:
   version: 2
-  build_and_test_and_deploy:     
+  build_and_test_and_deploy:
     jobs:             # このワークフローの一部として実行するジョブのリストです。
       - build         # まず、ビルドを実行します。
       - test:         # 次に、テストを実行します。
