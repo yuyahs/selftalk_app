@@ -76,7 +76,7 @@ jobs:
           command: bundle exec rspec
       - run:
           name: Rubocop
-          command: bundle exec  rubocop --fail-level W --display-only-fail-level-offenses
+          command: bundle exec  rubocop --fail-level W --display-only-fail-level-offenses  # warning以上の警告があればstopをかける
 
   deploy:
     docker:
@@ -100,11 +100,11 @@ jobs:
 workflows:
   version: 2
   build_and_test_and_deploy:
-    jobs:             # このワークフローの一部として実行するジョブのリストです。
-      - build         # まず、ビルドを実行します。
-      - test:         # 次に、テストを実行します。
-          requires:   # テストを実行するにはビルドを渡す必要があります。
-            - build   # 最後に、ビルドしたジョブを実行します。
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
       - deploy:
           requires:
             - test
