@@ -1,19 +1,17 @@
 # Overview
 
-* どういうサイトか：アウトプット特化の英語学習用サイト
-* 何ができるか:
-1. ランダムに表示される問題に英作文で回答する
-2. 作成した回答の添削
-3. オリジナルの単語帳作成
-* アピールポイント: Rails × Vue3によるSPA化
+* アウトプット力を養うための英語学習用サービスです。
+* ランダムに出題される問題に対して英作文で回答し、回答は振り返り・添削可能です。
+* 毎日継続するモチベーション維持のため学習状況が見える化されています。
 
 # 使用技術
 
 * Ruby 3.0.2
 * Ruby on Rails 6.0,4
 * MySQL 5.7
-* Vue.js 3
+* Vue.js 3（SPA化）
 * Docker
+* CircleCi CI/CD
 * Nginx
 * Unicorn
 * AWS:  VPC  EC2  RDS  Route53  ELB
@@ -45,4 +43,10 @@
 
 # インフラ図
 
-<img width="459" alt="selftalk_app_infra" src="https://user-images.githubusercontent.com/85814499/149320305-6d9dfb8e-c0c0-45eb-a19c-fe37edb9cba2.png">
+<img width="622" alt="スクリーンショット 2022-01-22 13 19 33" src="https://user-images.githubusercontent.com/85814499/150624415-a2c99530-6943-46a1-8fef-000b42589afd.png">
+
+
+# CircleCi CI/CD
+* Githubへのpush時に、RSpecとRubocopが自動で実行されます。
+* masterブランチへのpushでは、RSpecとRubocopが成功した後に、EC2への
+自動デプロイが実行されます。
