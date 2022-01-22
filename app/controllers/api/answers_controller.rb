@@ -3,15 +3,12 @@ class Api::AnswersController < ApplicationController
   before_action :not_guest_user, only: [:index, :edit, :update]
 
   def index
-    #scopeを使ってmodelに移したが動作しなかったのでこちらに戻した
-    @answers = current_user.answers.where(["created_at Like ?",
-    "%#{params[:created_at]}%"])
+    @answers = current_user.answers.all_created_at_the_date(params[:created_at])
   end
 
   def new
-    @questions = Question.where(mode_num: params[:mode_num])
-    #pluckを用いると比較的ランダム性が正確になる
-    @question = @questions.find(@questions.pluck(:id).sample)
+    @questions = Question.of_selected_mode(params[:mode_num])
+    @question = @questions.randomly_selected(@questions)
     render json: @question
   end
 

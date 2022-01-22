@@ -7,7 +7,7 @@
 # 使用技術
 
 * Ruby 3.0.2
-* Ruby on Rails 6.0,4
+* Ruby on Rails 6.0.4
 * MySQL 5.7
 * Vue.js 3（SPA化）
 * Docker
