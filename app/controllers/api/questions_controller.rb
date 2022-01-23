@@ -3,9 +3,9 @@ class Api::QuestionsController < ApplicationController
   before_action :admined_user, only: [:index, :create, :destroy]
 
   def index
-    @questions1 = Question.where(mode_num: 1) #explain course
-    @questions2 = Question.where(mode_num: 2) #reaction course
-    @questions3 = Question.where(mode_num: 3) #translate course
+    @questions1 = Question.of_selected_mode(1) #explain course
+    @questions2 = Question.of_selected_mode(2) #reaction course
+    @questions3 = Question.of_selected_mode(3) #translate course
   end
 
   def new
