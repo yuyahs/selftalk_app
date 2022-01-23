@@ -21,6 +21,9 @@
     query: {created_at: date}}" class="to-answer-index-btn">
     　回答一覧に戻る
   　</router-link>
+
+   <!-- <button @click="translateWithDeepL" class="edit-save-btn">翻訳する</button>
+   <h3 class="result">結果を表示：{{result}}</h3> -->
   </div>
 </template>
 
@@ -43,7 +46,8 @@
           content: ""
         },
         course: "",
-        date: ""
+        date: "",
+        // result: ""
       }
     },
     mounted() {
@@ -82,7 +86,20 @@
             });
           })
         }
-      }
+      },
+      // translateWithDeepL: function() {
+      //   const API_KEY = 
+      //   const url = "https://api-free.deepl.com/v2/translate"
+      //   const params = {
+      //       "auth_key": API_KEY,
+      //       "text": this.answer.content,
+      //       "target_lang": "JA"
+      //   }
+      //   axios.get(url, {params})
+      //   .then(response => {
+      //     this.result = response.data
+      //   })
+      // }
     }
   }
 </script>
