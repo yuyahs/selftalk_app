@@ -36,8 +36,15 @@ module SelftalkApp
         Nokogiri::HTML.fragment(html_tag).search('input', 'textarea', 'select').add_class('is-error').to_html.html_safe
       end
     end
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins "*"
+        resource "*",
+        headers: :any,
+        methods: [:get, :post, :options, :head]
+      end
+    end
   end
 end
-
 
 

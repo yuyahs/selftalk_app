@@ -81,4 +81,5 @@ group :production do
   gem 'unicorn', '6.0.0'
 end
 
+gem 'rack-cors'
 

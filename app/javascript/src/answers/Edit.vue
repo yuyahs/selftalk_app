@@ -88,8 +88,8 @@
         }
       },
       // translateWithDeepL: function() {
-      //   const API_KEY = 
-      //   const url = "https://api-free.deepl.com/v2/translate"
+      //   const API_KEY = ""
+      //   const url = "https:///api-free.deepl.com/v2/translate"
       //   const params = {
       //       "auth_key": API_KEY,
       //       "text": this.answer.content,
