@@ -88,7 +88,7 @@
         }
       },
       // translateWithDeepL: function() {
-      //   const API_KEY = "ff561bfa-5e83-cb13-35c7-5e6215aaa9a5:fx"
+      //   const API_KEY = 
       //   const url = "https://api-free.deepl.com/v2/translate"
       //   const params = {
       //       "auth_key": API_KEY,
