@@ -5,3 +5,5 @@ json.question do
 end
 
 json.date @date
+
+json.deeplKey @deepl_api_key

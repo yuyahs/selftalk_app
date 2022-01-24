@@ -22,8 +22,8 @@
     　回答一覧に戻る
   　</router-link>
 
-   <!-- <button @click="translateWithDeepL" class="edit-save-btn">翻訳する</button>
-   <h3 class="result">結果を表示：{{result}}</h3> -->
+   <button @click="translateWithDeepL" class="edit-save-btn">翻訳する</button>
+   <h3 class="result">結果を表示：{{result}}</h3>
   </div>
 </template>
 
@@ -47,7 +47,9 @@
         },
         course: "",
         date: "",
-        // result: ""
+        result: "",
+        deeplApiKey: ""
+
       }
     },
     mounted() {
@@ -70,6 +72,7 @@
           }
           this.answer= response.data
           this.date = response.data.date
+          this.deeplApiKey = response.data.deeplKey
         })
       },
       saveEditedAnswer: function() {
@@ -87,19 +90,19 @@
           })
         }
       },
-      // translateWithDeepL: function() {
-      //   const API_KEY = ""
-      //   const url = "https:///api-free.deepl.com/v2/translate"
-      //   const params = {
-      //       "auth_key": API_KEY,
-      //       "text": this.answer.content,
-      //       "target_lang": "JA"
-      //   }
-      //   axios.get(url, {params})
-      //   .then(response => {
-      //     this.result = response.data
-      //   })
-      // }
+      translateWithDeepL: function() {
+        const API_KEY = this.deeplApiKey
+        const url = "https://api-free.deepl.com/v2/translate"
+        const params = {
+            "auth_key": API_KEY,
+            "text": this.answer.content,
+            "target_lang": "JA"
+        }
+        axios.post(url, {params})
+        .then(response => {
+          this.result = response.data
+        })
+      }
     }
   }
 </script>
