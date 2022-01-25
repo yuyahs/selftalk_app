@@ -66,9 +66,9 @@ Rails.application.routes.draw do
   namespace :api, format: 'json' do
     resources :notices, only: [:index, :show, :create, :destroy]
   end
-  
+
   namespace :api, format: 'json' do
-    get '/translations' ,to: 'translations#index'
+    get '/translate' ,to: 'translations#translate'
   end
 
   match '*path', :to => 'application#error404', :via => :all
