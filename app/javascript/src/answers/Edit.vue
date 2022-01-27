@@ -92,8 +92,8 @@
       translateWithDeepL: function() {
         axios.get('/api/translate')
         .then(response => {
-          this.result = response.data
-          console.log(response.data)
+          this.result = response.data.translations[0].text
+          console.log(response.data.translations[0].text)
         })
       }
     }

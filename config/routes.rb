@@ -70,7 +70,6 @@ Rails.application.routes.draw do
   namespace :api, format: 'json' do
     get '/translate', to: 'translations#translate'
   end
-  get '/api-free.deepl.com/v2/translate', to: 'api/translations#translate'
 
   match '*path', :to => 'application#error404', :via => :all
 end
