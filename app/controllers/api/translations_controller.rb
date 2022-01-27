@@ -11,10 +11,7 @@ class Api::TranslationsController < ApplicationController
       text: @question.content,
       target_lang: "EN"
     }
-    headers = {
-      Authorization: api_key
-    }
-    @response = client.get(uri, body: query, header: headers)
+    @response = client.get(uri, query: query)
     render json: @response.body
   end
 end
