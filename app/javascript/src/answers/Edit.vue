@@ -21,9 +21,6 @@
     query: {created_at: date}}" class="to-answer-index-btn">
     　回答一覧に戻る
   　</router-link>
-<!-- 
-   <button @click="translateWithDeepL" class="edit-save-btn">翻訳する</button>
-   <h3 class="result">結果を表示：{{result}}</h3> -->
   </div>
 </template>
 
@@ -47,8 +44,6 @@
         },
         course: "",
         date: "",
-        result: "",
-
       }
     },
     mounted() {
@@ -71,7 +66,6 @@
           }
           this.answer= response.data
           this.date = response.data.date
-          this.deeplApiKey = response.data.deeplKey
         })
       },
       saveEditedAnswer: function() {
@@ -89,13 +83,6 @@
           })
         }
       },
-      translateWithDeepL: function() {
-        axios.get('/api/translate')
-        .then(response => {
-          this.result = response.data.translations[0].text
-          console.log(response.data.translations[0].text)
-        })
-      }
     }
   }
 </script>

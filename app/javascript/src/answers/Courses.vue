@@ -20,6 +20,14 @@
      <router-link to="/" class="finish-btn">
       終了する
      </router-link>
+
+    <!-- translation courseの時だけ表示する -->
+     <div v-if="mode_num == 3">
+        <button @click="translateWithDeepL" class="access-deepl-btn">
+          AI翻訳の結果を確認する
+        </button>
+        <h1 class="result">翻訳結果: {{result}}</h1>
+     </div>
   </div>
 
 
@@ -31,13 +39,10 @@
 
 
   export default {
-     beforeRouteLeave (to, from, next) {
-       next(this.$clearInterval(this.$intervals))
-     },
-
-
+   beforeRouteLeave (to, from, next) {
+      next(this.$clearInterval(this.$intervals))
+    },
     name: 'Courses',
-
     data() {
       return {
         question: {
@@ -47,7 +52,8 @@
           content: ""
         },
         mode_num: this.$route.query.mode_num,
-        answersCreatedToday: ""
+        answersCreatedToday: "",
+        result: ""
       }
     },
     mounted() {
@@ -103,7 +109,15 @@
        .then(response => {
          this.answersCreatedToday = response.data
        })
-     }
+     },
+     //DeepL apiを叩くためのmethod
+     translateWithDeepL: function() {
+       const question_id = this.question.id
+        axios.get('/api/translate/'+ question_id)
+        .then(response => {
+          this.result = response.data.translations[0].text
+        })
+      }
     }
   }
 </script>
