@@ -3,6 +3,9 @@
 * アウトプット力を養うための英語学習用サービスです。
 * ランダムに出題される問題に対して英作文で回答し、回答は振り返り・添削可能です。
 * 毎日継続するモチベーション維持のため学習状況が見える化されています。
+<img width="1199" alt="lp-img-1" src="https://user-images.githubusercontent.com/85814499/151514820-f2817824-d4be-4eb6-9287-38442507dd9d.png">
+<img width="1295" alt="スクリーンショット 2022-01-28 17 44 37" src="https://user-images.githubusercontent.com/85814499/151515520-387fa6b8-c5c5-4200-b1ba-29acf678e6f6.png">
+
 
 # 使用技術
 
@@ -17,6 +20,7 @@
 * AWS:  VPC  EC2  RDS  Route53  ELB
 * Capistrano3
 * RSpec
+* DeepL api
 
 # 機能一覧
 
@@ -44,9 +48,6 @@
 # インフラ図
 
 <img width="622" alt="スクリーンショット 2022-01-22 13 19 33" src="https://user-images.githubusercontent.com/85814499/150624415-a2c99530-6943-46a1-8fef-000b42589afd.png">
-
-
-# CircleCi CI/CD
 * Githubへのpush時に、RSpecとRubocopが自動で実行されます。
 * masterブランチへのpushでは、RSpecとRubocopが成功した後に、EC2への
 自動デプロイが実行されます。
