@@ -48,6 +48,7 @@
 # インフラ図
 
 <img width="622" alt="スクリーンショット 2022-01-22 13 19 33" src="https://user-images.githubusercontent.com/85814499/150624415-a2c99530-6943-46a1-8fef-000b42589afd.png">
+
 * Githubへのpush時に、RSpecとRubocopが自動で実行されます。
 * masterブランチへのpushでは、RSpecとRubocopが成功した後に、EC2への
 自動デプロイが実行されます。
