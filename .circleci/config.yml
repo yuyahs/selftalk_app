@@ -18,10 +18,10 @@ jobs:
       - image: cimg/ruby:3.0.2-node
       - image: circleci/mysql:8.0.26
         environment:
-          MYSQL_ROOT_PASSWORD: <%= Rails.application.credentials.info[:password] %>
-          MYSQL_DATABASE: <%= Rails.application.credentials.test[:database] %>
+          MYSQL_ROOT_PASSWORD: yuya0216
+          MYSQL_DATABASE: selftalk_app_test
           MYSQL_USER: yuyahs
-          MYSQL_PASSWORD: <%= Rails.application.credentials.info[:password] %>
+          MYSQL_PASSWORD: yuya0216
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
