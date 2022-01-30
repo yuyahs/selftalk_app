@@ -1,6 +1,7 @@
 class Api::TranslationsController < ApplicationController
   require 'httpclient'
 
+  #DeepL apiを叩くためのアクション
   def translate
     @question = Question.find(params[:id])
     api_key = Rails.application.credentials.deepl[:api_key]
