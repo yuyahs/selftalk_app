@@ -109,11 +109,14 @@
 }
 
 .course-layout{
+  @media screen and (max-width: 480px){
+    width: 360px;
+  }
   padding: 16px;
   margin-top: 32px;
   margin-right: auto;
   margin-left: auto;
-  width: 360px;
+  width: 480px;
   color: black;
   background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
   border-style: solid;
