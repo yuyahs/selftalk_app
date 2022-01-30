@@ -13,8 +13,6 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: yuya0216
   socket: /tmp/mysql.sock
 
 
@@ -22,10 +20,10 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: selftalk_app_development
+  database: <%= Rails.application.credentials.development[:database] %>
   pool: 5
-  username: yuyahs
-  password: yuya0216
+  username: <%= Rails.application.credentials.info[:username] %>
+  password: <%= Rails.application.credentials.info[:password] %>
   host: db
 
 # Warning: The database defined as "test" will be erased and
@@ -35,10 +33,10 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: selftalk_app_test
+  database: <%= Rails.application.credentials.test[:database] %>
   pool: 5
-  username: yuyahs
-  password: yuya0216
+  username: <%= Rails.application.credentials.info[:username] %>
+  password: <%= Rails.application.credentials.info[:password] %>
   host: <%= ENV.fetch("APP_DATABASE_HOST") { 'localhost' } %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
