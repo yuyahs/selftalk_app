@@ -1,8 +1,8 @@
 <template>
   <div class="course-overall">
      <div class="course-progress-wrapper">
-        <progress id="progress" value="45" max="45" class="progress-prop"></progress>
-        <span id="countdown">45</span>
+        <progress id="progress" value="60" max="60" class="progress-prop"></progress>
+        <span id="countdown">60</span>
     </div>
      <div class="question-display">
        <div>{{question.content}}</div>
@@ -93,7 +93,7 @@
          })
       },
       startTimer: function() {
-        let i = 45;
+        let i = 60;
         this.$setInterval(() => {
           i -- ;
           const doc0 = document.getElementById('countdown');
