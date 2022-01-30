@@ -67,9 +67,9 @@
           Writing形式の問題で独り言英語学習を行うためのコースを用意
         </p>
         <ul class="course-images">
-          <li><img src="../assets/lp-img-2.png"></li>
-          <li><img src="../assets/lp-img-3.png"></li>
-          <li><img src="../assets/lp-img-4.png"></li>
+          <li><img src="../assets/course-image1.png"></li>
+          <li><img src="../assets/course-image2.png"></li>
+          <li><img src="../assets/course-image3.png"></li>
         </ul>
       </div>
 
