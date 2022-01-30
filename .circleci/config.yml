@@ -1,7 +1,4 @@
-version: 2.1 # 2.1 を使うと Orb や他の機能を使用することができます。
-
-# 設定で使用する Orb を宣言します。
-# Orb に関する詳細は、https://circleci.com/docs/ja/2.0/orb-intro/をご覧ください。
+version: 2.1
 orbs:
   ruby: circleci/ruby@1.1.2
   node: circleci/node@2
@@ -9,53 +6,33 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/ruby:3.0.2-node # カスタマイズされた CircleCI Docker イメージを使用します。
-        auth:
-          username: yuyahs
-          password: "@lasvegas216"  # コンテキスト/ プロジェクト UI の環境変数を参照します。
+      - image: cimg/ruby:3.0.2-node
     working_directory: ~/selftalk_app
     steps:
       - checkout:
-         path: ~/selftalk_app   # Git コードをプルダウンします。
-      - ruby/install-deps # Ruby Orb を使って依存関係をインストールします。
-      # Node Orb を使ってパッケージをインストールします。
-      # Yarn の使用および 依存関係のキャッシュに yarn.lock の使用を指定します。
-      # 詳細は、 https://circleci.com/docs/2.0/caching/　を参照してください。
+         path: ~/selftalk_app
+      - ruby/install-deps
 
-  test:  # "test"という名前の２つ目のジョブです。
-    # テストを高速化するために「並列ジョブコンテナ」を実行します。
-    # ここでは、2 つの Docker イメージを設定します。
+  test:
     docker:
-      - image: cimg/ruby:3.0.2-node # プライマリ Docker イメージです。ここでステップコマンドが実行されます。
-        auth:
-          username: yuyahs
-          password: "@lasvegas216"  # コンテキスト/ プロジェクト UI の環境変数を参照します。
+      - image: cimg/ruby:3.0.2-node
       - image: circleci/mysql:8.0.26
-        auth:
-          username: yuyahs
-          password: "@lasvegas216"  # コンテキスト/ プロジェクト UI の環境変数を参照します。
         environment:
           MYSQL_ROOT_PASSWORD: yuya0216
           MYSQL_DATABASE: selftalk_app_test
           MYSQL_USER: yuyahs
           MYSQL_PASSWORD: yuya0216
-    # Ruby/Rails 固有の環境変数をプライマリコンテナに適用します。
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
       APP_DATABASE_HOST: "127.0.0.1"
       RAILS_ENV: test
     working_directory: ~/selftalk_app
-    # 実行する一連のステップです。「ビルド」のステップと似たステップもあります。
     steps:
       - checkout:
          path: ~/selftalk_app
       - ruby/install-deps
-
-      # ここでは、データベース上で実行する前に
-      # セカンダリコンテナが起動することを確認します。
       - run:
-      # プライマリコンテナは MYSQL ではないので、準備ができるまでスリープコマンドを実行します。
           name: MySQL が準備できるまで待機
           command: |
             for i in `seq 1 10`;
@@ -80,15 +57,12 @@ jobs:
 
   deploy:
     docker:
-      - image: cimg/ruby:3.0.2-node # カスタマイズされた CircleCI Docker イメージを使用します。
-        auth:
-          username: yuyahs
-          password: "@lasvegas216"  # コンテキスト/ プロジェクト UI の環境変数を参照します。
+      - image: cimg/ruby:3.0.2-node
     working_directory: ~/selftalk_app
     steps:
       - checkout:
-         path: ~/selftalk_app   # Git コードをプルダウンします。
-      - ruby/install-deps # Ruby Orb を使って依存関係をインストールします。
+         path: ~/selftalk_app
+      - ruby/install-deps
       - add_ssh_keys:
           fingerprints: 35:5a:cb:c6:0e:b3:5b:5e:48:fb:dd:99:4c:90:cb:a3
       - run:
