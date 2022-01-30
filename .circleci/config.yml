@@ -20,6 +20,7 @@ jobs:
         environment:
           MYSQL_ROOT_PASSWORD: <%= Rails.application.credentials.info[:password] %>
           MYSQL_DATABASE: <%= Rails.application.credentials.test[:database] %>
+          MYSQL_USER: yuyahs
           MYSQL_PASSWORD: <%= Rails.application.credentials.info[:password] %>
     environment:
       BUNDLE_JOBS: "3"
