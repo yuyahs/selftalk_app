@@ -159,6 +159,9 @@
 //about
 
 .about-wrapper {
+  @media screen and (max-width: 480px) {
+    padding: 24px;
+  }
   color: #ffffff;
   font-weight: bold;
 }
@@ -173,7 +176,7 @@
 
 .about-sentence {
   @media screen and (max-width: 480px) {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
   text-align: justify;
   line-height: 2.5rem;

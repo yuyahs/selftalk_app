@@ -66,6 +66,9 @@
         <p class="home-subtitle">
           Writing形式の問題で独り言英語学習を行うためのコースを用意
         </p>
+        <p class="home-subtitle">
+          アウトプットに対する抵抗感を緩和します
+        </p>
         <ul class="course-images">
           <li><img src="../assets/course-image1.png"></li>
           <li><img src="../assets/course-image2.png"></li>
