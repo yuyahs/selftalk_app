@@ -40,21 +40,21 @@
 }
 
 .user-page {
-  @media screen and (max-width: 480px) {
-    margin-right: 65px;
-    &:active {
+  @media screen and (min-width: 480px) {
+    margin-right: 90px;
+    &:hover {
       --tw-bg-opacity: 1;
       background-color: rgba(252, 211, 77, var(--tw-bg-opacity));
     }
   }
   padding: 4px;
-  margin-right: 80px;
+  margin-right: 70px;
   background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
   border-style: solid;
   border-width: 1px;
   border-color: rgba(255, 255, 255, var(--tw-border-opacity));
   border-radius: 9999px;
-  &:hover {
+  &:active {
     --tw-bg-opacity: 1;
     background-color: rgba(252, 211, 77, var(--tw-bg-opacity));
   }

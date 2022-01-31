@@ -127,13 +127,6 @@
 }
 
 .start-btn {
-  @media screen and (min-width: 480px) {
-    &:hover {
-      color: #000000;
-      background-color: white;
-      border-color: rgba(252, 211, 77, var(--tw-border-opacity));
-    }
-  }
   padding-top: 4px;
   padding-bottom: 4px;
   padding-right: 16px;
@@ -145,7 +138,7 @@
   border-color: white;
   border-radius: 9999px;
   font-weight: 600;
-  &:active {
+  &:hover {
     color: #000000;
     background-color: white;
     border-color: rgba(252, 211, 77, var(--tw-border-opacity));
