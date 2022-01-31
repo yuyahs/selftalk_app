@@ -42,6 +42,10 @@
 .user-page {
   @media screen and (max-width: 480px) {
     margin-right: 65px;
+    &:active {
+      --tw-bg-opacity: 1;
+      background-color: rgba(252, 211, 77, var(--tw-bg-opacity));
+    }
   }
   padding: 4px;
   margin-right: 80px;
@@ -318,12 +322,17 @@
 }
 
 .mypage-link {
+  @media screen and (min-width: 480px) {
+    &:hover {
+      background-color: rgba(252, 211, 77, var(--tw-bg-opacity));
+    }
+  }
   background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
   border-style: solid;
   border-width: 1px;
   border-color: #ffffff;
   display: block;
-  &:hover {
+  &:active {
     background-color: rgba(252, 211, 77, var(--tw-bg-opacity));
   }
 }
@@ -340,12 +349,17 @@
 }
 
 .dictionary-link{
+  @media screen and (min-width: 480px) {
+    &:hover {
+      background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
+    }
+  }
   background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
   border-style: solid;
   border-width: 1px;
   border-color: #ffffff;
   display: block;
-  &:hover {
+  &:active {
     background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
   }
 }

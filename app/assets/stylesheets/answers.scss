@@ -54,6 +54,12 @@
 }
 
 .next-question-btn {
+  @media screen and (min-width: 480px) {
+    &:hover {
+      --tw-bg-opacity: 1;
+      background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+    }
+  }
   padding-top: 8px;
   padding-bottom: 8px;
   padding-right: 16px;
@@ -68,7 +74,7 @@
   border-color: rgba(59, 130, 246, var(--tw-border-opacity));
   border-radius: 9999px;
   font-weight: 600;
-  &:hover {
+  &:active {
     --tw-bg-opacity: 1;
     background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
   }
