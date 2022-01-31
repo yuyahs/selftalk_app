@@ -18,6 +18,7 @@ class Api::UsersController < ApplicationController
     #MyPage.vueで曜日毎のanswerを取り出す際に~月~日の'月日'を弾くために（）を付けている
     @wdays = ['(月)','(火)','(水)','(木)','(金)','(土)','(日)']
     @contributions = current_user.answers.created_in_a_week
+    #created_atで取得した日付を日本語表記にする
     @contributions = @contributions.map{|days| I18n.l(days.created_at)}
   end
 
