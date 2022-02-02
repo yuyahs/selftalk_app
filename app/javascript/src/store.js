@@ -54,6 +54,7 @@ export const store = createStore ({
     readNotice: (state) => {
       state.unreadNotice = false
     },
+    //連続学習記録をカウントする
     countSequentialDays: (state) => {
       state.sequentialDays += 1
     }
