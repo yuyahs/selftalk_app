@@ -157,7 +157,7 @@
       },
       notifyNewNotice: function () {
         if(this.$store.state.unreadNotice) {
-          this.unreadNotice = '●'
+          this.unreadNotice = '[新着]'
         }
       },
       mkNoticeRead: function () {
