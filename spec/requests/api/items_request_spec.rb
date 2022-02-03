@@ -74,36 +74,4 @@ RSpec.describe "Api::Items", type: :request do
       end
     end
   end
-
-  context "ゲストログイン中の場合" do
-    before do
-      guest_login
-    end
-
-    describe "GET /index" do
-      it "redirects to root_path" do
-        get user_api_items_path(user)
-        expect(response).to redirect_to root_path
-      end
-    end
-
-    describe "POST /create" do
-      it "itemは生成されず、root_pathにリダイレクトする" do
-        expect{
-          post api_items_path, params:
-          {id: user.id, item: {content: "test", meaning: "test", memo:"test"}}
-          }.to change(Item, :count).by(0)
-          expect(response).to redirect_to root_path
-      end
-    end
-
-    describe "Delete /destroy" do
-      it "itemは削除されず、root_pathにリダイレクトする" do
-        expect{
-          delete api_item_path(item), params: {id: item.id}
-        }.to change(Item, :count).by(0)
-        expect(response).to redirect_to root_path
-      end
-    end
-  end
 end

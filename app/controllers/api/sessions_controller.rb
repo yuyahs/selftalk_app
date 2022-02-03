@@ -1,6 +1,5 @@
 class Api::SessionsController < ApplicationController
   before_action :not_logged_in, only: [:create]
-  before_action :not_guest_user, only: [:create]
 
   def create
     @user = User.find_by(email: params[:session][:email].downcase)

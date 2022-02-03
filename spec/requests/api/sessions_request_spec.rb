@@ -56,29 +56,4 @@ RSpec.describe "Api::Sessions", type: :request do
       end
     end
   end
-
-  #not_guest_userのテスト [create]
-  context "ゲストログイン中の場合" do
-
-    before do
-      guest_login
-    end
-
-    describe "POST/ create" do
-      it "root_pathにリダイレクトする" do
-        guest_login
-        post api_login_path, params: { session: { email: other_user.email,
-          password: 'password' } }
-        expect(response).to redirect_to root_path
-      end
-    end
-
-    describe "DELETE/ destroy" do
-      it "ログアウトに成功して、レスポンス200を返す" do
-        delete api_logout_path
-        expect(response).to have_http_status "200"
-        expect(is_logged_in?).to be_falsy
-      end
-    end
-  end
 end

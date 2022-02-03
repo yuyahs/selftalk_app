@@ -100,33 +100,6 @@ RSpec.describe "Answers", type: :request do
       end
     end
   end
-
-  context "ゲストログイン中の場合" do
-    before do
-      guest_login
-    end
-
-    describe "GET/ index" do
-      it "root_pathにリダイレクトする" do
-        get user_api_answers_path(user)
-        expect(response).to redirect_to root_path
-      end
-    end
-
-    describe "GET/ edit" do
-      it "root_pathにリダイレクトする" do
-        get edit_user_api_answer_path(user, answer)
-        expect(response).to redirect_to root_path
-      end
-    end
-
-    describe "PATCH/ update" do
-      it "login_pathにリダイレクトする" do
-        patch api_answer_path(answer), params: {answer: {content: "change"}}
-        expect(response).to redirect_to root_path
-      end
-    end
-  end
 end
 
 
