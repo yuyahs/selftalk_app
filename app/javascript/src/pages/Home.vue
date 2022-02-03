@@ -92,8 +92,6 @@
     methods: {
       // ゲストログインメソッド
       loginAsGuest: function () {
-        axios.post('/api/guest_sign_in')
-        .then(response => {
            this.$store.commit('login')
            this.$store.commit('notGuest') //notGuestをfalseにする
            this.$store.commit('inGuest')　//inGuestをtrueにする
@@ -103,14 +101,6 @@
             text:'ゲストユーザーとしてログインに成功しました',
             time: 3000
           });
-        })
-        .catch(error => {
-          this.$flashMessage.show({
-            type: 'Error',
-            text: 'エラーが発生しました',
-            time: 3000
-          })
-        });
       }
     }
   }

@@ -51,7 +51,7 @@
 
       <!-- ゲストユーザーに表示されるメニュー -->
       <div v-else-if="$store.state.guest">
-        <button @click="destroySession" class="guest-menu">
+        <button @click="logoutAsGuest" class="guest-menu">
           ログアウト
         </button>
       </div>
@@ -104,6 +104,16 @@
             time: 3000
           });
         })
+      },
+      logoutAsGuest: function() {
+        this.$store.commit('logout')
+        this.$flashMessage.show({
+            type: 'success',
+            title: 'Logout',
+            text:'ログアウトしました',
+            time: 3000
+          });
+        this.$router.push({ path: '/'})
       },
       //退会メソッド
       deleteUser: function(id) {

@@ -21,15 +21,6 @@ RSpec.describe "Api::PasswordResets", type: :request do
     end
   end
 
-  # describe "GET /edit" do
-  #   context "メールアドレス・トークンが有効な場合" do
-  #     it "成功レスポンス200を返す" do
-  #       get edit_password_reset_path(user.reset_token, email: user.email)
-  #       expect(response).to have_http_status "200"
-  #     end
-  #   end
-  # end
-
   describe "patch /update" do
    context "無効なパスワードとパスワード確認" do
      it "エラー400を返す" do
