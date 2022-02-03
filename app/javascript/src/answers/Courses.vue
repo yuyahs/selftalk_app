@@ -70,27 +70,34 @@
         })
       },
       saveAnswer: function() {
-        axios.post('/api/answers', {
-          answer: this.answer,
-          id: this.id,
-          mode_num: this.mode_num
-        })
-        .then(response => {
-          this.answer.content = ""
-          this.getRandomQuestion();
-          this.$clearInterval(this.$intervals);
-          this.startTimer();
-          //作成されたanswerが本日一個めなら連続学習日数記録を更新する
-          if(this.answersCreatedToday === 0){
-            this.$store.commit('countSequentialDays')
-          }
-        })
-         .catch(err => {
+        if(this.$store.notGuest) {
+          axios.post('/api/answers', {
+            answer: this.answer,
+            id: this.id,
+            mode_num: this.mode_num
+          })
+          .then(response => {
             this.answer.content = ""
             this.getRandomQuestion();
             this.$clearInterval(this.$intervals);
             this.startTimer();
-         })
+            //作成されたanswerが本日一個めなら連続学習日数記録を更新する
+            if(this.answersCreatedToday === 0){
+              this.$store.commit('countSequentialDays')
+            }
+          })
+           .catch(err => {
+              this.answer.content = ""
+              this.getRandomQuestion();
+              this.$clearInterval(this.$intervals);
+              this.startTimer();
+           })
+        } else {
+            this.answer.content = ""
+            this.getRandomQuestion();
+            this.$clearInterval(this.$intervals);
+            this.startTimer();
+        }
       },
       startTimer: function() {
         let i = 60;
@@ -105,10 +112,12 @@
       }, 1000)
      },
      getAnswersCreatedToday: function () {
-       axios.get('/api/questions/new')
-       .then(response => {
-         this.answersCreatedToday = response.data
-       })
+       if(this.$store.notGuest) {
+         axios.get('/api/questions/new')
+         .then(response => {
+           this.answersCreatedToday = response.data
+         })
+       }
      },
      //DeepL apiを叩くためのmethod
      translateWithDeepL: function() {

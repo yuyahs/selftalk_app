@@ -1,5 +1,5 @@
 class Api::AnswersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :new, :create, :edit, :update]
+  before_action :logged_in_user, only: [:index, :create, :edit, :update]
   before_action :not_guest_user, only: [:index, :edit, :update]
 
   def index

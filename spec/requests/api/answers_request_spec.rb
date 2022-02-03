@@ -77,13 +77,6 @@ RSpec.describe "Answers", type: :request do
       end
     end
 
-    describe "GET/ new" do
-      it "login_pathにリダイレクトする" do
-        get new_api_answer_path(mode_num: 1)
-        expect(response).to redirect_to login_path
-      end
-    end
-
     describe "POST/ create" do
       it "answerが作成されず、login_pathにリダイレクトする" do
         expect{
