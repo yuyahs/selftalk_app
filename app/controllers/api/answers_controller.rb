@@ -1,6 +1,5 @@
 class Api::AnswersController < ApplicationController
   before_action :logged_in_user, only: [:index, :create, :edit, :update]
-  before_action :not_guest_user, only: [:index, :edit, :update]
 
   def index
     @answers = current_user.answers.all_created_at_the_date(params[:created_at])

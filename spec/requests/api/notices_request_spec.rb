@@ -115,43 +115,4 @@ RSpec.describe "Api::Notices", type: :request do
       end
     end
   end
-
-  context "ゲストログイン中の場合" do
-    before do
-      guest_login
-    end
-
-    describe "GET /index" do
-      it "root_pathにリダイレクトする" do
-        get api_notices_path
-        expect(response).to redirect_to root_path
-      end
-    end
-
-    describe "GET /show" do
-      it "root_pathにリダイレクトする" do
-        get api_notice_path(notice)
-        expect(response).to redirect_to root_path
-      end
-    end
-
-    describe "POST /create" do
-      it "noticeは生成されず、root_pathにリダイレクトする" do
-        expect{
-          post api_notices_path, params:
-          {notice: {title: "test", content: "test"}}
-          }.to change(Notice, :count).by(0)
-          expect(response).to redirect_to root_path
-      end
-    end
-
-    describe "Delete /destroy" do
-      it "noticeは削除されず、root_pathにリダイレクトする" do
-        expect{
-          delete api_notice_path(notice), params: {id: notice.id}
-        }.to change(Notice, :count).by(0)
-        expect(response).to redirect_to root_path
-      end
-    end
-  end
 end

@@ -132,29 +132,4 @@ RSpec.describe "Api::PasswordResets", type: :request do
         end
       end
     end
-
-    context "ゲストログイン中の場合" do
-      before do
-        guest_login
-      end
-
-      describe "POST/ create" do
-        it "root_pathにリダイレクトする" do
-          post api_password_resets_path, params: {password_reset: {email: user.email}}
-          expect(ActionMailer::Base.deliveries.size).to eq(0)
-          expect(response).to redirect_to root_path
-        end
-      end
-
-      describe "PATCH/ update" do
-        it "root_pathにリダイレクトする" do
-          patch api_password_reset_path(user.reset_token),
-            params: {email: user.email,
-                     user: {
-                     password: "password",
-                     password_confirmation: "password" }}
-            expect(response).to redirect_to root_path
-        end
-      end
-    end
 end

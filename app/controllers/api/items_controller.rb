@@ -1,7 +1,6 @@
 class Api::ItemsController < ApplicationController
   before_action :set_user, only: [:index, :create, :destroy]
   before_action :logged_in_user, only: [:index, :create, :destroy]
-  before_action :not_guest_user, only: [:index, :create, :destroy]
 
   def index
     @items = @user.items.all
