@@ -42,11 +42,6 @@ Rails.application.routes.draw do
   end
 
   namespace :api, format: 'json' do
-    get '/guest_sign_in', to: 'guest_logins#guest_sign_in'
-    post '/guest_sign_in', to: 'guest_logins#guest_sign_in'
-  end
-
-  namespace :api, format: 'json' do
     resources :contacts
   end
 
