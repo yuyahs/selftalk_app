@@ -52,7 +52,8 @@
 
       <div class="inline-block">
         <button class= "signin-link">
-        <router-link to="/users/new">ユーザー登録</router-link></button>
+         <router-link to="/users/new">ユーザー登録</router-link>
+        </button>
         <button @click="loginAsGuest" class="guest-link" >
         ゲストログイン</button>
       </div>
