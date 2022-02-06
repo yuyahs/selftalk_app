@@ -24,7 +24,6 @@ class Api::AnswersController < ApplicationController
     @answer = current_user.answers.find(params[:id])
     @date = @answer.created_at.to_date
     @question = Question.find_by(id: @answer.question_id)
-    @deepl_api_key = Rails.application.credentials.deepl[:api_key]
   end
 
   def update
