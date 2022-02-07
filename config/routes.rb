@@ -62,6 +62,7 @@ Rails.application.routes.draw do
     resources :notices, only: [:index, :show, :create, :destroy]
   end
 
+  #deepl apiアクセス用アクションへのルーティング
   namespace :api, format: 'json' do
     get '/translate/:id', to: 'translations#translate'
   end
