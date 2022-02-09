@@ -36,8 +36,6 @@
 <script>
   import axios from 'axios';
 
-
-
   export default {
    beforeRouteLeave (to, from, next) {
       next(this.$clearInterval(this.$intervals))
