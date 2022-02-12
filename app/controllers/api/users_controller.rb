@@ -11,7 +11,9 @@ class Api::UsersController < ApplicationController
 
   def show
     @dates = @user.answers.map{|dates| dates.created_at.to_date}.uniq
+    #総学習記録取得のための記載
     @learning_days = @dates.count
+    #yesterday_answerはusers_helperのメソッド
     @yesterday_answer = yesterday_answer.count
     #MyPage.vueで曜日毎のanswerを取り出す際に~月~日の'月日'を弾くために（）を付けている
     @wdays = ['(月)','(火)','(水)','(木)','(金)','(土)','(日)']
