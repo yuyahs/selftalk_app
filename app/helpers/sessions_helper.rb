@@ -61,15 +61,5 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
   end
-
-  #ゲストユーザーを返す
-  def guest_user
-    @guest ||= User.find_by(email: 'guest@example.com')
-  end
-
-  #ゲストユーザーであればtrueを返す
-  def guest_user?
-    current_user && current_user == guest_user
-  end
 end
 
